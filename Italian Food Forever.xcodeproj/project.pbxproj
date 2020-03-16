@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B52420026300910CF0 /* AppDelegate.swift */; };
+		21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B72420026300910CF0 /* SceneDelegate.swift */; };
+		21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */; };
+		21FE87BD2420026300910CF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87BC2420026300910CF0 /* ContentView.swift */; };
+		21FE87BF2420026400910CF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21FE87BE2420026400910CF0 /* Assets.xcassets */; };
+		21FE87C22420026400910CF0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21FE87C12420026400910CF0 /* Preview Assets.xcassets */; };
+		21FE87C52420026400910CF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21FE87C32420026400910CF0 /* LaunchScreen.storyboard */; };
+		21FE87D02420026400910CF0 /* Italian_Food_ForeverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87CF2420026400910CF0 /* Italian_Food_ForeverTests.swift */; };
+		21FE87DB2420026500910CF0 /* Italian_Food_ForeverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87DA2420026500910CF0 /* Italian_Food_ForeverUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		21FE87CC2420026400910CF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21FE87AA2420026200910CF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21FE87B12420026200910CF0;
+			remoteInfo = "Italian Food Forever";
+		};
+		21FE87D72420026500910CF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21FE87AA2420026200910CF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21FE87B12420026200910CF0;
+			remoteInfo = "Italian Food Forever";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		21FE87B22420026200910CF0 /* Italian Food Forever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Italian Food Forever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21FE87B52420026300910CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		21FE87B72420026300910CF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		21FE87BA2420026300910CF0 /* Italian_Food_Forever.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Italian_Food_Forever.xcdatamodel; sourceTree = "<group>"; };
+		21FE87BC2420026300910CF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		21FE87BE2420026400910CF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		21FE87C12420026400910CF0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		21FE87C42420026400910CF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		21FE87C62420026400910CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21FE87CB2420026400910CF0 /* Italian Food ForeverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Italian Food ForeverTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21FE87CF2420026400910CF0 /* Italian_Food_ForeverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Italian_Food_ForeverTests.swift; sourceTree = "<group>"; };
+		21FE87D12420026500910CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21FE87D62420026500910CF0 /* Italian Food ForeverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Italian Food ForeverUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21FE87DA2420026500910CF0 /* Italian_Food_ForeverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Italian_Food_ForeverUITests.swift; sourceTree = "<group>"; };
+		21FE87DC2420026500910CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		21FE87AF2420026200910CF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21FE87C82420026400910CF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21FE87D32420026500910CF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		21FE87A92420026200910CF0 = {
+			isa = PBXGroup;
+			children = (
+				21FE87B42420026300910CF0 /* Italian Food Forever */,
+				21FE87CE2420026400910CF0 /* Italian Food ForeverTests */,
+				21FE87D92420026500910CF0 /* Italian Food ForeverUITests */,
+				21FE87B32420026200910CF0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		21FE87B32420026200910CF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21FE87B22420026200910CF0 /* Italian Food Forever.app */,
+				21FE87CB2420026400910CF0 /* Italian Food ForeverTests.xctest */,
+				21FE87D62420026500910CF0 /* Italian Food ForeverUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21FE87B42420026300910CF0 /* Italian Food Forever */ = {
+			isa = PBXGroup;
+			children = (
+				21FE87B52420026300910CF0 /* AppDelegate.swift */,
+				21FE87B72420026300910CF0 /* SceneDelegate.swift */,
+				21FE87BC2420026300910CF0 /* ContentView.swift */,
+				21FE87BE2420026400910CF0 /* Assets.xcassets */,
+				21FE87C32420026400910CF0 /* LaunchScreen.storyboard */,
+				21FE87C62420026400910CF0 /* Info.plist */,
+				21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */,
+				21FE87C02420026400910CF0 /* Preview Content */,
+			);
+			path = "Italian Food Forever";
+			sourceTree = "<group>";
+		};
+		21FE87C02420026400910CF0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				21FE87C12420026400910CF0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		21FE87CE2420026400910CF0 /* Italian Food ForeverTests */ = {
+			isa = PBXGroup;
+			children = (
+				21FE87CF2420026400910CF0 /* Italian_Food_ForeverTests.swift */,
+				21FE87D12420026500910CF0 /* Info.plist */,
+			);
+			path = "Italian Food ForeverTests";
+			sourceTree = "<group>";
+		};
+		21FE87D92420026500910CF0 /* Italian Food ForeverUITests */ = {
+			isa = PBXGroup;
+			children = (
+				21FE87DA2420026500910CF0 /* Italian_Food_ForeverUITests.swift */,
+				21FE87DC2420026500910CF0 /* Info.plist */,
+			);
+			path = "Italian Food ForeverUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		21FE87B12420026200910CF0 /* Italian Food Forever */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21FE87DF2420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food Forever" */;
+			buildPhases = (
+				21FE87AE2420026200910CF0 /* Sources */,
+				21FE87AF2420026200910CF0 /* Frameworks */,
+				21FE87B02420026200910CF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Italian Food Forever";
+			productName = "Italian Food Forever";
+			productReference = 21FE87B22420026200910CF0 /* Italian Food Forever.app */;
+			productType = "com.apple.product-type.application";
+		};
+		21FE87CA2420026400910CF0 /* Italian Food ForeverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21FE87E22420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food ForeverTests" */;
+			buildPhases = (
+				21FE87C72420026400910CF0 /* Sources */,
+				21FE87C82420026400910CF0 /* Frameworks */,
+				21FE87C92420026400910CF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21FE87CD2420026400910CF0 /* PBXTargetDependency */,
+			);
+			name = "Italian Food ForeverTests";
+			productName = "Italian Food ForeverTests";
+			productReference = 21FE87CB2420026400910CF0 /* Italian Food ForeverTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		21FE87D52420026500910CF0 /* Italian Food ForeverUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21FE87E52420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food ForeverUITests" */;
+			buildPhases = (
+				21FE87D22420026500910CF0 /* Sources */,
+				21FE87D32420026500910CF0 /* Frameworks */,
+				21FE87D42420026500910CF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21FE87D82420026500910CF0 /* PBXTargetDependency */,
+			);
+			name = "Italian Food ForeverUITests";
+			productName = "Italian Food ForeverUITests";
+			productReference = 21FE87D62420026500910CF0 /* Italian Food ForeverUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		21FE87AA2420026200910CF0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Gabriel Hoban";
+				TargetAttributes = {
+					21FE87B12420026200910CF0 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					21FE87CA2420026400910CF0 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 21FE87B12420026200910CF0;
+					};
+					21FE87D52420026500910CF0 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 21FE87B12420026200910CF0;
+					};
+				};
+			};
+			buildConfigurationList = 21FE87AD2420026200910CF0 /* Build configuration list for PBXProject "Italian Food Forever" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 21FE87A92420026200910CF0;
+			productRefGroup = 21FE87B32420026200910CF0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				21FE87B12420026200910CF0 /* Italian Food Forever */,
+				21FE87CA2420026400910CF0 /* Italian Food ForeverTests */,
+				21FE87D52420026500910CF0 /* Italian Food ForeverUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		21FE87B02420026200910CF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21FE87C52420026400910CF0 /* LaunchScreen.storyboard in Resources */,
+				21FE87C22420026400910CF0 /* Preview Assets.xcassets in Resources */,
+				21FE87BF2420026400910CF0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21FE87C92420026400910CF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21FE87D42420026500910CF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		21FE87AE2420026200910CF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */,
+				21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */,
+				21FE87BD2420026300910CF0 /* ContentView.swift in Sources */,
+				21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21FE87C72420026400910CF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21FE87D02420026400910CF0 /* Italian_Food_ForeverTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21FE87D22420026500910CF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21FE87DB2420026500910CF0 /* Italian_Food_ForeverUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21FE87CD2420026400910CF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21FE87B12420026200910CF0 /* Italian Food Forever */;
+			targetProxy = 21FE87CC2420026400910CF0 /* PBXContainerItemProxy */;
+		};
+		21FE87D82420026500910CF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21FE87B12420026200910CF0 /* Italian Food Forever */;
+			targetProxy = 21FE87D72420026500910CF0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		21FE87C32420026400910CF0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21FE87C42420026400910CF0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		21FE87DD2420026500910CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		21FE87DE2420026500910CF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		21FE87E02420026500910CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Italian Food Forever/Preview Content\"";
+				DEVELOPMENT_TEAM = YV98CCJ4M2;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Italian Food Forever/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-Forever";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		21FE87E12420026500910CF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Italian Food Forever/Preview Content\"";
+				DEVELOPMENT_TEAM = YV98CCJ4M2;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Italian Food Forever/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-Forever";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		21FE87E32420026500910CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YV98CCJ4M2;
+				INFOPLIST_FILE = "Italian Food ForeverTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-ForeverTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Italian Food Forever.app/Italian Food Forever";
+			};
+			name = Debug;
+		};
+		21FE87E42420026500910CF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YV98CCJ4M2;
+				INFOPLIST_FILE = "Italian Food ForeverTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-ForeverTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Italian Food Forever.app/Italian Food Forever";
+			};
+			name = Release;
+		};
+		21FE87E62420026500910CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YV98CCJ4M2;
+				INFOPLIST_FILE = "Italian Food ForeverUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-ForeverUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Italian Food Forever";
+			};
+			name = Debug;
+		};
+		21FE87E72420026500910CF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YV98CCJ4M2;
+				INFOPLIST_FILE = "Italian Food ForeverUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-ForeverUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Italian Food Forever";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		21FE87AD2420026200910CF0 /* Build configuration list for PBXProject "Italian Food Forever" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21FE87DD2420026500910CF0 /* Debug */,
+				21FE87DE2420026500910CF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21FE87DF2420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food Forever" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21FE87E02420026500910CF0 /* Debug */,
+				21FE87E12420026500910CF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21FE87E22420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food ForeverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21FE87E32420026500910CF0 /* Debug */,
+				21FE87E42420026500910CF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21FE87E52420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food ForeverUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21FE87E62420026500910CF0 /* Debug */,
+				21FE87E72420026500910CF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				21FE87BA2420026300910CF0 /* Italian_Food_Forever.xcdatamodel */,
+			);
+			currentVersion = 21FE87BA2420026300910CF0 /* Italian_Food_Forever.xcdatamodel */;
+			path = Italian_Food_Forever.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 21FE87AA2420026200910CF0 /* Project object */;
+}
