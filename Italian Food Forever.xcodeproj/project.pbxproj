@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21C008C9242177F700412ABB /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C008C8242177F700412ABB /* Discover.swift */; };
+		21F1CA8A242153FC005D2D49 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 21F1CA89242153FC005D2D49 /* SwiftyJSON */; };
+		21F1CA8D24215481005D2D49 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 21F1CA8C24215481005D2D49 /* SDWebImageSwiftUI */; };
 		21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B52420026300910CF0 /* AppDelegate.swift */; };
 		21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B72420026300910CF0 /* SceneDelegate.swift */; };
 		21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */; };
@@ -16,6 +19,9 @@
 		21FE87C52420026400910CF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21FE87C32420026400910CF0 /* LaunchScreen.storyboard */; };
 		21FE87D02420026400910CF0 /* Italian_Food_ForeverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87CF2420026400910CF0 /* Italian_Food_ForeverTests.swift */; };
 		21FE87DB2420026500910CF0 /* Italian_Food_ForeverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87DA2420026500910CF0 /* Italian_Food_ForeverUITests.swift */; };
+		62395D55795B599FB97E8D61 /* Pods_Italian_Food_ForeverTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6007C349A8912CB8852E5A /* Pods_Italian_Food_ForeverTests.framework */; };
+		7B96F171398C20A5A4BC8224 /* Pods_Italian_Food_Forever.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9C3AC7F47CF45FF7BDFCAB /* Pods_Italian_Food_Forever.framework */; };
+		D7335C0E5066DD5ACE072109 /* Pods_Italian_Food_Forever_Italian_Food_ForeverUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3234F803DF292CEDBAF2668B /* Pods_Italian_Food_Forever_Italian_Food_ForeverUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D3DF2CCAEFF10C735810C58 /* Pods-Italian Food Forever.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food Forever.debug.xcconfig"; path = "Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever.debug.xcconfig"; sourceTree = "<group>"; };
+		21C008C8242177F700412ABB /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		21FE87B22420026200910CF0 /* Italian Food Forever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Italian Food Forever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21FE87B52420026300910CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21FE87B72420026300910CF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +59,14 @@
 		21FE87D62420026500910CF0 /* Italian Food ForeverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Italian Food ForeverUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21FE87DA2420026500910CF0 /* Italian_Food_ForeverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Italian_Food_ForeverUITests.swift; sourceTree = "<group>"; };
 		21FE87DC2420026500910CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B6007C349A8912CB8852E5A /* Pods_Italian_Food_ForeverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Italian_Food_ForeverTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3234F803DF292CEDBAF2668B /* Pods_Italian_Food_Forever_Italian_Food_ForeverUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Italian_Food_Forever_Italian_Food_ForeverUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EE5A644270E56DD847EAAAA /* Pods-Italian Food Forever.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food Forever.release.xcconfig"; path = "Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever.release.xcconfig"; sourceTree = "<group>"; };
+		60912B2B5DC76D320D422BF5 /* Pods-Italian Food ForeverTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food ForeverTests.release.xcconfig"; path = "Target Support Files/Pods-Italian Food ForeverTests/Pods-Italian Food ForeverTests.release.xcconfig"; sourceTree = "<group>"; };
+		A4D8384CF597D1E8D0DAC0E6 /* Pods-Italian Food ForeverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food ForeverTests.debug.xcconfig"; path = "Target Support Files/Pods-Italian Food ForeverTests/Pods-Italian Food ForeverTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A99E70EBD959E8E592E046D5 /* Pods-Italian Food Forever-Italian Food ForeverUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food Forever-Italian Food ForeverUITests.debug.xcconfig"; path = "Target Support Files/Pods-Italian Food Forever-Italian Food ForeverUITests/Pods-Italian Food Forever-Italian Food ForeverUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B7561CAD06D30BB66D45B5BD /* Pods-Italian Food Forever-Italian Food ForeverUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food Forever-Italian Food ForeverUITests.release.xcconfig"; path = "Target Support Files/Pods-Italian Food Forever-Italian Food ForeverUITests/Pods-Italian Food Forever-Italian Food ForeverUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BA9C3AC7F47CF45FF7BDFCAB /* Pods_Italian_Food_Forever.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Italian_Food_Forever.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +74,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F1CA8D24215481005D2D49 /* SDWebImageSwiftUI in Frameworks */,
+				21F1CA8A242153FC005D2D49 /* SwiftyJSON in Frameworks */,
+				7B96F171398C20A5A4BC8224 /* Pods_Italian_Food_Forever.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62395D55795B599FB97E8D61 /* Pods_Italian_Food_ForeverTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7335C0E5066DD5ACE072109 /* Pods_Italian_Food_Forever_Italian_Food_ForeverUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +106,8 @@
 				21FE87CE2420026400910CF0 /* Italian Food ForeverTests */,
 				21FE87D92420026500910CF0 /* Italian Food ForeverUITests */,
 				21FE87B32420026200910CF0 /* Products */,
+				A9BA7BD3A76C1C106F9168ED /* Pods */,
+				C8C3CCCA8A1DC2AB8F996D98 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +127,7 @@
 				21FE87B52420026300910CF0 /* AppDelegate.swift */,
 				21FE87B72420026300910CF0 /* SceneDelegate.swift */,
 				21FE87BC2420026300910CF0 /* ContentView.swift */,
+				21C008C8242177F700412ABB /* Discover.swift */,
 				21FE87BE2420026400910CF0 /* Assets.xcassets */,
 				21FE87C32420026400910CF0 /* LaunchScreen.storyboard */,
 				21FE87C62420026400910CF0 /* Info.plist */,
@@ -139,6 +163,29 @@
 			path = "Italian Food ForeverUITests";
 			sourceTree = "<group>";
 		};
+		A9BA7BD3A76C1C106F9168ED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D3DF2CCAEFF10C735810C58 /* Pods-Italian Food Forever.debug.xcconfig */,
+				5EE5A644270E56DD847EAAAA /* Pods-Italian Food Forever.release.xcconfig */,
+				A99E70EBD959E8E592E046D5 /* Pods-Italian Food Forever-Italian Food ForeverUITests.debug.xcconfig */,
+				B7561CAD06D30BB66D45B5BD /* Pods-Italian Food Forever-Italian Food ForeverUITests.release.xcconfig */,
+				A4D8384CF597D1E8D0DAC0E6 /* Pods-Italian Food ForeverTests.debug.xcconfig */,
+				60912B2B5DC76D320D422BF5 /* Pods-Italian Food ForeverTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C8C3CCCA8A1DC2AB8F996D98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA9C3AC7F47CF45FF7BDFCAB /* Pods_Italian_Food_Forever.framework */,
+				3234F803DF292CEDBAF2668B /* Pods_Italian_Food_Forever_Italian_Food_ForeverUITests.framework */,
+				2B6007C349A8912CB8852E5A /* Pods_Italian_Food_ForeverTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,15 +193,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21FE87DF2420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food Forever" */;
 			buildPhases = (
+				62886C0FE1DBA5FCD769F6CB /* [CP] Check Pods Manifest.lock */,
 				21FE87AE2420026200910CF0 /* Sources */,
 				21FE87AF2420026200910CF0 /* Frameworks */,
 				21FE87B02420026200910CF0 /* Resources */,
+				60735944B5CEFBE6DDB5D872 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Italian Food Forever";
+			packageProductDependencies = (
+				21F1CA89242153FC005D2D49 /* SwiftyJSON */,
+				21F1CA8C24215481005D2D49 /* SDWebImageSwiftUI */,
+			);
 			productName = "Italian Food Forever";
 			productReference = 21FE87B22420026200910CF0 /* Italian Food Forever.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +216,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21FE87E22420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food ForeverTests" */;
 			buildPhases = (
+				FDD216061F6ADA14702A05B5 /* [CP] Check Pods Manifest.lock */,
 				21FE87C72420026400910CF0 /* Sources */,
 				21FE87C82420026400910CF0 /* Frameworks */,
 				21FE87C92420026400910CF0 /* Resources */,
@@ -181,9 +235,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21FE87E52420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food ForeverUITests" */;
 			buildPhases = (
+				EF1AEE6D6B26FFD08B656070 /* [CP] Check Pods Manifest.lock */,
 				21FE87D22420026500910CF0 /* Sources */,
 				21FE87D32420026500910CF0 /* Frameworks */,
 				21FE87D42420026500910CF0 /* Resources */,
+				04831BBBDFB9026BDF326EB2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,6 +283,10 @@
 				Base,
 			);
 			mainGroup = 21FE87A92420026200910CF0;
+			packageReferences = (
+				21F1CA88242153FC005D2D49 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				21F1CA8B24215481005D2D49 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 21FE87B32420026200910CF0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -265,12 +325,116 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		04831BBBDFB9026BDF326EB2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever-Italian Food ForeverUITests/Pods-Italian Food Forever-Italian Food ForeverUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever-Italian Food ForeverUITests/Pods-Italian Food Forever-Italian Food ForeverUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever-Italian Food ForeverUITests/Pods-Italian Food Forever-Italian Food ForeverUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60735944B5CEFBE6DDB5D872 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62886C0FE1DBA5FCD769F6CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Italian Food Forever-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF1AEE6D6B26FFD08B656070 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Italian Food Forever-Italian Food ForeverUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDD216061F6ADA14702A05B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Italian Food ForeverTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		21FE87AE2420026200910CF0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */,
+				21C008C9242177F700412ABB /* Discover.swift in Sources */,
 				21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */,
 				21FE87BD2420026300910CF0 /* ContentView.swift in Sources */,
 				21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */,
@@ -436,6 +600,7 @@
 		};
 		21FE87E02420026500910CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D3DF2CCAEFF10C735810C58 /* Pods-Italian Food Forever.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,12 +615,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-Forever";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		21FE87E12420026500910CF0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EE5A644270E56DD847EAAAA /* Pods-Italian Food Forever.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -470,12 +636,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-Forever";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		21FE87E32420026500910CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4D8384CF597D1E8D0DAC0E6 /* Pods-Italian Food ForeverTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -498,6 +665,7 @@
 		};
 		21FE87E42420026500910CF0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60912B2B5DC76D320D422BF5 /* Pods-Italian Food ForeverTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -520,6 +688,7 @@
 		};
 		21FE87E62420026500910CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A99E70EBD959E8E592E046D5 /* Pods-Italian Food Forever-Italian Food ForeverUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -540,6 +709,7 @@
 		};
 		21FE87E72420026500910CF0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7561CAD06D30BB66D45B5BD /* Pods-Italian Food Forever-Italian Food ForeverUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -598,6 +768,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		21F1CA88242153FC005D2D49 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		21F1CA8B24215481005D2D49 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		21F1CA89242153FC005D2D49 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21F1CA88242153FC005D2D49 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		21F1CA8C24215481005D2D49 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21F1CA8B24215481005D2D49 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */ = {
