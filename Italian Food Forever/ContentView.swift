@@ -26,7 +26,7 @@ struct ContentView: View {
                     }
                 }
                 .tag(0)
-            Text("Second View")
+            Text("//TODO: page (2)")
                 .font(.title)
                 .tabItem {
                     VStack {
@@ -44,6 +44,16 @@ struct ContentView: View {
                 }
             }
             .tag(2)
+            
+            Text("//TODO: page (4)")
+            .font(.title)
+            .tabItem {
+                VStack {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+            }
+            .tag(3)
         }
     }
 }

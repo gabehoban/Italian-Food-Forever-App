@@ -10,25 +10,41 @@ import SwiftUI
 import SwiftyJSON
 import SDWebImageSwiftUI
 import WebKit
+import HTMLString
 
 struct Discover: View {
     @ObservedObject var list = getData()
+    @State private var translation: CGSize = .zero
 
     var body: some View {
         List(list.datas) { i in
+
             NavigationLink(destination:
                 webView(url: i.url)
                 .navigationBarTitle("", displayMode: .inline)) {
+
                 HStack(spacing: 15) {
                     VStack(alignment: .leading, spacing: 10) {
-                        Text(i.title).fontWeight(.heavy)
-                        Text(i.excerpt).lineLimit(3)
+                        
+                        Text((i.title)
+                            .removingHTMLEntities)
+                            .fontWeight(.heavy)
+                        
+                        Text((((i.excerpt)
+                            .removingHTMLEntities)
+                            .replacingOccurrences(of: "<p>", with: "", options: NSString.CompareOptions.literal, range: nil))
+                            .replacingOccurrences(of: "</p>", with: "", options: NSString.CompareOptions.literal, range: nil))
+                            .lineLimit(3)
+                        
                     }
+                    
                     if i.image != "" {
+                        
                         WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
                             .resizable()
                             .frame(width: 135, height: 90)
                             .cornerRadius(20)
+                        
                     }
                 }.padding(.vertical, 15)
             }
