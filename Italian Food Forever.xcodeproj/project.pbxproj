@@ -3,13 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		21C008C9242177F700412ABB /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C008C8242177F700412ABB /* Discover.swift */; };
-		21F1CA8A242153FC005D2D49 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 21F1CA89242153FC005D2D49 /* SwiftyJSON */; };
-		21F1CA8D24215481005D2D49 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 21F1CA8C24215481005D2D49 /* SDWebImageSwiftUI */; };
 		21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B52420026300910CF0 /* AppDelegate.swift */; };
 		21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B72420026300910CF0 /* SceneDelegate.swift */; };
 		21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */; };
@@ -74,8 +72,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21F1CA8D24215481005D2D49 /* SDWebImageSwiftUI in Frameworks */,
-				21F1CA8A242153FC005D2D49 /* SwiftyJSON in Frameworks */,
 				7B96F171398C20A5A4BC8224 /* Pods_Italian_Food_Forever.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,8 +201,6 @@
 			);
 			name = "Italian Food Forever";
 			packageProductDependencies = (
-				21F1CA89242153FC005D2D49 /* SwiftyJSON */,
-				21F1CA8C24215481005D2D49 /* SDWebImageSwiftUI */,
 			);
 			productName = "Italian Food Forever";
 			productReference = 21FE87B22420026200910CF0 /* Italian Food Forever.app */;
@@ -284,8 +278,6 @@
 			);
 			mainGroup = 21FE87A92420026200910CF0;
 			packageReferences = (
-				21F1CA88242153FC005D2D49 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				21F1CA8B24215481005D2D49 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 21FE87B32420026200910CF0 /* Products */;
 			projectDirPath = "";
@@ -768,38 +760,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		21F1CA88242153FC005D2D49 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:SwiftyJSON/SwiftyJSON.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		21F1CA8B24215481005D2D49 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:SDWebImage/SDWebImageSwiftUI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		21F1CA89242153FC005D2D49 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 21F1CA88242153FC005D2D49 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
-		21F1CA8C24215481005D2D49 /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 21F1CA8B24215481005D2D49 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */ = {

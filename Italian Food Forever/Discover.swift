@@ -18,37 +18,75 @@ struct Discover: View {
 
     var body: some View {
         List(list.datas) { i in
-
             NavigationLink(destination:
                 webView(url: i.url)
                 .navigationBarTitle("", displayMode: .inline)) {
-
-                HStack(spacing: 15) {
-                    VStack(alignment: .leading, spacing: 10) {
-                        
-                        Text((i.title)
-                            .removingHTMLEntities)
-                            .fontWeight(.heavy)
-                        
-                        Text((((i.excerpt)
-                            .removingHTMLEntities)
-                            .replacingOccurrences(of: "<p>", with: "", options: NSString.CompareOptions.literal, range: nil))
-                            .replacingOccurrences(of: "</p>", with: "", options: NSString.CompareOptions.literal, range: nil))
-                            .lineLimit(3)
-                        
-                    }
-                    
-                    if i.image != "" {
-                        
-                        WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
-                            .resizable()
-                            .frame(width: 135, height: 90)
+                HStack {
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 150.0, height: 200)
+                            .foregroundColor(Color.white)
                             .cornerRadius(20)
-                        
+                            .shadow(color: .black, radius: 10, x: 7, y: 7)
+                        //.padding(.leading, 80)
+                        VStack(alignment: .leading) {
+                            VStack {
+                                if i.image != "" {
+
+                                    WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
+                                        .resizable()
+                                        .frame(width: 150, height: 105)
+                                        .cornerRadius(20)
+                                        .padding(.bottom, 5)
+
+                                }
+                                Text((i.title)
+                                    .removingHTMLEntities)
+                                    .font(.subheadline)
+                                    .fontWeight(.heavy)
+                                    .frame(width: 135.0)
+                                    .lineLimit(3)
+                                Spacer()
+
+                            }
+                        }.padding(.top, 50)
+                    }.padding(.trailing, 20)
+                    VStack {
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 150.0, height: 200)
+                                .foregroundColor(Color.white)
+                                .cornerRadius(20)
+                                .shadow(color: .black, radius: 10, x: 7, y: 7)
+                                .padding(.top, 100)
+
+                            VStack(alignment: .leading) {
+                                VStack(alignment: .center) {
+                                    if i.image != "" {
+
+                                        WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
+                                            .resizable()
+                                            .frame(width: 150, height: 105)
+                                            .cornerRadius(20)
+                                            .padding(.bottom, 5)
+
+                                    }
+                                    Text((i.title)
+                                        .removingHTMLEntities)
+                                        .font(.subheadline)
+                                        .fontWeight(.heavy)
+                                        .frame(width: 135.0)
+                                        .lineLimit(3)
+                                    Spacer()
+
+                                }
+                            }.padding(.bottom, 20)
+                                .padding(.top, 100)
+                        }
                     }
-                }.padding(.vertical, 15)
+                }
             }
-        } .navigationBarTitle("Italian Food Forever")
+        }.navigationBarTitle("Italian Food Forever")
     }
 }
 
