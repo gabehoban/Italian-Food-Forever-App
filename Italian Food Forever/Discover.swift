@@ -24,11 +24,11 @@ struct Discover: View {
                     Spacer()
                 }
             }
-            ScrollView(.horizontal) {
-                cardsRow1()
-                    .frame(width: 400.0, height: 300.0)
-            }
-            
+
+            cardsRow1()
+
+
+
         }
     }
 }

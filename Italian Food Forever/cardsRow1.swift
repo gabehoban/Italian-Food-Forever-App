@@ -14,52 +14,54 @@ import HTMLString
 
 struct cardsRow1: View {
 
-    @State var OffsetNum = 0
     @ObservedObject var list = getcardData()
 
 
 //Mark: - BODY
     var body: some View {
-        HStack {
+        ScrollView(.horizontal) {
+
             HStack {
-                ForEach(list.datas) { i in
+                Spacer()
+                ForEach(self.list.datas) { i in
                     NavigationLink(destination:
                         webView(url: i.url)) {
-                        VStack(alignment: .leading) {
-                            ZStack {
-                                Rectangle()
-                                    .frame(width: 150.0, height: 185)
-                                    .foregroundColor(Color.white)
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 150.0, height: 185)
+                                .foregroundColor(Color.white)
+                                .cornerRadius(20)
+                                .shadow(color: .black, radius: 10, x: 7, y: 7)
+                                .opacity(0.4)
+
+                            Spacer()
+                            VStack {
+                                WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
+                                    .renderingMode(.original)
+                                    .resizable()
+                                    .frame(width: 150, height: 105)
                                     .cornerRadius(20)
-                                    .shadow(color: .black, radius: 10, x: 7, y: 7)
 
+                                Text((i.title)
+                                    .removingHTMLEntities)
+                                    .font(.subheadline)
+                                    .fontWeight(.heavy)
+                                    .foregroundColor(Color.black)
+                                    .frame(width: 135.0)
+                                    .lineLimit(3)
+                                    .padding(.leading, 4)
+                                    .padding(.bottom, 15)
                                 Spacer()
-                                VStack {
-                                    WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
-                                        .renderingMode(.original)
-                                        .resizable()
-                                        .frame(width: 150, height: 105)
-                                        .cornerRadius(20)
-
-                                    Text((i.title)
-                                        .removingHTMLEntities)
-                                        .font(.subheadline)
-                                        .fontWeight(.heavy)
-                                        .foregroundColor(Color.black)
-                                        .frame(width: 135.0)
-                                        .lineLimit(3)
-                                        .padding(.leading, 4)
-                                        .padding(.bottom, 15)
-                                    Spacer()
-                                }
                             }
                         }
                     }
                 }.scaledToFit()
-            }
-        }
+            }.frame(width: 950.0, height: 300.0)
+        }.aspectRatio(contentMode: .fit)
     }
 }
+
+
 
 struct cardsRow1_Previews: PreviewProvider {
     static var previews: some View {

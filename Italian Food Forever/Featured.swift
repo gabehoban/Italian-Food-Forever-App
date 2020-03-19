@@ -26,10 +26,11 @@ struct Featured: View {
                         ZStack {
 
                             Rectangle()
-                                .frame(width: 300, height: 200)
+                                .frame(width: 350, height: 250)
                                 .foregroundColor(Color.white)
                                 .cornerRadius(20)
                                 .shadow(color: .black, radius: 10, x: 7, y: 7)
+                                .opacity(0.4)
                             WebImage(url: URL(string: i.image), options: .highPriority)
                                 .renderingMode(.original)
                                 .resizable()
