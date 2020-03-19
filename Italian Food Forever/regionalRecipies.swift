@@ -1,8 +1,8 @@
 //
-//  cardsRow.swift
+//  regionalRecipies.swift
 //  Italian Food Forever
 //
-//  Created by Gabriel Hoban on 3/18/20.
+//  Created by Gabriel Hoban on 3/19/20.
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
@@ -12,17 +12,15 @@ import SDWebImageSwiftUI
 import WebKit
 import HTMLString
 
-struct cardsRow1: View {
-
-    @ObservedObject var list = getcardData()
-
-
-//Mark: - BODY
+struct regionalRecipies: View {
+    
+    @ObservedObject var list = getregionalRecipeData()
+    
     var body: some View {
         VStack {
             Spacer()
             HStack {
-                Text("Recent Posts")
+                Text("Regional Recipies")
                     .font(.title)
                     .padding(.leading, 20)
                 Spacer()
@@ -52,7 +50,7 @@ struct cardsRow1: View {
                                         .resizable()
                                         .frame(width: 150, height: 105)
                                         .cornerRadius(20)
-                                    
+
                                     Text((i.title)
                                         .removingHTMLEntities)
                                         .font(.subheadline)
@@ -74,27 +72,13 @@ struct cardsRow1: View {
     }
 }
 
-
-
-struct cardsRow1_Previews: PreviewProvider {
+struct regionalRecipies_Previews: PreviewProvider {
     static var previews: some View {
-        cardsRow1()
-            .previewLayout(.sizeThatFits)
+        regionalRecipies()
     }
 }
 
-struct dataType: Identifiable {
-
-    var id: String
-    var url: String
-    var date: String
-    var title: String
-    var excerpt: String
-    var image: String
-
-}
-
-class getcardData: ObservableObject {
+class getregionalRecipeData: ObservableObject {
 
     @Published var datas = [dataType]()
 
@@ -102,7 +86,7 @@ class getcardData: ObservableObject {
         load()
     }
     func load() {
-        let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?per_page=6&offset=1&_fields=id,excerpt,title,mv,%20date,link&_envelope"
+        let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?per_page=6&categories=861&_fields=id,excerpt,title,mv,%20date,link&_envelope"
 
         let url = URL(string: source)!
 
@@ -130,22 +114,3 @@ class getcardData: ObservableObject {
         }.resume()
     }
 }
-
-struct webView: UIViewRepresentable {
-    func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<webView>) {
-        let view = WKWebView()
-        view.load(URLRequest(url: URL(string: url)!))
-    }
-
-    var url: String
-
-    func makeUIView(context: UIViewRepresentableContext<webView>) -> WKWebView {
-
-        let view = WKWebView()
-        view.load(URLRequest(url: URL(string: url)!))
-        return view
-    }
-
-}
-
-

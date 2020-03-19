@@ -17,32 +17,43 @@ struct Discover: View {
     @State private var translation: CGSize = .zero
 
     var body: some View {
-        VStack {
-            Spacer()
-            HStack {
-                VStack(alignment: .center) {
-                    Image("Banner")
-                        .resizable()
-                        .frame(width: 300, height: 80.0)
-                        //.padding(.bottom, 90)
-                    Spacer()
-                    Featured()
-                        .frame(width: 200, height: 30.0)
-                        //.padding(.bottom, 70)
-                }
-            }
-            Spacer()
+        ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 Spacer()
-                 cardsRow1()
+                HStack {
+                    VStack(alignment: .center) {
+                        Image("Banner")
+                            .resizable()
+                            .frame(width: 300, height: 80.0)
+                            .padding(.bottom, 110)
+                        Spacer()
+                        Featured()
+                            .frame(width: 200, height: 30.0)
+                            .padding(.top, 10)
+                            .padding(.bottom, 80)
+                    }
+                }
+                Spacer()
+                VStack {
+                    Spacer()
+                     cardsRow1()
+                        .edgesIgnoringSafeArea(.all)
+                    regionalRecipies()
+                        .edgesIgnoringSafeArea(.all)
+                        .padding(.top, -90)
+                    springRow()
                     .edgesIgnoringSafeArea(.all)
+                    .padding(.top, -90)
+                }.padding(.top, 70)
+                 .edgesIgnoringSafeArea(.bottom)
+                Spacer()
             }
-            Spacer()
         }
     }
 }
 struct Discover_Previews: PreviewProvider {
     static var previews: some View {
         Discover()
+            .previewLayout(.sizeThatFits)
     }
 }

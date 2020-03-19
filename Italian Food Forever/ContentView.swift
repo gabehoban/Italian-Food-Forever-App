@@ -13,14 +13,19 @@ import SDWebImageSwiftUI
 struct ContentView: View {
 
     @State private var selection: Int = 0
+    
+    init() {
+        
+    }
 
     var body: some View {
         TabView(selection: $selection) {
             Discover()
+                .background(Color(red: 248/255, green: 242/255, blue: 219/255))
                 .tabItem {
                     VStack {
                         Image(systemName: "house.fill")
-                        Text("Discover")
+                        Text("Home")
                     }
                 }
                 .tag(0)
@@ -37,22 +42,12 @@ struct ContentView: View {
                 .font(.title)
                 .tabItem {
                     VStack {
-                        Image(systemName: "bookmark.fill")
-                        Text("Saved Recipes")
+                        Image(systemName: "heart.fill")
+                        Text("My Recipes")
                     }
                 }
                 .tag(2)
-
-            Text("//TODO: page (4)")
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "gear")
-                        Text("Settings")
-                    }
-                }
-                .tag(3)
-        }
+        }.accentColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
     }
 }
 

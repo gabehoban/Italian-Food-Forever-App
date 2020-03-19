@@ -29,8 +29,14 @@ struct Featured: View {
                                 .frame(width: 350, height: 250)
                                 .foregroundColor(Color.white)
                                 .cornerRadius(20)
-                                .shadow(color: .black, radius: 10, x: 7, y: 7)
                                 .opacity(0.4)
+                            Rectangle()
+                                .padding(.top, 50)
+                            .frame(width: 350, height: 320)
+                                .foregroundColor(Color(UIColor.systemGray5))
+                            .cornerRadius(20)
+                            .shadow(color: .black, radius: 10, x: 7, y: 7)
+                            .opacity(0.4)
                             WebImage(url: URL(string: i.image), options: .highPriority)
                                 .renderingMode(.original)
                                 .resizable()
@@ -45,10 +51,11 @@ struct Featured: View {
                                     .foregroundColor(Color.black)
                                     .frame(width: 300.0)
                                     .lineLimit(3)
-                                    .padding(.bottom, 15)
+                                    .padding(.top, 45)
                             }.padding(.top, 235)
-                                .padding(.leading, -160)
+                             .padding(.leading, -160)
                         }
+
                     }
                 }
             }
