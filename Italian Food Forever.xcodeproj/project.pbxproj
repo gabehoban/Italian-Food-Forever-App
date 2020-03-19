@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		216D96942422E2F300F0CBB6 /* Featured.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D96932422E2F300F0CBB6 /* Featured.swift */; };
+		21B802772422B71400BED86A /* cardsRow1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B802762422B71400BED86A /* cardsRow1.swift */; };
 		21C008C9242177F700412ABB /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C008C8242177F700412ABB /* Discover.swift */; };
 		21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B52420026300910CF0 /* AppDelegate.swift */; };
 		21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B72420026300910CF0 /* SceneDelegate.swift */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		1D3DF2CCAEFF10C735810C58 /* Pods-Italian Food Forever.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food Forever.debug.xcconfig"; path = "Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever.debug.xcconfig"; sourceTree = "<group>"; };
+		216D96932422E2F300F0CBB6 /* Featured.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Featured.swift; sourceTree = "<group>"; };
+		21B802762422B71400BED86A /* cardsRow1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardsRow1.swift; sourceTree = "<group>"; };
 		21C008C8242177F700412ABB /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		21FE87B22420026200910CF0 /* Italian Food Forever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Italian Food Forever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21FE87B52420026300910CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 				21FE87B72420026300910CF0 /* SceneDelegate.swift */,
 				21FE87BC2420026300910CF0 /* ContentView.swift */,
 				21C008C8242177F700412ABB /* Discover.swift */,
+				21B802762422B71400BED86A /* cardsRow1.swift */,
+				216D96932422E2F300F0CBB6 /* Featured.swift */,
 				21FE87BE2420026400910CF0 /* Assets.xcassets */,
 				21FE87C32420026400910CF0 /* LaunchScreen.storyboard */,
 				21FE87C62420026400910CF0 /* Info.plist */,
@@ -425,10 +431,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				216D96942422E2F300F0CBB6 /* Featured.swift in Sources */,
 				21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */,
 				21C008C9242177F700412ABB /* Discover.swift in Sources */,
 				21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */,
 				21FE87BD2420026300910CF0 /* ContentView.swift in Sources */,
+				21B802772422B71400BED86A /* cardsRow1.swift in Sources */,
 				21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

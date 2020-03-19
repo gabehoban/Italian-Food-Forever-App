@@ -12,7 +12,7 @@ import SDWebImageSwiftUI
 
 struct ContentView: View {
 
-    @State private var selection = 0
+    @State private var selection : Int = 0
 
     var body: some View {
         TabView(selection: $selection) {
@@ -36,24 +36,24 @@ struct ContentView: View {
                 }
                 .tag(1)
             Text("//TODO: page (3)")
-            .font(.title)
-            .tabItem {
-                VStack {
-                    Image(systemName: "bookmark.fill")
-                    Text("Saved Recipes")
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "bookmark.fill")
+                        Text("Saved Recipes")
+                    }
                 }
-            }
-            .tag(2)
-            
+                .tag(2)
+
             Text("//TODO: page (4)")
-            .font(.title)
-            .tabItem {
-                VStack {
-                    Image(systemName: "gear")
-                    Text("Settings")
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "gear")
+                        Text("Settings")
+                    }
                 }
-            }
-            .tag(3)
+                .tag(3)
         }
     }
 }

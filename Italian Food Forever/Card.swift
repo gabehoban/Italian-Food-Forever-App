@@ -13,31 +13,25 @@ import WebKit
 import HTMLString
 
 struct Card: View {
+    @ObservedObject var list = getData()
+    @State private var translation: CGSize = .zero
+    
     var body: some View {
-        VStack(spacing: 15) {
-            VStack(spacing: 10) {
-                if i.image != "" {
-                    
-                    WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
-                        .resizable()
-                        .frame(width: 135, height: 90)
-                        .cornerRadius(20)
-                    
+        VStack {
+            ZStack {
+                Rectangle()
+                    .foregroundColor(.white)
+                    .cornerRadius(20)
+                    .shadow(color: .black, radius: 2, x: 2, y: 2)
+                    .opacity(0.7)
+                    .frame(width: 135, height: 100)
+                NavigationLink(destination:
+                    webView(url: list.datas[0].url)
+                    .navigationBarTitle("", displayMode: .inline)) {
+                    Text(list.datas[0].title)
                 }
-                Text((i.title)
-                    .removingHTMLEntities)
-                    .fontWeight(.heavy)
-                
-                Text((((i.excerpt)
-                    .removingHTMLEntities)
-                    .replacingOccurrences(of: "<p>", with: "", options: NSString.CompareOptions.literal, range: nil))
-                    .replacingOccurrences(of: "</p>", with: "", options: NSString.CompareOptions.literal, range: nil))
-                    .lineLimit(3)
-                
             }
-            
-            
-        }.padding(.vertical, 15)
+        }
     }
 }
 
@@ -46,6 +40,7 @@ struct Card_Previews: PreviewProvider {
         Card()
     }
 }
+
 
 struct dataType: Identifiable {
 
