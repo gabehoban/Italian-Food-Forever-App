@@ -12,13 +12,11 @@ import SDWebImageSwiftUI
 
 struct ContentView: View {
 
-    @State private var selection : Int = 0
+    @State private var selection: Int = 0
 
     var body: some View {
         TabView(selection: $selection) {
-            NavigationView {
-                Discover()
-            }
+            Discover()
                 .tabItem {
                     VStack {
                         Image(systemName: "house.fill")
