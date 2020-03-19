@@ -1,7 +1,7 @@
 project 'Italian Food Forever.xcodeproj'
 
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '13.2'
 
 target 'Italian Food Forever' do
   # Comment the next line if you don't want to use dynamic frameworks

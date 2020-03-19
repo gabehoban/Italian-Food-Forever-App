@@ -22,7 +22,7 @@ struct Featured: View {
                 HStack(alignment: .top) {
                     NavigationLink(destination:
                         webView(url: i.url)
-                        .navigationBarTitle("", displayMode: .automatic)) {
+                        .navigationBarTitle("", displayMode: .inline)) {
                         ZStack {
 
                             Rectangle()
@@ -60,6 +60,7 @@ struct Featured: View {
 struct Featured_Previews: PreviewProvider {
     static var previews: some View {
         Featured()
+            .previewLayout(.sizeThatFits)
     }
 }
 

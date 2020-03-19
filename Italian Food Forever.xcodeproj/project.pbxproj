@@ -487,6 +487,7 @@
 		21FE87DD2420026500910CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -538,6 +539,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -547,6 +549,7 @@
 		21FE87DE2420026500910CF0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -591,6 +594,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -602,6 +606,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D3DF2CCAEFF10C735810C58 /* Pods-Italian Food Forever.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Italian Food Forever/Preview Content\"";
@@ -623,6 +628,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5EE5A644270E56DD847EAAAA /* Pods-Italian Food Forever.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Italian Food Forever/Preview Content\"";
@@ -644,7 +650,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A4D8384CF597D1E8D0DAC0E6 /* Pods-Italian Food ForeverTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YV98CCJ4M2;
@@ -667,7 +673,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 60912B2B5DC76D320D422BF5 /* Pods-Italian Food ForeverTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YV98CCJ4M2;
@@ -690,7 +696,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A99E70EBD959E8E592E046D5 /* Pods-Italian Food Forever-Italian Food ForeverUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YV98CCJ4M2;
 				INFOPLIST_FILE = "Italian Food ForeverUITests/Info.plist";
@@ -711,7 +717,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B7561CAD06D30BB66D45B5BD /* Pods-Italian Food Forever-Italian Food ForeverUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YV98CCJ4M2;
 				INFOPLIST_FILE = "Italian Food ForeverUITests/Info.plist";

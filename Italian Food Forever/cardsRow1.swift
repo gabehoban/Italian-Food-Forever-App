@@ -19,45 +19,58 @@ struct cardsRow1: View {
 
 //Mark: - BODY
     var body: some View {
-        ScrollView(.horizontal) {
-
+        VStack {
+            Spacer()
             HStack {
+                Text("Recent Posts")
+                    .font(.largeTitle)
+                    .padding(.leading, 20)
                 Spacer()
-                ForEach(self.list.datas) { i in
-                    NavigationLink(destination:
-                        webView(url: i.url)) {
-                        ZStack {
-                            Rectangle()
-                                .frame(width: 150.0, height: 185)
-                                .foregroundColor(Color.white)
-                                .cornerRadius(20)
-                                .shadow(color: .black, radius: 10, x: 7, y: 7)
-                                .opacity(0.4)
-
-                            Spacer()
-                            VStack {
-                                WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
-                                    .renderingMode(.original)
-                                    .resizable()
-                                    .frame(width: 150, height: 105)
+            }
+            Rectangle()
+                .frame(height: 2.0)
+                .padding([.leading, .trailing], 20)
+                .padding(.top, -9)
+            ScrollView(.horizontal) {
+                HStack {
+                    Spacer()
+                    ForEach(self.list.datas) { i in
+                        NavigationLink(destination:
+                            webView(url: i.url)) {
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 150.0, height: 185)
+                                    .foregroundColor(Color.white)
                                     .cornerRadius(20)
+                                    .shadow(color: .black, radius: 10, x: 7, y: 7)
+                                    .opacity(0.4)
 
-                                Text((i.title)
-                                    .removingHTMLEntities)
-                                    .font(.subheadline)
-                                    .fontWeight(.heavy)
-                                    .foregroundColor(Color.black)
-                                    .frame(width: 135.0)
-                                    .lineLimit(3)
-                                    .padding(.leading, 4)
-                                    .padding(.bottom, 15)
                                 Spacer()
-                            }
+                                VStack {
+                                    WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
+                                        .renderingMode(.original)
+                                        .resizable()
+                                        .frame(width: 150, height: 105)
+                                        .cornerRadius(20)
+
+                                    Text((i.title)
+                                        .removingHTMLEntities)
+                                        .font(.subheadline)
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(Color.black)
+                                        .frame(width: 135.0)
+                                        .lineLimit(3)
+                                        .padding(.leading, 4)
+                                        .padding(.bottom, 15)
+                                    Spacer()
+                                }
+                            }.padding(.bottom, 100)
                         }
-                    }
-                }.scaledToFit()
-            }.frame(width: 950.0, height: 300.0)
-        }.aspectRatio(contentMode: .fit)
+                    }.scaledToFit()
+                }.frame(width: 950.0, height: 300.0)
+            }.aspectRatio(contentMode: .fit)
+            Spacer()
+        }
     }
 }
 
@@ -66,6 +79,7 @@ struct cardsRow1: View {
 struct cardsRow1_Previews: PreviewProvider {
     static var previews: some View {
         cardsRow1()
+            .previewLayout(.sizeThatFits)
     }
 }
 

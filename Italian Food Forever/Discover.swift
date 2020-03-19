@@ -23,27 +23,19 @@ struct Discover: View {
                 VStack(alignment: .center) {
                     Image("Banner")
                         .resizable()
-                        .edgesIgnoringSafeArea(.top)
                         .frame(width: 300, height: 80.0)
-                    //.padding(.bottom,100)
+                        //.padding(.bottom, 90)
                     Spacer()
                     Featured()
                         .frame(width: 200, height: 30.0)
-                    Spacer()
+                        //.padding(.bottom, 70)
                 }
             }
             Spacer()
             VStack {
                 Spacer()
-                HStack {
-                    Text("New Posts")
-                        .font(.largeTitle)
-                        .padding(.leading, 25)
-                        .padding(.bottom, -180)
-                    Spacer()
-                }
-                 cardsRow1()//.padding(.bottom, 40)
-                
+                 cardsRow1()
+                    .edgesIgnoringSafeArea(.all)
             }
             Spacer()
         }
