@@ -43,6 +43,17 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>HTMLReader is in the public domain.
+</string>
+			<key>License</key>
+			<string>Public domain</string>
+			<key>Title</key>
+			<string>HTMLReader</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
 Copyright (c) 2016-present Alexis Aubry &lt;me@alexaubry.fr&gt;

@@ -15,12 +15,13 @@ struct ContentView: View {
     @State private var selection: Int = 0
     @State var isNavigationBarHidden: Bool = true
 
-
     var body: some View {
         NavigationView {
             TabView(selection: $selection) {
                 Discover()
+                    .padding(.top, 50)
                     .background(Color(red: 248 / 255, green: 242 / 255, blue: 219 / 255))
+                    .edgesIgnoringSafeArea(.top)
                     .tabItem {
                         VStack {
                             Image(systemName: "house.fill")
@@ -46,9 +47,16 @@ struct ContentView: View {
                         }
                     }
                     .tag(2)
-            }.accentColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
-             .hiddenNavigationBarStyle()
-        }.navigationBarHidden(true)
+            }.edgesIgnoringSafeArea(.top)
+                .navigationBarHidden(true)
+                .accentColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
+        }.onAppear() {
+            UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            UINavigationBar.appearance().shadowImage = UIImage()
+            UINavigationBar.appearance().isTranslucent = true
+            UINavigationBar.appearance().tintColor = .black
+            UINavigationBar.appearance().backgroundColor = .clear
+        }
     }
 }
 
@@ -57,4 +65,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-

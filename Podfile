@@ -1,4 +1,4 @@
-project 'Italian Food Forever.xcodeproj'
+project 'IFF.xcodeproj'
 
 # Uncomment the next line to define a global platform for your project
 platform :ios, '13.2'
@@ -10,6 +10,7 @@ target 'Italian Food Forever' do
   pod 'SDWebImageSwiftUI'
   pod 'HTMLString', '~> 5.0'
   pod 'Alamofire', '~> 5.0'
+  pod "HTMLReader"
   # Pods for Italian Food Forever
 
   target 'Italian Food ForeverTests' do
