@@ -13,41 +13,42 @@ import SDWebImageSwiftUI
 struct ContentView: View {
 
     @State private var selection: Int = 0
-    
-    init() {
-        
-    }
+    @State var isNavigationBarHidden: Bool = true
+
 
     var body: some View {
-        TabView(selection: $selection) {
-            Discover()
-                .background(Color(red: 248/255, green: 242/255, blue: 219/255))
-                .tabItem {
-                    VStack {
-                        Image(systemName: "house.fill")
-                        Text("Home")
+        NavigationView {
+            TabView(selection: $selection) {
+                Discover()
+                    .background(Color(red: 248 / 255, green: 242 / 255, blue: 219 / 255))
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "house.fill")
+                            Text("Home")
+                        }
                     }
-                }
-                .tag(0)
-            Text("//TODO: page (2)")
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "magnifyingglass.circle.fill")
-                        Text("Search")
+                    .tag(0)
+                Text("//TODO: page (2)")
+                    .font(.title)
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "magnifyingglass.circle.fill")
+                            Text("Search")
+                        }
                     }
-                }
-                .tag(1)
-            Text("//TODO: page (3)")
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "heart.fill")
-                        Text("My Recipes")
+                    .tag(1)
+                Text("//TODO: page (3)")
+                    .font(.title)
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "heart.fill")
+                            Text("My Recipes")
+                        }
                     }
-                }
-                .tag(2)
-        }.accentColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
+                    .tag(2)
+            }.accentColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
+             .hiddenNavigationBarStyle()
+        }.navigationBarHidden(true)
     }
 }
 

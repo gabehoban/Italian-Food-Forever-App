@@ -12,50 +12,44 @@ import SDWebImageSwiftUI
 import WebKit
 import HTMLString
 
+struct InfoView: Identifiable {
+    var id: Int
+    var title: String
+    var image: String
+}
 
 struct Featured: View {
+
     @ObservedObject var listF = getfeatureData()
 
     var body: some View {
         VStack {
             ForEach(listF.datas) { i in
-                HStack(alignment: .top) {
-                    NavigationLink(destination:
-                        webView(url: i.url)
-                        .navigationBarTitle("", displayMode: .inline)) {
-                        ZStack {
-
-                            Rectangle()
-                                .frame(width: 350, height: 250)
-                                .foregroundColor(Color.white)
-                                .cornerRadius(20)
-                                .opacity(0.4)
-                            Rectangle()
-                                .padding(.top, 50)
-                            .frame(width: 350, height: 320)
-                                .foregroundColor(Color(UIColor.systemGray5))
+                NavigationLink(destination: DetailView(detail: i)) {
+                    ZStack {
+                        Rectangle()
+                            .padding(.top, 70)
+                            .frame(width: 350, height: 360)
+                            .foregroundColor(Color(UIColor.systemGray5))
                             .cornerRadius(20)
                             .shadow(color: .black, radius: 10, x: 7, y: 7)
                             .opacity(0.4)
-                            WebImage(url: URL(string: i.image), options: .highPriority)
-                                .renderingMode(.original)
-                                .resizable()
-                                .frame(width: 350, height: 250)
-                                .cornerRadius(20)
-
-                            VStack(alignment: .leading) {
-                                Text((i.title)
-                                    .removingHTMLEntities)
-                                    .font(.headline)
-                                    .fontWeight(.heavy)
-                                    .foregroundColor(Color.black)
-                                    .frame(width: 300.0)
-                                    .lineLimit(3)
-                                    .padding(.top, 45)
-                            }.padding(.top, 235)
-                             .padding(.leading, -160)
-                        }
-
+                        WebImage(url: URL(string: i.image), options: .highPriority)
+                            .renderingMode(.original)
+                            .resizable()
+                            .frame(width: 350, height: 250)
+                            .cornerRadius(20)
+                        VStack(alignment: .leading) {
+                            Text((i.title)
+                                .removingHTMLEntities)
+                                .font(.headline)
+                                .fontWeight(.heavy)
+                                .foregroundColor(Color.black)
+                                .frame(width: 300.0)
+                                .lineLimit(3)
+                                .padding(.leading, -15)
+                                .navigationBarTitle("")
+                        }.padding(.top, 303)
                     }
                 }
             }
@@ -64,10 +58,24 @@ struct Featured: View {
 }
 
 
+struct DetailView: View {
+    var detail: dataType
+    var body: some View {
+        NavigationView {
+            List {
+                WebImage(url: URL(string: detail.image), options: .highPriority)
+                    .renderingMode(.original)
+                    .resizable()
+                    .frame(width: 350, height: 250)
+                    .cornerRadius(20)
+                    .navigationBarTitle(detail.title)
+            }
+        }
+    }
+}
 struct Featured_Previews: PreviewProvider {
     static var previews: some View {
         Featured()
-            .previewLayout(.sizeThatFits)
     }
 }
 

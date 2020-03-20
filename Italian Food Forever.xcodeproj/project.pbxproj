@@ -11,7 +11,9 @@
 		21B802772422B71400BED86A /* cardsRow1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B802762422B71400BED86A /* cardsRow1.swift */; };
 		21BA5BFE2423E25A00499BCE /* regionalRecipies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */; };
 		21BA5C002423E57800499BCE /* springRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5BFF2423E57800499BCE /* springRow.swift */; };
+		21BA5C022423EEBD00499BCE /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5C012423EEBD00499BCE /* cardView.swift */; };
 		21C008C9242177F700412ABB /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C008C8242177F700412ABB /* Discover.swift */; };
+		21F22C7924247AFC009E8B53 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F22C7824247AFC009E8B53 /* ViewModifiers.swift */; };
 		21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B52420026300910CF0 /* AppDelegate.swift */; };
 		21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B72420026300910CF0 /* SceneDelegate.swift */; };
 		21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */; };
@@ -49,7 +51,9 @@
 		21B802762422B71400BED86A /* cardsRow1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardsRow1.swift; sourceTree = "<group>"; };
 		21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionalRecipies.swift; sourceTree = "<group>"; };
 		21BA5BFF2423E57800499BCE /* springRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = springRow.swift; sourceTree = "<group>"; };
+		21BA5C012423EEBD00499BCE /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
 		21C008C8242177F700412ABB /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+		21F22C7824247AFC009E8B53 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		21FE87B22420026200910CF0 /* Italian Food Forever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Italian Food Forever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21FE87B52420026300910CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21FE87B72420026300910CF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,9 +133,11 @@
 			isa = PBXGroup;
 			children = (
 				21FE87B52420026300910CF0 /* AppDelegate.swift */,
+				21F22C7824247AFC009E8B53 /* ViewModifiers.swift */,
 				21FE87B72420026300910CF0 /* SceneDelegate.swift */,
 				21FE87BC2420026300910CF0 /* ContentView.swift */,
 				21C008C8242177F700412ABB /* Discover.swift */,
+				21BA5C012423EEBD00499BCE /* cardView.swift */,
 				216D96932422E2F300F0CBB6 /* Featured.swift */,
 				21B802762422B71400BED86A /* cardsRow1.swift */,
 				21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */,
@@ -441,10 +447,12 @@
 				21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */,
 				21C008C9242177F700412ABB /* Discover.swift in Sources */,
 				21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */,
+				21BA5C022423EEBD00499BCE /* cardView.swift in Sources */,
 				21FE87BD2420026300910CF0 /* ContentView.swift in Sources */,
 				21B802772422B71400BED86A /* cardsRow1.swift in Sources */,
 				21BA5BFE2423E25A00499BCE /* regionalRecipies.swift in Sources */,
 				21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */,
+				21F22C7924247AFC009E8B53 /* ViewModifiers.swift in Sources */,
 				21BA5C002423E57800499BCE /* springRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

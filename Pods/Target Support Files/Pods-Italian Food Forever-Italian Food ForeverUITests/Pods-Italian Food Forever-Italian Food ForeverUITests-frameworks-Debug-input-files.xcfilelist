@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever-Italian Food ForeverUITests/Pods-Italian Food Forever-Italian Food ForeverUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/HTMLString/HTMLString.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImageSwiftUI/SDWebImageSwiftUI.framework

@@ -26,6 +26,7 @@ struct Discover: View {
                             .resizable()
                             .frame(width: 300, height: 80.0)
                             .padding(.bottom, 110)
+                            .padding(.top, -100)
                         Spacer()
                         Featured()
                             .frame(width: 200, height: 30.0)

@@ -60,7 +60,7 @@ struct cardsRow1: View {
                                         .foregroundColor(Color.black)
                                         .frame(width: 135.0)
                                         .lineLimit(3)
-                                        .padding(.leading, 4)
+                                        .padding(.leading, -15)
                                         .padding(.bottom, 15)
                                     Spacer()
                                 }
@@ -81,17 +81,6 @@ struct cardsRow1_Previews: PreviewProvider {
         cardsRow1()
             .previewLayout(.sizeThatFits)
     }
-}
-
-struct dataType: Identifiable {
-
-    var id: String
-    var url: String
-    var date: String
-    var title: String
-    var excerpt: String
-    var image: String
-
 }
 
 class getcardData: ObservableObject {

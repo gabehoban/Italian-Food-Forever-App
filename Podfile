@@ -9,6 +9,7 @@ target 'Italian Food Forever' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'SDWebImageSwiftUI'
   pod 'HTMLString', '~> 5.0'
+  pod 'Alamofire', '~> 5.0'
   # Pods for Italian Food Forever
 
   target 'Italian Food ForeverTests' do
