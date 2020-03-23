@@ -30,16 +30,16 @@ struct Featured: View {
                     ZStack {
                         Rectangle()
                             .padding(.top, 70)
-                            .frame(width: 350, height: 360)
+                            .frame(width: 370, height: 360)
                             .foregroundColor(Color(UIColor.systemGray5))
-                            .cornerRadius(20)
-                            .shadow(color: .black, radius: 10, x: 7, y: 7)
+                            .cornerRadius(10)
+                            .shadow(color: .black, radius: 5, x: 3, y: 3)
                             .opacity(0.4)
                         WebImage(url: URL(string: i.image), options: .highPriority)
                             .renderingMode(.original)
                             .resizable()
-                            .frame(width: 350, height: 250)
-                            .cornerRadius(20)
+                            .frame(width: 370, height: 250)
+                            .cornerRadius(15)
                         VStack(alignment: .leading) {
                             Text((i.title)
                                 .removingHTMLEntities)
@@ -48,10 +48,10 @@ struct Featured: View {
                                 .foregroundColor(Color.black)
                                 .frame(width: 300.0)
                                 .lineLimit(3)
-                                .padding(.leading, -15)
+                                .padding(.leading, -215)
                                 .navigationBarTitle("")
-                        }.padding(.top, 303)
-                            .padding(.bottom, 15)
+                        }.padding(.top, 295)
+                         .padding(.bottom, 2)
                     }
                 }
             }

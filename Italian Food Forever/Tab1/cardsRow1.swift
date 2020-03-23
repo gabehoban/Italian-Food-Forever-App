@@ -39,10 +39,10 @@ struct cardsRow1: View {
                             DetailView(detail: i)) {
                             ZStack {
                                 Rectangle()
-                                    .frame(width: 150.0, height: 185)
+                                    .frame(width: 150.0, height: 165)
                                     .foregroundColor(Color.white)
-                                    .cornerRadius(20)
-                                    .shadow(color: .black, radius: 10, x: 7, y: 7)
+                                    .cornerRadius(12)
+                                    .shadow(color: .black, radius: 5, x: 3, y: 3)
                                     .opacity(0.4)
 
                                 Spacer()
@@ -51,14 +51,15 @@ struct cardsRow1: View {
                                         .renderingMode(.original)
                                         .resizable()
                                         .frame(width: 150, height: 105)
-                                        .cornerRadius(20)
+                                        .cornerRadius(12)
                                     
                                     Text((i.title)
                                         .removingHTMLEntities)
                                         .font(.subheadline)
                                         .fontWeight(.heavy)
                                         .foregroundColor(Color.black)
-                                        .frame(width: 135.0)
+                                        .multilineTextAlignment(.leading)
+                                        .frame(width: 125.0)
                                         .lineLimit(3)
                                         .padding(.leading, -15)
                                         .padding(.bottom, 15)

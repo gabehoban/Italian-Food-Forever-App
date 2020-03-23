@@ -6,6 +6,7 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
+import UIKit
 import SwiftUI
 import SwiftyJSON
 import SDWebImageSwiftUI
@@ -26,20 +27,25 @@ struct dataType: Identifiable {
 }
 
 struct DetailView: View {
+
     var detail: dataType
-    
-    
+
+    @EnvironmentObject var spark: Spark
+
+    @State private var show_signinModal: Bool = false
+    @State private var show_signBackinModal: Bool = false
+    @State private var heartSelect: Bool = false
+
     func stripHTML(str: String) -> String {
         let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
         let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-        print(str)
+        //print(str)
         let brokenString = str.components(separatedBy: "{\"@context")
-        
-        
+
+
         return brokenString[0].removingHTMLEntities
     }
 
-    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -54,7 +60,7 @@ struct DetailView: View {
                     WebImage(url: URL(string: detail.image), options: .highPriority)
                         .renderingMode(.original)
                         .resizable()
-                        .cornerRadius(20)
+                        .cornerRadius(10)
                         .frame(width: 400, height: 267)
                     Text(stripHTML(str: detail.content))
                         .padding(.horizontal, 15.0)
@@ -64,14 +70,81 @@ struct DetailView: View {
                 }
             }.padding(.top, -90)
                 .background(Color(red: 248 / 255, green: 242 / 255, blue: 219 / 255)).edgesIgnoringSafeArea(.all)
-        }.navigationBarTitle("hi", displayMode: .inline)
-         .navigationBarHidden(false)
-         .onAppear() {
-            UINavigationBar.appearance().isTranslucent = false
-            UINavigationBar.appearance().tintColor = .black //back
-            UINavigationBar.appearance().backgroundColor = .clear
+        }.navigationBarTitle("", displayMode: .inline)
+            .navigationBarItems(trailing: Button(action: {
+                    if self.spark.isUserAuthenticated == .undefined {
+                        self.show_signinModal = true
+                    } else if self.spark.isUserAuthenticated == .signedIn {
+                        if self.heartSelect == false {
+                            self.heartSelect = true
+                            
+                            print("Before: \(self.spark.profile.saved)")
+                            var savedP: [String] = self.spark.profile.saved
+                            print("SavedP: \(savedP)")
+                            savedP.append(self.detail.id)
+                            print("New SavedP: \(savedP)")
+                            
+                            
+                            SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
+                                switch err {
+                                case .success:
+                                    print("Added \(self.detail.id) to saved array -> \(self.spark.profile.saved)")
+                                case .failure(let error):
+                                    print(error.localizedDescription)
+                                }
+                            }
+                            self.spark.configureFirebaseStateDidChange()
+                            
+                        } else if self.heartSelect == true {
+                            self.heartSelect = false
+                            var savedP = self.spark.profile.saved
+                            if let index = savedP.firstIndex(of: "\(self.detail.id)") {
+                                savedP.remove(at: index)
+                            }
+                            self.spark.configureFirebaseStateDidChange()
+                            SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
+                                switch err {
+                                case .success:
+                                    print("Removed \(self.detail.id) from \(self.spark.profile.saved).")
+                                case .failure(let error):
+                                    print(error.localizedDescription)
+                                }
+                            }
+                            self.spark.configureFirebaseStateDidChange()
+                        }
+                    } else if self.spark.isUserAuthenticated == .signedOut {
+                        self.show_signBackinModal = true
+                    }
+            }, label: {
+                    if heartSelect == false {
+                        Image(systemName: "heart")
+                    } else if heartSelect == true {
+                        Image(systemName: "heart.fill").foregroundColor(.red)
+                    }
+            }
+                ).sheet(isPresented: self.$show_signinModal) {
+                signInModal()
+            }.scaleEffect(/*@START_MENU_TOKEN@*/1.4/*@END_MENU_TOKEN@*/))
+            .edgesIgnoringSafeArea(.top)
+            .padding(.top, 10)
+            .onAppear() {
+                self.spark.configureFirebaseStateDidChange()
+                
+                print(self.spark.profile.saved)
+                
+                UINavigationBar.appearance().isOpaque = true
+                UINavigationBar.appearance().isTranslucent = true
+
+                for id in self.spark.profile.saved
+                {
+                    if id == self.detail.id {
+                        self.heartSelect = true
+                        break
+                    }
+                }
+                
+                
         }
-        .background(Color(red: 248 / 255, green: 242 / 255, blue: 219 / 255))
     }
 }
 
@@ -125,4 +198,18 @@ struct cardView_Previews: PreviewProvider {
     static var previews: some View {
         cardView(PostID: Binding.constant(0))
     }
+}
+
+struct NavigationConfigurator: UIViewControllerRepresentable {
+    var configure: (UINavigationController) -> Void = { _ in }
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<NavigationConfigurator>) -> UIViewController {
+        UIViewController()
+    }
+    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<NavigationConfigurator>) {
+        if let nc = uiViewController.navigationController {
+            self.configure(nc)
+        }
+    }
+
 }

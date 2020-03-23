@@ -40,7 +40,7 @@ struct springRow: View {
                                     .frame(width: 150.0, height: 185)
                                     .foregroundColor(Color.white)
                                     .cornerRadius(20)
-                                    .shadow(color: .black, radius: 10, x: 7, y: 7)
+                                    .shadow(color: .black, radius: 5, x: 3, y: 3)
                                     .opacity(0.4)
 
                                 Spacer()

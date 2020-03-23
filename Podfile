@@ -11,6 +11,10 @@ target 'Italian Food Forever' do
   pod 'HTMLString', '~> 5.0'
   pod 'Alamofire', '~> 5.0'
   pod "HTMLReader"
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
   # Pods for Italian Food Forever
 
   target 'Italian Food ForeverTests' do
