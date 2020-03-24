@@ -36,16 +36,70 @@ struct MySubview: View {
     @State private var show_signinModal: Bool = false
     @State private var show_signBackinModal: Bool = false
     @State private var heartSelect: Bool = false
+    @State private var instructionPage: Bool = false
+    @State private var ingredients: Bool = false
+    @State private var ingredientSymbol: String = "chevron.right"
 
     func stripHTML(str: String) -> String {
         let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
         let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-        //print(str)
         let brokenString = str.components(separatedBy: "{\"@context")
-
-
         return brokenString[0].removingHTMLEntities
     }
+
+    func formatYield(str: String) -> String {
+        let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
+        let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        let notHTML = str.components(separatedBy: "context")
+        print(notHTML[1])
+        let datePublished = notHTML[1].components(separatedBy: detail.title)
+        let frontYield = datePublished[1].components(separatedBy: "\",\"description")
+        let yield = frontYield[0].components(separatedBy: "recipeYield\":\"")
+        return yield[1]
+    }
+    func formatIngredients(str: String) -> [String] {
+        let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
+        let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        let notHTML = str.components(separatedBy: "context")
+        let datePublished = notHTML[1].components(separatedBy: detail.title)
+        let frontIngredients = datePublished[1].components(separatedBy: ",\"recipeInstructions")
+        let Ingredients = frontIngredients[0].components(separatedBy: "recipeIngredient\":")
+        let toArray1 = Ingredients[1].replacingOccurrences(of: "\\/", with: "/")
+        let toArray2 = toArray1.replacingOccurrences(of: "\\", with: "")
+        let toArray3 = toArray2.replacingOccurrences(of: ",", with: ", ")
+        let toArray4 = (toArray3
+            .replacingOccurrences(of: "[\"", with: "")
+            .replacingOccurrences(of: ", \"]", with: ""))
+        let toReturn = toArray4.components(separatedBy: "\", \"")
+        return toReturn
+    }
+    func formatSteps(str: String) -> [String] {
+        let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
+        let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        let notHTML = str.components(separatedBy: "context")
+        let datePublished = notHTML[1].components(separatedBy: detail.title)
+        let frontIngredients = datePublished[1].components(separatedBy: ",\"url")
+        let Ingredients = frontIngredients[0].components(separatedBy: "recipeInstructions\":")
+        let toArray1 = Ingredients[1].replacingOccurrences(of: "\\/", with: "/")
+        let toArray2 = toArray1.replacingOccurrences(of: "\\", with: "")
+        let toArray3 = toArray2.replacingOccurrences(of: "{\"@type\":\"HowToStep\",\"text\":\"", with: "")
+        let toArray4 = ((toArray3
+            .replacingOccurrences(of: "\"}", with: "")
+            .replacingOccurrences(of: "[", with: ""))
+            .replacingOccurrences(of: "]", with: ""))
+        let toReturn = toArray4.components(separatedBy: ".,")
+        return toReturn
+    }
+    func formatDate(posted: String) -> String {
+        let formatter1 = DateFormatter()
+        let formatter2 = DateFormatter()
+        formatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        let s = formatter1.date(from: posted)!
+        formatter2.dateStyle = .short
+        let date = formatter2.string(from: s)
+        return date
+    }
+
     var body: some View {
         NavigationView {
             VStack {
@@ -61,47 +115,149 @@ struct MySubview: View {
                         .cornerRadius(20)
                         .frame(width: 0.95 * size.width, height: 600)
                         .shadow(color: .black, radius: 10, x: 1, y: 1)
-                    ScrollView(.vertical, showsIndicators: false) {
-                        VStack {
-                            HStack{
-                                Text(detail.title)
-                                    .font(.headline)
-                                    .multilineTextAlignment(.leading)
-                                    .padding(.leading, 10.0)
-                                Spacer()
+                    VStack {
+                        HStack {
+                            Text(detail.title)
+                                .font(.headline)
+                                .multilineTextAlignment(.leading)
+                                .padding(.leading, 10.0)
+                                .frame(width: 250)
+                            Spacer()
+                        }
+                        HStack {
+                            VStack {
+                                HStack {
+                                    Text("Deborah Mele")
+                                        .fontWeight(.thin)
+                                        .padding(.leading, 18)
+                                    Spacer()
+                                }.padding(.bottom, 5)
+                                HStack {
+                                    Text("Posted: \(formatDate(posted: detail.date))")
+                                        .font(.footnote)
+                                        .padding(.leading, 18)
+                                    Spacer()
+                                }
                             }
-                            HStack{
-                                Text("Deborah Mele")
-                                    .fontWeight(.thin)
-                                    .padding(.leading, 15)
-                                Spacer()
+                            Spacer()
+                            if detail.content.contains("\"@type\":\"Recipe\"") {
                                 Button(action: {
-                                    Text("HI")
+                                    if self.instructionPage == false {
+                                        self.instructionPage = true
+                                    } else if self.instructionPage == true {
+                                        self.instructionPage = false
+                                    }
+
                                 }) {
-                                    ZStack{
+                                    ZStack {
                                         Rectangle()
-                                            .frame(width: 200, height: 40)
+                                            .frame(width: 150, height: 30)
                                             .cornerRadius(40)
-                                            .foregroundColor(.black)
-                                        HStack{
-                                            Text("Instructions")
+                                            .foregroundColor(Color(UIColor.brown))
+                                            .shadow(color: .gray, radius: 10, x: 1, y: 1)
+                                        HStack {
+                                            Text("Recipe")
                                                 .foregroundColor(.white)
-                                            Image(systemName: "arrow.right")
-                                                .foregroundColor(.white)
+                                            if instructionPage == false {
+                                                Image(systemName: "chevron.right")
+                                                    .foregroundColor(.white)
+                                            } else if instructionPage == true {
+                                                Image(systemName: "chevron.down")
+                                                    .foregroundColor(.white)
+                                            }
+
                                         }
                                     }
-                                }
-                            }.padding(.top, 10)
-                            Rectangle()
-                                .frame(height: 2.0)
-                                .padding([.leading, .trailing], 20)
-                            Text(stripHTML(str: detail.content))
-                                .padding(.horizontal, 15.0)
-                                .lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
-                            Spacer()
-                        }.padding([.leading, .trailing], 5)
+                                }.padding(.trailing, 15)
+                            }
+                        }.padding(.bottom, 10)
+                        Rectangle()
+                            .frame(height: 2.0)
+                            .padding([.leading, .trailing], 20)
+                            .padding(.bottom, 10)
+                        Spacer()
                     }.frame(width: 0.95 * size.width, height: 500)
-                     .padding(.top, -60)
+                        .padding(.top, -60)
+                    ScrollView(.vertical, showsIndicators: false) {
+                        VStack {
+                            if instructionPage == false {
+                                Text(stripHTML(str: detail.content))
+                                    .padding(.horizontal, 15.0)
+                                    .lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+                            } else {
+                                VStack {
+                                    HStack {
+                                        Button(action: {
+                                            if self.ingredients == false {
+                                                self.ingredients = true
+                                                self.ingredientSymbol = "chevron.down"
+                                            } else if self.ingredients == true {
+                                                self.ingredients = false
+                                                self.ingredientSymbol = "chevron.right"
+                                            }
+                                        }) {
+                                            ZStack {
+                                                Rectangle()
+                                                    .frame(width: 150, height: 30)
+                                                    .cornerRadius(40)
+                                                    .foregroundColor(Color(red: 248 / 255, green: 242 / 255, blue: 219 / 255))
+                                                    .padding(.leading, -40)
+                                                    .shadow(color: .gray, radius: 10, x: 1, y: 1)
+                                                HStack {
+                                                    Text("Ingredients ")
+                                                        .foregroundColor(.black)
+                                                    Image(systemName: "\(ingredientSymbol)")
+                                                        .foregroundColor(.black)
+                                                    Spacer()
+                                                }.padding(.leading, 40)
+                                            }
+                                        }
+                                        Spacer()
+                                        ZStack {
+                                            Rectangle()
+                                                .frame(width: 150, height: 30)
+                                                .cornerRadius(40)
+                                                .foregroundColor(Color(red: 248 / 255, green: 242 / 255, blue: 219 / 255))
+                                                .shadow(color: .gray, radius: 10, x: 1, y: 1)
+                                            Text("Yield: \(formatYield(str: detail.content.removingHTMLEntities))")
+                                        }
+                                    }.padding([.top, .bottom], 5)
+                                        .padding(.leading, -20)
+
+
+                                    if ingredients == true {
+                                        VStack {
+                                            ForEach(formatIngredients(str: detail.content), id: \.self) { datum in
+                                                HStack {
+                                                    Image(systemName: "circle.fill") .foregroundColor(Color.black)
+                                                        .scaleEffect(0.4)
+                                                    Text(datum)
+                                                        .font(.body)
+                                                    Spacer()
+                                                }
+
+                                            }
+                                        }
+                                    }
+                                    VStack {
+                                        ForEach(0..<formatSteps(str: detail.content).count, id: \.self) { i in
+                                            HStack {
+                                                Text("\(i + 1). ")
+                                                    .foregroundColor(Color.black)
+                                                    .font(.body)
+                                                Text("\(self.formatSteps(str: self.detail.content)[i]).")
+                                                    .font(.body)
+                                                Spacer()
+                                            }.padding(.top, 18)
+                                        }
+                                    }
+                                }.padding(.leading, 5)
+                            }
+                            Spacer()
+                        }.padding([.leading, .trailing], 10)
+                         .padding(.top, 10)
+                    }.padding(.top, 40)
+                        .frame(width: 0.95 * size.width, height: 400)
                     Spacer()
                 }.padding(.top, -40)
             }.padding(.top, -40)

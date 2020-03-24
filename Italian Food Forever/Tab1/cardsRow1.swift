@@ -112,7 +112,7 @@ class getcardData: ObservableObject {
                 let id = i.1["id"].stringValue
                 let url = i.1["link"].stringValue
                 let date = i.1["date"].stringValue
-                let title = i.1["title"]["rendered"].stringValue
+                let title = i.1["title"]["rendered"].stringValue.removingHTMLEntities
                 let excerpt = i.1["excerpt"]["rendered"].stringValue
                 let image = i.1["mv"]["thumbnail_uri"].stringValue
                 let content = i.1["content"]["rendered"].stringValue.removingHTMLEntities
