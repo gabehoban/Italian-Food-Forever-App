@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		211FD2772425263D0041E72F /* GentiumBasic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 211FD27B2425263D0041E72F /* GentiumBasic-Regular.ttf */; };
-		211FD2782425263D0041E72F /* GentiumBasic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 211FD27B2425263D0041E72F /* GentiumBasic-Regular.ttf */; };
-		211FD2792425263D0041E72F /* GentiumBasic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 211FD27B2425263D0041E72F /* GentiumBasic-Regular.ttf */; };
+		211BBCF324299B6C004F345D /* IntroDemoCond-LightCAPS.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCF224299B6C004F345D /* IntroDemoCond-LightCAPS.otf */; };
+		211BBCF524299C8F004F345D /* AvertaDemoPE-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCF424299C8E004F345D /* AvertaDemoPE-Regular.otf */; };
+		211BBCFF2429A68B004F345D /* uniformextracondensed-medium-webfont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */; };
 		214388802425B72600A81051 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143887F2425B72600A81051 /* Query.swift */; };
 		21537FA72427FA780034A75A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FA62427FA780034A75A /* Login.swift */; };
 		21537FA92427FB690034A75A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21537FA82427FB690034A75A /* GoogleService-Info.plist */; };
@@ -72,8 +72,9 @@
 
 /* Begin PBXFileReference section */
 		1D3DF2CCAEFF10C735810C58 /* Pods-Italian Food Forever.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food Forever.debug.xcconfig"; path = "Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever.debug.xcconfig"; sourceTree = "<group>"; };
-		211FD27A2425263D0041E72F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/GentiumBasic-Regular.ttf"; sourceTree = "<group>"; };
-		211FD27C242526480041E72F /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/GentiumBasic-Regular.ttf"; sourceTree = "<group>"; };
+		211BBCF224299B6C004F345D /* IntroDemoCond-LightCAPS.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IntroDemoCond-LightCAPS.otf"; sourceTree = "<group>"; };
+		211BBCF424299C8E004F345D /* AvertaDemoPE-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvertaDemoPE-Regular.otf"; sourceTree = "<group>"; };
+		211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "uniformextracondensed-medium-webfont.otf"; sourceTree = "<group>"; };
 		211FD281242554220041E72F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Users/gabehoban/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2143887F2425B72600A81051 /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		21537FA62427FA780034A75A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -156,6 +157,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		211BBCEF242998A5004F345D /* Font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		2143887D2425B43000A81051 /* Tab 2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,7 +228,9 @@
 		2195AE2A242523500045928A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				211FD27B2425263D0041E72F /* GentiumBasic-Regular.ttf */,
+				211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */,
+				211BBCF224299B6C004F345D /* IntroDemoCond-LightCAPS.otf */,
+				211BBCF424299C8E004F345D /* AvertaDemoPE-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -267,6 +277,7 @@
 				21537FAC2427FEB30034A75A /* Helpers */,
 				21537FB42427FEB50034A75A /* Spark */,
 				21537FBA2427FEB70034A75A /* Views */,
+				211BBCEF242998A5004F345D /* Font */,
 				2143887E2425B71700A81051 /* Networking */,
 				21FE87B52420026300910CF0 /* AppDelegate.swift */,
 				21F22C7824247AFC009E8B53 /* ViewModifiers.swift */,
@@ -449,11 +460,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				211BBCF324299B6C004F345D /* IntroDemoCond-LightCAPS.otf in Resources */,
 				21FE87C52420026400910CF0 /* LaunchScreen.storyboard in Resources */,
+				211BBCFF2429A68B004F345D /* uniformextracondensed-medium-webfont.otf in Resources */,
 				21FE87C22420026400910CF0 /* Preview Assets.xcassets in Resources */,
-				211FD2772425263D0041E72F /* GentiumBasic-Regular.ttf in Resources */,
 				21FE87BF2420026400910CF0 /* Assets.xcassets in Resources */,
 				21537FA92427FB690034A75A /* GoogleService-Info.plist in Resources */,
+				211BBCF524299C8F004F345D /* AvertaDemoPE-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,7 +474,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				211FD2782425263D0041E72F /* GentiumBasic-Regular.ttf in Resources */,
 				21537FAA2427FB690034A75A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,7 +482,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				211FD2792425263D0041E72F /* GentiumBasic-Regular.ttf in Resources */,
 				21537FAB2427FB690034A75A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,15 +661,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		211FD27B2425263D0041E72F /* GentiumBasic-Regular.ttf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				211FD27A2425263D0041E72F /* Base */,
-				211FD27C242526480041E72F /* en */,
-			);
-			name = "GentiumBasic-Regular.ttf";
-			sourceTree = "<group>";
-		};
 		21FE87C32420026400910CF0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

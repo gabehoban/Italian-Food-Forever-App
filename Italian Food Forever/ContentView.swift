@@ -21,7 +21,7 @@ struct ContentView: View {
             TabView(selection: $selection) {
                 Discover()
                     .padding(.top, 50)
-                    .background(Color(red: 248 / 255, green: 242 / 255, blue: 219 / 255))
+                    .background(Color.white)
                     .edgesIgnoringSafeArea(.top)
                     .tabItem {
                         VStack {

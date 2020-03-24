@@ -24,6 +24,8 @@ struct cardsRow1: View {
             HStack {
                 Text("Recent Posts")
                     .font(.title)
+                    .fontWeight(.medium)
+                    .multilineTextAlignment(.leading)
                     .padding(.leading, 20)
                 Spacer()
             }

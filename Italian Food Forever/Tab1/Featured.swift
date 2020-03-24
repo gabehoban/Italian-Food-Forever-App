@@ -28,30 +28,28 @@ struct Featured: View {
             ForEach(listF.datas) { i in
                 NavigationLink(destination: DetailView(detail: i)) {
                     ZStack {
-                        Rectangle()
-                            .padding(.top, 70)
-                            .frame(width: 370, height: 360)
-                            .foregroundColor(Color(UIColor.systemGray5))
-                            .cornerRadius(10)
-                            .shadow(color: .black, radius: 5, x: 3, y: 3)
-                            .opacity(0.4)
                         WebImage(url: URL(string: i.image), options: .highPriority)
                             .renderingMode(.original)
                             .resizable()
-                            .frame(width: 370, height: 250)
+                            .frame(width: 390, height: 270)
                             .cornerRadius(15)
-                        VStack(alignment: .leading) {
+                        Rectangle()
+                            .padding(.top, 270)
+                            .foregroundColor(.white)
+                            .background(LinearGradient(gradient: .init(colors: [Color.clear, Color.white]), startPoint: .top, endPoint: .bottom).opacity(0.8))
+                            .frame(width:390, height: 200)
+                        HStack(alignment: .center) {
                             Text((i.title)
                                 .removingHTMLEntities)
-                                .font(.headline)
-                                .fontWeight(.heavy)
+                                .font(.title)
+                                .fontWeight(.medium)
                                 .foregroundColor(Color.black)
-                                .frame(width: 300.0)
+                                .multilineTextAlignment(.leading)
+                                .frame(width: 390, height: 400)
+                                .padding(.leading, 7.0)
                                 .lineLimit(3)
-                                .padding(.leading, -215)
-                                .navigationBarTitle("")
-                        }.padding(.top, 295)
-                         .padding(.bottom, 2)
+                            Spacer()
+                        }.padding(.top, 275)
                     }
                 }
             }

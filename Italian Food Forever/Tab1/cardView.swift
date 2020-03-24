@@ -26,8 +26,9 @@ struct dataType: Identifiable {
 
 }
 
-struct DetailView: View {
 
+struct MySubview: View {
+    let size: CGSize
     var detail: dataType
 
     @EnvironmentObject var spark: Spark
@@ -45,31 +46,65 @@ struct DetailView: View {
 
         return brokenString[0].removingHTMLEntities
     }
-
     var body: some View {
         NavigationView {
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack {
-                    HStack {
-                        Text(detail.title)
-                            .font(.title)
-                            .multilineTextAlignment(.leading)
-                            .padding(.leading, 10.0)
-                        Spacer()
-                    }
-                    WebImage(url: URL(string: detail.image), options: .highPriority)
-                        .renderingMode(.original)
-                        .resizable()
-                        .cornerRadius(10)
-                        .frame(width: 400, height: 267)
-                    Text(stripHTML(str: detail.content))
-                        .padding(.horizontal, 15.0)
-                        .font(Font.custom("GentiumBasic-Regular", size: 18))
-                        .lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+            VStack {
+                WebImage(url: URL(string: detail.image), options: .highPriority)
+                    .renderingMode(.original)
+                    .resizable()
+                    .cornerRadius(10)
+                    .frame(width: 500, height: 300)
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.white)
+                        .edgesIgnoringSafeArea(.bottom)
+                        .cornerRadius(20)
+                        .frame(width: 0.95 * size.width, height: 600)
+                        .shadow(color: .black, radius: 10, x: 1, y: 1)
+                    ScrollView(.vertical, showsIndicators: false) {
+                        VStack {
+                            HStack{
+                                Text(detail.title)
+                                    .font(.headline)
+                                    .multilineTextAlignment(.leading)
+                                    .padding(.leading, 10.0)
+                                Spacer()
+                            }
+                            HStack{
+                                Text("Deborah Mele")
+                                    .fontWeight(.thin)
+                                    .padding(.leading, 15)
+                                Spacer()
+                                Button(action: {
+                                    Text("HI")
+                                }) {
+                                    ZStack{
+                                        Rectangle()
+                                            .frame(width: 200, height: 40)
+                                            .cornerRadius(40)
+                                            .foregroundColor(.black)
+                                        HStack{
+                                            Text("Instructions")
+                                                .foregroundColor(.white)
+                                            Image(systemName: "arrow.right")
+                                                .foregroundColor(.white)
+                                        }
+                                    }
+                                }
+                            }.padding(.top, 10)
+                            Rectangle()
+                                .frame(height: 2.0)
+                                .padding([.leading, .trailing], 20)
+                            Text(stripHTML(str: detail.content))
+                                .padding(.horizontal, 15.0)
+                                .lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+                            Spacer()
+                        }.padding([.leading, .trailing], 5)
+                    }.frame(width: 0.95 * size.width, height: 500)
+                     .padding(.top, -60)
                     Spacer()
-                }
-            }.padding(.top, -90)
-                .background(Color(red: 248 / 255, green: 242 / 255, blue: 219 / 255)).edgesIgnoringSafeArea(.all)
+                }.padding(.top, -40)
+            }.padding(.top, -40)
         }.navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                     if self.spark.isUserAuthenticated == .undefined {
@@ -77,14 +112,14 @@ struct DetailView: View {
                     } else if self.spark.isUserAuthenticated == .signedIn {
                         if self.heartSelect == false {
                             self.heartSelect = true
-                            
+
                             print("Before: \(self.spark.profile.saved)")
                             var savedP: [String] = self.spark.profile.saved
                             print("SavedP: \(savedP)")
                             savedP.append(self.detail.id)
                             print("New SavedP: \(savedP)")
-                            
-                            
+
+
                             SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
                                 switch err {
                                 case .success:
@@ -94,7 +129,7 @@ struct DetailView: View {
                                 }
                             }
                             self.spark.configureFirebaseStateDidChange()
-                            
+
                         } else if self.heartSelect == true {
                             self.heartSelect = false
                             var savedP = self.spark.profile.saved
@@ -124,14 +159,14 @@ struct DetailView: View {
             }
                 ).sheet(isPresented: self.$show_signinModal) {
                 signInModal()
-            }.scaleEffect(/*@START_MENU_TOKEN@*/1.4/*@END_MENU_TOKEN@*/))
+                }.scaleEffect(/*@START_MENU_TOKEN@*/1.4/*@END_MENU_TOKEN@*/))
             .edgesIgnoringSafeArea(.top)
             .padding(.top, 10)
             .onAppear() {
                 self.spark.configureFirebaseStateDidChange()
-                
+
                 print(self.spark.profile.saved)
-                
+
                 UINavigationBar.appearance().isOpaque = true
                 UINavigationBar.appearance().isTranslucent = true
 
@@ -142,8 +177,19 @@ struct DetailView: View {
                         break
                     }
                 }
-                
-                
+
+
+        }
+    }
+}
+
+
+struct DetailView: View {
+
+    var detail: dataType
+    var body: some View {
+        GeometryReader { geometry in
+            MySubview(size: geometry.size, detail: self.detail)
         }
     }
 }

@@ -4,7 +4,9 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>GentiumBasic-Regular.ttf</string>
+		<string>uniformextracondensed-medium-webfont.otf</string>
+		<string>IntroDemoCond-LightCAPS.otf</string>
+		<string>AvertaDemoPE-Regular.otf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
