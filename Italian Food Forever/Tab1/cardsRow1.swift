@@ -94,7 +94,7 @@ class getcardData: ObservableObject {
         load()
     }
     func load() {
-        let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?per_page=6&offset=1&_fields=id,excerpt,content,title,mv,%20date,link&_envelope"
+        let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?per_page=6&offset=1&_fields=id,excerpt,content,title,mv,date,link&_envelope"
 
         let url = URL(string: source)!
 
@@ -115,7 +115,7 @@ class getcardData: ObservableObject {
                 let title = i.1["title"]["rendered"].stringValue.removingHTMLEntities
                 let excerpt = i.1["excerpt"]["rendered"].stringValue
                 let image = i.1["mv"]["thumbnail_uri"].stringValue
-                let content = i.1["content"]["rendered"].stringValue.removingHTMLEntities
+                let content = i.1["content"]["rendered"].stringValue
                 DispatchQueue.main.async {
                     self.datas.append(dataType(id: id, url: url, date: date, title: title, excerpt: excerpt, image: image, content: content))
                 }

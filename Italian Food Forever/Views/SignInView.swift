@@ -18,9 +18,10 @@ struct SignInView: View {
                     .fontWeight(.heavy)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)
-                    .padding(.top, 250.0)
+                  .lineLimit(2)
+                  .padding(.top, 10.0)
                     .padding(.leading, 10)
-                    .frame(width: 250.0)
+                    .frame(width: 300.0)
                     .shadow(color: .black, radius: 6, x: 4, y: 4)
                 Spacer()
             }
@@ -38,6 +39,7 @@ struct SignInView: View {
             Image("pasta")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
+          .padding(.top, -250)
         )
     }
     

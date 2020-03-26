@@ -53,7 +53,7 @@ struct SparkAuth {
     static func handle(_ signInWithAppleResult: SignInWithAppleResult, completion: @escaping (Result<Bool, Error>) -> ()) {
         let uid = signInWithAppleResult.authDataResult.user.uid
         
-        var name = ""
+      var name = ""
         let fullName = signInWithAppleResult.appleIDCredential.fullName
         let givenName = fullName?.givenName ?? ""
         let middleName = fullName?.middleName ?? ""
@@ -66,6 +66,9 @@ struct SparkAuth {
                 name += " "
             }
         }
+      if name == "" {
+        name = signInWithAppleResult.appleIDCredential.fullName?.nickname ?? ""
+      }
         
         let email = signInWithAppleResult.authDataResult.user.email ?? ""
         

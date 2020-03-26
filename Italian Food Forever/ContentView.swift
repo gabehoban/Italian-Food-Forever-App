@@ -11,7 +11,7 @@ import SwiftyJSON
 import SDWebImageSwiftUI
 
 struct ContentView: View {
-
+  
     @State private var selection: Int = 0
     @State var isNavigationBarHidden: Bool = true
     @EnvironmentObject var spark: Spark
@@ -30,7 +30,7 @@ struct ContentView: View {
                         }
                     }
                     .tag(0)
-                Text("//TODO: page (2)")
+                Search()
                     .font(.title)
                     .tabItem {
                         VStack {
@@ -40,9 +40,6 @@ struct ContentView: View {
                     }
                     .tag(1)
                 Login()
-                    .padding(.top, 50)
-                    .background(Color(red: 248 / 255, green: 242 / 255, blue: 219 / 255))
-                    .edgesIgnoringSafeArea(.top)
                     .tabItem {
                         VStack {
                             Image(systemName: "heart.fill")
@@ -51,16 +48,14 @@ struct ContentView: View {
                     }
                     .tag(2)
             }.edgesIgnoringSafeArea(.top)
-             .navigationBarHidden(true)
+             .navigationBarHidden(self.isNavigationBarHidden)
         }.onAppear() {
             UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
             UINavigationBar.appearance().shadowImage = UIImage()
             UINavigationBar.appearance().isTranslucent = true
             UINavigationBar.appearance().tintColor = .black
             UINavigationBar.appearance().backgroundColor = .clear
-            if self.spark.isUserAuthenticated != .undefined {
-                self.spark.configureFirebaseStateDidChange()
-            }
+            self.spark.configureFirebaseStateDidChange()
         }
     }
 }

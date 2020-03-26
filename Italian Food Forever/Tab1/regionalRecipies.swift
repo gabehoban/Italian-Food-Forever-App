@@ -86,7 +86,7 @@ class getregionalRecipeData: ObservableObject {
         load()
     }
     func load() {
-        let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?per_page=6&categories=861&_fields=id,content,excerpt,title,mv,%20date,link&_envelope"
+        let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?per_page=6&categories=861&_fields=id,content,excerpt,title,mv,date,link&_envelope"
 
         let url = URL(string: source)!
 
@@ -105,10 +105,9 @@ class getregionalRecipeData: ObservableObject {
                 let url = i.1["link"].stringValue
                 let date = i.1["date"].stringValue
                 let title = i.1["title"]["rendered"].stringValue
-                    .removingHTMLEntities
                 let excerpt = i.1["excerpt"]["rendered"].stringValue
                 let image = i.1["mv"]["thumbnail_uri"].stringValue
-                let content = i.1["content"]["rendered"].stringValue.removingHTMLEntities
+                let content = i.1["content"]["rendered"].stringValue
                 DispatchQueue.main.async {
                     self.datas.append(dataType(id: id, url: url, date: date, title: title, excerpt: excerpt, image: image, content: content))
                 }

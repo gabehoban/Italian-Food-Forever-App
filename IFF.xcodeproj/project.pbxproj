@@ -10,6 +10,8 @@
 		211BBCF324299B6C004F345D /* IntroDemoCond-LightCAPS.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCF224299B6C004F345D /* IntroDemoCond-LightCAPS.otf */; };
 		211BBCF524299C8F004F345D /* AvertaDemoPE-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCF424299C8E004F345D /* AvertaDemoPE-Regular.otf */; };
 		211BBCFF2429A68B004F345D /* uniformextracondensed-medium-webfont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */; };
+		213CF7A1242C0FC2009E9CDC /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CF7A0242C0FC2009E9CDC /* Search.swift */; };
+		213CF7A5242C5718009E9CDC /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CF7A4242C5717009E9CDC /* settings.swift */; };
 		214388802425B72600A81051 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143887F2425B72600A81051 /* Query.swift */; };
 		21537FA72427FA780034A75A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FA62427FA780034A75A /* Login.swift */; };
 		21537FA92427FB690034A75A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21537FA82427FB690034A75A /* GoogleService-Info.plist */; };
@@ -76,6 +78,8 @@
 		211BBCF424299C8E004F345D /* AvertaDemoPE-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvertaDemoPE-Regular.otf"; sourceTree = "<group>"; };
 		211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "uniformextracondensed-medium-webfont.otf"; sourceTree = "<group>"; };
 		211FD281242554220041E72F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Users/gabehoban/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		213CF7A0242C0FC2009E9CDC /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		213CF7A4242C5717009E9CDC /* settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
 		2143887F2425B72600A81051 /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		21537FA62427FA780034A75A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		21537FA82427FB690034A75A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 		2143887D2425B43000A81051 /* Tab 2 */ = {
 			isa = PBXGroup;
 			children = (
+				213CF7A0242C0FC2009E9CDC /* Search.swift */,
 			);
 			path = "Tab 2";
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 		21537FA52427FA5C0034A75A /* Tab3 */ = {
 			isa = PBXGroup;
 			children = (
+				213CF7A4242C5717009E9CDC /* settings.swift */,
 				21537FA62427FA780034A75A /* Login.swift */,
 			);
 			path = Tab3;
@@ -611,6 +617,7 @@
 				21C008C9242177F700412ABB /* Discover.swift in Sources */,
 				21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */,
 				214388802425B72600A81051 /* Query.swift in Sources */,
+				213CF7A1242C0FC2009E9CDC /* Search.swift in Sources */,
 				21BA5C022423EEBD00499BCE /* cardView.swift in Sources */,
 				21537FCA2427FEB70034A75A /* ProfileView.swift in Sources */,
 				21FE87BD2420026300910CF0 /* ContentView.swift in Sources */,
@@ -621,6 +628,7 @@
 				21537FC02427FEB70034A75A /* DocumentSerializable.swift in Sources */,
 				21BA5BFE2423E25A00499BCE /* regionalRecipies.swift in Sources */,
 				21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */,
+				213CF7A5242C5718009E9CDC /* settings.swift in Sources */,
 				21537FCC2427FEB70034A75A /* LaunchScreenView.swift in Sources */,
 				21F22C7924247AFC009E8B53 /* ViewModifiers.swift in Sources */,
 				21537FC32427FEB70034A75A /* Typealiases.swift in Sources */,

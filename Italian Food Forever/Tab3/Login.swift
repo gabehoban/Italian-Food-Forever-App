@@ -9,34 +9,35 @@
 import SwiftUI
 
 struct Login: View {
-    
-    @EnvironmentObject var spark: Spark
-    
-    var body: some View {
-        ZStack {
-            if spark.isUserAuthenticated == .undefined {
-                LaunchScreenView()
-            } else if spark.isUserAuthenticated == .signedOut {
-                SignInView()
-            } else if spark.isUserAuthenticated == .signedIn {
-                ProfileView()
-                    .padding(.top, 50)
-                    .background(Color(red: 248 / 255, green: 242 / 255, blue: 219 / 255))
-                    .edgesIgnoringSafeArea(.top)
-            }
-        }.onAppear(){
-            // dev only
+  
+  @EnvironmentObject var spark: Spark
+
+  var body: some View {
+      ZStack {
+        if spark.isUserAuthenticated == .undefined {
+          LaunchScreenView()
+        } else if spark.isUserAuthenticated == .signedOut {
+          SignInView()
+        } else if spark.isUserAuthenticated == .signedIn {
+          ProfileView()
+        }
+      }.edgesIgnoringSafeArea(.top)
+       .padding(.top, 150)
+       .onAppear() {
+        UINavigationBar.appearance().isOpaque = true
+        UINavigationBar.appearance().isTranslucent = true
+      // dev only
 //            SparkAuth.logout { (result) in
 //                print("Logout: \(result)")
 //            }
-            
-            self.spark.configureFirebaseStateDidChange()
-        }
+      self.spark.configureFirebaseStateDidChange()
     }
+  }
+
 }
- 
+
 struct Login_Previews: PreviewProvider {
-    static var previews: some View {
-        Login()
-    }
+  static var previews: some View {
+    Login()
+  }
 }
