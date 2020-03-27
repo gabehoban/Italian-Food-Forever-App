@@ -18,6 +18,22 @@ struct settings: View {
 				Section(header: Text("Account")) {
 					HStack {
 						Spacer()
+						NavigationLink(destination: privacyTerms()) {
+							Text("Acknoledgements")
+								.foregroundColor(.blue)
+						}
+						Spacer()
+					}
+					HStack {
+						Spacer()
+						NavigationLink(destination: privacyTerms()) {
+							Text("Privacy & Terms")
+								.foregroundColor(.blue)
+						}
+					Spacer()
+					}
+					HStack {
+						Spacer()
 						Button(action: {
 							print("Clicked")
 							SparkAuth.logout { (err) in

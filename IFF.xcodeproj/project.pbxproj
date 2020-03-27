@@ -35,6 +35,10 @@
 		21537FCF242812150034A75A /* signInModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FCE242812150034A75A /* signInModal.swift */; };
 		21537FD1242812220034A75A /* signBackInModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FD0242812220034A75A /* signBackInModal.swift */; };
 		216D96942422E2F300F0CBB6 /* Featured.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D96932422E2F300F0CBB6 /* Featured.swift */; };
+		21B6CBCA242D7E190000FA7E /* privacyTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBC9242D7E190000FA7E /* privacyTerms.swift */; };
+		21B6CBCC242D7E7A0000FA7E /* privacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */; };
+		21B6CBCE242D7E8D0000FA7E /* termsUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBCD242D7E8D0000FA7E /* termsUse.swift */; };
+		21B6CBD0242D7EDF0000FA7E /* acknowledges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBCF242D7EDF0000FA7E /* acknowledges.swift */; };
 		21B802772422B71400BED86A /* cardsRow1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B802762422B71400BED86A /* cardsRow1.swift */; };
 		21BA5BFE2423E25A00499BCE /* regionalRecipies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */; };
 		21BA5C002423E57800499BCE /* springRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5BFF2423E57800499BCE /* springRow.swift */; };
@@ -102,6 +106,10 @@
 		21537FCE242812150034A75A /* signInModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInModal.swift; sourceTree = "<group>"; };
 		21537FD0242812220034A75A /* signBackInModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signBackInModal.swift; sourceTree = "<group>"; };
 		216D96932422E2F300F0CBB6 /* Featured.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Featured.swift; sourceTree = "<group>"; };
+		21B6CBC9242D7E190000FA7E /* privacyTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyTerms.swift; sourceTree = "<group>"; };
+		21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyPolicy.swift; sourceTree = "<group>"; };
+		21B6CBCD242D7E8D0000FA7E /* termsUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = termsUse.swift; sourceTree = "<group>"; };
+		21B6CBCF242D7EDF0000FA7E /* acknowledges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acknowledges.swift; sourceTree = "<group>"; };
 		21B802762422B71400BED86A /* cardsRow1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardsRow1.swift; sourceTree = "<group>"; };
 		21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionalRecipies.swift; sourceTree = "<group>"; };
 		21BA5BFF2423E57800499BCE /* springRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = springRow.swift; sourceTree = "<group>"; };
@@ -187,6 +195,10 @@
 		21537FA52427FA5C0034A75A /* Tab3 */ = {
 			isa = PBXGroup;
 			children = (
+				21B6CBCF242D7EDF0000FA7E /* acknowledges.swift */,
+				21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */,
+				21B6CBCD242D7E8D0000FA7E /* termsUse.swift */,
+				21B6CBC9242D7E190000FA7E /* privacyTerms.swift */,
 				213CF7A4242C5717009E9CDC /* settings.swift */,
 				21537FA62427FA780034A75A /* Login.swift */,
 			);
@@ -254,6 +266,16 @@
 			path = Tab1;
 			sourceTree = "<group>";
 		};
+		21B6CBC8242D33660000FA7E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				21FE87B52420026300910CF0 /* AppDelegate.swift */,
+				21F22C7824247AFC009E8B53 /* ViewModifiers.swift */,
+				21FE87B72420026300910CF0 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		21FE87A92420026200910CF0 = {
 			isa = PBXGroup;
 			children = (
@@ -280,15 +302,13 @@
 			isa = PBXGroup;
 			children = (
 				21537FCD242806610034A75A /* Italian Food Forever.entitlements */,
+				21FE87BC2420026300910CF0 /* ContentView.swift */,
 				21537FAC2427FEB30034A75A /* Helpers */,
 				21537FB42427FEB50034A75A /* Spark */,
 				21537FBA2427FEB70034A75A /* Views */,
 				211BBCEF242998A5004F345D /* Font */,
 				2143887E2425B71700A81051 /* Networking */,
-				21FE87B52420026300910CF0 /* AppDelegate.swift */,
-				21F22C7824247AFC009E8B53 /* ViewModifiers.swift */,
-				21FE87B72420026300910CF0 /* SceneDelegate.swift */,
-				21FE87BC2420026300910CF0 /* ContentView.swift */,
+				21B6CBC8242D33660000FA7E /* App */,
 				2195AE2B2425235E0045928A /* Tab1 */,
 				2143887D2425B43000A81051 /* Tab 2 */,
 				21537FA52427FA5C0034A75A /* Tab3 */,
@@ -610,6 +630,7 @@
 				21537FC92427FEB70034A75A /* SparkAuth.swift in Sources */,
 				21537FC52427FEB70034A75A /* Spark.swift in Sources */,
 				21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */,
+				21B6CBCA242D7E190000FA7E /* privacyTerms.swift in Sources */,
 				21537FA72427FA780034A75A /* Login.swift in Sources */,
 				21537FCF242812150034A75A /* signInModal.swift in Sources */,
 				21537FC62427FEB70034A75A /* SparkError.swift in Sources */,
@@ -626,9 +647,12 @@
 				21537FCB2427FEB70034A75A /* SignInView.swift in Sources */,
 				21B802772422B71400BED86A /* cardsRow1.swift in Sources */,
 				21537FC02427FEB70034A75A /* DocumentSerializable.swift in Sources */,
+				21B6CBCE242D7E8D0000FA7E /* termsUse.swift in Sources */,
 				21BA5BFE2423E25A00499BCE /* regionalRecipies.swift in Sources */,
 				21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */,
+				21B6CBD0242D7EDF0000FA7E /* acknowledges.swift in Sources */,
 				213CF7A5242C5718009E9CDC /* settings.swift in Sources */,
+				21B6CBCC242D7E7A0000FA7E /* privacyPolicy.swift in Sources */,
 				21537FCC2427FEB70034A75A /* LaunchScreenView.swift in Sources */,
 				21F22C7924247AFC009E8B53 /* ViewModifiers.swift in Sources */,
 				21537FC32427FEB70034A75A /* Typealiases.swift in Sources */,

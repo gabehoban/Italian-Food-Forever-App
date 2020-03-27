@@ -8,74 +8,74 @@
 
 import SwiftUI
 import Combine
+import SwiftyJSON
+import Foundation
 
-
+struct searchType: Identifiable {
+	var id: String
+	var title: String
+}
 
 struct Search: View {
-  
-  let cars = [""]
-  @State private var searchText: String = ""
-  @EnvironmentObject var spark: Spark
-  
-  var body: some View {
-    VStack {
-      SearchBar(text: $searchText)
-      List {
-        ForEach(self.cars.filter {
-          self.searchText.isEmpty ? true : $0.lowercased().contains(self.searchText.lowercased())
+	@State public var text = ""
+	@ObservedObject var fetcher = recipeFetcher(search: "")
 
-        }, id: \.self) { car in
-          Text(car)
-        }
-      }
-    }.padding(.top, -50)
-  }
+	var body: some View {
+		Form {
+			Section {
+				TextField("Search for recipies...",
+				          text: $text, onEditingChanged: { _ in
+					          self.fetcher.getJsonData(string: self.text)
+				          })
+			}
+			Section(header: Text("Result")) {
+				List {
+					ForEach(fetcher.recipies) { i in
+						Text(i.title)
+							.font(.subheadline)
+							.lineLimit(1)
+					}
+				}
+			}
+		}
+	}
+
 }
 
 struct Search_Previews: PreviewProvider {
-  static var previews: some View {
-    Search()
-  }
+	static var previews: some View {
+		Search()
+	}
 }
 
-struct SearchBar: UIViewRepresentable {
+public class recipeFetcher: ObservableObject {
 
-  @Binding var text: String
+	@Published var recipies = [searchType]()
 
-  class Coordinator: NSObject, UISearchBarDelegate {
 
-    @Binding var text: String
+	init(search: String) {
+		getJsonData(string: search)
+	}
 
-    init(text: Binding<String>) {
-      _text = text
-    }
-
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-      text = searchText
-    }
-  }
-
-  func makeCoordinator() -> SearchBar.Coordinator {
-    return Coordinator(text: $text)
-  }
-
-  func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
-    let searchBar = UISearchBar(frame: .zero)
-    searchBar.delegate = context.coordinator
-    searchBar.searchBarStyle = .minimal
-    searchBar.placeholder = "Search"
-    return searchBar
-  }
-
-  func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
-    uiView.text = text
-  }
-}
-
-func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
-  let searchBar = UISearchBar(frame: .zero)
-  searchBar.delegate = context.coordinator
-  searchBar.searchBarStyle = .minimal
-  searchBar.autocapitalizationType = .none
-  return searchBar
+	func getJsonData(string: String) {
+		recipies.removeAll(keepingCapacity: false)
+		let url = URL(string: "https://italianfoodforever.com/wp-json/wp/v2/search?_envelope&_fields=id,title&search=" + string.replacingOccurrences(of: " ", with: "%20"))
+		//string is the initial string of the station name
+		let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+			if error != nil {
+				print((error?.localizedDescription)!)
+				return
+			}
+			
+			let json = try! JSON(data: data!)
+			for i in json["body"] {
+				let id = i.1["id"].stringValue
+				let title = i.1["title"].stringValue.removingHTMLEntities
+				DispatchQueue.main.async {
+					self.recipies.append(searchType(id: id, title: title))
+				}
+			}
+		}
+		task.resume()
+	}
 }
