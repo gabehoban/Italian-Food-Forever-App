@@ -44,6 +44,9 @@
 		21BA5C002423E57800499BCE /* springRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5BFF2423E57800499BCE /* springRow.swift */; };
 		21BA5C022423EEBD00499BCE /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5C012423EEBD00499BCE /* cardView.swift */; };
 		21C008C9242177F700412ABB /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C008C8242177F700412ABB /* Discover.swift */; };
+		21D4CF71242EB1E200B47582 /* phoneAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4CF70242EB1E200B47582 /* phoneAuth.swift */; };
+		21D4CF73242EC63400B47582 /* onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4CF72242EC63400B47582 /* onboarding.swift */; };
+		21D4CF77242F098200B47582 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D4CF76242F098200B47582 /* launch.png */; };
 		21F22C7924247AFC009E8B53 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F22C7824247AFC009E8B53 /* ViewModifiers.swift */; };
 		21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B52420026300910CF0 /* AppDelegate.swift */; };
 		21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B72420026300910CF0 /* SceneDelegate.swift */; };
@@ -115,6 +118,9 @@
 		21BA5BFF2423E57800499BCE /* springRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = springRow.swift; sourceTree = "<group>"; };
 		21BA5C012423EEBD00499BCE /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
 		21C008C8242177F700412ABB /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+		21D4CF70242EB1E200B47582 /* phoneAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phoneAuth.swift; sourceTree = "<group>"; };
+		21D4CF72242EC63400B47582 /* onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboarding.swift; sourceTree = "<group>"; };
+		21D4CF76242F098200B47582 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		21F22C7824247AFC009E8B53 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		21FE87B22420026200910CF0 /* Italian Food Forever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Italian Food Forever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21FE87B52420026300910CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -195,7 +201,9 @@
 		21537FA52427FA5C0034A75A /* Tab3 */ = {
 			isa = PBXGroup;
 			children = (
+				21D4CF72242EC63400B47582 /* onboarding.swift */,
 				21B6CBCF242D7EDF0000FA7E /* acknowledges.swift */,
+				21D4CF70242EB1E200B47582 /* phoneAuth.swift */,
 				21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */,
 				21B6CBCD242D7E8D0000FA7E /* termsUse.swift */,
 				21B6CBC9242D7E190000FA7E /* privacyTerms.swift */,
@@ -302,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				21537FCD242806610034A75A /* Italian Food Forever.entitlements */,
+				21D4CF76242F098200B47582 /* launch.png */,
 				21FE87BC2420026300910CF0 /* ContentView.swift */,
 				21537FAC2427FEB30034A75A /* Helpers */,
 				21537FB42427FEB50034A75A /* Spark */,
@@ -486,6 +495,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D4CF77242F098200B47582 /* launch.png in Resources */,
 				211BBCF324299B6C004F345D /* IntroDemoCond-LightCAPS.otf in Resources */,
 				21FE87C52420026400910CF0 /* LaunchScreen.storyboard in Resources */,
 				211BBCFF2429A68B004F345D /* uniformextracondensed-medium-webfont.otf in Resources */,
@@ -646,11 +656,13 @@
 				21537FC22427FEB70034A75A /* SignInWithAppleView.swift in Sources */,
 				21537FCB2427FEB70034A75A /* SignInView.swift in Sources */,
 				21B802772422B71400BED86A /* cardsRow1.swift in Sources */,
+				21D4CF73242EC63400B47582 /* onboarding.swift in Sources */,
 				21537FC02427FEB70034A75A /* DocumentSerializable.swift in Sources */,
 				21B6CBCE242D7E8D0000FA7E /* termsUse.swift in Sources */,
 				21BA5BFE2423E25A00499BCE /* regionalRecipies.swift in Sources */,
 				21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */,
 				21B6CBD0242D7EDF0000FA7E /* acknowledges.swift in Sources */,
+				21D4CF71242EB1E200B47582 /* phoneAuth.swift in Sources */,
 				213CF7A5242C5718009E9CDC /* settings.swift in Sources */,
 				21B6CBCC242D7E7A0000FA7E /* privacyPolicy.swift in Sources */,
 				21537FCC2427FEB70034A75A /* LaunchScreenView.swift in Sources */,

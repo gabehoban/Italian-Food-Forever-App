@@ -32,7 +32,9 @@ struct MySubview: View {
 
 	@State private var show_signinModal: Bool = false
 	@State private var show_signBackinModal: Bool = false
+
 	@State private var heartSelect: Bool = false
+	@State private var ALERT: Bool = false
 	@State private var isSharePresented: Bool = false
 	@State private var instructionPage: Bool = false
 	@State private var ingredients: Bool = false
@@ -40,7 +42,7 @@ struct MySubview: View {
 
 	func stripHTML(str: String) -> String {
 		let str = ((((str.replacingOccurrences(of: "\n", with: "", options: .regularExpression, range: nil)
-			.replacingOccurrences(of: "</p>", with: "\n"))
+			.replacingOccurrences(of: "</p>", with: "\n\n"))
 			.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil))
 			.replacingOccurrences(of: "Deborah Mele", with: "\nDeborah Mele\n{ENDME}", options: .regularExpression, range: nil))
 			.replacingOccurrences(of: "Debrah Mele", with: "\nDeborah Mele\n{ENDME}", options: .regularExpression, range: nil))
@@ -63,7 +65,7 @@ struct MySubview: View {
 		} else {
 			let nothtml = notHTML[1]
 			let frontYield = (nothtml.replacingOccurrences(of: "\\", with: "")
-									 .components(separatedBy: "\",\"description"))
+				.components(separatedBy: "\",\"description"))
 			let yield = frontYield[0].components(separatedBy: "recipeYield\":\"")
 			return yield[1]
 		}
@@ -87,16 +89,16 @@ struct MySubview: View {
 		} else {
 			let nothtml = notHTML[1]
 			let frontIngredients = (nothtml.replacingOccurrences(of: "\\", with: "")
-				                           .components(separatedBy: ",\"recipeInstructions"))
+				.components(separatedBy: ",\"recipeInstructions"))
 			let Ingredients = frontIngredients[0].components(separatedBy: "recipeIngredient\":")
 			let toArray1 = Ingredients[1].replacingOccurrences(of: "\\/", with: "/")
 			let toArray2 = toArray1.replacingOccurrences(of: "\\", with: "")
 			let toArray3 = toArray2.replacingOccurrences(of: ",", with: ", ")
 			let toArray4 = ((toArray3
 				.replacingOccurrences(of: "[\"", with: "")
-				.replacingOccurrences(of: ", \"]", with: ""))
+				.replacingOccurrences(of: "\"]", with: ""))
 				.replacingOccurrences(of: "\"\"]", with: ""))
-			
+
 			var toReturn = toArray4.components(separatedBy: "\", \"")
 			toReturn.removeAll { $0 == "" }
 			return toReturn
@@ -122,19 +124,20 @@ struct MySubview: View {
 		} else {
 			let nothtml = notHTML[1]
 			var frontIngredients = (nothtml.replacingOccurrences(of: "\\", with: "")
-										   .components(separatedBy: ",\"url"))
+				.components(separatedBy: ",\"url"))
 			if frontIngredients[0].contains("keywords") {
-				frontIngredients = frontIngredients[0].components(separatedBy: ".,\"keywords")
+				frontIngredients = frontIngredients[0].components(separatedBy: ",\"keywords")
 			}
 			let Ingredients = frontIngredients[0].components(separatedBy: "recipeInstructions\":")
 			let toArray1 = Ingredients[1].replacingOccurrences(of: "\\/", with: "/")
 			let toArray2 = toArray1.replacingOccurrences(of: "\\", with: "")
 			let toArray3 = toArray2.replacingOccurrences(of: "{\"@type\":\"HowToStep\",\"text\":\"", with: "")
-			let toArray4 = ((toArray3
+			let toArray4 = (((toArray3
 				.replacingOccurrences(of: "\"}", with: "")
 				.replacingOccurrences(of: "[", with: ""))
 				.replacingOccurrences(of: "]", with: ""))
-			
+				.replacingOccurrences(of: "..", with: "."))
+
 			let toReturn = toArray4.components(separatedBy: ".,")
 			return toReturn
 		}
@@ -150,242 +153,252 @@ struct MySubview: View {
 	}
 
 	var body: some View {
-		NavigationView {
-			VStack {
-				WebImage(url: URL(string: detail.image), options: .highPriority)
-					.renderingMode(.original)
-					.resizable()
-					.cornerRadius(10)
-					.frame(width: 500, height: 300)
-				ZStack {
-					Rectangle()
-						.foregroundColor(.white)
-						.edgesIgnoringSafeArea(.bottom)
-						.cornerRadius(20)
-						.frame(width: 0.95 * size.width, height: 600)
-						.shadow(color: .black, radius: 10, x: 1, y: 1)
-					VStack {
-						HStack {
-							Text(detail.title.removingHTMLEntities)
-								.font(.headline)
-								.multilineTextAlignment(.leading)
-								.padding(.leading, -15.0)
-
-							Spacer()
-						}.frame(width: 0.8 * size.width, height: 50)
-						HStack {
-							VStack {
-								HStack {
-									Text("Deborah Mele")
-										.fontWeight(.thin)
-										.padding(.leading, 18)
-									Spacer()
-								}.padding(.bottom, 5)
-								HStack {
-									Text("Posted: \(formatDate(posted: detail.date))")
-										.font(.footnote)
-										.padding(.leading, 18)
-									Spacer()
-								}
-							}
-							Spacer()
-							if detail.content.contains("\"@type\":\"Recipe\"") || detail.content.contains("mv-recipe-card") {
-								Button(action: {
-									if self.instructionPage == false {
-										self.instructionPage = true
-									} else if self.instructionPage == true {
-										self.instructionPage = false
-									}
-
-								}) {
-									ZStack {
-										Rectangle()
-											.frame(width: 150, height: 30)
-											.cornerRadius(40)
-											.foregroundColor(Color(UIColor.brown))
-											.shadow(color: .gray, radius: 10, x: 1, y: 1)
-										HStack {
-											Text("Recipe")
-												.foregroundColor(.white)
-											if instructionPage == false {
-												Image(systemName: "chevron.right")
-													.foregroundColor(.white)
-											} else if instructionPage == true {
-												Image(systemName: "chevron.down")
-													.foregroundColor(.white)
-											}
-
-										}
-									}
-								}.padding(.trailing, 15)
-							}
-						}.padding(.top, -15)
+		VStack {
+			NavigationLink(destination: Login(), isActive: $show_signinModal) {
+				EmptyView()
+					.navigationBarHidden(true)
+			}
+			NavigationLink(destination: Login(), isActive: $show_signBackinModal) {
+				EmptyView()
+					.navigationBarHidden(true)
+			}
+			NavigationView {
+				VStack {
+					WebImage(url: URL(string: detail.image), options: .highPriority)
+						.renderingMode(.original)
+						.resizable()
+						.cornerRadius(10)
+						.frame(width: 500, height: 300)
+					ZStack {
 						Rectangle()
-							.frame(height: 2.0)
-							.padding([.leading, .trailing], 20)
-							.padding(.bottom, 10)
-						Spacer()
-					}.frame(width: 0.95 * size.width, height: 500)
-					 .padding(.top, -60)
-					ScrollView(.vertical, showsIndicators: false) {
+							.foregroundColor(.white)
+							.edgesIgnoringSafeArea(.bottom)
+							.cornerRadius(20)
+							.frame(width: 0.95 * size.width, height: 600)
+							.shadow(color: .black, radius: 10, x: 1, y: 1)
 						VStack {
-							if instructionPage == false {
-								Text(stripHTML(str: detail.content).removingHTMLEntities)
-									.padding(.horizontal, 15.0)
-									.lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
-							} else {
+							HStack {
+								Text(detail.title.removingHTMLEntities)
+									.font(.headline)
+									.multilineTextAlignment(.leading)
+									.padding(.leading, -15.0)
+
+								Spacer()
+							}.frame(width: 0.8 * size.width, height: 50)
+							HStack {
 								VStack {
 									HStack {
+										Text("Deborah Mele")
+											.fontWeight(.thin)
+											.padding(.leading, 18)
 										Spacer()
-										Button(action: {
-											if self.ingredients == false {
-												self.ingredients = true
-												self.ingredientSymbol = "chevron.down"
-											} else if self.ingredients == true {
-												self.ingredients = false
-												self.ingredientSymbol = "chevron.right"
+									}.padding(.bottom, 5)
+									HStack {
+										Text("Posted: \(formatDate(posted: detail.date))")
+											.font(.footnote)
+											.padding(.leading, 18)
+										Spacer()
+									}
+								}
+								Spacer()
+								if detail.content.contains("\"@type\":\"Recipe\"") || detail.content.contains("mv-recipe-card") {
+									Button(action: {
+										if self.instructionPage == false {
+											self.instructionPage = true
+										} else if self.instructionPage == true {
+											self.instructionPage = false
+										}
+
+									}) {
+										ZStack {
+											Rectangle()
+												.frame(width: 150, height: 30)
+												.cornerRadius(40)
+												.foregroundColor(Color(UIColor.brown))
+												.shadow(color: .gray, radius: 10, x: 1, y: 1)
+											HStack {
+												Text("Recipe")
+													.foregroundColor(.white)
+												if instructionPage == false {
+													Image(systemName: "chevron.right")
+														.foregroundColor(.white)
+												} else if instructionPage == true {
+													Image(systemName: "chevron.down")
+														.foregroundColor(.white)
+												}
+
 											}
-										}, label: {
-											ZStack {
-												Rectangle()
-													.frame(width: 150, height: 30)
-													.cornerRadius(40)
-													.foregroundColor(Color(red: 248 / 255, green: 242 / 255, blue: 219 / 255))
-													.shadow(color: .gray, radius: 10, x: 1, y: 1)
-												HStack {
-													Text("Ingredients ")
-														.foregroundColor(.black)
-													Image(systemName: "\(ingredientSymbol)")
-														.foregroundColor(.black)
+										}
+									}.padding(.trailing, 15)
+								}
+							}.padding(.top, -15)
+							Rectangle()
+								.frame(height: 2.0)
+								.padding([.leading, .trailing], 20)
+								.padding(.bottom, 10)
+							Spacer()
+						}.frame(width: 0.95 * size.width, height: 500)
+							.padding(.top, -60)
+						ScrollView(.vertical, showsIndicators: false) {
+							VStack {
+								if instructionPage == false {
+									Text(stripHTML(str: detail.content).removingHTMLEntities)
+										.padding(.horizontal, 15.0)
+										.lineSpacing(5)
+								} else {
+									VStack {
+										HStack {
+											Spacer()
+											Button(action: {
+												if self.ingredients == false {
+													self.ingredients = true
+													self.ingredientSymbol = "chevron.down"
+												} else if self.ingredients == true {
+													self.ingredients = false
+													self.ingredientSymbol = "chevron.right"
+												}
+											}, label: {
+												ZStack {
+													Rectangle()
+														.frame(width: 150, height: 30)
+														.cornerRadius(40)
+														.foregroundColor(Color(red: 248 / 255, green: 242 / 255, blue: 219 / 255))
+														.shadow(color: .gray, radius: 10, x: 1, y: 1)
+													HStack {
+														Text("Ingredients ")
+															.foregroundColor(.black)
+														Image(systemName: "\(ingredientSymbol)")
+															.foregroundColor(.black)
+													}
+												}
+											}).padding(.leading, -25)
+											Spacer()
+											Text("Yield: \(formatYield(str: detail.content.removingHTMLEntities))")
+											Spacer()
+										}.padding([.top, .bottom], 5)
+
+										if ingredients == true {
+											VStack {
+												ForEach(formatIngredients(str: detail.content), id: \.self) { datum in
+													HStack {
+														Image(systemName: "circle.fill") .foregroundColor(Color.black)
+															.scaleEffect(0.4)
+														Text(datum.removingHTMLEntities)
+															.lineLimit(3)
+															.font(.body)
+														Spacer()
+													}
+
 												}
 											}
-										}).padding(.leading, -25)
-										Spacer()
-										Text("Yield: \(formatYield(str: detail.content.removingHTMLEntities))")
-										Spacer()
-									}.padding([.top, .bottom], 5)
-	
-									if ingredients == true {
+										}
 										VStack {
-											ForEach(formatIngredients(str: detail.content), id: \.self) { datum in
+											ForEach(0..<formatSteps(str: detail.content).count, id: \.self) { i in
 												HStack {
-													Image(systemName: "circle.fill") .foregroundColor(Color.black)
-														.scaleEffect(0.4)
-													Text(datum.removingHTMLEntities)
-														.lineLimit(3)
+													Text("\(i + 1). ")
+														.foregroundColor(Color.black)
+														.font(.body)
+													Text("\(self.formatSteps(str: self.detail.content)[i]).")
 														.font(.body)
 													Spacer()
-												}
-
+												}.padding(.top, 18)
 											}
 										}
-									}
-									VStack {
-										ForEach(0..<formatSteps(str: detail.content).count, id: \.self) { i in
-											HStack {
-												Text("\(i + 1). ")
-													.foregroundColor(Color.black)
-													.font(.body)
-												Text("\(self.formatSteps(str: self.detail.content)[i]).")
-													.font(.body)
-												Spacer()
-											}.padding(.top, 18)
+									}.padding(.leading, 5)
+								}
+								Spacer()
+							}.padding([.leading, .trailing], 10)
+								.padding(.top, 10)
+						}.padding(.top, 35) //Scrollview top padding
+						.frame(width: 0.95 * size.width, height: 430)
+						Spacer()
+					}.padding(.top, -60) //Rectangle offset
+				}.padding(.top, -40)
+			}.navigationBarTitle("", displayMode: .inline)
+				.navigationBarItems(trailing:
+					HStack {
+						Spacer()
+						Button(action: {
+							self.isSharePresented = true
+						}, label: {
+							Image(systemName: "square.and.arrow.up")
+						}).padding(.bottom, 5)
+							.padding(.trailing, 8)
+							.sheet(isPresented: $isSharePresented, onDismiss: {
+								print("Dismiss")
+							}, content: {
+								ActivityViewController(activityItems: [URL(string: self.detail.url)!])
+							})
+						Button(action: {
+							if self.spark.isUserAuthenticated == .undefined {
+								self.show_signinModal = true
+							} else if self.spark.isUserAuthenticated == .signedIn {
+								if self.heartSelect == false {
+									self.heartSelect = true
+
+									var savedP: [String] = self.spark.profile.saved
+									savedP.append(self.detail.id)
+
+
+									SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
+										switch err {
+										case .success:
+											print("Added \(self.detail.id) to saved array -> \(self.spark.profile.saved)")
+										case .failure(let error):
+											print(error.localizedDescription)
 										}
 									}
-								}.padding(.leading, 5)
-							}
-							Spacer()
-						}.padding([.leading, .trailing], 10)
-						 .padding(.top, 10)
-					}.padding(.top, 35) //Scrollview top padding
-					 .frame(width: 0.95 * size.width, height: 430)
-				Spacer()
-				}.padding(.top, -60) //Rectangle offset
-			}.padding(.top, -40)
-		}.navigationBarTitle("", displayMode: .inline)
-			.navigationBarItems(trailing:
-				HStack {
-					Spacer()
-					Button(action: {
-						self.isSharePresented = true
-					}, label: {
-						Image(systemName: "square.and.arrow.up")
-					}).padding(.bottom, 5)
-					  .padding(.trailing, 8)
-					  .sheet(isPresented: $isSharePresented, onDismiss: {
-						print("Dismiss")
-					}, content: {
-						ActivityViewController(activityItems: [URL(string: self.detail.url)!])
-					})
-					Button(action: {
-						if self.spark.isUserAuthenticated == .undefined {
-							self.show_signinModal = true
-						} else if self.spark.isUserAuthenticated == .signedIn {
-							if self.heartSelect == false {
-								self.heartSelect = true
+									self.spark.configureFirebaseStateDidChange()
 
-								var savedP: [String] = self.spark.profile.saved
-								savedP.append(self.detail.id)
-
-
-								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
-									switch err {
-									case .success:
-										print("Added \(self.detail.id) to saved array -> \(self.spark.profile.saved)")
-									case .failure(let error):
-										print(error.localizedDescription)
+								} else if self.heartSelect == true {
+									self.heartSelect = false
+									var savedP = self.spark.profile.saved
+									if let index = savedP.firstIndex(of: "\(self.detail.id)") {
+										savedP.remove(at: index)
 									}
-								}
-								self.spark.configureFirebaseStateDidChange()
-
-							} else if self.heartSelect == true {
-								self.heartSelect = false
-								var savedP = self.spark.profile.saved
-								if let index = savedP.firstIndex(of: "\(self.detail.id)") {
-									savedP.remove(at: index)
-								}
-								self.spark.configureFirebaseStateDidChange()
-								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
-									switch err {
-									case .success:
-										print("Removed \(self.detail.id) from \(self.spark.profile.saved).")
-									case .failure(let error):
-										print(error.localizedDescription)
+									self.spark.configureFirebaseStateDidChange()
+									SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
+										switch err {
+										case .success:
+											print("Removed \(self.detail.id) from \(self.spark.profile.saved).")
+										case .failure(let error):
+											print(error.localizedDescription)
+										}
 									}
+									self.spark.configureFirebaseStateDidChange()
 								}
-								self.spark.configureFirebaseStateDidChange()
+							} else if self.spark.isUserAuthenticated == .signedOut {
+								self.show_signBackinModal = true
 							}
-						} else if self.spark.isUserAuthenticated == .signedOut {
-							self.show_signBackinModal = true
+						}, label: {
+							if heartSelect == false {
+								Image(systemName: "heart")
+							} else if heartSelect == true {
+								Image(systemName: "heart.fill").foregroundColor(.red)
+							}
 						}
-					}, label: {
-						if heartSelect == false {
-							Image(systemName: "heart")
-						} else if heartSelect == true {
-							Image(systemName: "heart.fill").foregroundColor(.red)
+						)
+					}.scaleEffect(/*@START_MENU_TOKEN@*/1.4/*@END_MENU_TOKEN@*/))
+				.edgesIgnoringSafeArea(.top)
+				.padding(.top, 10)
+				.onAppear() {
+					self.spark.configureFirebaseStateDidChange()
+
+					print(self.spark.profile.saved)
+
+					UINavigationBar.appearance().isOpaque = true
+					UINavigationBar.appearance().isTranslucent = true
+
+					for id in self.spark.profile.saved
+					{
+						if id == self.detail.id {
+							self.heartSelect = true
+							break
 						}
 					}
-					)
-				}.scaleEffect(/*@START_MENU_TOKEN@*/1.4/*@END_MENU_TOKEN@*/))
-			.edgesIgnoringSafeArea(.top)
-			.padding(.top, 10)
-			.onAppear() {
-				self.spark.configureFirebaseStateDidChange()
-
-				print(self.spark.profile.saved)
-
-				UINavigationBar.appearance().isOpaque = true
-				UINavigationBar.appearance().isTranslucent = true
-
-				for id in self.spark.profile.saved
-				{
-					if id == self.detail.id {
-						self.heartSelect = true
-						break
-					}
-				}
 
 
+			}
 		}
 	}
 }
@@ -402,17 +415,17 @@ struct DetailView: View {
 }
 
 struct ActivityViewController: UIViewControllerRepresentable {
-	
+
 	var activityItems: [Any]
 	var applicationActivities: [UIActivity]? = nil
-	
+
 	func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityViewController>) -> UIActivityViewController {
 		let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
 		return controller
 	}
-	
-	func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityViewController>) {}
-	
+
+	func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityViewController>) { }
+
 }
 
 struct cardView: View {

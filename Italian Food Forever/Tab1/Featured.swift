@@ -31,6 +31,10 @@ struct Featured: View {
                         WebImage(url: URL(string: i.image), options: .highPriority)
                             .renderingMode(.original)
                             .resizable()
+							.placeholder {
+								Rectangle().foregroundColor(.gray)
+							}
+							.animation(.easeInOut(duration: 0.5))
                             .frame(width: 390, height: 270)
                             .cornerRadius(15)
                         Rectangle()
@@ -46,7 +50,7 @@ struct Featured: View {
                                 .foregroundColor(Color.black)
                                 .multilineTextAlignment(.leading)
                                 .frame(width: 390, height: 400)
-                                .padding(.leading, 7.0)
+                                .padding(.leading, 2.0)
                                 .lineLimit(3)
                             Spacer()
                         }.padding(.top, 275)

@@ -13,44 +13,50 @@ import HTMLString
 
 struct Discover: View {
 
-    //@ObservedObject var list = getData()
-    @State private var translation: CGSize = .zero
+	//@ObservedObject var list = getData()
+	@State private var translation: CGSize = .zero
 
-    var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack {
-                Spacer()
-                HStack {
-                    VStack(alignment: .center) {
-                        Image("Banner")
-                            .resizable()
-                            .frame(width: 300, height: 80.0)
-                            .padding(.bottom, 135)
-                        //.padding(.top, -100)
-                        Spacer()
-                        Featured()
-                            .frame(width: 200, height: 30.0)
-                            .padding(.top, 10)
-                            .padding(.bottom, 80)
-                    }
-                }
-                Spacer()
-                VStack {
-                    Spacer()
-                    cardsRow1()
-                    regionalRecipies()
-                        .padding(.top, -90)
-                    springRow()
-                        .padding(.top, -90)
-                }.padding(.top, 70)
-                Spacer()
-            }
-        }
-    }
+	var body: some View {
+		VStack {
+			Spacer()
+			ScrollView(.vertical, showsIndicators: false) {
+				HStack {
+					Spacer()
+					Image("Banner")
+						.resizable()
+						.frame(width: 250, height: 100)
+					Spacer()
+				}
+				VStack {
+					Spacer()
+					HStack {
+						VStack(alignment: .center) {
+							Spacer()
+							Featured()
+								.frame(width: 200, height: 30.0)
+								.padding(.top, 10)
+								.padding(.bottom, 15)
+							Spacer()
+						}
+					}
+					Spacer()
+					VStack {
+						Spacer()
+						cardsRow1()
+						regionalRecipies()
+							.padding(.top, -100)
+						springRow()
+							.padding(.top, -100)
+					}.padding(.top, 115)
+					Spacer()
+				}.padding(.top, 120)//100
+			}//.padding(.top, 20)
+		}
+	}
 }
 struct Discover_Previews: PreviewProvider {
-    static var previews: some View {
-        Discover()
-            .previewLayout(.sizeThatFits)
-    }
+	static var previews: some View {
+		Discover()
+			.previewLayout(.sizeThatFits)
+	}
 }

@@ -21,25 +21,45 @@ struct Search: View {
 	@ObservedObject var fetcher = recipeFetcher(search: "")
 
 	var body: some View {
-		Form {
-			Section {
-				TextField("Search for recipies...",
+		VStack {
+			HStack{
+				Text("Search Italian Food Forever")
+					.font(.title)
+					.fontWeight(.bold)
+					.padding(.top, -50)
+				.padding([.leading, .trailing], 10)
+				Spacer()
+			}
+			HStack {
+				Image(systemName: "magnifyingglass").foregroundColor(.gray)
+					.scaleEffect(1)
+					.padding(.trailing, 5)
+					.padding(.leading, 15)
+				Spacer()
+				TextField("Enter search here...",
 				          text: $text, onEditingChanged: { _ in
 					          self.fetcher.getJsonData(string: self.text)
-				          })
-			}
-			Section(header: Text("Result")) {
-				List {
-					ForEach(fetcher.recipies) { i in
-						Text(i.title)
-							.font(.subheadline)
-							.lineLimit(1)
+				          }).frame(height: 50.0)
+				Spacer()
+			}.overlay(RoundedRectangle(cornerRadius: 25).stroke(Color.gray, lineWidth: 1))
+				.padding([.leading, .trailing], 10)
+			Form {
+				Section(header: Text("Results")) {
+					List {
+						ForEach(fetcher.recipiesFull) { i in
+							NavigationLink(destination: DetailView(detail: i)) {
+								Text(i.title)
+									.font(.subheadline)
+									.lineLimit(2)
+									.padding([.top, .bottom], 15)
+							}
+						}
 					}
-				}
-			}
+
+				}.navigationBarTitle("Test")
+			}.padding(.top, 30)
 		}
 	}
-
 }
 
 struct Search_Previews: PreviewProvider {
@@ -51,6 +71,7 @@ struct Search_Previews: PreviewProvider {
 public class recipeFetcher: ObservableObject {
 
 	@Published var recipies = [searchType]()
+	@Published var recipiesFull = [dataType]()
 
 
 	init(search: String) {
@@ -59,6 +80,7 @@ public class recipeFetcher: ObservableObject {
 
 	func getJsonData(string: String) {
 		recipies.removeAll(keepingCapacity: false)
+		recipiesFull.removeAll(keepingCapacity: false)
 		let url = URL(string: "https://italianfoodforever.com/wp-json/wp/v2/search?_envelope&_fields=id,title&search=" + string.replacingOccurrences(of: " ", with: "%20"))
 		//string is the initial string of the station name
 		let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
@@ -66,7 +88,7 @@ public class recipeFetcher: ObservableObject {
 				print((error?.localizedDescription)!)
 				return
 			}
-			
+
 			let json = try! JSON(data: data!)
 			for i in json["body"] {
 				let id = i.1["id"].stringValue
@@ -74,6 +96,29 @@ public class recipeFetcher: ObservableObject {
 				DispatchQueue.main.async {
 					self.recipies.append(searchType(id: id, title: title))
 				}
+				let urlFull = URL(string: "https://italianfoodforever.com/wp-json/wp/v2/posts?_envelope&_fields=id,excerpt,title,mv,date,link,content,author&include=" + id)
+				//string is the initial string of the station name
+				let taskFull = URLSession.shared.dataTask(with: urlFull!) { (data, response, error) in
+					if error != nil {
+						print((error?.localizedDescription)!)
+						return
+					}
+
+					let json = try! JSON(data: data!)
+					for i in json["body"] {
+						let id = i.1["id"].stringValue
+						let url = i.1["link"].stringValue
+						let date = i.1["date"].stringValue
+						let title = i.1["title"]["rendered"].stringValue.removingHTMLEntities
+						let excerpt = i.1["excerpt"]["rendered"].stringValue
+						let image = i.1["mv"]["thumbnail_uri"].stringValue
+						let content = i.1["content"]["rendered"].stringValue
+						DispatchQueue.main.async {
+							self.recipiesFull.append(dataType(id: id, url: url, date: date, title: title, excerpt: excerpt, image: image, content: content))
+						}
+					}
+				}
+				taskFull.resume()
 			}
 		}
 		task.resume()

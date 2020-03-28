@@ -23,32 +23,49 @@ struct ProfileView: View {
 		let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
 		return str
 	}
+	
+	func sanitizeName(str: String) -> String {
+		let str1 = str.components(separatedBy: " ")
+		let toReturn = str1[0]
+		return toReturn
+	}
+	
 	var body: some View {
 		VStack {
 			HStack {
-				Text("Your Saved Recipies")
-					.font(.title)
+				VStack{
+					Text("\(sanitizeName(str: self.spark.profile.name))")
+						.font(.title)
+						.fontWeight(.bold)
+				}.padding(.top, 35)
 				Spacer()
 				VStack {
 					NavigationLink(destination: settings(), label: {
 						ZStack {
 							Circle()
 								.foregroundColor(.white)
-								.padding(.top, 5)
 								.padding(.trailing, 10)
-								.shadow(color: .gray, radius: 10, x: 1, y: 1)
+								.shadow(color: .gray, radius: 10, x: 5, y: 5)
 								.frame(width: 50, height: 50)
+								.opacity(0.7)
 							Image(systemName: "gear")
 								.scaleEffect(1.6)
 								.foregroundColor(.gray)
-								.padding(.top, 5)
 								.padding(.trailing, 10)
 						}
 					})
-				}
+				}.padding(.top, 35)
 			}.padding([.leading, .trailing], 15)
-			 .padding(.top, 15)
+			 .padding(.top, 10)
 			 .padding(.bottom, 10)
+			HStack{
+				Text("Your saved posts")
+					.font(.headline)
+					.fontWeight(.semibold)
+					.foregroundColor(Color(UIColor.systemTeal))
+					.multilineTextAlignment(.leading)
+				Spacer()
+			}.padding(.leading, 15)
 			ScrollView(.vertical, showsIndicators: false) {
 				VStack(spacing: 15) {
 					ForEach(self.datasME) { i in
@@ -71,7 +88,7 @@ struct ProfileView: View {
 												.multilineTextAlignment(.leading)
 												.padding(.top, 105)
 												.padding(.leading, 15)
-												.shadow(color: .black, radius: 4, x: 1, y: 1)
+												.shadow(color: .black, radius: 3, x: 1, y: 1)
 											Spacer()
 										}
 									}
@@ -82,6 +99,7 @@ struct ProfileView: View {
 					Spacer()
 				}.frame(width: 350, height: 700)
 			}.frame(width: 350, height: 700)
+			 .padding(.top, 15)
 			Spacer()
 		}.padding(.bottom, -10)
 			.onAppear() {
@@ -128,7 +146,7 @@ struct ProfileView: View {
 					}
 				}
 				load()
-			}.padding(.top, -170)
+			}
 	}
 }
 struct ProfileView_Previews: PreviewProvider {

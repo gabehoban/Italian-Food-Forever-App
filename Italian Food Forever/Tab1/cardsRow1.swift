@@ -44,7 +44,7 @@ struct cardsRow1: View {
                                     .frame(width: 150.0, height: 165)
                                     .foregroundColor(Color.white)
                                     .cornerRadius(12)
-                                    .shadow(color: .black, radius: 5, x: 3, y: 3)
+									.shadow(color: Color.black.opacity(0.4), radius: 8, x: 3, y: 3)
                                     .opacity(0.4)
 
                                 Spacer()
@@ -52,6 +52,7 @@ struct cardsRow1: View {
                                     WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
                                         .renderingMode(.original)
                                         .resizable()
+										.indicator(.activity)
                                         .frame(width: 150, height: 105)
                                         .cornerRadius(12)
                                     

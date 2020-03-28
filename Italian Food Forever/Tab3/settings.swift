@@ -15,10 +15,10 @@ struct settings: View {
 	var body: some View {
 		VStack {
 			Form {
-				Section(header: Text("Account")) {
+				Section {
 					HStack {
 						Spacer()
-						NavigationLink(destination: privacyTerms()) {
+						NavigationLink(destination: acknowledges()) {
 							Text("Acknoledgements")
 								.foregroundColor(.blue)
 						}
@@ -52,9 +52,10 @@ struct settings: View {
 					}
 				}
 			}.navigationBarTitle(Text("Preferences"))
-			Text("UID: \(self.spark.profile.uid)")
-			Text("Version \(UIApplication.appVersion ?? "nil")")
 			Spacer()
+			Text("Version \(UIApplication.appVersion ?? "nil")")
+			Text("UID: \(self.spark.profile.uid)")
+				.font(.footnote)
 		}
 	}
 }

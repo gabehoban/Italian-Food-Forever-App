@@ -21,9 +21,7 @@ struct Login: View {
         } else if spark.isUserAuthenticated == .signedIn {
           ProfileView()
         }
-      }.edgesIgnoringSafeArea(.top)
-       .padding(.top, 150)
-       .onAppear() {
+      }.onAppear() {
         UINavigationBar.appearance().isOpaque = true
         UINavigationBar.appearance().isTranslucent = true
       // dev only
