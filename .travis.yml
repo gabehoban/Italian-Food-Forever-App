@@ -2,7 +2,7 @@ language:
   - swift
 osx_image: xcode11.3
 script:
-  - xcodebuild -scheme "Italian Food Forever" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=13.4' build test
+  - xcodebuild -scheme "Italian Food Forever" -sdk iphonesimulator -destination 'platform:iOS Simulator, id:9BD92F35-6BC1-415C-B783-44CE0AB937E4, OS:13.2.2, name:iPhone 11 Pro' build test
 after_success:
   - bash <(curl -s https://codecov.io/bash) -t 8c2df9e0-2720-4177-abe5-651a5ccbedbd
 
