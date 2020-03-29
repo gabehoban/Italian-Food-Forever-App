@@ -24,7 +24,7 @@ public class recipeFetcher: ObservableObject {
 		recipiesFull.removeAll(keepingCapacity: false)
 		let url = URL(string: "https://italianfoodforever.com/wp-json/wp/v2/search?_envelope&_fields=id,title&search=" + string.replacingOccurrences(of: " ", with: "%20"))
 		//string is the initial string of the station name
-		let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+		let task = URLSession.shared.dataTask(with: url!) { (data, _, error) in
 			if error != nil {
 				print((error?.localizedDescription)!)
 				return
