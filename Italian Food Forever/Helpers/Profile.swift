@@ -17,19 +17,4 @@ struct Profile: Identifiable {
     let saved: [String]
 }
 
-extension Profile: DocumentSerializable {
-    
-    init?(documentData: [String : Any]) {
-        let uid = documentData[SparkKeys.Profile.uid] as? String ?? ""
-        let name = documentData[SparkKeys.Profile.name] as? String ?? ""
-        let email = documentData[SparkKeys.Profile.email] as? String ?? ""
-        let saved = documentData[SparkKeys.Profile.saved] as? [String] ?? []
-        
-        self.init(uid: uid,
-                  name: name,
-                  email: email,
-                  saved: saved)
-    }
-}
-
 

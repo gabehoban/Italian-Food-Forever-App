@@ -22,7 +22,7 @@ struct ProfileView: View {
 		let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
 		return str
 	}
-	
+
 	func sanitizeName(str: String) -> String {
 		let str1 = str.components(separatedBy: " ")
 		let toReturn = str1[0]
@@ -35,7 +35,7 @@ struct ProfileView: View {
 				EmptyView()
 			}
 			HStack {
-				VStack{
+				VStack {
 					Text("\(sanitizeName(str: self.spark.profile.name))")
 						.font(.title)
 						.fontWeight(.bold)
@@ -60,9 +60,9 @@ struct ProfileView: View {
 					})
 				}.padding(.top, 35)
 			}.padding([.leading, .trailing], 15)
-			 .padding(.top, 10)
-			 .padding(.bottom, 10)
-			HStack{
+				.padding(.top, 10)
+				.padding(.bottom, 10)
+			HStack {
 				Text("Your saved posts")
 					.font(.headline)
 					.fontWeight(.semibold)
@@ -105,7 +105,7 @@ struct ProfileView: View {
 					Spacer()
 				}.frame(width: 350, height: 700)
 			}.frame(width: 350, height: 700)
-			 .padding(.top, 15)
+				.padding(.top, 15)
 			Spacer()
 		}.padding(.bottom, -10)
 			.onAppear() {
@@ -153,7 +153,7 @@ struct ProfileView: View {
 					}
 				}
 				load()
-			}
+		}
 	}
 }
 struct ProfileView_Previews: PreviewProvider {

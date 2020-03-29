@@ -15,9 +15,3 @@ struct HiddenNavigationBar: ViewModifier {
         .navigationBarHidden(true)
     }
 }
-
-extension View {
-    func hiddenNavigationBarStyle() -> some View {
-        ModifiedContent(content: self, modifier: HiddenNavigationBar())
-    }
-}

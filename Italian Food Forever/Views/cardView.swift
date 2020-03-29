@@ -13,159 +13,19 @@ import SDWebImageSwiftUI
 import WebKit
 import HTMLString
 
-
-struct dataType: Identifiable {
-	var id: String
-	var url: String
-	var date: String
-	var title: String
-	var excerpt: String
-	var image: String
-	var content: String
-}
-
 struct MySubview: View {
 	let size: CGSize
 	var detail: dataType
 
 	@EnvironmentObject var spark: Spark
-	@EnvironmentObject var view: ViewRouter
-	
 	@State private var show_signinModal: Bool = false
 	@State private var show_signBackinModal: Bool = false
-
 	@State private var heartSelect: Bool = false
-	@State private var ALERT: Bool = false
 	@State private var isSharePresented: Bool = false
 	@State private var instructionPage: Bool = false
 	@State private var ingredients: Bool = false
 	@State private var ingredientSymbol: String = "chevron.right"
 
-
-	func formatTitle(str: String) -> String {
-		if str.contains("{") {
-			let str1 = (str.replacingOccurrences(of: "{", with: "(")
-				.replacingOccurrences(of: "}", with: ")"))
-			return str1
-		} else {
-			return str
-		}
-	}
-
-	func stripHTML(str: String) -> String {
-		let str = (((((str.replacingOccurrences(of: "\n", with: "", options: .regularExpression, range: nil)
-			.replacingOccurrences(of: "></p>", with: ""))
-			.replacingOccurrences(of: "</p>", with: "\n\n"))
-			.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil))
-			.replacingOccurrences(of: "Deborah Mele", with: "\nDeborah Mele\n{ENDME}", options: .regularExpression, range: nil))
-			.replacingOccurrences(of: "Debrah Mele", with: "\nDeborah Mele\n{ENDME}", options: .regularExpression, range: nil))
-		print(str)
-		let brokenString = str.components(separatedBy: "{ENDME}")
-		let brokenString1 = brokenString[0].components(separatedBy: "{\"@context")
-		print(brokenString1[0])
-		return brokenString1[0].removingHTMLEntities
-	}
-
-	func formatYield(str: String) -> String {
-		let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
-		let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-		let notHTML = str.components(separatedBy: "context")
-		if notHTML.count == 1 {
-			let datePublished = notHTML[0].components(separatedBy: detail.title.removingHTMLEntities)
-			let frontYield = datePublished[1].components(separatedBy: "Prep Time")
-			let sanitizedY = ((frontYield[0].replacingOccurrences(of: "\n", with: ""))
-				.replacingOccurrences(of: "\t", with: ""))
-			let yield = sanitizedY.components(separatedBy: "Yield:")
-			return yield[1]
-		} else {
-			let nothtml = notHTML[1]
-			let frontYield = (nothtml.replacingOccurrences(of: "\\", with: "")
-				.components(separatedBy: "\",\"description"))
-			let yield = frontYield[0].components(separatedBy: "recipeYield\":\"")
-			return yield[1]
-		}
-
-	}
-	func formatIngredients(str: String) -> [String] {
-		let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
-		let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-		let notHTML = str.components(separatedBy: "context")
-		if notHTML.count == 1 {
-			let datePublished = notHTML[0].components(separatedBy: "Ingredients")
-			let Ingredients = datePublished[1].components(separatedBy: "Instructions")
-			let sanitizedY = (((Ingredients[0].replacingOccurrences(of: "", with: ""))
-				.replacingOccurrences(of: "\\t", with: ""))
-				.replacingOccurrences(of: "\r", with: ""))
-			let toArray4 = sanitizedY.replacingOccurrences(of: "\t", with: "")
-			var toReturn = toArray4.components(separatedBy: "\n")
-			toReturn.removeAll { $0 == "" }
-			return toReturn
-
-		} else {
-			let nothtml = notHTML[1]
-			let frontIngredients = (nothtml.replacingOccurrences(of: "\\", with: "")
-				.components(separatedBy: ",\"recipeInstructions"))
-			let Ingredients = frontIngredients[0].components(separatedBy: "recipeIngredient\":")
-			let toArray1 = Ingredients[1].replacingOccurrences(of: "\\/", with: "/")
-			let toArray2 = toArray1.replacingOccurrences(of: "\\", with: "")
-			let toArray3 = toArray2.replacingOccurrences(of: ",", with: ", ")
-			let toArray4 = ((toArray3
-				.replacingOccurrences(of: "[\"", with: "")
-				.replacingOccurrences(of: "\"]", with: ""))
-				.replacingOccurrences(of: "\"\"]", with: ""))
-
-			var toReturn = toArray4.components(separatedBy: "\", \"")
-			toReturn.removeAll { $0 == "" }
-			return toReturn
-		}
-	}
-	func formatSteps(str: String) -> [String] {
-		let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
-		let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-		let notHTML = str.components(separatedBy: "context")
-		if notHTML.count == 1 {
-
-			let datePublished = notHTML[0].components(separatedBy: "Instructions")
-			let frontIngredients = datePublished[1].components(separatedBy: "Nutrition Information:")
-			let Ingredients = frontIngredients[0].components(separatedBy: "recipeInstructions\":")
-			let sanitizedY = (((Ingredients[0].replacingOccurrences(of: "\n", with: ""))
-				.replacingOccurrences(of: "\t", with: ""))
-				.replacingOccurrences(of: "\r", with: ""))
-			let toArray4 = (sanitizedY.replacingOccurrences(of: " \t", with: "")
-				.replacingOccurrences(of: "F.", with: "F"))
-			let toReturn = toArray4.components(separatedBy: ".")
-			return toReturn
-
-		} else {
-			let nothtml = notHTML[1]
-			var frontIngredients = (nothtml.replacingOccurrences(of: "\\", with: "")
-				.components(separatedBy: ",\"url"))
-			if frontIngredients[0].contains("keywords") {
-				frontIngredients = frontIngredients[0].components(separatedBy: ",\"keywords")
-			}
-			let Ingredients = frontIngredients[0].components(separatedBy: "recipeInstructions\":")
-			let toArray1 = Ingredients[1].replacingOccurrences(of: "\\/", with: "/")
-			let toArray2 = toArray1.replacingOccurrences(of: "\\", with: "")
-			let toArray3 = toArray2.replacingOccurrences(of: "{\"@type\":\"HowToStep\",\"text\":\"", with: "")
-			let toArray4 = (((toArray3
-				.replacingOccurrences(of: "\"}", with: "")
-				.replacingOccurrences(of: "[", with: ""))
-				.replacingOccurrences(of: "]", with: ""))
-				.replacingOccurrences(of: "..", with: "."))
-
-			let toReturn = toArray4.components(separatedBy: ".,")
-			return toReturn
-		}
-	}
-	func formatDate(posted: String) -> String {
-		let formatter1 = DateFormatter()
-		let formatter2 = DateFormatter()
-		formatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-		let s = formatter1.date(from: posted)!
-		formatter2.dateStyle = .short
-		let date = formatter2.string(from: s)
-		return date
-	}
 	func toggle() { isChecked = !isChecked }
 	@State var isChecked: Bool = false
 	var body: some View {
@@ -191,7 +51,7 @@ struct MySubview: View {
 							.shadow(color: .black, radius: 10, x: 1, y: 1)
 						VStack {
 							HStack {
-								Text(formatTitle(str: detail.title).removingHTMLEntities)
+								Text(utils().formatTitle(str: detail.title).removingHTMLEntities)
 									.font(.headline)
 									.multilineTextAlignment(.leading)
 									.padding(.leading, -15.0)
@@ -207,7 +67,7 @@ struct MySubview: View {
 										Spacer()
 									}.padding(.bottom, 5)
 									HStack {
-										Text("Posted: \(formatDate(posted: detail.date))")
+										Text("Posted: \(utils().formatDate(posted: detail.date))")
 											.font(.footnote)
 											.padding(.leading, 18)
 										Spacer()
@@ -255,7 +115,7 @@ struct MySubview: View {
 						ScrollView(.vertical, showsIndicators: false) {
 							VStack {
 								if instructionPage == false {
-									Text(stripHTML(str: detail.content).removingHTMLEntities)
+									Text(utils().stripHTML(str: detail.content).removingHTMLEntities)
 										.font(.custom("Georgia", size: 18))
 										.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
 										.padding(.horizontal, 15.0)
@@ -288,14 +148,14 @@ struct MySubview: View {
 												}
 											}).padding(.leading, -25)
 											Spacer()
-											Text("Yield: \(formatYield(str: detail.content.removingHTMLEntities))")
+											Text("Yield: \(utils().formatYield(str: detail.content.removingHTMLEntities, title: detail.title))")
 											Spacer()
 										}.padding([.top, .bottom], 5)
 
 										// MARK: - Ingredients
 										if ingredients == true {
 											VStack {
-												ForEach(formatIngredients(str: detail.content), id: \.self) { datum in
+												ForEach(utils().formatIngredients(str: detail.content), id: \.self) { datum in
 													HStack {
 														CheckView(title: datum)
 														Spacer()
@@ -304,12 +164,12 @@ struct MySubview: View {
 											}
 										}
 										VStack {
-											ForEach(0..<formatSteps(str: detail.content).count, id: \.self) { i in
+											ForEach(0..<utils().formatSteps(str: detail.content).count, id: \.self) { i in
 												HStack {
 													Text("\(i + 1). ")
 														.foregroundColor(Color.black)
 														.font(.body)
-													Text("\(self.formatSteps(str: self.detail.content)[i]).")
+													Text("\(utils().formatSteps(str: self.detail.content)[i]).")
 														.font(.body)
 													Spacer()
 												}.padding(.top, 18)
@@ -411,27 +271,6 @@ struct MySubview: View {
 
 			}
 		}
-	}
-}
-
-struct CheckView: View {
-	@State var isChecked: Bool = false
-	var title: String
-	func toggle() { isChecked = !isChecked }
-	var body: some View {
-		Button(action: toggle) {
-			HStack {
-				Image(systemName: isChecked ? "checkmark.square" : "square")
-					.scaleEffect(1.4)
-					.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
-					.padding(.trailing, 5)
-				Text(title)
-					.strikethrough(isChecked, color: .black)
-					.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
-					.lineLimit(3)
-					.font(.body)
-			}
-		}.padding(.bottom, 5)
 	}
 }
 

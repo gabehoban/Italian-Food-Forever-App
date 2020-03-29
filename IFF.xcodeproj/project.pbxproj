@@ -12,7 +12,6 @@
 		211BBCFF2429A68B004F345D /* uniformextracondensed-medium-webfont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */; };
 		213CF7A1242C0FC2009E9CDC /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CF7A0242C0FC2009E9CDC /* Search.swift */; };
 		213CF7A5242C5718009E9CDC /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CF7A4242C5717009E9CDC /* settings.swift */; };
-		214388802425B72600A81051 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143887F2425B72600A81051 /* Query.swift */; };
 		21537FA72427FA780034A75A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FA62427FA780034A75A /* Login.swift */; };
 		21537FA92427FB690034A75A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21537FA82427FB690034A75A /* GoogleService-Info.plist */; };
 		21537FAA2427FB690034A75A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21537FA82427FB690034A75A /* GoogleService-Info.plist */; };
@@ -32,8 +31,11 @@
 		21537FCA2427FEB70034A75A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBB2427FEB70034A75A /* ProfileView.swift */; };
 		21537FCB2427FEB70034A75A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBC2427FEB70034A75A /* SignInView.swift */; };
 		21537FCC2427FEB70034A75A /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBD2427FEB70034A75A /* LaunchScreenView.swift */; };
-		21537FCF242812150034A75A /* signInModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FCE242812150034A75A /* signInModal.swift */; };
-		21537FD1242812220034A75A /* signBackInModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FD0242812220034A75A /* signBackInModal.swift */; };
+		2167DB6324310C8C0071BE14 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6224310C8C0071BE14 /* Checklist.swift */; };
+		2167DB6524310CE90071BE14 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6424310CE90071BE14 /* Extensions.swift */; };
+		2167DB6724310E410071BE14 /* dataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6624310E410071BE14 /* dataTypes.swift */; };
+		2167DB6A24310EE80071BE14 /* networkManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6924310EE80071BE14 /* networkManagers.swift */; };
+		2167DB6D2431156A0071BE14 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6C2431156A0071BE14 /* Utils.swift */; };
 		216D96942422E2F300F0CBB6 /* Featured.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D96932422E2F300F0CBB6 /* Featured.swift */; };
 		21B6CBCA242D7E190000FA7E /* privacyTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBC9242D7E190000FA7E /* privacyTerms.swift */; };
 		21B6CBCC242D7E7A0000FA7E /* privacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */; };
@@ -88,7 +90,6 @@
 		211FD281242554220041E72F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Users/gabehoban/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		213CF7A0242C0FC2009E9CDC /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		213CF7A4242C5717009E9CDC /* settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
-		2143887F2425B72600A81051 /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		21537FA62427FA780034A75A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		21537FA82427FB690034A75A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		21537FAD2427FEB30034A75A /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -107,8 +108,11 @@
 		21537FBC2427FEB70034A75A /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		21537FBD2427FEB70034A75A /* LaunchScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		21537FCD242806610034A75A /* Italian Food Forever.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Italian Food Forever.entitlements"; sourceTree = "<group>"; };
-		21537FCE242812150034A75A /* signInModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInModal.swift; sourceTree = "<group>"; };
-		21537FD0242812220034A75A /* signBackInModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signBackInModal.swift; sourceTree = "<group>"; };
+		2167DB6224310C8C0071BE14 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		2167DB6424310CE90071BE14 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2167DB6624310E410071BE14 /* dataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataTypes.swift; sourceTree = "<group>"; };
+		2167DB6924310EE80071BE14 /* networkManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = networkManagers.swift; sourceTree = "<group>"; };
+		2167DB6C2431156A0071BE14 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		216D96932422E2F300F0CBB6 /* Featured.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Featured.swift; sourceTree = "<group>"; };
 		21B6CBC9242D7E190000FA7E /* privacyTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyTerms.swift; sourceTree = "<group>"; };
 		21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyPolicy.swift; sourceTree = "<group>"; };
@@ -185,24 +189,12 @@
 			path = "Tab 2";
 			sourceTree = "<group>";
 		};
-		2143887E2425B71700A81051 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				2143887F2425B72600A81051 /* Query.swift */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
 		21537FA52427FA5C0034A75A /* Tab3 */ = {
 			isa = PBXGroup;
 			children = (
+				2167DB6B2431100B0071BE14 /* Settings */,
 				21D4CF72242EC63400B47582 /* onboarding.swift */,
-				21B6CBCF242D7EDF0000FA7E /* acknowledges.swift */,
 				21D4CF70242EB1E200B47582 /* phoneAuth.swift */,
-				21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */,
-				21B6CBCD242D7E8D0000FA7E /* termsUse.swift */,
-				21B6CBC9242D7E190000FA7E /* privacyTerms.swift */,
-				213CF7A4242C5717009E9CDC /* settings.swift */,
 				21537FA62427FA780034A75A /* Login.swift */,
 			);
 			path = Tab3;
@@ -211,6 +203,7 @@
 		21537FAC2427FEB30034A75A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				21537FB42427FEB50034A75A /* Spark */,
 				21537FAD2427FEB30034A75A /* Profile.swift */,
 				21537FAE2427FEB30034A75A /* ActivityIndicator.swift */,
 				21537FAF2427FEB30034A75A /* DocumentSerializable.swift */,
@@ -218,6 +211,7 @@
 				21537FB12427FEB30034A75A /* SignInWithAppleView.swift */,
 				21537FB22427FEB30034A75A /* Typealiases.swift */,
 				21537FB32427FEB30034A75A /* ActivityIndicatorView.swift */,
+				2167DB6C2431156A0071BE14 /* Utils.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -240,10 +234,39 @@
 				21537FBB2427FEB70034A75A /* ProfileView.swift */,
 				21537FBC2427FEB70034A75A /* SignInView.swift */,
 				21537FBD2427FEB70034A75A /* LaunchScreenView.swift */,
-				21537FCE242812150034A75A /* signInModal.swift */,
-				21537FD0242812220034A75A /* signBackInModal.swift */,
+				21BA5C012423EEBD00499BCE /* cardView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2167DB6124310C7B0071BE14 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2167DB6224310C8C0071BE14 /* Checklist.swift */,
+				2167DB6624310E410071BE14 /* dataTypes.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2167DB6824310ECA0071BE14 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2167DB6924310EE80071BE14 /* networkManagers.swift */,
+			);
+			name = Networking;
+			path = Helpers/Networking;
+			sourceTree = "<group>";
+		};
+		2167DB6B2431100B0071BE14 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				213CF7A4242C5717009E9CDC /* settings.swift */,
+				21B6CBC9242D7E190000FA7E /* privacyTerms.swift */,
+				21B6CBCF242D7EDF0000FA7E /* acknowledges.swift */,
+				21B6CBCD242D7E8D0000FA7E /* termsUse.swift */,
+				21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		2195AE2A242523500045928A /* Fonts */ = {
@@ -265,7 +288,6 @@
 				21B802762422B71400BED86A /* cardsRow1.swift */,
 				21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */,
 				21BA5BFF2423E57800499BCE /* springRow.swift */,
-				21BA5C012423EEBD00499BCE /* cardView.swift */,
 			);
 			path = Tab1;
 			sourceTree = "<group>";
@@ -305,24 +327,25 @@
 		21FE87B42420026300910CF0 /* Italian Food Forever */ = {
 			isa = PBXGroup;
 			children = (
+				2167DB6424310CE90071BE14 /* Extensions.swift */,
 				21537FCD242806610034A75A /* Italian Food Forever.entitlements */,
 				21D4CF76242F098200B47582 /* launch.png */,
-				21FE87BC2420026300910CF0 /* ContentView.swift */,
+				2167DB6824310ECA0071BE14 /* Networking */,
 				21537FAC2427FEB30034A75A /* Helpers */,
-				21537FB42427FEB50034A75A /* Spark */,
+				2167DB6124310C7B0071BE14 /* Models */,
 				21537FBA2427FEB70034A75A /* Views */,
-				2143887E2425B71700A81051 /* Networking */,
 				21B6CBC8242D33660000FA7E /* App */,
 				2195AE2B2425235E0045928A /* Tab1 */,
 				2143887D2425B43000A81051 /* Tab 2 */,
 				21537FA52427FA5C0034A75A /* Tab3 */,
-				2195AE2A242523500045928A /* Fonts */,
 				21FE87BE2420026400910CF0 /* Assets.xcassets */,
+				2195AE2A242523500045928A /* Fonts */,
 				21FE87C32420026400910CF0 /* LaunchScreen.storyboard */,
 				21FE87C62420026400910CF0 /* Info.plist */,
 				211FD281242554220041E72F /* GoogleService-Info.plist */,
 				21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */,
 				21537FA82427FB690034A75A /* GoogleService-Info.plist */,
+				21FE87BC2420026300910CF0 /* ContentView.swift */,
 				21FE87C02420026400910CF0 /* Preview Content */,
 			);
 			path = "Italian Food Forever";
@@ -632,18 +655,18 @@
 				21537FC12427FEB70034A75A /* SparkKeys.swift in Sources */,
 				21537FBF2427FEB70034A75A /* ActivityIndicator.swift in Sources */,
 				21537FC82427FEB70034A75A /* SparkFirestore.swift in Sources */,
-				21537FD1242812220034A75A /* signBackInModal.swift in Sources */,
 				21537FC92427FEB70034A75A /* SparkAuth.swift in Sources */,
 				21537FC52427FEB70034A75A /* Spark.swift in Sources */,
 				21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */,
+				2167DB6524310CE90071BE14 /* Extensions.swift in Sources */,
 				21B6CBCA242D7E190000FA7E /* privacyTerms.swift in Sources */,
 				21537FA72427FA780034A75A /* Login.swift in Sources */,
-				21537FCF242812150034A75A /* signInModal.swift in Sources */,
 				21537FC62427FEB70034A75A /* SparkError.swift in Sources */,
+				2167DB6324310C8C0071BE14 /* Checklist.swift in Sources */,
 				21537FBE2427FEB70034A75A /* Profile.swift in Sources */,
 				21C008C9242177F700412ABB /* Discover.swift in Sources */,
 				21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */,
-				214388802425B72600A81051 /* Query.swift in Sources */,
+				2167DB6D2431156A0071BE14 /* Utils.swift in Sources */,
 				213CF7A1242C0FC2009E9CDC /* Search.swift in Sources */,
 				21BA5C022423EEBD00499BCE /* cardView.swift in Sources */,
 				21537FCA2427FEB70034A75A /* ProfileView.swift in Sources */,
@@ -655,10 +678,12 @@
 				21D4CF73242EC63400B47582 /* onboarding.swift in Sources */,
 				21537FC02427FEB70034A75A /* DocumentSerializable.swift in Sources */,
 				21B6CBCE242D7E8D0000FA7E /* termsUse.swift in Sources */,
+				2167DB6724310E410071BE14 /* dataTypes.swift in Sources */,
 				21BA5BFE2423E25A00499BCE /* regionalRecipies.swift in Sources */,
 				21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */,
 				21B6CBD0242D7EDF0000FA7E /* acknowledges.swift in Sources */,
 				21D4CF71242EB1E200B47582 /* phoneAuth.swift in Sources */,
+				2167DB6A24310EE80071BE14 /* networkManagers.swift in Sources */,
 				213CF7A5242C5718009E9CDC /* settings.swift in Sources */,
 				21B6CBCC242D7E7A0000FA7E /* privacyPolicy.swift in Sources */,
 				21537FCC2427FEB70034A75A /* LaunchScreenView.swift in Sources */,

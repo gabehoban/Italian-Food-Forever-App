@@ -15,7 +15,6 @@ import AudioToolbox
 struct Login: View {
 	
   @EnvironmentObject var spark: Spark
-  @EnvironmentObject var viewRouter: ViewRouter
 	
   var body: some View {
       ZStack {
@@ -41,6 +40,6 @@ struct Login: View {
 
 struct Login_Previews: PreviewProvider {
   static var previews: some View {
-	Login().environmentObject(ViewRouter())
+	Login()
   }
 }
