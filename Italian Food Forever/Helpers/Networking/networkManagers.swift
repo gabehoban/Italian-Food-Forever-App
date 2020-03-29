@@ -39,7 +39,7 @@ public class recipeFetcher: ObservableObject {
 				}
 				let urlFull = URL(string: "https://italianfoodforever.com/wp-json/wp/v2/posts?_envelope&_fields=id,excerpt,title,mv,date,link,content,author&include=" + id)
 				//string is the initial string of the station name
-				let taskFull = URLSession.shared.dataTask(with: urlFull!) { (data, response, error) in
+				let taskFull = URLSession.shared.dataTask(with: urlFull!) { (data, _, error) in
 					if error != nil {
 						print((error?.localizedDescription)!)
 						return

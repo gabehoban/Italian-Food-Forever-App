@@ -154,7 +154,7 @@ struct ScndPage: View {
 						Auth.auth().settings!.isAppVerificationDisabledForTesting = true
 						#endif
 						let credential = PhoneAuthProvider.provider().credential(withVerificationID: self.ID, verificationCode: self.code)
-						Auth.auth().signIn(with: credential) { (res, err) in
+						Auth.auth().signIn(with: credential) { (_, err) in
 							if err != nil {
 								self.msg = (err?.localizedDescription)!
 								self.alert.toggle()

@@ -23,7 +23,7 @@ class Spark: ObservableObject {
     // MARK: - Auth
     
     func configureFirebaseStateDidChange() {
-        authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ (auth, user) in
+        authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ (_, user) in
             guard let user = user else {
                 print("User is signed out")
                 self.isUserAuthenticated = .signedOut
