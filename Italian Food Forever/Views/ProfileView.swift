@@ -13,7 +13,6 @@ import SwiftyJSON
 import SDWebImageSwiftUI
 
 struct ProfileView: View {
-
 	@EnvironmentObject var spark: Spark
 	@State var datasME = [dataType]()
 
@@ -29,9 +28,12 @@ struct ProfileView: View {
 		let toReturn = str1[0]
 		return toReturn
 	}
-	
+	@State var gear: Bool = false
 	var body: some View {
 		VStack {
+			NavigationLink(destination: settings(), isActive: $gear) {
+				EmptyView()
+			}
 			HStack {
 				VStack{
 					Text("\(sanitizeName(str: self.spark.profile.name))")
@@ -40,7 +42,9 @@ struct ProfileView: View {
 				}.padding(.top, 35)
 				Spacer()
 				VStack {
-					NavigationLink(destination: settings(), label: {
+					Button(action: {
+						self.gear = true
+					}, label: {
 						ZStack {
 							Circle()
 								.foregroundColor(.white)
@@ -76,6 +80,8 @@ struct ProfileView: View {
 										WebImage(url: URL(string: i.image), options: .highPriority)
 											.renderingMode(.original)
 											.resizable()
+											.indicator(.activity)
+											.animation(.easeInOut(duration: 0.5))
 											.aspectRatio(contentMode: .fill)
 											.clipped()
 											.frame(width: 350, height: 150)
@@ -103,6 +109,7 @@ struct ProfileView: View {
 			Spacer()
 		}.padding(.bottom, -10)
 			.onAppear() {
+				UserDefaults.standard.set(false, forKey: "status")
 				self.datasME.removeAll()
 				UINavigationBar.appearance().isOpaque = true
 				UINavigationBar.appearance().isTranslucent = true

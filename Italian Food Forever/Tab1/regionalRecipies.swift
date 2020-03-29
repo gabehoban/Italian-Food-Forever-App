@@ -13,7 +13,15 @@ import WebKit
 import HTMLString
 
 struct regionalRecipies: View {
-
+	func formatTitle(str: String) -> String {
+		if str.contains("{"){
+			let str1 = (str.replacingOccurrences(of: "{", with: "(")
+				.replacingOccurrences(of: "}", with: ")"))
+			return str1
+		} else {
+			return str
+		}
+	}
     @ObservedObject var list = getregionalRecipeData()
 
     var body: some View {
@@ -48,10 +56,12 @@ struct regionalRecipies: View {
                                     WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
                                         .renderingMode(.original)
                                         .resizable()
+										.indicator(.activity)
+										.animation(.easeInOut(duration: 0.5))
                                         .frame(width: 150, height: 105)
                                         .cornerRadius(20)
 
-                                    Text((i.title)
+                                    Text(self.formatTitle(str: i.title)
                                         .removingHTMLEntities)
                                         .font(.subheadline)
                                         .fontWeight(.heavy)
@@ -79,13 +89,13 @@ struct regionalRecipies_Previews: PreviewProvider {
 }
 
 class getregionalRecipeData: ObservableObject {
-
     @Published var datas = [dataType]()
 
     init() {
         load()
     }
     func load() {
+		
         let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?per_page=6&categories=861&_fields=id,content,excerpt,title,mv,date,link&_envelope"
 
         let url = URL(string: source)!

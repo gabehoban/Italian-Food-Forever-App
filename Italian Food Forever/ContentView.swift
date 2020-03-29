@@ -11,7 +11,6 @@ import SwiftyJSON
 import SDWebImageSwiftUI
 
 struct ContentView: View {
-
 	@State private var selection: Int = 0
 	@State var isNavigationBarHidden: Bool = true
 	@EnvironmentObject var spark: Spark
@@ -54,6 +53,8 @@ struct ContentView: View {
 						.tag(2)
 				}.navigationBarHidden(self.isNavigationBarHidden)
 			}.onAppear() {
+				UserDefaults.standard.set([], forKey: "toExclude")
+				print("Exclude Cleared")
 				UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
 				UINavigationBar.appearance().shadowImage = UIImage()
 				UINavigationBar.appearance().isTranslucent = true

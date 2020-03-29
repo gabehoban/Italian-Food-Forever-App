@@ -13,9 +13,16 @@ import WebKit
 import HTMLString
 
 struct cardsRow1: View {
-
     @ObservedObject var list = getcardData()
-
+	func formatTitle(str: String) -> String {
+		if str.contains("{"){
+			let str1 = (str.replacingOccurrences(of: "{", with: "(")
+				.replacingOccurrences(of: "}", with: ")"))
+			return str1
+		} else {
+			return str
+		}
+	}
 
 //Mark: - BODY
     var body: some View {
@@ -53,10 +60,11 @@ struct cardsRow1: View {
                                         .renderingMode(.original)
                                         .resizable()
 										.indicator(.activity)
-                                        .frame(width: 150, height: 105)
+										.animation(.easeInOut(duration: 0.5))
+										.frame(width: 150, height: 105)
                                         .cornerRadius(12)
                                     
-                                    Text((i.title)
+									Text(self.formatTitle(str: i.title)
                                         .removingHTMLEntities)
                                         .font(.subheadline)
                                         .fontWeight(.heavy)
@@ -67,9 +75,9 @@ struct cardsRow1: View {
                                         .padding(.leading, -15)
                                         .padding(.bottom, 15)
                                     Spacer()
-                                }
+								}
                             }.padding(.bottom, 100)
-                        }
+						}.animation(.spring())
                     }
                 }.frame(width: 950.0, height: 300.0)
             }
@@ -88,15 +96,16 @@ struct cardsRow1_Previews: PreviewProvider {
 }
 
 class getcardData: ObservableObject {
-
     @Published var datas = [dataType]()
+	let defaults = UserDefaults.standard
 
     init() {
         load()
     }
 	func load() {
+
 		let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?per_page=6&offset=1&_fields=id,excerpt,content,title,mv,date,link&_envelope"
-		
+
 		let url = URL(string: source)!
 		
 		let session = URLSession(configuration: .default)

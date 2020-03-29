@@ -13,7 +13,15 @@ import WebKit
 import HTMLString
 
 struct springRow: View {
-    
+	func formatTitle(str: String) -> String {
+		if str.contains("{"){
+			let str1 = (str.replacingOccurrences(of: "{", with: "(")
+				.replacingOccurrences(of: "}", with: ")"))
+			return str1
+		} else {
+			return str
+		}
+	}
     @ObservedObject var list = getspringRowData()
     
     var body: some View {
@@ -48,10 +56,12 @@ struct springRow: View {
                                     WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
                                         .renderingMode(.original)
                                         .resizable()
+										.indicator(.activity)
+										.animation(.easeInOut(duration: 0.5))
                                         .frame(width: 150, height: 105)
                                         .cornerRadius(20)
 
-                                    Text((i.title)
+                                    Text(self.formatTitle(str: i.title)
                                         .removingHTMLEntities)
                                         .font(.subheadline)
                                         .fontWeight(.heavy)

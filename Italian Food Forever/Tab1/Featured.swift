@@ -20,7 +20,17 @@ struct InfoView: Identifiable {
 }
 
 struct Featured: View {
-
+	
+	func formatTitle(str: String) -> String {
+		if str.contains("{"){
+			let str1 = (str.replacingOccurrences(of: "{", with: "(")
+						   .replacingOccurrences(of: "}", with: ")"))
+			return str1
+		} else {
+			return str
+		}
+	}
+	
     @ObservedObject var listF = getfeatureData()
 
     var body: some View {
@@ -31,9 +41,7 @@ struct Featured: View {
                         WebImage(url: URL(string: i.image), options: .highPriority)
                             .renderingMode(.original)
                             .resizable()
-							.placeholder {
-								Rectangle().foregroundColor(.gray)
-							}
+							.indicator(.activity)
 							.animation(.easeInOut(duration: 0.5))
                             .frame(width: 390, height: 270)
                             .cornerRadius(15)
@@ -43,7 +51,7 @@ struct Featured: View {
                             .background(LinearGradient(gradient: .init(colors: [Color.clear, Color.white]), startPoint: .top, endPoint: .bottom).opacity(0.8))
                             .frame(width:390, height: 200)
                         HStack(alignment: .center) {
-                            Text((i.title)
+							Text(self.formatTitle(str: i.title)
                                 .removingHTMLEntities)
                                 .font(.title)
                                 .fontWeight(.medium)
@@ -70,7 +78,6 @@ struct Featured_Previews: PreviewProvider {
 }
 
 class getfeatureData: ObservableObject {
-
     @Published var datas = [dataType]()
 
     init() {

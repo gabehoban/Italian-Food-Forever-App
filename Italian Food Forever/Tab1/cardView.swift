@@ -29,7 +29,8 @@ struct MySubview: View {
 	var detail: dataType
 
 	@EnvironmentObject var spark: Spark
-
+	@EnvironmentObject var view: ViewRouter
+	
 	@State private var show_signinModal: Bool = false
 	@State private var show_signBackinModal: Bool = false
 
@@ -40,14 +41,28 @@ struct MySubview: View {
 	@State private var ingredients: Bool = false
 	@State private var ingredientSymbol: String = "chevron.right"
 
+
+	func formatTitle(str: String) -> String {
+		if str.contains("{") {
+			let str1 = (str.replacingOccurrences(of: "{", with: "(")
+				.replacingOccurrences(of: "}", with: ")"))
+			return str1
+		} else {
+			return str
+		}
+	}
+
 	func stripHTML(str: String) -> String {
-		let str = ((((str.replacingOccurrences(of: "\n", with: "", options: .regularExpression, range: nil)
+		let str = (((((str.replacingOccurrences(of: "\n", with: "", options: .regularExpression, range: nil)
+			.replacingOccurrences(of: "></p>", with: ""))
 			.replacingOccurrences(of: "</p>", with: "\n\n"))
 			.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil))
 			.replacingOccurrences(of: "Deborah Mele", with: "\nDeborah Mele\n{ENDME}", options: .regularExpression, range: nil))
 			.replacingOccurrences(of: "Debrah Mele", with: "\nDeborah Mele\n{ENDME}", options: .regularExpression, range: nil))
+		print(str)
 		let brokenString = str.components(separatedBy: "{ENDME}")
 		let brokenString1 = brokenString[0].components(separatedBy: "{\"@context")
+		print(brokenString1[0])
 		return brokenString1[0].removingHTMLEntities
 	}
 
@@ -151,22 +166,20 @@ struct MySubview: View {
 		let date = formatter2.string(from: s)
 		return date
 	}
-
+	func toggle() { isChecked = !isChecked }
+	@State var isChecked: Bool = false
 	var body: some View {
 		VStack {
-			NavigationLink(destination: Login(), isActive: $show_signinModal) {
+			NavigationLink(destination: SignInView(), isActive: $show_signinModal) {
 				EmptyView()
-					.navigationBarHidden(true)
-			}
-			NavigationLink(destination: Login(), isActive: $show_signBackinModal) {
-				EmptyView()
-					.navigationBarHidden(true)
 			}
 			NavigationView {
 				VStack {
 					WebImage(url: URL(string: detail.image), options: .highPriority)
 						.renderingMode(.original)
 						.resizable()
+						.indicator(.activity)
+						.animation(.easeInOut(duration: 0.5))
 						.cornerRadius(10)
 						.frame(width: 500, height: 300)
 					ZStack {
@@ -178,7 +191,7 @@ struct MySubview: View {
 							.shadow(color: .black, radius: 10, x: 1, y: 1)
 						VStack {
 							HStack {
-								Text(detail.title.removingHTMLEntities)
+								Text(formatTitle(str: detail.title).removingHTMLEntities)
 									.font(.headline)
 									.multilineTextAlignment(.leading)
 									.padding(.leading, -15.0)
@@ -243,6 +256,8 @@ struct MySubview: View {
 							VStack {
 								if instructionPage == false {
 									Text(stripHTML(str: detail.content).removingHTMLEntities)
+										.font(.custom("Georgia", size: 18))
+										.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
 										.padding(.horizontal, 15.0)
 										.lineSpacing(5)
 								} else {
@@ -277,18 +292,14 @@ struct MySubview: View {
 											Spacer()
 										}.padding([.top, .bottom], 5)
 
+										// MARK: - Ingredients
 										if ingredients == true {
 											VStack {
 												ForEach(formatIngredients(str: detail.content), id: \.self) { datum in
 													HStack {
-														Image(systemName: "circle.fill") .foregroundColor(Color.black)
-															.scaleEffect(0.4)
-														Text(datum.removingHTMLEntities)
-															.lineLimit(3)
-															.font(.body)
+														CheckView(title: datum)
 														Spacer()
 													}
-
 												}
 											}
 										}
@@ -368,7 +379,7 @@ struct MySubview: View {
 									self.spark.configureFirebaseStateDidChange()
 								}
 							} else if self.spark.isUserAuthenticated == .signedOut {
-								self.show_signBackinModal = true
+								self.show_signinModal = true
 							}
 						}, label: {
 							if heartSelect == false {
@@ -403,17 +414,40 @@ struct MySubview: View {
 	}
 }
 
-
-struct DetailView: View {
-
-	var detail: dataType
+struct CheckView: View {
+	@State var isChecked: Bool = false
+	var title: String
+	func toggle() { isChecked = !isChecked }
 	var body: some View {
-		GeometryReader { geometry in
-			MySubview(size: geometry.size, detail: self.detail)
-		}
+		Button(action: toggle) {
+			HStack {
+				Image(systemName: isChecked ? "checkmark.square" : "square")
+					.scaleEffect(1.4)
+					.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
+					.padding(.trailing, 5)
+				Text(title)
+					.strikethrough(isChecked, color: .black)
+					.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
+					.lineLimit(3)
+					.font(.body)
+			}
+		}.padding(.bottom, 5)
 	}
 }
 
+struct DetailView: View {
+	var detail: dataType
+	var body: some View {
+			GeometryReader { geometry in
+				MySubview(size: geometry.size, detail: self.detail)
+		}
+	}
+}
+class ViewRouter: ObservableObject {
+
+	@Published var temp: Bool = false
+
+}
 struct ActivityViewController: UIViewControllerRepresentable {
 
 	var activityItems: [Any]

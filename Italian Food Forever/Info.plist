@@ -35,9 +35,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>uniformextracondensed-medium-webfont.otf</string>
-		<string>IntroDemoCond-LightCAPS.otf</string>
-		<string>AvertaDemoPE-Regular.otf</string>
+		<string>Georgia.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

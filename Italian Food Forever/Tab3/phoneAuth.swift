@@ -13,28 +13,13 @@ struct phoneAuth: View {
 	@State var status = false
 	@State var UID = ""
 	@State var refresh: Bool = false
-
+	@EnvironmentObject var viewRouter: ViewRouter
 	var body: some View {
-
 		VStack {
-			if status {
+			if UserDefaults.standard.value(forKey: "status") as? Bool ?? false == true {
 				onboarding()
-			}
-			else {
-
-				NavigationView {
-
-					FirstPage()
-				}
-			}
-
-		}.onAppear {
-
-			NotificationCenter.default.addObserver(forName: NSNotification.Name("statusChange"), object: nil, queue: .main) { (_) in
-
-				let status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
-
-				self.status = status
+			} else {
+				FirstPage()
 			}
 		}
 
@@ -74,8 +59,7 @@ struct FirstPage: View {
 
 			HStack {
 
-				TextField("+1", text: $ccode)
-					.keyboardType(.numberPad)
+				Text("+1")
 					.frame(width: 45)
 					.padding()
 					.background(Color(UIColor.systemGray6))
@@ -88,14 +72,15 @@ struct FirstPage: View {
 					.background(Color(UIColor.systemGray6))
 					.clipShape(RoundedRectangle(cornerRadius: 10))
 
-			} .padding(.top, 15)
+			}.padding(.top, 15)
+			 .frame(width: UIScreen.main.bounds.width - 30, height: 50)
 
-			NavigationLink(destination: ScndPage(show: $show, ID: $ID), isActive: $show) {
+			NavigationLink(destination: ScndPage(show: false, ID: $ID), isActive: $show) {
 
 
 				Button(action: {
 
-					PhoneAuthProvider.provider().verifyPhoneNumber("+" + self.sanitizeCC(str: self.ccode) + self.no, uiDelegate: nil) { (ID, err) in
+					PhoneAuthProvider.provider().verifyPhoneNumber("+1" + self.no, uiDelegate: nil) { (ID, err) in
 
 						if err != nil {
 
@@ -134,7 +119,7 @@ struct ScndPage: View {
 
 	@EnvironmentObject var spark: Spark
 	@State var code = ""
-	@Binding var show: Bool
+	@State var show: Bool
 	@Binding var ID: String
 	@State var msg = ""
 	@State var alert = false
@@ -142,7 +127,9 @@ struct ScndPage: View {
 	var body: some View {
 
 		ZStack(alignment: .topLeading) {
-
+			NavigationLink(destination: onboarding(), isActive: $show) {
+				EmptyView()
+			}
 			GeometryReader { _ in
 
 				VStack(spacing: 20) {
@@ -175,8 +162,7 @@ struct ScndPage: View {
 								return
 							}
 
-							UserDefaults.standard.set(true, forKey: "status")
-							NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
+							self.show = true
 						}
 
 					}) {

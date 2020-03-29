@@ -13,7 +13,6 @@ import HTMLString
 
 struct Discover: View {
 
-	//@ObservedObject var list = getData()
 	@State private var translation: CGSize = .zero
 
 	var body: some View {

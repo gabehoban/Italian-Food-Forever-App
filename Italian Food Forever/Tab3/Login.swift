@@ -7,11 +7,16 @@
 //
 
 import SwiftUI
+import Foundation
+import Combine
+import Firebase
+import AudioToolbox
 
 struct Login: View {
-  
+	
   @EnvironmentObject var spark: Spark
-
+  @EnvironmentObject var viewRouter: ViewRouter
+	
   var body: some View {
       ZStack {
         if spark.isUserAuthenticated == .undefined {
@@ -19,8 +24,8 @@ struct Login: View {
         } else if spark.isUserAuthenticated == .signedOut {
           SignInView()
         } else if spark.isUserAuthenticated == .signedIn {
-          ProfileView()
-        }
+			ProfileView()
+		}
       }.onAppear() {
         UINavigationBar.appearance().isOpaque = true
         UINavigationBar.appearance().isTranslucent = true
@@ -36,6 +41,6 @@ struct Login: View {
 
 struct Login_Previews: PreviewProvider {
   static var previews: some View {
-    Login()
+	Login().environmentObject(ViewRouter())
   }
 }

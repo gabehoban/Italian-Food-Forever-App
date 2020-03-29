@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct settings: View {
+	@State var isLoggedOut: Bool = false
 	@State private var firstname = ""
 	@EnvironmentObject var spark: Spark
+	@EnvironmentObject var viewRouter: ViewRouter
 
 	var body: some View {
 		VStack {
@@ -30,7 +32,7 @@ struct settings: View {
 							Text("Privacy & Terms")
 								.foregroundColor(.blue)
 						}
-					Spacer()
+						Spacer()
 					}
 					HStack {
 						Spacer()
@@ -60,9 +62,10 @@ struct settings: View {
 	}
 }
 
+
 struct settings_Previews: PreviewProvider {
 	static var previews: some View {
-		settings()
+		settings().environmentObject(ViewRouter())
 	}
 }
 
