@@ -1,2 +1,2 @@
 # ItalianFoodForever
-[![CodeFactor](https://www.codefactor.io/repository/github/gabehoban/italianfoodforever/badge?s=8f15c244aea8e2cf706d939254962ecd5e4d179e)](https://www.codefactor.io/repository/github/gabehoban/italianfoodforever)
+[![CodeFactor](https://www.codefactor.io/repository/github/gabehoban/italianfoodforever/badge?s=8f15c244aea8e2cf706d939254962ecd5e4d179e)](https://www.codefactor.io/repository/github/gabehoban/italianfoodforever)  [![Build Status](https://travis-ci.com/gabehoban/ItalianFoodForever.svg?token=MRNbyDyUpLZofpu2VZsM&branch=master)](https://travis-ci.com/gabehoban/ItalianFoodForever)  [![codecov](https://codecov.io/gh/gabehoban/ItalianFoodForever/branch/master/graph/badge.svg?token=96DDGR1IYF)](https://codecov.io/gh/gabehoban/ItalianFoodForever)
