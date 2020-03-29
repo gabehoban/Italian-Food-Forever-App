@@ -1,6 +1,0 @@
-framework module Pods_Italian_Food_Forever_Italian_Food_ForeverUITests {
-  umbrella header "Pods-Italian Food Forever-Italian Food ForeverUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
