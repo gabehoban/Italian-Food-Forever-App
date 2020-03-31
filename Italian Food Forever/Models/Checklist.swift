@@ -15,16 +15,28 @@ struct CheckView: View {
 	var body: some View {
 		Button(action: toggle) {
 			HStack {
-				Image(systemName: isChecked ? "checkmark.square" : "square")
-					.scaleEffect(1.4)
-					.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
-					.padding(.trailing, 5)
-				Text(title)
-					.strikethrough(isChecked, color: .black)
-					.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
-					.lineLimit(3)
-					.font(.body)
+				if !title.contains(":") {
+					Image(systemName: isChecked ? "checkmark.square" : "square")
+						.scaleEffect(1.4)
+						.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
+						.padding(.trailing, 5)
+					Text(title)
+						.strikethrough(isChecked, color: .black)
+						.lineLimit(5)
+						.font(.custom("Georgia", size: 18))
+						//.frame(width: size.width * 0.7)
+						.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
+					//Spacer()
+				} else {
+					Text(title)
+						.font(.custom("Georgia", size: 18))
+					    .underline()
+						.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
+						.lineLimit(2)
+						.padding(.trailing, 5)
+				}
 			}
 		}.padding(.bottom, 5)
+			.padding(.horizontal, 20)
 	}
 }

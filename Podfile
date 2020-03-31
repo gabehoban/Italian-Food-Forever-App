@@ -15,6 +15,7 @@ target 'Italian Food Forever' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'lottie-ios'
   # Pods for Italian Food Forever
 
   target 'Italian Food ForeverTests' do

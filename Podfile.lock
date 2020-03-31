@@ -271,6 +271,7 @@ PODS:
   - HTMLReader (2.1.5)
   - HTMLString (5.0.0)
   - leveldb-library (1.22)
+  - lottie-ios (3.1.6)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
@@ -292,6 +293,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - HTMLReader
   - HTMLString (~> 5.0)
+  - lottie-ios
   - SDWebImageSwiftUI
   - SwiftyJSON (~> 4.0)
 
@@ -319,6 +321,7 @@ SPEC REPOS:
     - HTMLReader
     - HTMLString
     - leveldb-library
+    - lottie-ios
     - nanopb
     - PromisesObjC
     - SDWebImage
@@ -348,12 +351,13 @@ SPEC CHECKSUMS:
   HTMLReader: 8056b3418baad09718902a1b39361c63b14a894f
   HTMLString: 20374dc0195423d02569e87561f01153fca0c364
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  lottie-ios: 85ce835dd8c53e02509f20729fc7d6a4e6645a0a
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SDWebImageSwiftUI: 52dabce85cfc575e08ca4ce26bed1334159dbc2b
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 9f0e3f7f0b6ab3ad82c005f499166fff4e75d729
+PODFILE CHECKSUM: 4e6178727f50d4046a08135fdda05b2edf9113b9
 
 COCOAPODS: 1.9.1

@@ -62,7 +62,7 @@ struct Search: View {
 				          text: $text, onEditingChanged: { _ in
 					          self.fetcher.getJsonData(string: self.text)
 					          self.displayRes = true
-				          }).frame(height: 50.0)
+				}).frame(height: 50.0)
 				Spacer()
 				Button(action: {
 					self.text = ""
@@ -86,10 +86,11 @@ struct Search: View {
 										.padding([.top, .bottom], 15)
 								}
 							}
-						}
+						}.animation(.linear(duration: 0.3))
 
 					}.navigationBarTitle("Test")
 				}.padding(.top, 30)
+				 .animation(Animation.easeInOut(duration: 1).delay(0.8))
 			} else {
 				VStack {
 					HStack {
@@ -101,7 +102,7 @@ struct Search: View {
 						Spacer()
 					}.padding(.leading, 20)
 					
-					// MARK: - First Line
+					// MARK: - First Line of Categories
 					HStack {
 						Button(action: {
 							self.text = "Fresh Pasta "
@@ -125,7 +126,7 @@ struct Search: View {
 						Spacer()
 					}.padding(.leading, 20)
 
-					// MARK: - Second Line
+					// MARK: - Second Line of Categories
 					HStack {
 						Button(action: {
 							self.text = "Bread "
@@ -149,12 +150,16 @@ struct Search: View {
 						Spacer()
 					}.padding(.top, 5)
 					 .padding(.leading, 20)
-				}.padding(.top, 5)
+				}.padding(.top, 10)
 			}
 		Spacer()
-		}
-		 .onAppear() {
-			self.displayRes = false
+		}.onAppear() {
+			if self.text != "" {
+				self.displayRes = true
+				self.fetcher.getJsonData(string: self.text)
+			} else {
+				self.displayRes = false
+			}
 		}
 	}
 }

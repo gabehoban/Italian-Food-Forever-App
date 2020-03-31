@@ -17,16 +17,11 @@ struct ContentView: View {
 
 	var body: some View {
 		VStack {
-			Rectangle()
-				.foregroundColor(.white)
-				.edgesIgnoringSafeArea(.top)
-				.frame(height: 50)
-				.padding(.top, -90)
 			NavigationView {
 				TabView(selection: $selection) {
 					Discover()
 						.padding(.top, -95)
-						.background(Color.white)
+						.background(Color.white) //white
 						.tabItem {
 							VStack {
 								Image(systemName: "house.fill")

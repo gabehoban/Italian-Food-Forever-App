@@ -71,88 +71,104 @@ struct ProfileView: View {
 				Spacer()
 			}.padding(.leading, 15)
 			ScrollView(.vertical, showsIndicators: false) {
-				VStack(spacing: 15) {
-					ForEach(self.datasME) { i in
-						NavigationLink(destination: DetailView(detail: i)) {
-							VStack {
-								ZStack {
-									if i.id != "nil" {
-										WebImage(url: URL(string: i.image), options: .highPriority)
-											.renderingMode(.original)
-											.resizable()
-											.indicator(.activity)
-											.animation(.easeInOut(duration: 0.5))
-											.aspectRatio(contentMode: .fill)
-											.clipped()
-											.frame(width: 350, height: 150)
-											.cornerRadius(15)
-										HStack {
-											Text(i.title)
-												.font(.headline)
-												.fontWeight(.bold)
-												.foregroundColor(Color.white)
-												.multilineTextAlignment(.leading)
-												.padding(.top, 105)
-												.padding(.leading, 15)
-												.shadow(color: .black, radius: 3, x: 1, y: 1)
-											Spacer()
+				if spark.profile.saved == [] {
+					VStack {
+						Spacer()
+						HStack {
+							Spacer()
+							Text("No Saved Posts")
+								.font(.subheadline)
+								.foregroundColor(.gray)
+							Spacer()
+						}
+						Spacer()
+					}
+				} else {
+					VStack(spacing: 15) {
+						ForEach(self.datasME) { i in
+							NavigationLink(destination: DetailView(detail: i)) {
+								VStack {
+									ZStack {
+										if i.id != "nil" {
+											WebImage(url: URL(string: i.image), options: .highPriority)
+												.renderingMode(.original)
+												.resizable()
+												.indicator(.activity)
+												.animation(.easeInOut(duration: 0.5))
+												.aspectRatio(contentMode: .fill)
+												.clipped()
+												.frame(width: 350, height: 150)
+												.cornerRadius(15)
+											HStack {
+												Text(i.title)
+													.font(.headline)
+													.fontWeight(.bold)
+													.foregroundColor(Color.white)
+													.multilineTextAlignment(.leading)
+													.padding(.top, 105)
+													.padding(.leading, 15)
+													.shadow(color: .black, radius: 3, x: 1, y: 1)
+												Spacer()
+											}
 										}
 									}
 								}
 							}
 						}
-					}
 					Spacer()
-				}.frame(width: 350, height: 700)
+					}.frame(width: 350, height: 700)
+						.onAppear(){
+							self.datasME.removeAll()
+							func load() {
+								self.spark.configureFirebaseStateDidChange()
+								if self.spark.profile.saved.isEmpty != true {
+									let toStringList = (self.spark.profile.saved)
+										.reversed()
+										.joined(separator: ",")
+									
+									let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?_envelope&_fields=id,excerpt,title,mv,date,link,content,author&include=\(toStringList)"
+									
+									let url = URL(string: source)!
+									
+									let session = URLSession(configuration: .default)
+									
+									session.dataTask(with: url) { (data, _, err) in
+										
+										if err != nil {
+											print((err?.localizedDescription)!)
+											return
+										}
+										
+										let json = try! JSON(data: data!)
+										for i in json["body"] {
+											let id = i.1["id"].stringValue
+											let url = i.1["link"].stringValue
+											let date = i.1["date"].stringValue
+											let title = i.1["title"]["rendered"].stringValue.removingHTMLEntities
+											let excerpt = i.1["excerpt"]["rendered"].stringValue
+											let image = i.1["mv"]["thumbnail_uri"].stringValue
+											let content = i.1["content"]["rendered"].stringValue
+											DispatchQueue.main.async {
+												self.datasME.append(dataType(id: id, url: url, date: date, title: title, excerpt: excerpt, image: image, content: content))
+											}
+											print(self.datasME.count)
+										}
+									}.resume()
+								} else {
+									self.datasME.append(dataType(id: "nil", url: "nil", date: "nil", title: "No Saved Posts", excerpt: "nil", image: "pasta", content: "nil"))
+								}
+							}
+					load()
+					}
+				}
 			}.frame(width: 350, height: 700)
 				.padding(.top, 15)
 			Spacer()
 		}.padding(.bottom, -10)
 			.onAppear() {
 				UserDefaults.standard.set(false, forKey: "status")
-				self.datasME.removeAll()
 				UINavigationBar.appearance().isOpaque = true
 				UINavigationBar.appearance().isTranslucent = true
-				func load() {
-					self.spark.configureFirebaseStateDidChange()
-					if self.spark.profile.saved.isEmpty != true {
-						let toStringList = (self.spark.profile.saved)
-							.reversed()
-							.joined(separator: ",")
-
-						let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?_envelope&_fields=id,excerpt,title,mv,date,link,content,author&include=\(toStringList)"
-
-						let url = URL(string: source)!
-
-						let session = URLSession(configuration: .default)
-
-						session.dataTask(with: url) { (data, _, err) in
-
-							if err != nil {
-								print((err?.localizedDescription)!)
-								return
-							}
-
-							let json = try! JSON(data: data!)
-							for i in json["body"] {
-								let id = i.1["id"].stringValue
-								let url = i.1["link"].stringValue
-								let date = i.1["date"].stringValue
-								let title = i.1["title"]["rendered"].stringValue.removingHTMLEntities
-								let excerpt = i.1["excerpt"]["rendered"].stringValue
-								let image = i.1["mv"]["thumbnail_uri"].stringValue
-								let content = i.1["content"]["rendered"].stringValue
-								DispatchQueue.main.async {
-									self.datasME.append(dataType(id: id, url: url, date: date, title: title, excerpt: excerpt, image: image, content: content))
-								}
-								print(self.datasME.count)
-							}
-						}.resume()
-					} else {
-						self.datasME.append(dataType(id: "nil", url: "nil", date: "nil", title: "No Saved Posts", excerpt: "nil", image: "pasta", content: "nil"))
-					}
-				}
-				load()
 		}
 	}
 }

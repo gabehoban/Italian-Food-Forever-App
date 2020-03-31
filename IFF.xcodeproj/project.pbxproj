@@ -31,6 +31,7 @@
 		21537FCA2427FEB70034A75A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBB2427FEB70034A75A /* ProfileView.swift */; };
 		21537FCB2427FEB70034A75A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBC2427FEB70034A75A /* SignInView.swift */; };
 		21537FCC2427FEB70034A75A /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBD2427FEB70034A75A /* LaunchScreenView.swift */; };
+		215C9028243165B3002678FA /* getJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215C9027243165B3002678FA /* getJSON.swift */; };
 		2167DB6324310C8C0071BE14 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6224310C8C0071BE14 /* Checklist.swift */; };
 		2167DB6524310CE90071BE14 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6424310CE90071BE14 /* Extensions.swift */; };
 		2167DB6724310E410071BE14 /* dataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6624310E410071BE14 /* dataTypes.swift */; };
@@ -50,6 +51,7 @@
 		21D4CF73242EC63400B47582 /* onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4CF72242EC63400B47582 /* onboarding.swift */; };
 		21D4CF77242F098200B47582 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D4CF76242F098200B47582 /* launch.png */; };
 		21D4CF79242FDBFF00B47582 /* Georgia.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21D4CF78242FDBFF00B47582 /* Georgia.otf */; };
+		21E82C022433A73700BF35ED /* modalIngredents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E82C012433A73700BF35ED /* modalIngredents.swift */; };
 		21F22C7924247AFC009E8B53 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F22C7824247AFC009E8B53 /* ViewModifiers.swift */; };
 		21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B52420026300910CF0 /* AppDelegate.swift */; };
 		21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B72420026300910CF0 /* SceneDelegate.swift */; };
@@ -108,6 +110,7 @@
 		21537FBC2427FEB70034A75A /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		21537FBD2427FEB70034A75A /* LaunchScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		21537FCD242806610034A75A /* Italian Food Forever.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Italian Food Forever.entitlements"; sourceTree = "<group>"; };
+		215C9027243165B3002678FA /* getJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getJSON.swift; sourceTree = "<group>"; };
 		2167DB6224310C8C0071BE14 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		2167DB6424310CE90071BE14 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2167DB6624310E410071BE14 /* dataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataTypes.swift; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 		21D4CF72242EC63400B47582 /* onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboarding.swift; sourceTree = "<group>"; };
 		21D4CF76242F098200B47582 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		21D4CF78242FDBFF00B47582 /* Georgia.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Georgia.otf; sourceTree = "<group>"; };
+		21E82C012433A73700BF35ED /* modalIngredents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modalIngredents.swift; sourceTree = "<group>"; };
 		21F22C7824247AFC009E8B53 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		21FE87B22420026200910CF0 /* Italian Food Forever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Italian Food Forever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21FE87B52420026300910CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -235,6 +239,7 @@
 				21537FBC2427FEB70034A75A /* SignInView.swift */,
 				21537FBD2427FEB70034A75A /* LaunchScreenView.swift */,
 				21BA5C012423EEBD00499BCE /* cardView.swift */,
+				21E82C012433A73700BF35ED /* modalIngredents.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				2167DB6924310EE80071BE14 /* networkManagers.swift */,
+				215C9027243165B3002678FA /* getJSON.swift */,
 			);
 			name = Networking;
 			path = Helpers/Networking;
@@ -660,6 +666,7 @@
 				21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */,
 				2167DB6524310CE90071BE14 /* Extensions.swift in Sources */,
 				21B6CBCA242D7E190000FA7E /* privacyTerms.swift in Sources */,
+				215C9028243165B3002678FA /* getJSON.swift in Sources */,
 				21537FA72427FA780034A75A /* Login.swift in Sources */,
 				21537FC62427FEB70034A75A /* SparkError.swift in Sources */,
 				2167DB6324310C8C0071BE14 /* Checklist.swift in Sources */,
@@ -676,6 +683,7 @@
 				21537FCB2427FEB70034A75A /* SignInView.swift in Sources */,
 				21B802772422B71400BED86A /* cardsRow1.swift in Sources */,
 				21D4CF73242EC63400B47582 /* onboarding.swift in Sources */,
+				21E82C022433A73700BF35ED /* modalIngredents.swift in Sources */,
 				21537FC02427FEB70034A75A /* DocumentSerializable.swift in Sources */,
 				21B6CBCE242D7E8D0000FA7E /* termsUse.swift in Sources */,
 				2167DB6724310E410071BE14 /* dataTypes.swift in Sources */,
@@ -860,7 +868,7 @@
 			baseConfigurationReference = 1D3DF2CCAEFF10C735810C58 /* Pods-Italian Food Forever.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = newIcon;
 				CODE_SIGN_ENTITLEMENTS = "Italian Food Forever/Italian Food Forever.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Italian Food Forever/Preview Content\"";
@@ -883,7 +891,7 @@
 			baseConfigurationReference = 5EE5A644270E56DD847EAAAA /* Pods-Italian Food Forever.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = newIcon;
 				CODE_SIGN_ENTITLEMENTS = "Italian Food Forever/Italian Food Forever.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Italian Food Forever/Preview Content\"";

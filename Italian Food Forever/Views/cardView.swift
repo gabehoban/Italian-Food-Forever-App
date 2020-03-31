@@ -16,15 +16,29 @@ import HTMLString
 struct MySubview: View {
 	let size: CGSize
 	var detail: dataType
-
 	@EnvironmentObject var spark: Spark
+	@Environment(\.presentationMode) var presentation
+
+	var btnBack: some View { Button(action: {
+		self.presentation.wrappedValue.dismiss()
+	}) {
+			HStack {
+				Image(systemName: "arrow.left")
+					.foregroundColor(.white)
+					.scaleEffect(1.4)
+			}
+		}
+	}
+
 	@State private var show_signinModal: Bool = false
 	@State private var show_signBackinModal: Bool = false
+	@State private var article: Bool = false
 	@State private var heartSelect: Bool = false
 	@State private var isSharePresented: Bool = false
 	@State private var instructionPage: Bool = false
 	@State private var ingredients: Bool = false
 	@State private var ingredientSymbol: String = "chevron.right"
+	@State var content: String = ""
 
 	func toggle() { isChecked = !isChecked }
 	@State var isChecked: Bool = false
@@ -35,223 +49,157 @@ struct MySubview: View {
 			}
 			NavigationView {
 				VStack {
-					WebImage(url: URL(string: detail.image), options: .highPriority)
-						.renderingMode(.original)
-						.resizable()
-						.indicator(.activity)
-						.animation(.easeInOut(duration: 0.5))
-						.cornerRadius(10)
-						.frame(width: 500, height: 300)
-					ZStack {
-						Rectangle()
-							.foregroundColor(.white)
-							.edgesIgnoringSafeArea(.bottom)
-							.cornerRadius(20)
-							.frame(width: 0.95 * size.width, height: 600)
-							.shadow(color: .black, radius: 10, x: 1, y: 1)
+					ScrollView(.vertical, showsIndicators: false) {
 						VStack {
+							//MARK: - Image
+							WebImage(url: URL(string: detail.image), options: .highPriority)
+								.renderingMode(.original)
+								.resizable()
+								.indicator(.activity)
+								.cornerRadius(10)
+								.frame(width: 500, height: 300)
+								.animation(.easeInOut(duration: 0.8))
+							//MARK: - Title
+							//TODO: Add custom font
 							HStack {
 								Text(utils().formatTitle(str: detail.title).removingHTMLEntities)
-									.font(.headline)
+									.font(.title)
+									.fixedSize(horizontal: false, vertical: true)
+									.lineLimit(3)
 									.multilineTextAlignment(.leading)
-									.padding(.leading, -15.0)
-
+									.padding(.leading, -55.0)
+									.animation(Animation.easeInOut(duration: 0.6).delay(0.3))
 								Spacer()
-							}.frame(width: 0.8 * size.width, height: 50)
-							HStack {
-								VStack {
-									HStack {
-										Text("Deborah Mele")
-											.fontWeight(.thin)
-											.padding(.leading, 18)
-										Spacer()
-									}.padding(.bottom, 5)
-									HStack {
-										Text("Posted: \(utils().formatDate(posted: detail.date))")
-											.font(.footnote)
-											.padding(.leading, 18)
-										Spacer()
-									}
+							}.frame(width: 0.7 * size.width)
+							//MARK: - Author & Date
+							VStack {
+								HStack {
+									Image("deb")
+										.clipShape(Circle())
+										.shadow(radius: 10)
+										.overlay(Circle().stroke(Color.black, lineWidth: 5))
+										.frame(width: 10, height: 10)
+										.scaleEffect(0.06)
+										.padding(.leading, 35)
+									Text("Deborah Mele")
+										.fontWeight(.thin)
+										.padding(.leading, 18)
+										.animation(Animation.easeInOut(duration: 0.6).delay(0.5))
+									Spacer()
+									Text("Posted: \(utils().formatDate(posted: detail.date))")
+										.fontWeight(.thin)
+										.padding(.trailing, 25)
+										.animation(Animation.easeInOut(duration: 0.6).delay(0.5))
 								}
-								Spacer()
-								if detail.content.contains("\"@type\":\"Recipe\"") || detail.content.contains("mv-recipe-card") {
+								//MARK: - Seperator
+								Rectangle()
+									.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255).opacity(0.4))
+									.frame(height: 1.0)
+									.padding([.leading, .trailing], 20)
+									.padding(.vertical, 10)
+								//MARK: - Details
+								HStack {
+									Text("Total Time")
+										.fontWeight(.bold)
+									Text(utils().formatTime(str: detail.content, title: detail.title))
+										.font(.body)
+									Spacer()
+									Text("Yield")
+										.fontWeight(.bold)
+									Text(utils().formatYield(str: detail.content, title: detail.title))
+										.font(.body)
+								}.padding([.leading, .trailing], 25)
+								HStack {
 									Button(action: {
-										if self.instructionPage == false {
-											self.instructionPage = true
-										} else if self.instructionPage == true {
-											self.instructionPage = false
-										}
+										self.ingredients.toggle()
+										self.content = self.detail.content
 
 									}) {
-										ZStack {
-											Rectangle()
-												.frame(width: 150, height: 30)
-												.cornerRadius(40)
-												.foregroundColor(Color(UIColor.brown))
-												.shadow(color: .gray, radius: 10, x: 1, y: 1)
-											HStack {
-												Text("Recipe")
-													.foregroundColor(.white)
-												if instructionPage == false {
-													Image(systemName: "chevron.right")
-														.foregroundColor(.white)
-												} else if instructionPage == true {
-													Image(systemName: "chevron.down")
-														.foregroundColor(.white)
-												}
+										Text("View Ingredients")
+											.font(.headline)
+											.fontWeight(.semibold)
+											.foregroundColor(Color(UIColor.systemTeal))
+											.multilineTextAlignment(.leading)
+											.padding(.top, 15)
+									}.sheet(isPresented: $ingredients) {
+										modalIngredents(Presented: self.$ingredients, content: self.$content, onDismiss: {
+											self.ingredients = false
+										})
+									}
+									Spacer()
+								}.padding([.leading, .trailing], 25)
+							}.padding([.leading, .trailing], 35)
+								.padding(.vertical, 10)
 
-											}
-										}
-									}.padding(.trailing, 15)
-								}
-							}.padding(.top, -15)
-							Rectangle()
-								.frame(height: 2.0)
-								.padding([.leading, .trailing], 20)
-								.padding(.bottom, 10)
-							Spacer()
-						}.frame(width: 0.95 * size.width, height: 500)
-							.padding(.top, -60)
-						ScrollView(.vertical, showsIndicators: false) {
-							VStack {
-								if instructionPage == false {
+							//MARK: - Content
+							if article == false {
+								Button(action: {
+									self.article.toggle()
+								}) {
 									Text(utils().stripHTML(str: detail.content).removingHTMLEntities)
 										.font(.custom("Georgia", size: 18))
 										.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
-										.padding(.horizontal, 15.0)
+										.padding(.horizontal, 60)
+										.padding(.top, 15)
 										.lineSpacing(5)
-								} else {
-									VStack {
-										HStack {
-											Spacer()
-											Button(action: {
-												if self.ingredients == false {
-													self.ingredients = true
-													self.ingredientSymbol = "chevron.down"
-												} else if self.ingredients == true {
-													self.ingredients = false
-													self.ingredientSymbol = "chevron.right"
-												}
-											}, label: {
-												ZStack {
-													Rectangle()
-														.frame(width: 150, height: 30)
-														.cornerRadius(40)
-														.foregroundColor(Color(red: 248 / 255, green: 242 / 255, blue: 219 / 255))
-														.shadow(color: .gray, radius: 10, x: 1, y: 1)
-													HStack {
-														Text("Ingredients ")
-															.foregroundColor(.black)
-														Image(systemName: "\(ingredientSymbol)")
-															.foregroundColor(.black)
-													}
-												}
-											}).padding(.leading, -25)
-											Spacer()
-											Text("Yield: \(utils().formatYield(str: detail.content.removingHTMLEntities, title: detail.title))")
-											Spacer()
-										}.padding([.top, .bottom], 5)
-
-										// MARK: - Ingredients
-										if ingredients == true {
-											VStack {
-												ForEach(utils().formatIngredients(str: detail.content), id: \.self) { datum in
-													HStack {
-														CheckView(title: datum)
-														Spacer()
-													}
-												}
-											}
-										}
-										VStack {
-											ForEach(0..<utils().formatSteps(str: detail.content).count, id: \.self) { i in
-												HStack {
-													Text("\(i + 1). ")
-														.foregroundColor(Color.black)
-														.font(.body)
-													Text("\(utils().formatSteps(str: self.detail.content)[i]).")
-														.font(.body)
-													Spacer()
-												}.padding(.top, 18)
-											}
-										}
-									}.padding(.leading, 5)
+										.lineLimit(5)
+										.fixedSize(horizontal: false, vertical: true)
 								}
-								Spacer()
-							}.padding([.leading, .trailing], 10)
-								.padding(.top, 10)
-						}.padding(.top, 35) //Scrollview top padding
-						.frame(width: 0.95 * size.width, height: 430)
-						Spacer()
-					}.padding(.top, -60) //Rectangle offset
-				}.padding(.top, -40)
-			}.navigationBarTitle("", displayMode: .inline)
-				.navigationBarItems(trailing:
-					HStack {
-						Spacer()
-						Button(action: {
-							self.isSharePresented = true
-						}, label: {
-							Image(systemName: "square.and.arrow.up")
-						}).padding(.bottom, 5)
-							.padding(.trailing, 8)
-							.sheet(isPresented: $isSharePresented, onDismiss: {
-								print("Dismiss")
-							}, content: {
-								ActivityViewController(activityItems: [URL(string: self.detail.url)!])
-							})
-						Button(action: {
-							if self.spark.isUserAuthenticated == .undefined {
-								self.show_signinModal = true
-							} else if self.spark.isUserAuthenticated == .signedIn {
-								if self.heartSelect == false {
-									self.heartSelect = true
 
-									var savedP: [String] = self.spark.profile.saved
-									savedP.append(self.detail.id)
+								//MARK: - Seperator
+								Rectangle()
+									.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255).opacity(0.4))
+									.frame(height: 1.0)
+									.padding([.leading, .trailing], 20)
+									.padding(.vertical, 15)
 
+								//MARK: - Directions
+								HStack {
+									Text("Directions")
+										.font(.headline)
+										.fontWeight(.bold)
+										.padding(.horizontal, 60)
+									Spacer()
+								}.padding(.top, 10)
 
-									SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
-										switch err {
-										case .success:
-											print("Added \(self.detail.id) to saved array -> \(self.spark.profile.saved)")
-										case .failure(let error):
-											print(error.localizedDescription)
-										}
+								//MARK: - Steps
+								ForEach(0..<utils().formatSteps(str: detail.content).count, id: \.self) { i in
+									HStack {
+										Text("\(i + 1) ")
+											.font(.custom("Georgia", size: 25))
+											.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
+											+ Text("\(utils().formatSteps(str: self.detail.content)[i]).")
+											.font(.custom("Georgia", size: 18))
+											.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
+										Spacer()
+									}.lineSpacing(5)
+								}.padding(.horizontal, 60)
+									.padding(.top, 5)
+							} else {
+								Text(utils().stripHTML(str: detail.content).removingHTMLEntities)
+									.font(.custom("Georgia", size: 18))
+									.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
+									.padding(.horizontal, 60)
+									.padding(.top, 15)
+									.lineSpacing(5)
+								HStack {
+									Spacer()
+									Button(action: {
+										self.article.toggle()
+									}) {
+										Text("Back to top")
+											.padding(.trailing, 65)
+											.padding(.bottom, 10)
 									}
-									self.spark.configureFirebaseStateDidChange()
-
-								} else if self.heartSelect == true {
-									self.heartSelect = false
-									var savedP = self.spark.profile.saved
-									if let index = savedP.firstIndex(of: "\(self.detail.id)") {
-										savedP.remove(at: index)
-									}
-									self.spark.configureFirebaseStateDidChange()
-									SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
-										switch err {
-										case .success:
-											print("Removed \(self.detail.id) from \(self.spark.profile.saved).")
-										case .failure(let error):
-											print(error.localizedDescription)
-										}
-									}
-									self.spark.configureFirebaseStateDidChange()
 								}
-							} else if self.spark.isUserAuthenticated == .signedOut {
-								self.show_signinModal = true
 							}
-						}, label: {
-							if heartSelect == false {
-								Image(systemName: "heart")
-							} else if heartSelect == true {
-								Image(systemName: "heart.fill").foregroundColor(.red)
-							}
-						}
-						)
-					}.scaleEffect(/*@START_MENU_TOKEN@*/1.4/*@END_MENU_TOKEN@*/))
-				.edgesIgnoringSafeArea(.top)
-				.padding(.top, 10)
+							Spacer()
+						}.padding(.horizontal, 10)
+							.padding(.top, 20)
+					}.padding(.top, -25) //Scrollview top padding
+					Spacer()
+				}.padding(.top, -60) //Rectangle offset
+			}.padding(.top, -45)
 				.onAppear() {
 					self.spark.configureFirebaseStateDidChange()
 
@@ -259,6 +207,8 @@ struct MySubview: View {
 
 					UINavigationBar.appearance().isOpaque = true
 					UINavigationBar.appearance().isTranslucent = true
+					UINavigationBar.appearance().tintColor = .white
+					UINavigationBar.appearance().backgroundColor = .clear
 
 					for id in self.spark.profile.saved
 					{
@@ -267,18 +217,94 @@ struct MySubview: View {
 							break
 						}
 					}
-
-
 			}
-		}
+		}.navigationBarTitle("", displayMode: .inline)
+			.navigationBarBackButtonHidden(true)
+			.navigationBarItems(leading: btnBack, trailing:
+				HStack {
+					Spacer()
+					Button(action: {
+						self.isSharePresented = true
+					}, label: {
+						Image(systemName: "square.and.arrow.up")
+							.foregroundColor(.white)
+					}).padding(.bottom, 5)
+						.padding(.trailing, 8)
+						.sheet(isPresented: $isSharePresented, onDismiss: {
+							print("Dismiss")
+						}, content: {
+							ActivityViewController(activityItems: [URL(string: self.detail.url)!])
+						})
+					Button(action: {
+						if self.spark.isUserAuthenticated == .undefined {
+							self.show_signinModal = true
+						} else if self.spark.isUserAuthenticated == .signedIn {
+							if self.heartSelect == false {
+								self.heartSelect = true
+
+								var savedP: [String] = self.spark.profile.saved
+								savedP.append(self.detail.id)
+
+
+								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
+									switch err {
+									case .success:
+										print("Added \(self.detail.id) to saved array -> \(self.spark.profile.saved)")
+									case .failure(let error):
+										print(error.localizedDescription)
+									}
+								}
+								self.spark.configureFirebaseStateDidChange()
+
+							} else if self.heartSelect == true {
+								self.heartSelect = false
+								var savedP = self.spark.profile.saved
+								if let index = savedP.firstIndex(of: "\(self.detail.id)") {
+									savedP.remove(at: index)
+								}
+								self.spark.configureFirebaseStateDidChange()
+								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
+									switch err {
+									case .success:
+										print("Removed \(self.detail.id) from \(self.spark.profile.saved).")
+									case .failure(let error):
+										print(error.localizedDescription)
+									}
+								}
+								self.spark.configureFirebaseStateDidChange()
+							}
+						} else if self.spark.isUserAuthenticated == .signedOut {
+							self.show_signinModal = true
+						}
+					}, label: {
+						if heartSelect == false {
+							Image(systemName: "heart")
+								.foregroundColor(.white)
+						} else if heartSelect == true {
+							Image(systemName: "heart.fill")
+								.foregroundColor(.red)
+						}
+					}
+					)
+				}.scaleEffect(/*@START_MENU_TOKEN@*/1.4/*@END_MENU_TOKEN@*/))
+				.overlay(
+					VStack {
+					LinearGradient(gradient: .init(colors: [Color.black.opacity(0.6), .clear]), startPoint: .top, endPoint: .bottom)
+					Spacer()
+					}.edgesIgnoringSafeArea(.top)
+					 .offset(x: 0, y: -400)
+					 .frame(height: 100)
+				)
+			.edgesIgnoringSafeArea(.top)
+			.padding(.top, 10)
 	}
 }
 
 struct DetailView: View {
 	var detail: dataType
 	var body: some View {
-			GeometryReader { geometry in
-				MySubview(size: geometry.size, detail: self.detail)
+		GeometryReader { geometry in
+			MySubview(size: geometry.size, detail: self.detail)
 		}
 	}
 }

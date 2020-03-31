@@ -25,7 +25,7 @@ struct Discover: View {
 						.resizable()
 						.frame(width: 250, height: 100)
 					Spacer()
-				}
+				}.padding(.top, -10)
 				VStack {
 					Spacer()
 					HStack {
@@ -47,10 +47,9 @@ struct Discover: View {
 						springRow()
 							.padding(.top, -100)
 					}.padding(.top, 115)
-					Spacer()
 				}.padding(.top, 120)//100
-			}//.padding(.top, 20)
-		}
+			}
+		}.padding(.bottom, -80)
 	}
 }
 struct Discover_Previews: PreviewProvider {
