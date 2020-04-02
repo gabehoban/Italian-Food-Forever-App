@@ -13,33 +13,32 @@ import Firebase
 import AudioToolbox
 
 struct Login: View {
-	
-  @EnvironmentObject var spark: Spark
-	
-  var body: some View {
-      ZStack {
-        if spark.isUserAuthenticated == .undefined {
-          LaunchScreenView()
-        } else if spark.isUserAuthenticated == .signedOut {
-          SignInView()
-        } else if spark.isUserAuthenticated == .signedIn {
-			ProfileView()
-		}
-      }.onAppear() {
-        UINavigationBar.appearance().isOpaque = true
-        UINavigationBar.appearance().isTranslucent = true
-      // dev only
+
+	@EnvironmentObject var spark: Spark
+
+	var body: some View {
+		ZStack {
+			if spark.isUserAuthenticated == .undefined {
+				LaunchScreenView()
+			} else if spark.isUserAuthenticated == .signedOut {
+				SignInView()
+			} else if spark.isUserAuthenticated == .signedIn {
+				ProfileView()
+			}
+		}.onAppear() {
+			UINavigationBar.appearance().isOpaque = true
+			UINavigationBar.appearance().isTranslucent = true
+			// dev only
 //            SparkAuth.logout { (result) in
 //                print("Logout: \(result)")
 //            }
-      self.spark.configureFirebaseStateDidChange()
-    }
-  }
-
+			self.spark.configureFirebaseStateDidChange()
+		}
+	}
 }
 
 struct Login_Previews: PreviewProvider {
-  static var previews: some View {
-	Login()
-  }
+	static var previews: some View {
+		Login()
+	}
 }

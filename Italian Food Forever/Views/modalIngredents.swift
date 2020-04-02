@@ -16,26 +16,25 @@ struct modalIngredents: View {
 		VStack {
 			HStack{
 				Text("Ingredients")
+					.font(.headline)
 				Spacer()
 				HStack{
-					Button(action: {
-						print("PRINT")
-					}) {
-						Image(systemName: "printer")
-					}
 					Button(action: {
 						self.onDismiss()
 					}) {
 						Text("Done")
+							.foregroundColor(.black)
 					}
 				}
-			}.padding(.top, -75)
+			}.padding(.top, 20)
+			 .padding(.bottom, 25)
 			ForEach(utils().formatIngredients(str: content), id: \.self) { datum in
 				HStack {
 					CheckView(title: datum)
 					Spacer()
 				}
 			}
+			Spacer()
 		}.padding(.horizontal, 10)
     }
 }

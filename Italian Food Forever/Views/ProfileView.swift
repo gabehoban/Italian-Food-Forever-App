@@ -15,14 +15,12 @@ import SDWebImageSwiftUI
 struct ProfileView: View {
 	@EnvironmentObject var spark: Spark
 	@State var datasME = [dataType]()
-
-
 	func stripHTML(str: String) -> String {
 		let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
 		let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
 		return str
 	}
-
+	
 	func sanitizeName(str: String) -> String {
 		let str1 = str.components(separatedBy: " ")
 		let toReturn = str1[0]
@@ -39,29 +37,9 @@ struct ProfileView: View {
 					Text("\(sanitizeName(str: self.spark.profile.name))")
 						.font(.title)
 						.fontWeight(.bold)
-				}.padding(.top, 35)
+				}
 				Spacer()
-				VStack {
-					Button(action: {
-						self.gear = true
-					}, label: {
-						ZStack {
-							Circle()
-								.foregroundColor(.white)
-								.padding(.trailing, 10)
-								.shadow(color: .gray, radius: 10, x: 5, y: 5)
-								.frame(width: 50, height: 50)
-								.opacity(0.7)
-							Image(systemName: "gear")
-								.scaleEffect(1.6)
-								.foregroundColor(.gray)
-								.padding(.trailing, 10)
-						}
-					})
-				}.padding(.top, 35)
-			}.padding([.leading, .trailing], 15)
-				.padding(.top, 10)
-				.padding(.bottom, 10)
+			}.padding(.horizontal, 15)
 			HStack {
 				Text("Your saved posts")
 					.font(.headline)
@@ -69,7 +47,25 @@ struct ProfileView: View {
 					.foregroundColor(Color(UIColor.systemTeal))
 					.multilineTextAlignment(.leading)
 				Spacer()
-			}.padding(.leading, 15)
+				VStack {
+					Button(action: {
+						self.gear = true
+						print("Clicked")
+					}, label: {
+						ZStack {
+							Circle()
+								.foregroundColor(.white)
+								.shadow(color: Color.gray.opacity(0.4), radius: 10, x: 2, y: 2)
+								.frame(width: 30, height: 30)
+								.opacity(0.4)
+							Image(systemName: "gear")
+								.scaleEffect(1.3)
+								.foregroundColor(.gray)
+						}
+					})
+				}
+			}.padding(.horizontal, 15)
+			 .padding(.bottom, 15)
 			ScrollView(.vertical, showsIndicators: false) {
 				if spark.profile.saved == [] {
 					VStack {
@@ -84,7 +80,7 @@ struct ProfileView: View {
 						Spacer()
 					}
 				} else {
-					VStack(spacing: 15) {
+					VStack {
 						ForEach(self.datasME) { i in
 							NavigationLink(destination: DetailView(detail: i)) {
 								VStack {
@@ -115,9 +111,8 @@ struct ProfileView: View {
 								}
 							}
 						}
-					Spacer()
-					}.frame(width: 350, height: 700)
-						.onAppear(){
+						Spacer()
+					}.onAppear(){
 							self.datasME.removeAll()
 							func load() {
 								self.spark.configureFirebaseStateDidChange()
@@ -158,18 +153,19 @@ struct ProfileView: View {
 									self.datasME.append(dataType(id: "nil", url: "nil", date: "nil", title: "No Saved Posts", excerpt: "nil", image: "pasta", content: "nil"))
 								}
 							}
-					load()
-					}
+							load()
+					}.frame(width: 350)
+					Spacer()
 				}
-			}.frame(width: 350, height: 700)
-				.padding(.top, 15)
+			}
 			Spacer()
-		}.padding(.bottom, -10)
-			.onAppear() {
+		}.onAppear() {
 				UserDefaults.standard.set(false, forKey: "status")
 				UINavigationBar.appearance().isOpaque = true
 				UINavigationBar.appearance().isTranslucent = true
 		}
+		.padding(.top, -75)
+	    .navigationBarItems(trailing: Text("Test"))
 	}
 }
 struct ProfileView_Previews: PreviewProvider {

@@ -67,7 +67,7 @@ struct MySubview: View {
 									.fixedSize(horizontal: false, vertical: true)
 									.lineLimit(3)
 									.multilineTextAlignment(.leading)
-									.padding(.leading, -55.0)
+									.padding(.horizontal, -50)
 									.animation(Animation.easeInOut(duration: 0.6).delay(0.3))
 								Spacer()
 							}.frame(width: 0.7 * size.width)
@@ -79,8 +79,8 @@ struct MySubview: View {
 										.shadow(radius: 10)
 										.overlay(Circle().stroke(Color.black, lineWidth: 5))
 										.frame(width: 10, height: 10)
+										.padding(.leading, 20)
 										.scaleEffect(0.06)
-										.padding(.leading, 35)
 									Text("Deborah Mele")
 										.fontWeight(.thin)
 										.padding(.leading, 18)
@@ -88,7 +88,6 @@ struct MySubview: View {
 									Spacer()
 									Text("Posted: \(utils().formatDate(posted: detail.date))")
 										.fontWeight(.thin)
-										.padding(.trailing, 25)
 										.animation(Animation.easeInOut(duration: 0.6).delay(0.5))
 								}
 								//MARK: - Seperator
@@ -99,8 +98,15 @@ struct MySubview: View {
 									.padding(.vertical, 10)
 								//MARK: - Details
 								HStack {
-									Text("Total Time")
+									if utils().formatTime(str: detail.content, title: detail.title).contains("hour") {
+									Text("Total \nTime")
 										.fontWeight(.bold)
+										.fixedSize(horizontal: false, vertical: true)
+										.lineLimit(2)
+									} else {
+										Text("Total Time")
+											.fontWeight(.bold)
+									}
 									Text(utils().formatTime(str: detail.content, title: detail.title))
 										.font(.body)
 									Spacer()
@@ -108,7 +114,7 @@ struct MySubview: View {
 										.fontWeight(.bold)
 									Text(utils().formatYield(str: detail.content, title: detail.title))
 										.font(.body)
-								}.padding([.leading, .trailing], 25)
+								}//.padding([.leading, .trailing], 25)
 								HStack {
 									Button(action: {
 										self.ingredients.toggle()
@@ -127,8 +133,8 @@ struct MySubview: View {
 										})
 									}
 									Spacer()
-								}.padding([.leading, .trailing], 25)
-							}.padding([.leading, .trailing], 35)
+								}
+							}.padding(.horizontal, 55)
 								.padding(.vertical, 10)
 
 							//MARK: - Content
@@ -146,13 +152,6 @@ struct MySubview: View {
 										.fixedSize(horizontal: false, vertical: true)
 								}
 
-								//MARK: - Seperator
-								Rectangle()
-									.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255).opacity(0.4))
-									.frame(height: 1.0)
-									.padding([.leading, .trailing], 20)
-									.padding(.vertical, 15)
-
 								//MARK: - Directions
 								HStack {
 									Text("Directions")
@@ -160,7 +159,7 @@ struct MySubview: View {
 										.fontWeight(.bold)
 										.padding(.horizontal, 60)
 									Spacer()
-								}.padding(.top, 10)
+								}.padding(.top, 35)
 
 								//MARK: - Steps
 								ForEach(0..<utils().formatSteps(str: detail.content).count, id: \.self) { i in
@@ -173,14 +172,16 @@ struct MySubview: View {
 											.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
 										Spacer()
 									}.lineSpacing(5)
+									 .padding(.top, 5)
 								}.padding(.horizontal, 60)
-									.padding(.top, 5)
+								 .padding(.vertical, 5)
+								.padding(.bottom, 10)
 							} else {
 								Text(utils().stripHTML(str: detail.content).removingHTMLEntities)
 									.font(.custom("Georgia", size: 18))
 									.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
 									.padding(.horizontal, 60)
-									.padding(.top, 15)
+									.padding(.vertical, 15)
 									.lineSpacing(5)
 								HStack {
 									Spacer()
@@ -188,14 +189,14 @@ struct MySubview: View {
 										self.article.toggle()
 									}) {
 										Text("Back to top")
-											.padding(.trailing, 65)
-											.padding(.bottom, 10)
+											.padding(.trailing, 85)
+											.padding(.bottom, 20)
 									}
 								}
 							}
 							Spacer()
 						}.padding(.horizontal, 10)
-							.padding(.top, 20)
+						 .padding(.vertical, 20)
 					}.padding(.top, -25) //Scrollview top padding
 					Spacer()
 				}.padding(.top, -60) //Rectangle offset
