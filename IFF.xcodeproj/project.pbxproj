@@ -870,7 +870,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = newIcon;
 				CODE_SIGN_ENTITLEMENTS = "Italian Food Forever/Italian Food Forever.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Italian Food Forever/Preview Content\"";
 				DEVELOPMENT_TEAM = YV98CCJ4M2;
 				ENABLE_PREVIEWS = YES;
@@ -879,6 +879,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2020.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-Forever";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -894,7 +895,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = newIcon;
 				CODE_SIGN_ENTITLEMENTS = "Italian Food Forever/Italian Food Forever.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Italian Food Forever/Preview Content\"";
 				DEVELOPMENT_TEAM = YV98CCJ4M2;
 				ENABLE_PREVIEWS = YES;
@@ -903,6 +904,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2020.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-Forever";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
