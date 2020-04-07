@@ -1,0 +1,1056 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		211BBCF324299B6C004F345D /* IntroDemoCond-LightCAPS.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCF224299B6C004F345D /* IntroDemoCond-LightCAPS.otf */; };
+		211BBCF524299C8F004F345D /* AvertaDemoPE-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCF424299C8E004F345D /* AvertaDemoPE-Regular.otf */; };
+		211BBCFF2429A68B004F345D /* uniformextracondensed-medium-webfont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */; };
+		213CF7A1242C0FC2009E9CDC /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CF7A0242C0FC2009E9CDC /* Search.swift */; };
+		213CF7A5242C5718009E9CDC /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CF7A4242C5717009E9CDC /* settings.swift */; };
+		21537FA72427FA780034A75A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FA62427FA780034A75A /* Login.swift */; };
+		21537FA92427FB690034A75A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21537FA82427FB690034A75A /* GoogleService-Info.plist */; };
+		21537FAA2427FB690034A75A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21537FA82427FB690034A75A /* GoogleService-Info.plist */; };
+		21537FAB2427FB690034A75A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21537FA82427FB690034A75A /* GoogleService-Info.plist */; };
+		21537FBE2427FEB70034A75A /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FAD2427FEB30034A75A /* Profile.swift */; };
+		21537FBF2427FEB70034A75A /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FAE2427FEB30034A75A /* ActivityIndicator.swift */; };
+		21537FC02427FEB70034A75A /* DocumentSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FAF2427FEB30034A75A /* DocumentSerializable.swift */; };
+		21537FC12427FEB70034A75A /* SparkKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FB02427FEB30034A75A /* SparkKeys.swift */; };
+		21537FC22427FEB70034A75A /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FB12427FEB30034A75A /* SignInWithAppleView.swift */; };
+		21537FC32427FEB70034A75A /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FB22427FEB30034A75A /* Typealiases.swift */; };
+		21537FC42427FEB70034A75A /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FB32427FEB30034A75A /* ActivityIndicatorView.swift */; };
+		21537FC52427FEB70034A75A /* Spark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FB52427FEB50034A75A /* Spark.swift */; };
+		21537FC62427FEB70034A75A /* SparkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FB62427FEB50034A75A /* SparkError.swift */; };
+		21537FC72427FEB70034A75A /* SparkUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FB72427FEB50034A75A /* SparkUI.swift */; };
+		21537FC82427FEB70034A75A /* SparkFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FB82427FEB50034A75A /* SparkFirestore.swift */; };
+		21537FC92427FEB70034A75A /* SparkAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FB92427FEB50034A75A /* SparkAuth.swift */; };
+		21537FCA2427FEB70034A75A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBB2427FEB70034A75A /* ProfileView.swift */; };
+		21537FCB2427FEB70034A75A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBC2427FEB70034A75A /* SignInView.swift */; };
+		21537FCC2427FEB70034A75A /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBD2427FEB70034A75A /* LaunchScreenView.swift */; };
+		215C9028243165B3002678FA /* getJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215C9027243165B3002678FA /* getJSON.swift */; };
+		2167DB6324310C8C0071BE14 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6224310C8C0071BE14 /* Checklist.swift */; };
+		2167DB6524310CE90071BE14 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6424310CE90071BE14 /* Extensions.swift */; };
+		2167DB6724310E410071BE14 /* dataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6624310E410071BE14 /* dataTypes.swift */; };
+		2167DB6A24310EE80071BE14 /* networkManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6924310EE80071BE14 /* networkManagers.swift */; };
+		2167DB6D2431156A0071BE14 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6C2431156A0071BE14 /* Utils.swift */; };
+		216D96942422E2F300F0CBB6 /* Featured.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D96932422E2F300F0CBB6 /* Featured.swift */; };
+		21B6CBCA242D7E190000FA7E /* privacyTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBC9242D7E190000FA7E /* privacyTerms.swift */; };
+		21B6CBCC242D7E7A0000FA7E /* privacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */; };
+		21B6CBCE242D7E8D0000FA7E /* termsUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBCD242D7E8D0000FA7E /* termsUse.swift */; };
+		21B6CBD0242D7EDF0000FA7E /* acknowledges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBCF242D7EDF0000FA7E /* acknowledges.swift */; };
+		21B802772422B71400BED86A /* cardsRow1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B802762422B71400BED86A /* cardsRow1.swift */; };
+		21BA5BFE2423E25A00499BCE /* regionalRecipies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */; };
+		21BA5C002423E57800499BCE /* springRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5BFF2423E57800499BCE /* springRow.swift */; };
+		21BA5C022423EEBD00499BCE /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5C012423EEBD00499BCE /* cardView.swift */; };
+		21C008C9242177F700412ABB /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C008C8242177F700412ABB /* Discover.swift */; };
+		21D4CF71242EB1E200B47582 /* phoneAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4CF70242EB1E200B47582 /* phoneAuth.swift */; };
+		21D4CF73242EC63400B47582 /* onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4CF72242EC63400B47582 /* onboarding.swift */; };
+		21D4CF77242F098200B47582 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D4CF76242F098200B47582 /* launch.png */; };
+		21D4CF79242FDBFF00B47582 /* Georgia.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21D4CF78242FDBFF00B47582 /* Georgia.otf */; };
+		21E82C022433A73700BF35ED /* modalIngredents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E82C012433A73700BF35ED /* modalIngredents.swift */; };
+		21F22C7924247AFC009E8B53 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F22C7824247AFC009E8B53 /* ViewModifiers.swift */; };
+		21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B52420026300910CF0 /* AppDelegate.swift */; };
+		21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B72420026300910CF0 /* SceneDelegate.swift */; };
+		21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */; };
+		21FE87BD2420026300910CF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87BC2420026300910CF0 /* ContentView.swift */; };
+		21FE87BF2420026400910CF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21FE87BE2420026400910CF0 /* Assets.xcassets */; };
+		21FE87C22420026400910CF0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21FE87C12420026400910CF0 /* Preview Assets.xcassets */; };
+		21FE87C52420026400910CF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21FE87C32420026400910CF0 /* LaunchScreen.storyboard */; };
+		21FE87D02420026400910CF0 /* Italian_Food_ForeverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87CF2420026400910CF0 /* Italian_Food_ForeverTests.swift */; };
+		21FE87DB2420026500910CF0 /* Italian_Food_ForeverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87DA2420026500910CF0 /* Italian_Food_ForeverUITests.swift */; };
+		62395D55795B599FB97E8D61 /* Pods_Italian_Food_ForeverTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6007C349A8912CB8852E5A /* Pods_Italian_Food_ForeverTests.framework */; };
+		7B96F171398C20A5A4BC8224 /* Pods_Italian_Food_Forever.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9C3AC7F47CF45FF7BDFCAB /* Pods_Italian_Food_Forever.framework */; };
+		D7335C0E5066DD5ACE072109 /* Pods_Italian_Food_Forever_Italian_Food_ForeverUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3234F803DF292CEDBAF2668B /* Pods_Italian_Food_Forever_Italian_Food_ForeverUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		21FE87CC2420026400910CF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21FE87AA2420026200910CF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21FE87B12420026200910CF0;
+			remoteInfo = "Italian Food Forever";
+		};
+		21FE87D72420026500910CF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21FE87AA2420026200910CF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21FE87B12420026200910CF0;
+			remoteInfo = "Italian Food Forever";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D3DF2CCAEFF10C735810C58 /* Pods-Italian Food Forever.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food Forever.debug.xcconfig"; path = "Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever.debug.xcconfig"; sourceTree = "<group>"; };
+		211BBCF224299B6C004F345D /* IntroDemoCond-LightCAPS.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IntroDemoCond-LightCAPS.otf"; sourceTree = "<group>"; };
+		211BBCF424299C8E004F345D /* AvertaDemoPE-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvertaDemoPE-Regular.otf"; sourceTree = "<group>"; };
+		211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "uniformextracondensed-medium-webfont.otf"; sourceTree = "<group>"; };
+		211FD281242554220041E72F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Users/gabehoban/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		213CF7A0242C0FC2009E9CDC /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		213CF7A4242C5717009E9CDC /* settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
+		21537FA62427FA780034A75A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		21537FA82427FB690034A75A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		21537FAD2427FEB30034A75A /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		21537FAE2427FEB30034A75A /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		21537FAF2427FEB30034A75A /* DocumentSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentSerializable.swift; sourceTree = "<group>"; };
+		21537FB02427FEB30034A75A /* SparkKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkKeys.swift; sourceTree = "<group>"; };
+		21537FB12427FEB30034A75A /* SignInWithAppleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWithAppleView.swift; sourceTree = "<group>"; };
+		21537FB22427FEB30034A75A /* Typealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		21537FB32427FEB30034A75A /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		21537FB52427FEB50034A75A /* Spark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spark.swift; sourceTree = "<group>"; };
+		21537FB62427FEB50034A75A /* SparkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkError.swift; sourceTree = "<group>"; };
+		21537FB72427FEB50034A75A /* SparkUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkUI.swift; sourceTree = "<group>"; };
+		21537FB82427FEB50034A75A /* SparkFirestore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkFirestore.swift; sourceTree = "<group>"; };
+		21537FB92427FEB50034A75A /* SparkAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkAuth.swift; sourceTree = "<group>"; };
+		21537FBB2427FEB70034A75A /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		21537FBC2427FEB70034A75A /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		21537FBD2427FEB70034A75A /* LaunchScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		21537FCD242806610034A75A /* Italian Food Forever.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Italian Food Forever.entitlements"; sourceTree = "<group>"; };
+		215C9027243165B3002678FA /* getJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getJSON.swift; sourceTree = "<group>"; };
+		2167DB6224310C8C0071BE14 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		2167DB6424310CE90071BE14 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2167DB6624310E410071BE14 /* dataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataTypes.swift; sourceTree = "<group>"; };
+		2167DB6924310EE80071BE14 /* networkManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = networkManagers.swift; sourceTree = "<group>"; };
+		2167DB6C2431156A0071BE14 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		216D96932422E2F300F0CBB6 /* Featured.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Featured.swift; sourceTree = "<group>"; };
+		21B6CBC9242D7E190000FA7E /* privacyTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyTerms.swift; sourceTree = "<group>"; };
+		21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyPolicy.swift; sourceTree = "<group>"; };
+		21B6CBCD242D7E8D0000FA7E /* termsUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = termsUse.swift; sourceTree = "<group>"; };
+		21B6CBCF242D7EDF0000FA7E /* acknowledges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acknowledges.swift; sourceTree = "<group>"; };
+		21B802762422B71400BED86A /* cardsRow1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardsRow1.swift; sourceTree = "<group>"; };
+		21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionalRecipies.swift; sourceTree = "<group>"; };
+		21BA5BFF2423E57800499BCE /* springRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = springRow.swift; sourceTree = "<group>"; };
+		21BA5C012423EEBD00499BCE /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
+		21C008C8242177F700412ABB /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+		21D4CF70242EB1E200B47582 /* phoneAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phoneAuth.swift; sourceTree = "<group>"; };
+		21D4CF72242EC63400B47582 /* onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboarding.swift; sourceTree = "<group>"; };
+		21D4CF76242F098200B47582 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
+		21D4CF78242FDBFF00B47582 /* Georgia.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Georgia.otf; sourceTree = "<group>"; };
+		21E82C012433A73700BF35ED /* modalIngredents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modalIngredents.swift; sourceTree = "<group>"; };
+		21F22C7824247AFC009E8B53 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		21FE87B22420026200910CF0 /* Italian Food Forever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Italian Food Forever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21FE87B52420026300910CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		21FE87B72420026300910CF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		21FE87BA2420026300910CF0 /* Italian_Food_Forever.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Italian_Food_Forever.xcdatamodel; sourceTree = "<group>"; };
+		21FE87BC2420026300910CF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		21FE87BE2420026400910CF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		21FE87C12420026400910CF0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		21FE87C42420026400910CF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		21FE87C62420026400910CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21FE87CB2420026400910CF0 /* Italian Food ForeverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Italian Food ForeverTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21FE87CF2420026400910CF0 /* Italian_Food_ForeverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Italian_Food_ForeverTests.swift; sourceTree = "<group>"; };
+		21FE87D12420026500910CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21FE87D62420026500910CF0 /* Italian Food ForeverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Italian Food ForeverUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21FE87DA2420026500910CF0 /* Italian_Food_ForeverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Italian_Food_ForeverUITests.swift; sourceTree = "<group>"; };
+		21FE87DC2420026500910CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B6007C349A8912CB8852E5A /* Pods_Italian_Food_ForeverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Italian_Food_ForeverTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3234F803DF292CEDBAF2668B /* Pods_Italian_Food_Forever_Italian_Food_ForeverUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Italian_Food_Forever_Italian_Food_ForeverUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EE5A644270E56DD847EAAAA /* Pods-Italian Food Forever.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food Forever.release.xcconfig"; path = "Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever.release.xcconfig"; sourceTree = "<group>"; };
+		60912B2B5DC76D320D422BF5 /* Pods-Italian Food ForeverTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food ForeverTests.release.xcconfig"; path = "Target Support Files/Pods-Italian Food ForeverTests/Pods-Italian Food ForeverTests.release.xcconfig"; sourceTree = "<group>"; };
+		A4D8384CF597D1E8D0DAC0E6 /* Pods-Italian Food ForeverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food ForeverTests.debug.xcconfig"; path = "Target Support Files/Pods-Italian Food ForeverTests/Pods-Italian Food ForeverTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A99E70EBD959E8E592E046D5 /* Pods-Italian Food Forever-Italian Food ForeverUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food Forever-Italian Food ForeverUITests.debug.xcconfig"; path = "Target Support Files/Pods-Italian Food Forever-Italian Food ForeverUITests/Pods-Italian Food Forever-Italian Food ForeverUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B7561CAD06D30BB66D45B5BD /* Pods-Italian Food Forever-Italian Food ForeverUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food Forever-Italian Food ForeverUITests.release.xcconfig"; path = "Target Support Files/Pods-Italian Food Forever-Italian Food ForeverUITests/Pods-Italian Food Forever-Italian Food ForeverUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BA9C3AC7F47CF45FF7BDFCAB /* Pods_Italian_Food_Forever.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Italian_Food_Forever.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		21FE87AF2420026200910CF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B96F171398C20A5A4BC8224 /* Pods_Italian_Food_Forever.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21FE87C82420026400910CF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62395D55795B599FB97E8D61 /* Pods_Italian_Food_ForeverTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21FE87D32420026500910CF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7335C0E5066DD5ACE072109 /* Pods_Italian_Food_Forever_Italian_Food_ForeverUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2143887D2425B43000A81051 /* Tab 2 */ = {
+			isa = PBXGroup;
+			children = (
+				213CF7A0242C0FC2009E9CDC /* Search.swift */,
+			);
+			path = "Tab 2";
+			sourceTree = "<group>";
+		};
+		21537FA52427FA5C0034A75A /* Tab3 */ = {
+			isa = PBXGroup;
+			children = (
+				2167DB6B2431100B0071BE14 /* Settings */,
+				21D4CF72242EC63400B47582 /* onboarding.swift */,
+				21D4CF70242EB1E200B47582 /* phoneAuth.swift */,
+				21537FA62427FA780034A75A /* Login.swift */,
+			);
+			path = Tab3;
+			sourceTree = "<group>";
+		};
+		21537FAC2427FEB30034A75A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2167DB6824310ECA0071BE14 /* Networking */,
+				21537FB42427FEB50034A75A /* Spark */,
+				21537FAD2427FEB30034A75A /* Profile.swift */,
+				21537FAE2427FEB30034A75A /* ActivityIndicator.swift */,
+				21537FAF2427FEB30034A75A /* DocumentSerializable.swift */,
+				21537FB02427FEB30034A75A /* SparkKeys.swift */,
+				21537FB12427FEB30034A75A /* SignInWithAppleView.swift */,
+				21537FB22427FEB30034A75A /* Typealiases.swift */,
+				21537FB32427FEB30034A75A /* ActivityIndicatorView.swift */,
+				2167DB6C2431156A0071BE14 /* Utils.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		21537FB42427FEB50034A75A /* Spark */ = {
+			isa = PBXGroup;
+			children = (
+				21537FB52427FEB50034A75A /* Spark.swift */,
+				21537FB62427FEB50034A75A /* SparkError.swift */,
+				21537FB72427FEB50034A75A /* SparkUI.swift */,
+				21537FB82427FEB50034A75A /* SparkFirestore.swift */,
+				21537FB92427FEB50034A75A /* SparkAuth.swift */,
+			);
+			path = Spark;
+			sourceTree = "<group>";
+		};
+		21537FBA2427FEB70034A75A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				21537FBB2427FEB70034A75A /* ProfileView.swift */,
+				21537FBC2427FEB70034A75A /* SignInView.swift */,
+				21537FBD2427FEB70034A75A /* LaunchScreenView.swift */,
+				21BA5C012423EEBD00499BCE /* cardView.swift */,
+				21E82C012433A73700BF35ED /* modalIngredents.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2167DB6124310C7B0071BE14 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				21537FBA2427FEB70034A75A /* Views */,
+				2167DB6224310C8C0071BE14 /* Checklist.swift */,
+				2167DB6624310E410071BE14 /* dataTypes.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2167DB6824310ECA0071BE14 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2167DB6924310EE80071BE14 /* networkManagers.swift */,
+				215C9027243165B3002678FA /* getJSON.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		2167DB6B2431100B0071BE14 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				213CF7A4242C5717009E9CDC /* settings.swift */,
+				21B6CBC9242D7E190000FA7E /* privacyTerms.swift */,
+				21B6CBCF242D7EDF0000FA7E /* acknowledges.swift */,
+				21B6CBCD242D7E8D0000FA7E /* termsUse.swift */,
+				21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		2195AE2A242523500045928A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				21D4CF78242FDBFF00B47582 /* Georgia.otf */,
+				211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */,
+				211BBCF224299B6C004F345D /* IntroDemoCond-LightCAPS.otf */,
+				211BBCF424299C8E004F345D /* AvertaDemoPE-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2195AE2B2425235E0045928A /* Tab1 */ = {
+			isa = PBXGroup;
+			children = (
+				21C008C8242177F700412ABB /* Discover.swift */,
+				216D96932422E2F300F0CBB6 /* Featured.swift */,
+				21B802762422B71400BED86A /* cardsRow1.swift */,
+				21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */,
+				21BA5BFF2423E57800499BCE /* springRow.swift */,
+			);
+			path = Tab1;
+			sourceTree = "<group>";
+		};
+		21B6CBC8242D33660000FA7E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				21FE87B52420026300910CF0 /* AppDelegate.swift */,
+				21FE87B72420026300910CF0 /* SceneDelegate.swift */,
+				21F22C7824247AFC009E8B53 /* ViewModifiers.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		21FE87A92420026200910CF0 = {
+			isa = PBXGroup;
+			children = (
+				21FE87B42420026300910CF0 /* Italian Food Forever */,
+				21FE87CE2420026400910CF0 /* Italian Food ForeverTests */,
+				21FE87D92420026500910CF0 /* Italian Food ForeverUITests */,
+				21FE87B32420026200910CF0 /* Products */,
+				A9BA7BD3A76C1C106F9168ED /* Pods */,
+				C8C3CCCA8A1DC2AB8F996D98 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		21FE87B32420026200910CF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21FE87B22420026200910CF0 /* Italian Food Forever.app */,
+				21FE87CB2420026400910CF0 /* Italian Food ForeverTests.xctest */,
+				21FE87D62420026500910CF0 /* Italian Food ForeverUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21FE87B42420026300910CF0 /* Italian Food Forever */ = {
+			isa = PBXGroup;
+			children = (
+				2167DB6424310CE90071BE14 /* Extensions.swift */,
+				21537FCD242806610034A75A /* Italian Food Forever.entitlements */,
+				21D4CF76242F098200B47582 /* launch.png */,
+				21537FAC2427FEB30034A75A /* Helpers */,
+				2167DB6124310C7B0071BE14 /* Models */,
+				21B6CBC8242D33660000FA7E /* App */,
+				2195AE2B2425235E0045928A /* Tab1 */,
+				2143887D2425B43000A81051 /* Tab 2 */,
+				21537FA52427FA5C0034A75A /* Tab3 */,
+				21FE87BE2420026400910CF0 /* Assets.xcassets */,
+				2195AE2A242523500045928A /* Fonts */,
+				21FE87C32420026400910CF0 /* LaunchScreen.storyboard */,
+				21FE87C62420026400910CF0 /* Info.plist */,
+				211FD281242554220041E72F /* GoogleService-Info.plist */,
+				21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */,
+				21537FA82427FB690034A75A /* GoogleService-Info.plist */,
+				21FE87BC2420026300910CF0 /* ContentView.swift */,
+				21FE87C02420026400910CF0 /* Preview Content */,
+			);
+			path = "Italian Food Forever";
+			sourceTree = "<group>";
+		};
+		21FE87C02420026400910CF0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				21FE87C12420026400910CF0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		21FE87CE2420026400910CF0 /* Italian Food ForeverTests */ = {
+			isa = PBXGroup;
+			children = (
+				21FE87CF2420026400910CF0 /* Italian_Food_ForeverTests.swift */,
+				21FE87D12420026500910CF0 /* Info.plist */,
+			);
+			path = "Italian Food ForeverTests";
+			sourceTree = "<group>";
+		};
+		21FE87D92420026500910CF0 /* Italian Food ForeverUITests */ = {
+			isa = PBXGroup;
+			children = (
+				21FE87DA2420026500910CF0 /* Italian_Food_ForeverUITests.swift */,
+				21FE87DC2420026500910CF0 /* Info.plist */,
+			);
+			path = "Italian Food ForeverUITests";
+			sourceTree = "<group>";
+		};
+		A9BA7BD3A76C1C106F9168ED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D3DF2CCAEFF10C735810C58 /* Pods-Italian Food Forever.debug.xcconfig */,
+				5EE5A644270E56DD847EAAAA /* Pods-Italian Food Forever.release.xcconfig */,
+				A99E70EBD959E8E592E046D5 /* Pods-Italian Food Forever-Italian Food ForeverUITests.debug.xcconfig */,
+				B7561CAD06D30BB66D45B5BD /* Pods-Italian Food Forever-Italian Food ForeverUITests.release.xcconfig */,
+				A4D8384CF597D1E8D0DAC0E6 /* Pods-Italian Food ForeverTests.debug.xcconfig */,
+				60912B2B5DC76D320D422BF5 /* Pods-Italian Food ForeverTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C8C3CCCA8A1DC2AB8F996D98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA9C3AC7F47CF45FF7BDFCAB /* Pods_Italian_Food_Forever.framework */,
+				3234F803DF292CEDBAF2668B /* Pods_Italian_Food_Forever_Italian_Food_ForeverUITests.framework */,
+				2B6007C349A8912CB8852E5A /* Pods_Italian_Food_ForeverTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		21FE87B12420026200910CF0 /* Italian Food Forever */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21FE87DF2420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food Forever" */;
+			buildPhases = (
+				62886C0FE1DBA5FCD769F6CB /* [CP] Check Pods Manifest.lock */,
+				21FE87AE2420026200910CF0 /* Sources */,
+				21FE87AF2420026200910CF0 /* Frameworks */,
+				21FE87B02420026200910CF0 /* Resources */,
+				60735944B5CEFBE6DDB5D872 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Italian Food Forever";
+			packageProductDependencies = (
+			);
+			productName = "Italian Food Forever";
+			productReference = 21FE87B22420026200910CF0 /* Italian Food Forever.app */;
+			productType = "com.apple.product-type.application";
+		};
+		21FE87CA2420026400910CF0 /* Italian Food ForeverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21FE87E22420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food ForeverTests" */;
+			buildPhases = (
+				FDD216061F6ADA14702A05B5 /* [CP] Check Pods Manifest.lock */,
+				21FE87C72420026400910CF0 /* Sources */,
+				21FE87C82420026400910CF0 /* Frameworks */,
+				21FE87C92420026400910CF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21FE87CD2420026400910CF0 /* PBXTargetDependency */,
+			);
+			name = "Italian Food ForeverTests";
+			productName = "Italian Food ForeverTests";
+			productReference = 21FE87CB2420026400910CF0 /* Italian Food ForeverTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		21FE87D52420026500910CF0 /* Italian Food ForeverUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21FE87E52420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food ForeverUITests" */;
+			buildPhases = (
+				EF1AEE6D6B26FFD08B656070 /* [CP] Check Pods Manifest.lock */,
+				21FE87D22420026500910CF0 /* Sources */,
+				21FE87D32420026500910CF0 /* Frameworks */,
+				21FE87D42420026500910CF0 /* Resources */,
+				04831BBBDFB9026BDF326EB2 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21FE87D82420026500910CF0 /* PBXTargetDependency */,
+			);
+			name = "Italian Food ForeverUITests";
+			productName = "Italian Food ForeverUITests";
+			productReference = 21FE87D62420026500910CF0 /* Italian Food ForeverUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		21FE87AA2420026200910CF0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Gabriel Hoban";
+				TargetAttributes = {
+					21FE87B12420026200910CF0 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					21FE87CA2420026400910CF0 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 21FE87B12420026200910CF0;
+					};
+					21FE87D52420026500910CF0 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 21FE87B12420026200910CF0;
+					};
+				};
+			};
+			buildConfigurationList = 21FE87AD2420026200910CF0 /* Build configuration list for PBXProject "IFF" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 21FE87A92420026200910CF0;
+			packageReferences = (
+			);
+			productRefGroup = 21FE87B32420026200910CF0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				21FE87B12420026200910CF0 /* Italian Food Forever */,
+				21FE87CA2420026400910CF0 /* Italian Food ForeverTests */,
+				21FE87D52420026500910CF0 /* Italian Food ForeverUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		21FE87B02420026200910CF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21D4CF77242F098200B47582 /* launch.png in Resources */,
+				211BBCF324299B6C004F345D /* IntroDemoCond-LightCAPS.otf in Resources */,
+				21FE87C52420026400910CF0 /* LaunchScreen.storyboard in Resources */,
+				21D4CF79242FDBFF00B47582 /* Georgia.otf in Resources */,
+				211BBCFF2429A68B004F345D /* uniformextracondensed-medium-webfont.otf in Resources */,
+				21FE87C22420026400910CF0 /* Preview Assets.xcassets in Resources */,
+				21FE87BF2420026400910CF0 /* Assets.xcassets in Resources */,
+				21537FA92427FB690034A75A /* GoogleService-Info.plist in Resources */,
+				211BBCF524299C8F004F345D /* AvertaDemoPE-Regular.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21FE87C92420026400910CF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21537FAA2427FB690034A75A /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21FE87D42420026500910CF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21537FAB2427FB690034A75A /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04831BBBDFB9026BDF326EB2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever-Italian Food ForeverUITests/Pods-Italian Food Forever-Italian Food ForeverUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever-Italian Food ForeverUITests/Pods-Italian Food Forever-Italian Food ForeverUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever-Italian Food ForeverUITests/Pods-Italian Food Forever-Italian Food ForeverUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60735944B5CEFBE6DDB5D872 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62886C0FE1DBA5FCD769F6CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Italian Food Forever-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF1AEE6D6B26FFD08B656070 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Italian Food Forever-Italian Food ForeverUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDD216061F6ADA14702A05B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Italian Food ForeverTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		21FE87AE2420026200910CF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				216D96942422E2F300F0CBB6 /* Featured.swift in Sources */,
+				21537FC12427FEB70034A75A /* SparkKeys.swift in Sources */,
+				21537FBF2427FEB70034A75A /* ActivityIndicator.swift in Sources */,
+				21537FC82427FEB70034A75A /* SparkFirestore.swift in Sources */,
+				21537FC92427FEB70034A75A /* SparkAuth.swift in Sources */,
+				21537FC52427FEB70034A75A /* Spark.swift in Sources */,
+				21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */,
+				2167DB6524310CE90071BE14 /* Extensions.swift in Sources */,
+				21B6CBCA242D7E190000FA7E /* privacyTerms.swift in Sources */,
+				215C9028243165B3002678FA /* getJSON.swift in Sources */,
+				21537FA72427FA780034A75A /* Login.swift in Sources */,
+				21537FC62427FEB70034A75A /* SparkError.swift in Sources */,
+				2167DB6324310C8C0071BE14 /* Checklist.swift in Sources */,
+				21537FBE2427FEB70034A75A /* Profile.swift in Sources */,
+				21C008C9242177F700412ABB /* Discover.swift in Sources */,
+				21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */,
+				2167DB6D2431156A0071BE14 /* Utils.swift in Sources */,
+				213CF7A1242C0FC2009E9CDC /* Search.swift in Sources */,
+				21BA5C022423EEBD00499BCE /* cardView.swift in Sources */,
+				21537FCA2427FEB70034A75A /* ProfileView.swift in Sources */,
+				21FE87BD2420026300910CF0 /* ContentView.swift in Sources */,
+				21537FC42427FEB70034A75A /* ActivityIndicatorView.swift in Sources */,
+				21537FC22427FEB70034A75A /* SignInWithAppleView.swift in Sources */,
+				21537FCB2427FEB70034A75A /* SignInView.swift in Sources */,
+				21B802772422B71400BED86A /* cardsRow1.swift in Sources */,
+				21D4CF73242EC63400B47582 /* onboarding.swift in Sources */,
+				21E82C022433A73700BF35ED /* modalIngredents.swift in Sources */,
+				21537FC02427FEB70034A75A /* DocumentSerializable.swift in Sources */,
+				21B6CBCE242D7E8D0000FA7E /* termsUse.swift in Sources */,
+				2167DB6724310E410071BE14 /* dataTypes.swift in Sources */,
+				21BA5BFE2423E25A00499BCE /* regionalRecipies.swift in Sources */,
+				21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */,
+				21B6CBD0242D7EDF0000FA7E /* acknowledges.swift in Sources */,
+				21D4CF71242EB1E200B47582 /* phoneAuth.swift in Sources */,
+				2167DB6A24310EE80071BE14 /* networkManagers.swift in Sources */,
+				213CF7A5242C5718009E9CDC /* settings.swift in Sources */,
+				21B6CBCC242D7E7A0000FA7E /* privacyPolicy.swift in Sources */,
+				21537FCC2427FEB70034A75A /* LaunchScreenView.swift in Sources */,
+				21F22C7924247AFC009E8B53 /* ViewModifiers.swift in Sources */,
+				21537FC32427FEB70034A75A /* Typealiases.swift in Sources */,
+				21BA5C002423E57800499BCE /* springRow.swift in Sources */,
+				21537FC72427FEB70034A75A /* SparkUI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21FE87C72420026400910CF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21FE87D02420026400910CF0 /* Italian_Food_ForeverTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21FE87D22420026500910CF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21FE87DB2420026500910CF0 /* Italian_Food_ForeverUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21FE87CD2420026400910CF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21FE87B12420026200910CF0 /* Italian Food Forever */;
+			targetProxy = 21FE87CC2420026400910CF0 /* PBXContainerItemProxy */;
+		};
+		21FE87D82420026500910CF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21FE87B12420026200910CF0 /* Italian Food Forever */;
+			targetProxy = 21FE87D72420026500910CF0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		21FE87C32420026400910CF0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21FE87C42420026400910CF0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		21FE87DD2420026500910CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		21FE87DE2420026500910CF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		21FE87E02420026500910CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D3DF2CCAEFF10C735810C58 /* Pods-Italian Food Forever.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = newIcon;
+				CODE_SIGN_ENTITLEMENTS = "Italian Food Forever/Italian Food Forever.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.2;
+				DEVELOPMENT_ASSET_PATHS = "\"Italian Food Forever/Preview Content\"";
+				DEVELOPMENT_TEAM = YV98CCJ4M2;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Italian Food Forever/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-Forever";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		21FE87E12420026500910CF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EE5A644270E56DD847EAAAA /* Pods-Italian Food Forever.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = newIcon;
+				CODE_SIGN_ENTITLEMENTS = "Italian Food Forever/Italian Food Forever.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.2;
+				DEVELOPMENT_ASSET_PATHS = "\"Italian Food Forever/Preview Content\"";
+				DEVELOPMENT_TEAM = YV98CCJ4M2;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Italian Food Forever/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-Forever";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		21FE87E32420026500910CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4D8384CF597D1E8D0DAC0E6 /* Pods-Italian Food ForeverTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YV98CCJ4M2;
+				INFOPLIST_FILE = "Italian Food ForeverTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-ForeverTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Italian Food Forever.app/Italian Food Forever";
+			};
+			name = Debug;
+		};
+		21FE87E42420026500910CF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60912B2B5DC76D320D422BF5 /* Pods-Italian Food ForeverTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YV98CCJ4M2;
+				INFOPLIST_FILE = "Italian Food ForeverTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-ForeverTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Italian Food Forever.app/Italian Food Forever";
+			};
+			name = Release;
+		};
+		21FE87E62420026500910CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A99E70EBD959E8E592E046D5 /* Pods-Italian Food Forever-Italian Food ForeverUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YV98CCJ4M2;
+				INFOPLIST_FILE = "Italian Food ForeverUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-ForeverUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Italian Food Forever";
+			};
+			name = Debug;
+		};
+		21FE87E72420026500910CF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7561CAD06D30BB66D45B5BD /* Pods-Italian Food Forever-Italian Food ForeverUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YV98CCJ4M2;
+				INFOPLIST_FILE = "Italian Food ForeverUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-ForeverUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Italian Food Forever";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		21FE87AD2420026200910CF0 /* Build configuration list for PBXProject "IFF" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21FE87DD2420026500910CF0 /* Debug */,
+				21FE87DE2420026500910CF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21FE87DF2420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food Forever" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21FE87E02420026500910CF0 /* Debug */,
+				21FE87E12420026500910CF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21FE87E22420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food ForeverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21FE87E32420026500910CF0 /* Debug */,
+				21FE87E42420026500910CF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21FE87E52420026500910CF0 /* Build configuration list for PBXNativeTarget "Italian Food ForeverUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21FE87E62420026500910CF0 /* Debug */,
+				21FE87E72420026500910CF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				21FE87BA2420026300910CF0 /* Italian_Food_Forever.xcdatamodel */,
+			);
+			currentVersion = 21FE87BA2420026300910CF0 /* Italian_Food_Forever.xcdatamodel */;
+			path = Italian_Food_Forever.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 21FE87AA2420026200910CF0 /* Project object */;
+}

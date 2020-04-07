@@ -1,0 +1,7 @@
+language: swift
+osx_image: xcode11.3
+xcode_workspace: IFF.xcworkspace
+script:
+  - xcodebuild -workspace IFF.xcworkspace -scheme "Italian Food Forever" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.3' clean build test
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -t 8c2df9e0-2720-4177-abe5-651a5ccbedbd
