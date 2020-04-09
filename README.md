@@ -23,3 +23,5 @@ Please read the [Code of Conduct](CODE-OF-CONDUCT.md). This document offers some
 
 ## Start contributing
 You can start by forking this repository and a creating pull request. 
+
+I have documented my current **todo** list using Github Issues. 
