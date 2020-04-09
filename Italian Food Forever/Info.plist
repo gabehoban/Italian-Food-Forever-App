@@ -35,6 +35,9 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Font Awesome 5 Free-Solid-900.otf</string>
+		<string>Font Awesome 5 Free-Regular-400.otf</string>
+		<string>Font Awesome 5 Brands-Regular-400.otf</string>
 		<string>Georgia.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>

@@ -17,6 +17,7 @@ target 'Italian Food Forever' do
   pod 'Firebase/Auth'
   pod 'lottie-ios'
   pod 'SwiftyMarkdown'
+  pod 'FontAwesome.swift'
 
   # Pods for Italian Food Forever
 

@@ -33,7 +33,7 @@ struct Discover: View {
 							Spacer()
 							Featured()
 								.padding(.top, -150)
-								.padding(.bottom, 15)
+								.padding(.bottom, 25)
 							Spacer()
 						}
 					}

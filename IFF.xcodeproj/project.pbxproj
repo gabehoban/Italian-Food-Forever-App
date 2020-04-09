@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -51,6 +51,12 @@
 		21D4CF73242EC63400B47582 /* onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4CF72242EC63400B47582 /* onboarding.swift */; };
 		21D4CF77242F098200B47582 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D4CF76242F098200B47582 /* launch.png */; };
 		21D4CF79242FDBFF00B47582 /* Georgia.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21D4CF78242FDBFF00B47582 /* Georgia.otf */; };
+		21D8ABE2243F8026000BFEAC /* FASwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 21D8ABE1243F8026000BFEAC /* FASwiftUI */; };
+		21D9A755243F80C600511D4E /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 21D9A751243F80C500511D4E /* icons.json */; };
+		21D9A756243F80C600511D4E /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21D9A752243F80C500511D4E /* Font Awesome 5 Brands-Regular-400.otf */; };
+		21D9A757243F80C600511D4E /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21D9A753243F80C600511D4E /* Font Awesome 5 Free-Regular-400.otf */; };
+		21D9A758243F80C600511D4E /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21D9A754243F80C600511D4E /* Font Awesome 5 Free-Solid-900.otf */; };
+		21D9A75A243F9E6300511D4E /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D9A759243F9E6300511D4E /* About.swift */; };
 		21E82C022433A73700BF35ED /* modalIngredents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E82C012433A73700BF35ED /* modalIngredents.swift */; };
 		21F22C7924247AFC009E8B53 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F22C7824247AFC009E8B53 /* ViewModifiers.swift */; };
 		21FE87B62420026300910CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE87B52420026300910CF0 /* AppDelegate.swift */; };
@@ -130,6 +136,11 @@
 		21D4CF72242EC63400B47582 /* onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboarding.swift; sourceTree = "<group>"; };
 		21D4CF76242F098200B47582 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		21D4CF78242FDBFF00B47582 /* Georgia.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Georgia.otf; sourceTree = "<group>"; };
+		21D9A751243F80C500511D4E /* icons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = icons.json; sourceTree = "<group>"; };
+		21D9A752243F80C500511D4E /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
+		21D9A753243F80C600511D4E /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
+		21D9A754243F80C600511D4E /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
+		21D9A759243F9E6300511D4E /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		21E82C012433A73700BF35ED /* modalIngredents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modalIngredents.swift; sourceTree = "<group>"; };
 		21F22C7824247AFC009E8B53 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		21FE87B22420026200910CF0 /* Italian Food Forever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Italian Food Forever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B96F171398C20A5A4BC8224 /* Pods_Italian_Food_Forever.framework in Frameworks */,
+				21D8ABE2243F8026000BFEAC /* FASwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +279,7 @@
 		2167DB6B2431100B0071BE14 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				21D9A759243F9E6300511D4E /* About.swift */,
 				213CF7A4242C5717009E9CDC /* settings.swift */,
 				21B6CBC9242D7E190000FA7E /* privacyTerms.swift */,
 				21B6CBCF242D7EDF0000FA7E /* acknowledges.swift */,
@@ -279,6 +292,10 @@
 		2195AE2A242523500045928A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				21D9A752243F80C500511D4E /* Font Awesome 5 Brands-Regular-400.otf */,
+				21D9A753243F80C600511D4E /* Font Awesome 5 Free-Regular-400.otf */,
+				21D9A754243F80C600511D4E /* Font Awesome 5 Free-Solid-900.otf */,
+				21D9A751243F80C500511D4E /* icons.json */,
 				21D4CF78242FDBFF00B47582 /* Georgia.otf */,
 				211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */,
 				211BBCF224299B6C004F345D /* IntroDemoCond-LightCAPS.otf */,
@@ -424,6 +441,7 @@
 			);
 			name = "Italian Food Forever";
 			packageProductDependencies = (
+				21D8ABE1243F8026000BFEAC /* FASwiftUI */,
 			);
 			productName = "Italian Food Forever";
 			productReference = 21FE87B22420026200910CF0 /* Italian Food Forever.app */;
@@ -501,6 +519,7 @@
 			);
 			mainGroup = 21FE87A92420026200910CF0;
 			packageReferences = (
+				21D8ABE0243F8026000BFEAC /* XCRemoteSwiftPackageReference "FASwiftUI" */,
 			);
 			productRefGroup = 21FE87B32420026200910CF0 /* Products */;
 			projectDirPath = "";
@@ -519,11 +538,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				21D4CF77242F098200B47582 /* launch.png in Resources */,
+				21D9A757243F80C600511D4E /* Font Awesome 5 Free-Regular-400.otf in Resources */,
 				211BBCF324299B6C004F345D /* IntroDemoCond-LightCAPS.otf in Resources */,
 				21FE87C52420026400910CF0 /* LaunchScreen.storyboard in Resources */,
+				21D9A756243F80C600511D4E /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				21D4CF79242FDBFF00B47582 /* Georgia.otf in Resources */,
+				21D9A755243F80C600511D4E /* icons.json in Resources */,
 				211BBCFF2429A68B004F345D /* uniformextracondensed-medium-webfont.otf in Resources */,
 				21FE87C22420026400910CF0 /* Preview Assets.xcassets in Resources */,
+				21D9A758243F80C600511D4E /* Font Awesome 5 Free-Solid-900.otf in Resources */,
 				21FE87BF2420026400910CF0 /* Assets.xcassets in Resources */,
 				21537FA92427FB690034A75A /* GoogleService-Info.plist in Resources */,
 				211BBCF524299C8F004F345D /* AvertaDemoPE-Regular.otf in Resources */,
@@ -660,6 +683,7 @@
 				21537FC12427FEB70034A75A /* SparkKeys.swift in Sources */,
 				21537FBF2427FEB70034A75A /* ActivityIndicator.swift in Sources */,
 				21537FC82427FEB70034A75A /* SparkFirestore.swift in Sources */,
+				21D9A75A243F9E6300511D4E /* About.swift in Sources */,
 				21537FC92427FEB70034A75A /* SparkAuth.swift in Sources */,
 				21537FC52427FEB70034A75A /* Spark.swift in Sources */,
 				21FE87BB2420026300910CF0 /* Italian_Food_Forever.xcdatamodeld in Sources */,
@@ -1040,6 +1064,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		21D8ABE0243F8026000BFEAC /* XCRemoteSwiftPackageReference "FASwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattmaddux/FASwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		21D8ABE1243F8026000BFEAC /* FASwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21D8ABE0243F8026000BFEAC /* XCRemoteSwiftPackageReference "FASwiftUI" */;
+			productName = FASwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */ = {
