@@ -22,7 +22,7 @@ public class recipeFetcher: ObservableObject {
 	func getJsonData(string: String) {
 		recipies.removeAll(keepingCapacity: false)
 		recipiesFull.removeAll(keepingCapacity: false)
-		let url = URL(string: "https://italianfoodforever.com/wp-json/wp/v2/search?_envelope&_categories=1&categories_exclude=7&&_fields=id,title&search=" + string.replacingOccurrences(of: " ", with: "%20"))
+		let url = URL(string: "https://italianfoodforever.com/wp-json/wp/v2/search?_envelope&per_page=30&_orderby=relevance&_fields=id,title&search=" + string.replacingOccurrences(of: " ", with: "%20"))
 		//string is the initial string of the station name
 		let task = URLSession.shared.dataTask(with: url!) { (data, _, error) in
 			if error != nil {
@@ -37,7 +37,7 @@ public class recipeFetcher: ObservableObject {
 				DispatchQueue.main.async {
 					self.recipies.append(searchType(id: id, title: title))
 				}
-				let urlFull = URL(string: "https://italianfoodforever.com/wp-json/wp/v2/posts?_envelope&_fields=id,excerpt,title,mv,date,link,content,author&include=" + id)
+				let urlFull = URL(string: "https://italianfoodforever.com/wp-json/wp/v2/posts?_envelope&categories_exclude=7&_fields=id,excerpt,title,mv,date,link,content,author&include=" + id)
 				//string is the initial string of the station name
 				let taskFull = URLSession.shared.dataTask(with: urlFull!) { (data, _, error) in
 					if error != nil {

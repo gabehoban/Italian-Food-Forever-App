@@ -10,6 +10,7 @@ import SwiftUI
 import Combine
 import SwiftyJSON
 import Foundation
+import SDWebImageSwiftUI
 
 struct buttonLabel: View {
 	@State var title: String = ""
@@ -40,6 +41,7 @@ struct Search: View {
 	@State public var text = ""
 	@State var displayRes: Bool = false
 	@ObservedObject var fetcher = recipeFetcher(search: "")
+	@State var searchID: String = ""
 	@State var buttonPadding: CGFloat = 1
 
 	var body: some View {
@@ -80,10 +82,20 @@ struct Search: View {
 						List {
 							ForEach(fetcher.recipiesFull) { i in
 								NavigationLink(destination: DetailView(detail: i)) {
-									Text(i.title)
-										.font(.subheadline)
-										.lineLimit(2)
-										.padding([.top, .bottom], 15)
+									HStack{
+										WebImage(url: URL(string: i.image), options: .highPriority)
+											.renderingMode(.original)
+											.resizable()
+											.indicator(.activity)
+											.cornerRadius(10)
+											.frame(width: 100, height: 60)
+											.animation(.easeInOut(duration: 0.8))
+										Text(i.title)
+											.font(.subheadline)
+											.lineLimit(2)
+											.padding([.top, .bottom], 15)
+										Spacer()
+									}
 								}
 							}
 						}.animation(.linear(duration: 0.3))
