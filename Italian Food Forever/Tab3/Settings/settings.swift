@@ -42,7 +42,7 @@ struct subSettings: View {
 							.foregroundColor(.orange)
 							.padding(.trailing, 5)
 						// TODO: Add ChangeLog Page
-						NavigationLink(destination: EmptyView()) {
+						NavigationLink(destination: ChangeLog()) {
 							Text("What's New")
 								.foregroundColor(.black)
 						}

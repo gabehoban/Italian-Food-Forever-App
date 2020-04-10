@@ -39,6 +39,8 @@ struct MySubview: View {
 	@State private var ingredients: Bool = false
 	@State private var ingredientSymbol: String = "chevron.right"
 	@State var content: String = ""
+	@State var title: String = ""
+	@State var email: String = ""
 
 	func toggle() { isChecked = !isChecked }
 	@State var isChecked: Bool = false
@@ -122,7 +124,8 @@ struct MySubview: View {
 									Button(action: {
 										self.ingredients.toggle()
 										self.content = self.detail.content
-
+										self.title = self.detail.title
+										self.email = self.spark.profile.email
 									}) {
 										Text("View Ingredients")
 											.font(.headline)
@@ -131,7 +134,7 @@ struct MySubview: View {
 											.multilineTextAlignment(.leading)
 											.padding(.top, 15)
 									}.sheet(isPresented: $ingredients) {
-										modalIngredents(Presented: self.$ingredients, content: self.$content, onDismiss: {
+										modalIngredents(Presented: self.$ingredients, content: self.$content, title: self.$title, email: self.$email, onDismiss: {
 											self.ingredients = false
 										})
 									}

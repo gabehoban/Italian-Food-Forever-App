@@ -13,9 +13,9 @@ import WebKit
 import HTMLString
 
 struct cardsRow1: View {
-    @ObservedObject private var list = getData(newUrl: "posts?per_page=6&offset=1&categories_exclude=7&_fields=id,excerpt,content,title,mv,date,link&_envelope")
+	@ObservedObject private var list = getData(newUrl: "posts?per_page=6&offset=1&categories_exclude=7&_fields=id,excerpt,content,title,mv,date,link&_envelope")
 	func formatTitle(str: String) -> String {
-		if str.contains("{"){
+		if str.contains("{") {
 			let str1 = (str.replacingOccurrences(of: "{", with: "(")
 				.replacingOccurrences(of: "}", with: ")"))
 			return str1
@@ -25,69 +25,70 @@ struct cardsRow1: View {
 	}
 
 // MARK: - BODY
-    var body: some View {
-        VStack {
-            Spacer()
-            HStack {
-                Text("Recent Posts")
-                    .font(.title)
-                    .multilineTextAlignment(.leading)
-                    .padding(.leading, 20)
-                Spacer()
-            }
-            Rectangle()
-                .frame(height: 2.0)
-                .padding([.leading, .trailing], 20)
-                .padding(.top, -9)
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    Spacer()
-                    ForEach(self.list.datas) { i in
-                        NavigationLink(destination:
-                            DetailView(detail: i)) {
-                            ZStack {
-                                Rectangle()
-                                    .frame(width: 150.0, height: 140)
-                                    .foregroundColor(Color.white)
-                                    .cornerRadius(12)
+	var body: some View {
+		VStack {
+			Spacer()
+			HStack {
+				Text("Recent Posts")
+					.font(.title)
+					.multilineTextAlignment(.leading)
+					.padding(.leading, 20)
+				Spacer()
+			}
+			Rectangle()
+				.frame(height: 2.0)
+				.padding([.leading, .trailing], 20)
+				.padding(.top, -9)
+			ScrollView(.horizontal, showsIndicators: false) {
+				HStack {
+					Spacer()
+					ForEach(self.list.datas) { i in
+						NavigationLink(destination:
+							DetailView(detail: i)) {
+							ZStack {
+								Rectangle()
+									.frame(width: 150.0, height: 140)
+									.foregroundColor(Color.white)
+									.cornerRadius(12)
 									.shadow(color: Color.black.opacity(0.4), radius: 8, x: 3, y: 3)
-                                    .opacity(0.4)
+									.opacity(0.4)
 
-                                Spacer()
-                                VStack {
-                                    WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
-                                        .renderingMode(.original)
-                                        .resizable()
+								Spacer()
+								VStack {
+									WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
+										.renderingMode(.original)
+										.resizable()
 										.indicator(.activity)
 										.animation(.easeInOut(duration: 0.5))
 										.frame(width: 150, height: 105)
-                                    
-									Text(self.formatTitle(str: i.title)
-                                        .removingHTMLEntities)
-                                        .font(.subheadline)
-                                        .fontWeight(.heavy)
-                                        .foregroundColor(Color.black)
-                                        .multilineTextAlignment(.leading)
-                                        .lineLimit(3)
-										.frame(width: 135.0)
-                                        .padding(.bottom, 15)
-                                    Spacer()
+									HStack {
+										Text(self.formatTitle(str: i.title)
+											.removingHTMLEntities)
+											.font(.subheadline)
+											.fontWeight(.heavy)
+											.foregroundColor(Color.black)
+											.lineLimit(3)
+											.frame(width: 135.0)
+											.padding(.bottom, 15)
+										Spacer()
+									}
+									Spacer()
 								}
-                            }.padding(.bottom, 100)
+							}.padding(.bottom, 100)
 						}.animation(.spring())
-                    }
-                }.frame(width: 950.0, height: 350.0)
+					}
+				}.frame(width: 950.0, height: 350.0)
 			}.padding(.leading, 10)
-            Spacer()
-        }.padding(.top,20)
-    }
+			Spacer()
+		}.padding(.top, 55)
+	}
 }
 
 
 
 struct cardsRow1_Previews: PreviewProvider {
-    static var previews: some View {
-        cardsRow1()
-            .previewLayout(.sizeThatFits)
-    }
+	static var previews: some View {
+		cardsRow1()
+			.previewLayout(.sizeThatFits)
+	}
 }

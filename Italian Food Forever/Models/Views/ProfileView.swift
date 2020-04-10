@@ -35,7 +35,7 @@ struct ProfileView: View {
 			HStack {
 				VStack {
 					Text("\(sanitizeName(str: self.spark.profile.name))")
-						.font(.title)
+						.font(.system(size: 35, design: .rounded))
 						.fontWeight(.bold)
 				}
 				Spacer()
@@ -56,13 +56,14 @@ struct ProfileView: View {
 							Circle()
 								.foregroundColor(.white)
 								.shadow(color: Color.gray.opacity(0.4), radius: 10, x: 2, y: 2)
-								.frame(width: 30, height: 30)
+								.frame(width: 50, height: 50)
 								.opacity(0.4)
 							Image(systemName: "gear")
-								.scaleEffect(1.3)
+								.scaleEffect(1.6)
 								.foregroundColor(.gray)
 						}
-					})
+					}).padding(.top, -55)
+					  .padding(.trailing, 10)
 				}
 			}.padding(.horizontal, 15)
 			 .padding(.bottom, 15)
@@ -163,7 +164,7 @@ struct ProfileView: View {
 				UINavigationBar.appearance().isOpaque = true
 				UINavigationBar.appearance().isTranslucent = true
 		}
-		.padding(.top, -75)
+		.padding(.top, -65)
 	    .navigationBarItems(trailing: Text("Test"))
 	}
 }

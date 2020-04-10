@@ -38,34 +38,36 @@ struct subFeatured: View {
             ForEach(list.datas) { i in
                 NavigationLink(destination: DetailView(detail: i)) {
                     ZStack {
+						Rectangle()
+							.frame(width: self.size.width * 0.93, height: 330)
+							.cornerRadius(5)
+							.foregroundColor(.white)
+							.padding(.top, 60)
+							.shadow(color: Color.black.opacity(0.2), radius: 8, x: 3, y: 3)
+							
                         WebImage(url: URL(string: i.image), options: .highPriority)
                             .renderingMode(.original)
                             .resizable()
 							.indicator(.activity)
 							.animation(.easeInOut(duration: 0.5))
-							.frame(width: self.size.width * 0.95, height: 270)
-                            .cornerRadius(15)
-                        Rectangle()
-                            .padding(.top, 270)
-                            .foregroundColor(.white)
-                            .background(LinearGradient(gradient: .init(colors: [Color.clear, Color.white]), startPoint: .top, endPoint: .bottom).opacity(0.8))
-                            .frame(width: self.size.width * 0.95, height: 200)
+							.frame(width: self.size.width * 0.93, height: 270)
+						
                         HStack {
 							Text(self.formatTitle(str: i.title)
                                 .removingHTMLEntities)
-                                .font(.title)
-                                .fontWeight(.medium)
-                                .foregroundColor(Color.black)
-                                .multilineTextAlignment(.leading)
-								.fixedSize(horizontal: false, vertical: true)
-								.padding(.horizontal, 15)
-                                .lineLimit(3)
+								.font(.system(size: 24))
+								.fontWeight(.semibold)
+								.frame(width: 300)
+								.foregroundColor(Color.black)
+								.multilineTextAlignment(.leading)
+								.padding(.leading, 20)
+								.lineLimit(3)
                             Spacer()
-                        }.padding(.top, 275)
+                        }.padding(.top, 325)
                     }
                 }
             }
-		}
+		}.padding(.top, -30)
     }
 }
 
