@@ -28,4 +28,4 @@ script:
     -destination "$DESTINATION" | xcpretty -c
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -t 8c2df9e0-2720-4177-abe5-651a5ccbedbd
+  - bash <(curl -s https://codecov.io/bash)
