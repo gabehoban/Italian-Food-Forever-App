@@ -1,0 +1,65 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Generate new localized screenshots"
+  lane :screenshots do
+    capture_screenshots(workspace: "IFF.xcworkspace", scheme: "Italian Food ForeverUITests")
+    swiftlint(
+      mode: :autocorrect,      # SwiftLint mode: :lint (default) or :autocorrect
+      config_file: ".swiftlint.yml",
+      raise_if_swiftlint_error: true,      # Allow fastlane to raise an error if swiftlint fails
+      ignore_exit_status: false    # Allow fastlane to continue even if SwiftLint returns a non-zero exit status
+    )
+  end
+
+  desc "Lint swift code & autocorrect"
+  lane :lint do
+      swiftlint(
+        mode: :autocorrect,      # SwiftLint mode: :lint (default) or :autocorrect
+        config_file: ".swiftlint.yml",
+        raise_if_swiftlint_error: true,      # Allow fastlane to raise an error if swiftlint fails
+        ignore_exit_status: false    # Allow fastlane to continue even if SwiftLint returns a non-zero exit status
+    )
+  end
+
+  desc "Build and upload new beta version"
+  lane :beta do
+    ensure_git_status_clean
+    sync_code_signing(type: "appstore")
+    build_app(scheme: "Italian Food Forever",
+            workspace: "IFF.xcworkspace",
+            include_bitcode: true)
+    changelog_from_git_commits
+    upload_to_testflight
+  end
+end
+
+def bumpBuild
+  increment_version_number_in_xcodeproj(
+      bump_type: 'patch',
+      target: 'Italian Food Forever'
+    )
+end
+
+def bumpMonth
+  increment_version_number_in_xcodeproj(
+      bump_type: 'minor',
+      target: 'Italian Food Forever'
+    )
+end
+
