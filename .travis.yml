@@ -11,6 +11,7 @@ env:
     - SDK="$IOS_SDK" DESTINATION="platform=iOS Simulator,OS=13.3,name=iPhone 11"
 
 before_install:
+  - rvm use ruby-2.6.3
   - pod install
 
 install:
