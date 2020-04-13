@@ -1,4 +1,4 @@
-[![CodeFactor](https://www.codefactor.io/repository/github/gabehoban/italian-food-forever-app/badge)](https://www.codefactor.io/repository/github/gabehoban/italian-food-forever-app) [![Build Status](https://travis-ci.com/gabehoban/Italian-Food-Forever-App.svg?branch=master)](https://travis-ci.com/gabehoban/Italian-Food-Forever-App) [![codecov](https://codecov.io/gh/gabehoban/Italian-Food-Forever-App/branch/master/graph/badge.svg)](https://codecov.io/gh/gabehoban/Italian-Food-Forever-App)
+[![CodeFactor](https://www.codefactor.io/repository/github/gabehoban/italian-food-forever-app/badge)](https://www.codefactor.io/repository/github/gabehoban/italian-food-forever-app)
 
 # Italian Food Forever App
 
