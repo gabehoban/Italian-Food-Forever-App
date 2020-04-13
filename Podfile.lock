@@ -283,7 +283,6 @@ PODS:
   - SDWebImageSwiftUI (1.3.1):
     - SDWebImage (~> 5.7)
   - SwiftyJSON (4.3.0)
-  - SwiftyMarkdown (1.2.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -295,7 +294,6 @@ DEPENDENCIES:
   - Log
   - SDWebImageSwiftUI
   - SwiftyJSON (~> 4.0)
-  - SwiftyMarkdown
 
 SPEC REPOS:
   trunk:
@@ -326,7 +324,6 @@ SPEC REPOS:
     - SDWebImage
     - SDWebImageSwiftUI
     - SwiftyJSON
-    - SwiftyMarkdown
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -356,8 +353,7 @@ SPEC CHECKSUMS:
   SDWebImage: d9ea4959d99c52276dfada481987018fcaea3d58
   SDWebImageSwiftUI: f1d11beac87e8a2edf08ea73ed1912f482e4d5a3
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
-  SwiftyMarkdown: 2d4241bc1bb8848ed48af12ca9b07984e94a226e
 
-PODFILE CHECKSUM: ca8bf53d965e9a65b78f046566da1ad10d2960f1
+PODFILE CHECKSUM: 2cbee076afac0c300eb5e6b8607e676eda0db4af
 
 COCOAPODS: 1.9.1

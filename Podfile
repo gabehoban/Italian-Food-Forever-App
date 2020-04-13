@@ -8,7 +8,6 @@ target 'Italian Food Forever' do
   use_frameworks!
   pod 'SwiftyJSON', '~> 4.0'
   pod 'SDWebImageSwiftUI'
-  pod 'SwiftyMarkdown'
   pod 'HTMLString', '~> 5.0'
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'

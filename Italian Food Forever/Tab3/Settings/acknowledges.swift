@@ -7,11 +7,10 @@
 //
 
 import SwiftUI
-import SwiftyMarkdown
 
 struct acknowledges: View {
 	
-	var md = SwiftyMarkdown(string: """
+	let md = """
 ## The following open source components were used in Itlain Food Forevers's construction. Be sure to thank all these coders for making this app possible.
 
 **1. SwiftyJSON**
@@ -329,14 +328,14 @@ SOFTWARE.
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-""")
+"""
 
 	var body: some View {
 		ScrollView(.vertical) {
 			VStack(spacing: 15) {
 				HStack(spacing: 5) {
 					Spacer()
-					Text((self.md.attributedString()).string)
+					Text(md)
 					Spacer()
 				}
 				Spacer()
