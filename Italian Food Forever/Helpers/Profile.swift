@@ -16,5 +16,3 @@ struct Profile: Identifiable {
     let email: String
     let saved: [String]
 }
-
-

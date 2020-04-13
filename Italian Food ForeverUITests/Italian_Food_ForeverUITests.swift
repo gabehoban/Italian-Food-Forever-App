@@ -15,7 +15,10 @@ class Italian_Food_ForeverUITests: XCTestCase {
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
+		let app = XCUIApplication()
+		setupSnapshot(app)
+		app.launch()
+		
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
@@ -28,8 +31,20 @@ class Italian_Food_ForeverUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 		
-		
-		
+		let tabBarsQuery = app.tabBars
+		tabBarsQuery.buttons["Home"].tap()
+		snapshot("01MainScreen")
+		tabBarsQuery.buttons["Search"].tap()
+		snapshot("02Search")
+		app.textFields.element.tap()
+		app.textFields.element.typeText("Pasta With Fava Beans")
+		app.keyboards.buttons["Return"].press(forDuration: 3)
+		app.tables.buttons["Pasta With Fava Beans & Guanciale"].tap()
+		snapshot("03Recipie")
+		app.navigationBars.buttons["arrow.left"].tap()
+		let myRecipesButton = XCUIApplication().tabBars.buttons["My Recipes"]
+		myRecipesButton.tap()
+		snapshot("04Profile")
 				
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

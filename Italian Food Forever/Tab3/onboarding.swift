@@ -42,14 +42,12 @@ struct onboarding: View {
 						TextField("John", text: $text).textFieldStyle(RoundedBorderTextFieldStyle())
 							.padding([.leading, .trailing], 15)
 						Button(action: {
-							print(Auth.auth().currentUser!.uid)
-							print(self.text)
 							let data = [
 								SparkKeys.Profile.uid: Auth.auth().currentUser!.uid,
 								SparkKeys.Profile.name: self.text,
 								SparkKeys.Profile.email: ""]
 							SparkFirestore.mergeProfile(data, uid: Auth.auth().currentUser!.uid) { (result) in
-								print(result)
+								Log.info(result)
 							}
 							self.status.end = true
 							UserDefaults.standard.set(true, forKey: "status")
@@ -77,7 +75,6 @@ struct onboarding: View {
 		}
 	}
 }
-
 
 struct onboarding_Previews: PreviewProvider {
 	static var previews: some View {

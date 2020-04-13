@@ -84,8 +84,6 @@ struct cardsRow1: View {
 	}
 }
 
-
-
 struct cardsRow1_Previews: PreviewProvider {
 	static var previews: some View {
 		cardsRow1()

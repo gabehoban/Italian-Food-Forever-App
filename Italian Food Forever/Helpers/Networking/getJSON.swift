@@ -12,7 +12,7 @@ import SwiftyJSON
 class getData: ObservableObject {
 	@Published var datas = [dataType]()
 	
-	init(newUrl: String){
+	init(newUrl: String) {
 		load(partURL: newUrl)
 	}
 	func load(partURL: String) {
@@ -21,7 +21,7 @@ class getData: ObservableObject {
 		let session = URLSession(configuration: .default)
 		session.dataTask(with: url) { (data, _, err) in
 			if err != nil {
-				print((err?.localizedDescription)!)
+				Log.error((err?.localizedDescription)!)
 				return
 			}
 			let json = try! JSON(data: data!)

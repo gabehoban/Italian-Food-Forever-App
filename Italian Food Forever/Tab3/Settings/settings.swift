@@ -10,13 +10,12 @@ import FASwiftUI
 import MessageUI
 import StoreKit
 
-
 struct subSettings: View {
 	@State var isLoggedOut: Bool = false
 	@State private var firstname = ""
 	@EnvironmentObject var spark: Spark
 	@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-	@State var result: Result<MFMailComposeResult, Error>? = nil
+	@State var result: Result<MFMailComposeResult, Error>?
 	@State var isShowingfeatureMailView = false
 	@State var isShowingproblemMailView = false
 	let size: CGSize
@@ -24,7 +23,7 @@ struct subSettings: View {
 	var body: some View {
 		VStack {
 			Form {
-				//MARK: - Section One
+				// MARK: - Section One
 				Section(footer: Text("If you enjoy Italian Food Forever, please consider rating the app on the App Store.")) {
 					HStack {
 						FAText(iconName: "info-circle", size: 22)
@@ -105,18 +104,17 @@ struct subSettings: View {
 					}
 				}
 				Section {
-					//MARK: - Logout
+					// MARK: - Logout
 					HStack {
 						Spacer()
 						Button(action: {
-							print("Clicked")
 							SparkAuth.logout { (err) in
 								switch err {
 								case .success:
-									print("\(self.spark.profile.uid) - \(self.spark.profile.name) has Logged Out.")
+									Log.info("\(self.spark.profile.uid) - \(self.spark.profile.name) has Logged Out.")
 									UserDefaults.standard.set(false, forKey: "status")
-								case .failure(let error):
-									print(error.localizedDescription)
+									case .failure(let error):
+										Log.error(error.localizedDescription)
 								}
 							}
 						}) {
@@ -146,8 +144,8 @@ struct settings: View {
 }
 struct footer: View {
 	var body: some View {
-		VStack{
-			HStack{
+		VStack {
+			HStack {
 				Spacer()
 				Image("banner-1")
 					.resizable()
@@ -155,7 +153,7 @@ struct footer: View {
 					.padding(.top, 25)
 				Spacer()
 			}
-			HStack{
+			HStack {
 				Spacer()
 				Text("App Version: \(UIApplication.appVersion ?? "")")
 					.font(.system(size: 22, weight: .semibold, design: .rounded))

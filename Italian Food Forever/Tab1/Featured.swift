@@ -11,7 +11,6 @@ import SwiftyJSON
 import SDWebImageSwiftUI
 import WebKit
 import HTMLString
-import HTMLReader
 
 struct InfoView: Identifiable {
     var id: Int
@@ -22,7 +21,7 @@ struct InfoView: Identifiable {
 struct subFeatured: View {
 	let size: CGSize
 	func formatTitle(str: String) -> String {
-		if str.contains("{"){
+		if str.contains("{") {
 			let str1 = (str.replacingOccurrences(of: "{", with: "(")
 						   .replacingOccurrences(of: "}", with: ")"))
 			return str1

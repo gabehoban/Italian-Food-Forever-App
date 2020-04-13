@@ -106,10 +106,10 @@ struct SignInView: View {
 	func executeAlertAction() {
 		switch alertInfo.actionTag {
 		case 0:
-			print("No action alert action")
+			Log.debug("No action alert action")
 
 		default:
-			print("Default alert action")
+			Log.debug("Default alert action")
 		}
 	}
 }

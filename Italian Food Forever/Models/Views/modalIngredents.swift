@@ -13,10 +13,10 @@ struct modalIngredents: View {
 	@Binding var Presented: Bool
 	@Binding var content: String
 	@Binding var title: String
-	@State var result: Result<MFMailComposeResult, Error>? = nil
+	@State var result: Result<MFMailComposeResult, Error>?
 	@Binding var email: String
 	@State var isShowingMailView = false
-	var onDismiss: () -> ()
+	var onDismiss: () -> Void
 
 	var body: some View {
 		VStack {
@@ -42,15 +42,15 @@ struct modalIngredents: View {
 							Spacer()
 						}
 					}
-					//MARK: - Mail to self
+					// MARK: - Mail to self
 					HStack {
 						Spacer()
 						Button(action: {
 							self.isShowingMailView.toggle()
 						}) {
-							HStack{
+							HStack {
 								Spacer()
-								ZStack{
+								ZStack {
 									Rectangle()
 										.foregroundColor(.black)
 										.frame(width: 300, height: 50)
@@ -70,7 +70,7 @@ struct modalIngredents: View {
 			}
 			Spacer()
 		}.padding(.horizontal, 10)
-		 .onAppear(){
+		 .onAppear {
 			UINavigationBar.appearance().tintColor = UIColor.black
 			
 		}

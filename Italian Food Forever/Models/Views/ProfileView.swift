@@ -50,7 +50,6 @@ struct ProfileView: View {
 				VStack {
 					Button(action: {
 						self.gear = true
-						print("Clicked")
 					}, label: {
 						ZStack {
 							Circle()
@@ -112,7 +111,7 @@ struct ProfileView: View {
 							}
 						}
 						Spacer()
-					}.onAppear(){
+					}.onAppear {
 							self.datasME.removeAll()
 							func load() {
 								self.spark.configureFirebaseStateDidChange()
@@ -130,7 +129,7 @@ struct ProfileView: View {
 									session.dataTask(with: url) { (data, _, err) in
 										
 										if err != nil {
-											print((err?.localizedDescription)!)
+											Log.error((err?.localizedDescription)!)
 											return
 										}
 										
@@ -146,7 +145,6 @@ struct ProfileView: View {
 											DispatchQueue.main.async {
 												self.datasME.append(dataType(id: id, url: url, date: date, title: title, excerpt: excerpt, image: image, content: content))
 											}
-											print(self.datasME.count)
 										}
 									}.resume()
 								} else {
@@ -159,7 +157,7 @@ struct ProfileView: View {
 				}
 			}
 			Spacer()
-		}.onAppear() {
+		}.onAppear {
 				UserDefaults.standard.set(false, forKey: "status")
 				UINavigationBar.appearance().isOpaque = true
 				UINavigationBar.appearance().isTranslucent = true

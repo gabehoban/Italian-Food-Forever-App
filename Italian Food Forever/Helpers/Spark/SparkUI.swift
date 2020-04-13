@@ -26,4 +26,3 @@ struct SparkUIDefault {
     static let alertInfo = AlertInfo(isPresented: false, title: "", message: "", actionText: "", actionTag: 0)
     static let activityIndicatorInfo = ActivityIndicatorInfo(isPresented: false, message: "Working...")
 }
-

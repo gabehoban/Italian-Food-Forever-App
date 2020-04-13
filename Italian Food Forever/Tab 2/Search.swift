@@ -82,7 +82,7 @@ struct Search: View {
 						List {
 							ForEach(fetcher.recipiesFull) { i in
 								NavigationLink(destination: DetailView(detail: i)) {
-									HStack{
+									HStack {
 										WebImage(url: URL(string: i.image), options: .highPriority)
 											.renderingMode(.original)
 											.resizable()
@@ -165,7 +165,7 @@ struct Search: View {
 				}.padding(.top, 10)
 			}
 		Spacer()
-		}.onAppear() {
+		}.onAppear {
 			if self.text != "" {
 				self.displayRes = true
 				self.fetcher.getJsonData(string: self.text)

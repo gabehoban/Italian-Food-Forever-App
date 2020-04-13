@@ -25,22 +25,20 @@ class Spark: ObservableObject {
     func configureFirebaseStateDidChange() {
         authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ (_, user) in
             guard let user = user else {
-                print("User is signed out")
+				Log.info("User is signed out")
                 self.isUserAuthenticated = .signedOut
                 return
             }
             self.isUserAuthenticated = .signedIn
-            print("Successfully authenticated user with uid: \(user.uid)")
             SparkFirestore.retreiveProfile(uid: user.uid) { (result) in
                 switch result {
                 case .success(let profile):
-                    print("Retreived: \(profile)")
+					Log.info("Retreived: \(profile) | \(user.uid)")
                     self.profile = profile
                 case .failure(let err):
-                    print(err.localizedDescription)
+					Log.error(err.localizedDescription)
                 }
             }
         })
     }
 }
-

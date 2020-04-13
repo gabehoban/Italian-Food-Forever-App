@@ -14,7 +14,6 @@ public class recipeFetcher: ObservableObject {
 	@Published var recipies = [searchType]()
 	@Published var recipiesFull = [dataType]()
 
-
 	init(search: String) {
 		getJsonData(string: search)
 	}
@@ -26,7 +25,7 @@ public class recipeFetcher: ObservableObject {
 		//string is the initial string of the station name
 		let task = URLSession.shared.dataTask(with: url!) { (data, _, error) in
 			if error != nil {
-				print((error?.localizedDescription)!)
+				Log.error((error?.localizedDescription)!)
 				return
 			}
 
@@ -41,7 +40,7 @@ public class recipeFetcher: ObservableObject {
 				//string is the initial string of the station name
 				let taskFull = URLSession.shared.dataTask(with: urlFull!) { (data, _, error) in
 					if error != nil {
-						print((error?.localizedDescription)!)
+						Log.error((error?.localizedDescription)!)
 						return
 					}
 

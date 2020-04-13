@@ -9,7 +9,6 @@
 import SwiftUI
 import Firebase
 
-
 class Status: ObservableObject {
 	@Published var end: Bool = false
 	@Published var doneVerify: Bool = false
@@ -110,8 +109,7 @@ struct FirstPage: View {
 		.alert(isPresented: $alert) {
 				Alert(title: Text("Error"), message: Text(self.msg), dismissButton: .default(Text("Ok")))
 		}
-		.onAppear(){
-			print("Show phoneAuth(): \(UserDefaults.standard.value(forKey: "status") as? Bool ?? false)")
+		.onAppear {
 			if UserDefaults.standard.value(forKey: "status") as? Bool ?? false == true {
 				self.presentation.wrappedValue.dismiss()
 			}
@@ -177,7 +175,7 @@ struct ScndPage: View {
 			}) {
 				Image(systemName: "chevron.left").font(.title)
 			}.foregroundColor(.orange)
-		}.onAppear(){
+		}.onAppear {
 			if self.show == true {
 				self.presentation.wrappedValue.dismiss()
 			}

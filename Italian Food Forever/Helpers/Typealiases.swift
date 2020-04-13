@@ -10,5 +10,4 @@ import Foundation
 import FirebaseAuth
 import AuthenticationServices
 
-
 typealias SignInWithAppleResult = (authDataResult: AuthDataResult, appleIDCredential: ASAuthorizationAppleIDCredential)

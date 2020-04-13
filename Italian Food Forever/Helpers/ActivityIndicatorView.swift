@@ -40,5 +40,3 @@ struct ActivityIndicatorView<Content>: View where Content: View {
     }
 
 }
-
-

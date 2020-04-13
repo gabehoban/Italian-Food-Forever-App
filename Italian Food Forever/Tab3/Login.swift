@@ -25,13 +25,9 @@ struct Login: View {
 			} else if spark.isUserAuthenticated == .signedIn {
 				ProfileView()
 			}
-		}.onAppear() {
+		}.onAppear {
 			UINavigationBar.appearance().isOpaque = true
 			UINavigationBar.appearance().isTranslucent = true
-			// dev only
-//            SparkAuth.logout { (result) in
-//                print("Logout: \(result)")
-//            }
 			self.spark.configureFirebaseStateDidChange()
 		}
 	}

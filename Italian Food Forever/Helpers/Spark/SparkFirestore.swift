@@ -9,7 +9,7 @@
 import FirebaseFirestore
 
 struct SparkFirestore {
-    static func retreiveProfile(uid: String, completion: @escaping (Result<Profile, Error>) -> ()) {
+    static func retreiveProfile(uid: String, completion: @escaping (Result<Profile, Error>) -> Void) {
         let reference = Firestore
             .firestore()
             .collection(SparkKeys.CollectionPath.profiles)
@@ -29,7 +29,7 @@ struct SparkFirestore {
         
     }
     
-    static func mergeProfile(_ data: [String: Any], uid: String, completion: @escaping (Result<Bool, Error>) -> ()) {
+    static func mergeProfile(_ data: [String: Any], uid: String, completion: @escaping (Result<Bool, Error>) -> Void) {
         let reference = Firestore
             .firestore()
             .collection(SparkKeys.CollectionPath.profiles)
@@ -43,22 +43,18 @@ struct SparkFirestore {
         }
     }
     
-    
-    static func updateData(id: String, txt: [String], completion: @escaping (Result<Bool, Error>) -> ()) {
-    Firestore.firestore().collection("profiles").document(id).updateData(["saved":txt]) { (err) in
+    static func updateData(id: String, txt: [String], completion: @escaping (Result<Bool, Error>) -> Void) {
+    Firestore.firestore().collection("profiles").document(id).updateData(["saved": txt]) { (err) in
             if err != nil {
-                print((err?.localizedDescription)!)
+				Log.error((err?.localizedDescription)!)
                 return
-            }else {
-                print("update data success")
             }
         }
     }
     
-    
     // MARK: - fileprivate
     
-    fileprivate static func getDocument(for reference: DocumentReference, completion: @escaping (Result<[String : Any], Error>) -> ()) {
+    fileprivate static func getDocument(for reference: DocumentReference, completion: @escaping (Result<[String: Any], Error>) -> Void) {
         reference.getDocument { (documentSnapshot, err) in
             if let err = err {
                 completion(.failure(err))
@@ -76,4 +72,3 @@ struct SparkFirestore {
         }
     }
 }
-

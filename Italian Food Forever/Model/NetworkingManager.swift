@@ -16,7 +16,7 @@ struct NetworkingManager: View {
     @ObservedObject var datas = getData()
     
     var body: some View {
-        Text("hi").onAppear(){
+        Text("hi").onAppear {
             func toFirebase() {
                 firebaseData.updateData(datas)
             }

@@ -14,7 +14,7 @@ import HTMLString
 
 struct springRow: View {
 	func formatTitle(str: String) -> String {
-		if str.contains("{"){
+		if str.contains("{") {
 			let str1 = (str.replacingOccurrences(of: "{", with: "(")
 				.replacingOccurrences(of: "}", with: ")"))
 			return str1

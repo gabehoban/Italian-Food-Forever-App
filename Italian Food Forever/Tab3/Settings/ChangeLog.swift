@@ -15,7 +15,7 @@ struct ChangeLog: View {
 	var body: some View {
 		VStack {
 			List {
-				//MARK: - 2020.4.1
+				// MARK: - 2020.4.1
 				Section(header: label(version: "2020.4.1", date: "April 9, 2020")) {
 					Text("What's New").fontWeight(.medium)
 					changes(detail: [
@@ -26,7 +26,7 @@ struct ChangeLog: View {
 					]).padding(.top, -10)
 				}
 
-				//MARK: - 2020.4.0
+				// MARK: - 2020.4.0
 				Section(header: label(version: "2020.4.0", date: "April 8, 2020")) {
 					Text("What's New").fontWeight(.medium)
 					changes(detail: ["First Build"]).padding(.top, -10)
@@ -39,7 +39,7 @@ struct ChangeLog: View {
 struct changes: View {
 	let detail: [String]
 	var body: some View {
-		ForEach(detail, id: \.self){ change in
+		ForEach(detail, id: \.self) { change in
 			HStack {
 				Text("\u{2022} ")
 				+ Text(change)

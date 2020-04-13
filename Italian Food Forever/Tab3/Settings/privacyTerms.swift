@@ -41,9 +41,9 @@ struct privacyTerms: View {
 							let user = Auth.auth().currentUser
 							user?.delete { error in
 								if let error = error {
-									print(error.localizedDescription)
+									Log.error(error.localizedDescription)
 								} else {
-									print("Account deleted")
+									Log.info("Account deleted")
 								}
 							}
 							

@@ -55,7 +55,7 @@ struct MySubview: View {
 				VStack {
 					ScrollView(.vertical, showsIndicators: false) {
 						VStack {
-							//MARK: - Image
+							// MARK: - Image
 							WebImage(url: URL(string: detail.image), options: .highPriority)
 								.renderingMode(.original)
 								.resizable()
@@ -63,7 +63,7 @@ struct MySubview: View {
 								.cornerRadius(10)
 								.frame(width: 500, height: 300)
 								.animation(.easeInOut(duration: 0.8))
-							//MARK: - Title
+							// MARK: - Title
 							//TODO: Add custom font
 							HStack {
 								Text(utils().formatTitle(str: detail.title).removingHTMLEntities)
@@ -74,7 +74,7 @@ struct MySubview: View {
 									.animation(Animation.easeInOut(duration: 0.6).delay(0.3))
 								Spacer()
 							}.frame(width: 0.95 * size.width)
-							//MARK: - Author & Date
+							// MARK: - Author & Date
 							VStack {
 								HStack {
 									Image("deb")
@@ -93,12 +93,12 @@ struct MySubview: View {
 										.fontWeight(.thin)
 										.animation(Animation.easeInOut(duration: 0.6).delay(0.5))
 								}
-								//MARK: - Seperator
+								// MARK: - Seperator
 								Rectangle()
 									.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255).opacity(0.4))
 									.frame(height: 1.0)
 									.padding(.vertical, 10)
-								//MARK: - Details
+								// MARK: - Details
 								HStack {
 									if utils().formatTime(str: detail.content, title: detail.title).contains("hour") {
 									Text("Total \nTime")
@@ -119,7 +119,7 @@ struct MySubview: View {
 									.fixedSize(horizontal: false, vertical: true)
 								}
 								
-								//MARK: - Ingredients
+								// MARK: - Ingredients
 								HStack {
 									Button(action: {
 										self.ingredients.toggle()
@@ -142,9 +142,8 @@ struct MySubview: View {
 								}
 							}.padding(.vertical, 10)
 							.frame(width: size.width * pad)
-							 
 
-							//MARK: - Content
+							// MARK: - Content
 							if article == false {
 								Button(action: {
 									self.article.toggle()
@@ -159,7 +158,7 @@ struct MySubview: View {
 										.frame(width: size.width * pad)
 								}
 
-								//MARK: - Directions
+								// MARK: - Directions
 								HStack {
 									Text("Directions")
 										.font(.headline)
@@ -168,7 +167,7 @@ struct MySubview: View {
 								}.padding(.top, 35)
 								 .frame(width: size.width * pad)
 
-								//MARK: - Steps
+								// MARK: - Steps
 								ForEach(0..<utils().formatSteps(str: detail.content).count, id: \.self) { i in
 									HStack {
 										Text("\(i + 1) ")
@@ -207,18 +206,15 @@ struct MySubview: View {
 					Spacer()
 				}.padding(.top, -60) //Rectangle offset
 			}.padding(.top, -70)
-			 .onAppear() {
+			 .onAppear {
 				self.spark.configureFirebaseStateDidChange()
-
-				print(self.spark.profile.saved)
 
 				UINavigationBar.appearance().isOpaque = true
 				UINavigationBar.appearance().isTranslucent = true
 				UINavigationBar.appearance().tintColor = .white
 				UINavigationBar.appearance().backgroundColor = .clear
 
-				for id in self.spark.profile.saved
-				{
+				for id in self.spark.profile.saved {
 					if id == self.detail.id {
 						self.heartSelect = true
 						break
@@ -237,9 +233,7 @@ struct MySubview: View {
 							.foregroundColor(.white)
 					}).padding(.bottom, 5)
 						.padding(.trailing, 8)
-						.sheet(isPresented: $isSharePresented, onDismiss: {
-							print("Dismiss")
-						}, content: {
+						.sheet(isPresented: $isSharePresented, content: {
 							ActivityViewController(activityItems: [URL(string: self.detail.url)!])
 						})
 					Button(action: {
@@ -252,13 +246,12 @@ struct MySubview: View {
 								var savedP: [String] = self.spark.profile.saved
 								savedP.append(self.detail.id)
 
-
 								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
 									switch err {
 									case .success:
-										print("Added \(self.detail.id) to saved array -> \(self.spark.profile.saved)")
+										Log.debug("Added \(self.detail.id) to saved array -> \(self.spark.profile.saved)")
 									case .failure(let error):
-										print(error.localizedDescription)
+										Log.error(error.localizedDescription)
 									}
 								}
 								self.spark.configureFirebaseStateDidChange()
@@ -273,9 +266,9 @@ struct MySubview: View {
 								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
 									switch err {
 									case .success:
-										print("Removed \(self.detail.id) from \(self.spark.profile.saved).")
+										Log.debug("Removed \(self.detail.id) from \(self.spark.profile.saved).")
 									case .failure(let error):
-										print(error.localizedDescription)
+										Log.error(error.localizedDescription)
 									}
 								}
 								self.spark.configureFirebaseStateDidChange()
@@ -359,7 +352,7 @@ struct cardView: View {
 				session.dataTask(with: url) { (data, _, err) in
 
 					if err != nil {
-						print((err?.localizedDescription)!)
+						Log.error((err?.localizedDescription)!)
 						return
 					}
 					let json = try! JSON(data: data!)

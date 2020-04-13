@@ -9,7 +9,6 @@
 import SwiftUI
 import Foundation
 
-
 class utils {
 	func formatTitle(str: String) -> String {
 		if str.contains("{") {
@@ -41,8 +40,6 @@ class utils {
 		let notHTML = str.components(separatedBy: "context")
 		if notHTML.count == 1 {
 			let datePublished = notHTML[0].components(separatedBy: title.removingHTMLEntities)
-			print(datePublished)
-			print(datePublished.count)
 			if datePublished[0].contains("Yield:") {
 				let frontYield = datePublished[0].components(separatedBy: "Prep Time:")
 				let sanitizedY = ((frontYield[0].replacingOccurrences(of: "\n", with: ""))
@@ -75,7 +72,6 @@ class utils {
 			let frontYield = (nothtml.replacingOccurrences(of: "\\", with: "")
 				.components(separatedBy: "\",\"description"))
 			let yield = frontYield[0].components(separatedBy: "recipeYield\":\"")
-			print(yield[1])
 			if yield[1].contains("image") {
 				let returnYield = yield[1].components(separatedBy: "\",")
 				return returnYield[0]
@@ -91,7 +87,6 @@ class utils {
 		let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
 		let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
 		let notHTML = str.components(separatedBy: "context")
-		print(notHTML)
 		if notHTML.count == 1 {
 			let datePublished = notHTML[0].components(separatedBy: title.removingHTMLEntities)
 			if datePublished.firstIndex(of: "Total Time:") != nil {
@@ -99,10 +94,8 @@ class utils {
 					let frontYield = datePublished[1].components(separatedBy: "Cook Time:")
 					let sanitizedY = ((frontYield[1].replacingOccurrences(of: "\n", with: ""))
 						.replacingOccurrences(of: "\t", with: ""))
-					// print(sanitizedY)
 					let yield = sanitizedY.components(separatedBy: "minutes")
 					let toReturn = yield[0] + " min"
-					print(toReturn)
 					return toReturn
 				}
 			}
@@ -112,7 +105,6 @@ class utils {
 					.replacingOccurrences(of: "\t", with: ""))
 				let yield = sanitizedY.components(separatedBy: "minutes")
 				let toReturn = yield[0] + " min"
-				print(toReturn)
 				return toReturn
 			} else if datePublished[1].contains("Total Time:") {
 				let frontYield = datePublished[1].components(separatedBy: "Total Time:")
@@ -145,19 +137,16 @@ class utils {
 				.replacingOccurrences(of: "M", with: " min"))
 				.components(separatedBy: "\",\"recipeIngredient"))
 			let yield = frontYield[0].components(separatedBy: "totalTime\":\"")
-			print(yield[1])
 			if yield[1].contains("image") {
 				let returnYield = yield[1].components(separatedBy: "\",")
 				return returnYield[0]
 			} else {
 				let returnYield = yield[1]
-				print(returnYield)
 				return returnYield
 			}
 		}
 
 	}
-
 
 	func formatIngredients(str: String) -> [String] {
 		let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
@@ -227,7 +216,6 @@ class utils {
 					return toReturn
 				}
 			}
-
 
 		} else {
 			let nothtml = notHTML[1]

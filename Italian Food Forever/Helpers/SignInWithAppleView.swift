@@ -19,7 +19,7 @@ struct SignInWithAppleView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {
         let button = ASAuthorizationAppleIDButton(authorizationButtonType: .continue, authorizationButtonStyle: .whiteOutline)
-        button.addTarget(context.coordinator, action:  #selector(Coordinator.didTapButton), for: .touchUpInside)
+        button.addTarget(context.coordinator, action: #selector(Coordinator.didTapButton), for: .touchUpInside)
         return button
     }
     
@@ -70,13 +70,13 @@ struct SignInWithAppleView: UIViewRepresentable {
                     fatalError("Invalid state: A login callback was received, but no login request was sent.")
                 }
                 guard let appleIDToken = appleIDCredential.identityToken else {
-                    print("Unable to fetch identity token")
+					Log.error("Unable to fetch identity token")
                     parent.stopActivityIndicator()
                     parent.presentAlert(title: "Error", message: "Unable to fetch identity token")
                     return
                 }
                 guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-                    print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+					Log.error("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
                     parent.stopActivityIndicator()
                     parent.presentAlert(title: "Error", message: "Unable to serialize token string from data")
                     return
@@ -90,16 +90,16 @@ struct SignInWithAppleView: UIViewRepresentable {
                         SparkAuth.handle(signInWithAppleResult) { (result) in
                             switch result {
                             case .success(let profile):
-                                print("Successfully Signed in with Apple into Firebase: \(profile)")
+								Log.info("Successfully Signed in with Apple into Firebase: \(profile)")
                                 parent.stopActivityIndicator()
                             case .failure(let err):
-                                print(err.localizedDescription)
+								Log.error(err.localizedDescription)
                                 parent.stopActivityIndicator()
                                 parent.presentAlert(title: "Error", message: err.localizedDescription)
                             }
                         }
                     case .failure(let err):
-                        print(err.localizedDescription)
+						Log.error(err.localizedDescription)
                         parent.stopActivityIndicator()
                         parent.presentAlert(title: "Error", message: err.localizedDescription)
                     }
@@ -151,11 +151,10 @@ struct SignInWithAppleView: UIViewRepresentable {
     func executeAlertAction() {
         switch alertInfo.actionTag {
         case 0:
-            print("No action alert action")
+			Log.error("No action alert action")
             
         default:
-            print("Default alert action")
+			Log.debug("Default alert action")
         }
     }
 }
-

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct save: View {
-	init(){
+	init() {
 		let UID = ScndPage.
 	}
     var body: some View {

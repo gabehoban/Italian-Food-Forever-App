@@ -16,7 +16,7 @@ struct SparkAuth {
         static let apple = "apple.com"
     }
     
-    static func logout(completion: @escaping (Result<Bool, Error>) -> ()) {
+    static func logout(completion: @escaping (Result<Bool, Error>) -> Void) {
         let auth = Auth.auth()
         do {
             try auth.signOut()
@@ -26,7 +26,7 @@ struct SparkAuth {
         }
     }
     
-    static func signIn(providerID: String, idTokenString: String, nonce: String, completion: @escaping (Result<AuthDataResult, Error>) -> ()) {
+    static func signIn(providerID: String, idTokenString: String, nonce: String, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
         // Initialize a Firebase credential.
         let credential = OAuthProvider.credential(withProviderID: providerID,
                                                   idToken: idTokenString,
@@ -37,7 +37,7 @@ struct SparkAuth {
                 // Error. If error.code == .MissingOrInvalidNonce, make sure
                 // you're sending the SHA256-hashed nonce as a hex string with
                 // your request to Apple.
-                print(err.localizedDescription)
+				Log.error(err.localizedDescription)
                 completion(.failure(err))
                 return
             }
@@ -50,7 +50,7 @@ struct SparkAuth {
         }
     }
     
-    static func handle(_ signInWithAppleResult: SignInWithAppleResult, completion: @escaping (Result<Bool, Error>) -> ()) {
+    static func handle(_ signInWithAppleResult: SignInWithAppleResult, completion: @escaping (Result<Bool, Error>) -> Void) {
         let uid = signInWithAppleResult.authDataResult.user.uid
         
       var name = ""
@@ -95,7 +95,7 @@ struct SparkAuth {
     // Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
     static func randomNonceString(length: Int = 32) -> String {
         precondition(length > 0)
-        let charset: Array<Character> =
+        let charset: [Character] =
             Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
         var result = ""
         var remainingLength = length
@@ -136,4 +136,3 @@ struct SparkAuth {
         return hashString
     }
 }
-
