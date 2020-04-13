@@ -10,9 +10,6 @@ env:
   matrix:
     - SDK="$IOS_SDK" DESTINATION="platform=iOS Simulator,OS=13.3,name=iPhone 11"
 
-before_install:
-  - bundle exec pod install
-
 install:
   - swift --version
 
