@@ -10,6 +10,10 @@ env:
   matrix:
     - SDK="$IOS_SDK" DESTINATION="platform=iOS Simulator,OS=13.3,name=iPhone 11"
 
+before_install:
+  - brew install cocoapods
+  - pod install
+
 install:
   - swift --version
 
@@ -24,4 +28,4 @@ script:
     -destination "$DESTINATION" | xcpretty -c
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -t 8c2df9e0-2720-4177-abe5-651a5ccbedbd
+  - bash <(curl -s https://codecov.io/bash)
