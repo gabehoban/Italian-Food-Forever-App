@@ -33,7 +33,7 @@ class Spark: ObservableObject {
             SparkFirestore.retreiveProfile(uid: user.uid) { (result) in
                 switch result {
                 case .success(let profile):
-					Log.info("Retreived: \(profile) | \(user.uid)")
+					Log.info("Retreived: \(profile)")
                     self.profile = profile
                 case .failure(let err):
 					Log.error(err.localizedDescription)
