@@ -50,19 +50,21 @@ struct regionalRecipies: View {
 										.indicator(.activity)
 										.animation(.easeInOut(duration: 0.5))
                                         .frame(width: 150, height: 105)
-
+									HStack{
                                     Text(utils().formatTitle(str: i.title)
                                         .removingHTMLEntities)
                                         .font(.subheadline)
-                                        .fontWeight(.heavy)
+                                        .fontWeight(.semibold)
                                         .foregroundColor(Color.black)
                                         .lineLimit(3)
-										.frame(width: 135.0)
-                                        .padding(.bottom, 15)
+                                        .padding(.bottom, 10)
+										.padding(.leading, 9)
+										Spacer()
+									}
                                     Spacer()
                                 }
                             }.padding(.bottom, 100)
-                        }.animation(.spring())
+                        }
                     }
                 }.frame(width: 950.0, height: 350.0)
             }.padding(.leading, 10)

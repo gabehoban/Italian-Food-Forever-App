@@ -51,7 +51,8 @@ struct cardsRow1: View {
 									.foregroundColor(Color.white)
 									.cornerRadius(12)
 									.shadow(color: Color.black.opacity(0.4), radius: 8, x: 3, y: 3)
-									.opacity(0.4)
+									.opacity(0.5)
+									.animation(.easeIn)
 
 								Spacer()
 								VStack {
@@ -59,23 +60,23 @@ struct cardsRow1: View {
 										.renderingMode(.original)
 										.resizable()
 										.indicator(.activity)
-										.animation(.easeInOut(duration: 0.5))
+										//.animation(.easeInOut(duration: 0.5))
 										.frame(width: 150, height: 105)
 									HStack {
 										Text(self.formatTitle(str: i.title)
 											.removingHTMLEntities)
 											.font(.subheadline)
-											.fontWeight(.heavy)
+											.fontWeight(.semibold)
 											.foregroundColor(Color.black)
 											.lineLimit(3)
-											.frame(width: 135.0)
-											.padding(.bottom, 15)
+											.padding(.bottom, 10)
+											.padding(.leading, 9)
 										Spacer()
 									}
 									Spacer()
 								}
 							}.padding(.bottom, 100)
-						}.animation(.spring())
+						}
 					}
 				}.frame(width: 950.0, height: 350.0)
 			}.padding(.leading, 10)
