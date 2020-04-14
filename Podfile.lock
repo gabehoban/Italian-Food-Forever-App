@@ -164,6 +164,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
+  - DSSwiftUIKit (0.4.1)
   - Firebase/Analytics (6.22.0):
     - Firebase/Core
   - Firebase/Auth (6.22.0):
@@ -285,6 +286,7 @@ PODS:
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - DSSwiftUIKit
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
@@ -299,6 +301,7 @@ SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
+    - DSSwiftUIKit
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -328,6 +331,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
+  DSSwiftUIKit: d76faa38de83aca742c772736defa2fbc62bd1a6
   Firebase: 32f9520684e87c7af3f0704f7f88042626d6b536
   FirebaseAnalytics: 83f822fd0d33a46f49f89b8c3ab16ab4d89df08a
   FirebaseAuth: a6da11d78dfd956b7f7af3222a0f0b1c93ef8fc9
@@ -354,6 +358,6 @@ SPEC CHECKSUMS:
   SDWebImageSwiftUI: f1d11beac87e8a2edf08ea73ed1912f482e4d5a3
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 2cbee076afac0c300eb5e6b8607e676eda0db4af
+PODFILE CHECKSUM: 389595935c8bf66ba11bad7a5ec3b9160c09edef
 
 COCOAPODS: 1.9.1
