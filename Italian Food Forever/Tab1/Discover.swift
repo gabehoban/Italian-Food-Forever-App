@@ -28,12 +28,12 @@ struct Discover: View {
 				}.padding(.top, -10)
 				VStack {
 					Spacer()
-					HStack {
+					ZStack {
 						VStack(alignment: .center) {
 							Spacer()
 							Featured()
 								.padding(.top, -150)
-								.padding(.bottom, 25)
+								.padding(.bottom, 50)
 							Spacer()
 						}
 					}
@@ -47,7 +47,7 @@ struct Discover: View {
 							.padding(.top, -100)
 					}.padding(.top, 125)
 				}.padding(.top, 135)//100
-			}
+			}.animation(.easeInOut)
 		}.padding(.bottom, -80)
 	}
 }
