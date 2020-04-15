@@ -106,14 +106,14 @@ class utils {
 				let yield = sanitizedY.components(separatedBy: "minutes")
 				let toReturn = yield[0] + " min"
 				return toReturn
-			} else if datePublished[1].contains("Total Time:"){
+			} else if datePublished[1].contains("Total Time:") {
 				let frontYield = datePublished[1].components(separatedBy: "Total Time:")
 				let sanitizedY = ((frontYield[1].replacingOccurrences(of: "\n", with: ""))
 					.replacingOccurrences(of: "\t", with: ""))
 				let yield = sanitizedY.components(separatedBy: "minutes")
 				let toReturn = yield[0] + " min"
 				return toReturn
-			} else if datePublished[2].contains("Total Time:")  {
+			} else if datePublished[2].contains("Total Time:") {
 				let frontYield = datePublished[2].components(separatedBy: "Total Time:")
 				let sanitizedY = ((frontYield[1].replacingOccurrences(of: "\n", with: ""))
 					.replacingOccurrences(of: "\t", with: ""))

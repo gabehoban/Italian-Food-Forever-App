@@ -18,7 +18,6 @@ struct acknowledges: View {
 	}
 }
 
-
 struct acknowledges_Previews: PreviewProvider {
 	static var previews: some View {
 		acknowledges()

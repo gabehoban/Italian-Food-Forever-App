@@ -59,7 +59,7 @@ struct regionalRecipies: View {
 										.indicator(.activity)
 										.animation(.easeInOut(duration: 0.5))
                                         .frame(width: 150, height: 105)
-									HStack{
+									HStack {
                                     Text(errorTry(recipe: i))
                                         .font(.subheadline)
                                         .fontWeight(.semibold)
