@@ -445,6 +445,7 @@
 				21FE87AF2420026200910CF0 /* Frameworks */,
 				21FE87B02420026200910CF0 /* Resources */,
 				60735944B5CEFBE6DDB5D872 /* [CP] Embed Pods Frameworks */,
+				217F79D824469C9300D07E76 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -602,6 +603,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever-Italian Food ForeverUITests/Pods-Italian Food Forever-Italian Food ForeverUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		217F79D824469C9300D07E76 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		60735944B5CEFBE6DDB5D872 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

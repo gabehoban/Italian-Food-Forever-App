@@ -10,13 +10,14 @@ target 'Italian Food Forever' do
   pod 'SDWebImageSwiftUI'
   pod 'HTMLString', '~> 5.0'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
   pod 'Firebase/Firestore'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'FontAwesome.swift'
   pod 'Log'
   pod 'DSSwiftUIKit'
-
+  
   # Pods for Italian Food Forever
 
   target 'Italian Food ForeverTests' do
