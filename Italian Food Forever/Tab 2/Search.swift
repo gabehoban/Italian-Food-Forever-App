@@ -84,7 +84,11 @@ struct Search: View {
 					Section {
 						List {
 							ForEach(fetcher.recipiesFull) { i in
-								if i.title.contains("Menu") { } else {
+								if i.title.contains("Menu") { }
+								else if i.title.contains("Steak Lovers") { }
+								else if i.title.contains("Adventure") { }
+								else if i.title.contains("A Day") { }
+								else if i.title.contains("Photos") { } else {
 									NavigationLink(destination: DetailView(detail: i)) {
 										HStack {
 											WebImage(url: URL(string: i.image), options: .highPriority)
