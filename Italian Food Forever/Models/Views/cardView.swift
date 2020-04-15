@@ -16,6 +16,49 @@ import HTMLString
 struct MySubview: View {
 	let size: CGSize
 	var detail: dataType
+
+	func errorTest(get: String) -> String {
+		switch get {
+		case "title":
+			do {
+				let title = try utils().formatTitle(str: detail.title).removingHTMLEntities
+				return title
+			} catch {
+				return ""
+			}
+		case "yield":
+			do {
+				let yield = try utils().formatYield(str: detail.content, title: detail.title)
+				return yield
+			} catch {
+				return ""
+			}
+		case "date":
+			do {
+				let date = try utils().formatDate(posted: detail.date)
+				return date
+			} catch {
+				return ""
+			}
+		case "html":
+			do {
+				let html = try utils().stripHTML(str: detail.content).removingHTMLEntities
+				return html
+			} catch {
+				return ""
+			}
+		case "time":
+			do {
+				let time = try utils().formatTime(str: detail.content, title: detail.title)
+				return time
+			} catch {
+				return ""
+			}
+		default:
+			return ""
+		}
+	}
+
 	@EnvironmentObject var spark: Spark
 	@Environment(\.presentationMode) var presentation
 
@@ -45,7 +88,7 @@ struct MySubview: View {
 	func toggle() { isChecked = !isChecked }
 	@State var isChecked: Bool = false
 	let pad: CGFloat = 0.93
-	
+
 	var body: some View {
 		VStack {
 			NavigationLink(destination: SignInView(), isActive: $show_signinModal) {
@@ -66,7 +109,7 @@ struct MySubview: View {
 							// MARK: - Title
 							//TODO: Add custom font
 							HStack {
-								Text(utils().formatTitle(str: detail.title).removingHTMLEntities)
+								Text(errorTest(get: "title"))
 									.font(.title)
 									.fixedSize(horizontal: false, vertical: true)
 									.lineLimit(3)
@@ -89,7 +132,7 @@ struct MySubview: View {
 										.padding(.leading, 15)
 										.animation(Animation.easeInOut(duration: 0.6).delay(0.5))
 									Spacer()
-									Text("Posted: \(utils().formatDate(posted: detail.date))")
+									Text("Posted: \(errorTest(get: "date"))")
 										.fontWeight(.thin)
 										.animation(Animation.easeInOut(duration: 0.6).delay(0.5))
 								}
@@ -100,25 +143,25 @@ struct MySubview: View {
 									.padding(.vertical, 10)
 								// MARK: - Details
 								HStack {
-									if utils().formatTime(str: detail.content, title: detail.title).contains("hour") {
-									Text("Total \nTime")
-										.fontWeight(.bold)
-										.fixedSize(horizontal: false, vertical: true)
-										.lineLimit(2)
+									if errorTest(get: "time").contains("hour") {
+										Text("Total \nTime")
+											.fontWeight(.bold)
+											.fixedSize(horizontal: false, vertical: true)
+											.lineLimit(2)
 									} else {
 										Text("Total Time")
 											.fontWeight(.bold)
 									}
-									Text(utils().formatTime(str: detail.content, title: detail.title))
+									Text(errorTest(get: "time"))
 										.font(.body)
 									Spacer()
 									Text("Yield")
 										.fontWeight(.bold)
-									Text(utils().formatYield(str: detail.content, title: detail.title))
+									Text(errorTest(get: "yield"))
 										.font(.body)
-									.fixedSize(horizontal: false, vertical: true)
+										.fixedSize(horizontal: false, vertical: true)
 								}
-								
+
 								// MARK: - Ingredients
 								HStack {
 									Button(action: {
@@ -141,14 +184,14 @@ struct MySubview: View {
 									Spacer()
 								}
 							}.padding(.vertical, 10)
-							.frame(width: size.width * pad)
+								.frame(width: size.width * pad)
 
 							// MARK: - Content
 							if article == false {
 								Button(action: {
 									self.article.toggle()
 								}) {
-									Text(utils().stripHTML(str: detail.content).removingHTMLEntities)
+									Text(errorTest(get: "html"))
 										.font(.custom("Georgia", size: 18))
 										.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
 										.padding(.top, 15)
@@ -165,7 +208,7 @@ struct MySubview: View {
 										.fontWeight(.bold)
 									Spacer()
 								}.padding(.top, 35)
-								 .frame(width: size.width * pad)
+									.frame(width: size.width * pad)
 
 								// MARK: - Steps
 								ForEach(0..<utils().formatSteps(str: detail.content).count, id: \.self) { i in
@@ -178,12 +221,12 @@ struct MySubview: View {
 											.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
 										Spacer()
 									}.lineSpacing(5)
-									 .padding(.top, 5)
+										.padding(.top, 5)
 										.frame(width: self.size.width * self.pad)
 								}.padding(.vertical, 5)
-								.padding(.bottom, 10)
+									.padding(.bottom, 10)
 							} else {
-								Text(utils().stripHTML(str: detail.content).removingHTMLEntities)
+								Text(errorTest(get: "html"))
 									.font(.custom("Georgia", size: 18))
 									.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
 									.padding(.vertical, 15)
@@ -206,21 +249,21 @@ struct MySubview: View {
 					Spacer()
 				}.padding(.top, -60) //Rectangle offset
 			}.padding(.top, -70)
-			 .onAppear {
-				self.spark.configureFirebaseStateDidChange()
+				.onAppear {
+					self.spark.configureFirebaseStateDidChange()
 
-				UINavigationBar.appearance().isOpaque = true
-				UINavigationBar.appearance().isTranslucent = true
-				UINavigationBar.appearance().tintColor = .white
-				UINavigationBar.appearance().backgroundColor = .clear
+					UINavigationBar.appearance().isOpaque = true
+					UINavigationBar.appearance().isTranslucent = true
+					UINavigationBar.appearance().tintColor = .white
+					UINavigationBar.appearance().backgroundColor = .clear
 
-				for id in self.spark.profile.saved {
-					if id == self.detail.id {
-						self.heartSelect = true
-						break
+					for id in self.spark.profile.saved {
+						if id == self.detail.id {
+							self.heartSelect = true
+							break
+						}
 					}
-				}
-		}
+			}
 		}.navigationBarTitle("", displayMode: .inline)
 			.navigationBarBackButtonHidden(true)
 			.navigationBarItems(leading: btnBack, trailing:
@@ -289,8 +332,8 @@ struct MySubview: View {
 				}.scaleEffect(/*@START_MENU_TOKEN@*/1.4/*@END_MENU_TOKEN@*/))
 			.overlay(
 				VStack {
-				LinearGradient(gradient: .init(colors: [Color.black.opacity(0.6), .clear]), startPoint: .top, endPoint: .bottom)
-				Spacer()
+					LinearGradient(gradient: .init(colors: [Color.black.opacity(0.6), .clear]), startPoint: .top, endPoint: .bottom)
+					Spacer()
 				}.edgesIgnoringSafeArea(.top)
 					.offset(x: 0, y: -400)
 					.frame(height: 100)

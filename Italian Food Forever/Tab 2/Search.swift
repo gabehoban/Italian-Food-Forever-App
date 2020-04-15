@@ -23,7 +23,7 @@ struct buttonLabel: View {
 			return length
 		}
 	}
-	
+
 	var body: some View {
 		ZStack {
 			RoundedRectangle(cornerRadius: 25, style: .continuous)
@@ -36,6 +36,7 @@ struct buttonLabel: View {
 		}
 	}
 }
+
 struct Search: View {
 
 	@State public var text = ""
@@ -64,7 +65,9 @@ struct Search: View {
 				          text: $text, onEditingChanged: { _ in
 					          self.fetcher.getJsonData(string: self.text)
 					          self.displayRes = true
-				}).frame(height: 50.0)
+				          }, onCommit: {
+					          self.fetcher.getJsonData(string: self.text)
+				          }).frame(height: 50.0)
 				Spacer()
 				Button(action: {
 					self.text = ""
@@ -75,34 +78,39 @@ struct Search: View {
 						.padding(.trailing, 20)
 				})
 			}.overlay(RoundedRectangle(cornerRadius: 25).stroke(Color.gray, lineWidth: 1))
-			 .padding([.leading, .trailing], 20)
+				.padding([.leading, .trailing], 20)
 			if text != "" {
-				Form {
-					Section(header: Text("Results")) {
+				VStack {
+					Section {
 						List {
 							ForEach(fetcher.recipiesFull) { i in
-								NavigationLink(destination: DetailView(detail: i)) {
-									HStack {
-										WebImage(url: URL(string: i.image), options: .highPriority)
-											.renderingMode(.original)
-											.resizable()
-											.indicator(.activity)
-											.cornerRadius(10)
-											.frame(width: 100, height: 60)
-											.animation(.easeInOut(duration: 0.8))
-										Text(i.title)
-											.font(.subheadline)
-											.lineLimit(2)
-											.padding([.top, .bottom], 15)
-										Spacer()
+								if i.title.contains("Menu") { } else {
+									NavigationLink(destination: DetailView(detail: i)) {
+										HStack {
+											WebImage(url: URL(string: i.image), options: .highPriority)
+												.renderingMode(.original)
+												.resizable()
+												.indicator(.activity)
+												.cornerRadius(10)
+												.frame(width: 130, height: 90)
+												.animation(.easeInOut(duration: 0.8))
+											VStack {
+												Text(i.title)
+													.font(.subheadline)
+													.fontWeight(.medium)
+													.lineLimit(2)
+													.padding([.top, .bottom], 15)
+												Spacer()
+											}
+											Spacer()
+										}
 									}
 								}
 							}
 						}.animation(.linear(duration: 0.3))
-
-					}.navigationBarTitle("Test")
+					}
 				}.padding(.top, 30)
-				 .animation(Animation.easeInOut(duration: 1).delay(0.8))
+					.animation(Animation.easeInOut(duration: 1).delay(0.8))
 			} else {
 				VStack {
 					HStack {
@@ -113,7 +121,7 @@ struct Search: View {
 							.multilineTextAlignment(.leading)
 						Spacer()
 					}.padding(.leading, 20)
-					
+
 					// MARK: - First Line of Categories
 					HStack {
 						Button(action: {
@@ -121,7 +129,7 @@ struct Search: View {
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
 							buttonLabel(title: "Fresh Pasta")
-	
+
 						})
 						Button(action: {
 							self.text = "Seafood "
@@ -161,14 +169,14 @@ struct Search: View {
 						}).padding(.leading, buttonPadding)
 						Spacer()
 					}.padding(.top, 5)
-					 .padding(.leading, 20)
+						.padding(.leading, 20)
 				}.padding(.top, 10)
 			}
-		Spacer()
+			Spacer()
 		}.onAppear {
 			if self.text != "" {
+				//self.fetcher.getJsonData(string: self.text)
 				self.displayRes = true
-				self.fetcher.getJsonData(string: self.text)
 			} else {
 				self.displayRes = false
 			}

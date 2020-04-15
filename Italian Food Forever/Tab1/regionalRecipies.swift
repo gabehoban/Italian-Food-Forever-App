@@ -12,9 +12,18 @@ import SDWebImageSwiftUI
 import WebKit
 import HTMLString
 
+func errorTry(recipe: dataType) -> String {
+	do {
+		let toReturn = try utils().formatTitle(str: recipe.title).removingHTMLEntities
+		return toReturn
+	} catch {
+		return ""
+	}
+}
+
 struct regionalRecipies: View {
     @ObservedObject private var list = getData(newUrl: "posts?per_page=6&categories=861&categories_exclude=7&_fields=id,content,excerpt,title,mv,date,link&_envelope")
-
+	
     var body: some View {
         VStack {
             Spacer()
@@ -51,8 +60,7 @@ struct regionalRecipies: View {
 										.animation(.easeInOut(duration: 0.5))
                                         .frame(width: 150, height: 105)
 									HStack{
-                                    Text(utils().formatTitle(str: i.title)
-                                        .removingHTMLEntities)
+                                    Text(errorTry(recipe: i))
                                         .font(.subheadline)
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color.black)
