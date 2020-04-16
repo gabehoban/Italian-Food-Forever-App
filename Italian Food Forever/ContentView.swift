@@ -25,7 +25,7 @@ struct ContentView: View {
 				TabView(selection: $selection) {
 					Discover()
 						.padding(.top, -95)
-						.background(Color.white) //white
+						.background(Color.init(hex: "fbfbfb").opacity(0.5)) //white
 						.tabItem {
 							VStack {
 								Image(systemName: "house.fill")

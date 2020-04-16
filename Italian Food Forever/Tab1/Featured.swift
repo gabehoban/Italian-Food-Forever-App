@@ -60,7 +60,7 @@ struct subFeatured: View {
 							.cornerRadius(8)
 							.foregroundColor(.white)
 							.padding(.top, 60)
-							.shadow(color: Color.black.opacity(0.1), radius: 8, x: 3, y: 3)
+							.shadow(color: Color.black.opacity(0.2), radius: 8, x: 3, y: 3)
 							.opacity(0.8)
 
 						WebImage(url: URL(string: i.image), options: .highPriority)

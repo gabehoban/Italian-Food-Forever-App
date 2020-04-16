@@ -47,8 +47,6 @@
 		21B6CBCC242D7E7A0000FA7E /* privacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */; };
 		21B6CBCE242D7E8D0000FA7E /* termsUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBCD242D7E8D0000FA7E /* termsUse.swift */; };
 		21B802772422B71400BED86A /* cardsRow1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B802762422B71400BED86A /* cardsRow1.swift */; };
-		21BA5BFE2423E25A00499BCE /* regionalRecipies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */; };
-		21BA5C002423E57800499BCE /* springRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5BFF2423E57800499BCE /* springRow.swift */; };
 		21BA5C022423EEBD00499BCE /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5C012423EEBD00499BCE /* cardView.swift */; };
 		21C008C9242177F700412ABB /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C008C8242177F700412ABB /* Discover.swift */; };
 		21D4CF71242EB1E200B47582 /* phoneAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4CF70242EB1E200B47582 /* phoneAuth.swift */; };
@@ -135,8 +133,6 @@
 		21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyPolicy.swift; sourceTree = "<group>"; };
 		21B6CBCD242D7E8D0000FA7E /* termsUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = termsUse.swift; sourceTree = "<group>"; };
 		21B802762422B71400BED86A /* cardsRow1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardsRow1.swift; sourceTree = "<group>"; };
-		21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionalRecipies.swift; sourceTree = "<group>"; };
-		21BA5BFF2423E57800499BCE /* springRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = springRow.swift; sourceTree = "<group>"; };
 		21BA5C012423EEBD00499BCE /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
 		21C008C8242177F700412ABB /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		21D4CF70242EB1E200B47582 /* phoneAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phoneAuth.swift; sourceTree = "<group>"; };
@@ -320,8 +316,6 @@
 				21C008C8242177F700412ABB /* Discover.swift */,
 				216D96932422E2F300F0CBB6 /* Featured.swift */,
 				21B802762422B71400BED86A /* cardsRow1.swift */,
-				21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */,
-				21BA5BFF2423E57800499BCE /* springRow.swift */,
 			);
 			path = Tab1;
 			sourceTree = "<group>";
@@ -724,7 +718,6 @@
 				21537FC02427FEB70034A75A /* DocumentSerializable.swift in Sources */,
 				21B6CBCE242D7E8D0000FA7E /* termsUse.swift in Sources */,
 				2167DB6724310E410071BE14 /* dataTypes.swift in Sources */,
-				21BA5BFE2423E25A00499BCE /* regionalRecipies.swift in Sources */,
 				212877842444C2BF0081060C /* acknowledges.swift in Sources */,
 				21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */,
 				21D4CF71242EB1E200B47582 /* phoneAuth.swift in Sources */,
@@ -735,7 +728,6 @@
 				21537FCC2427FEB70034A75A /* LaunchScreenView.swift in Sources */,
 				21F22C7924247AFC009E8B53 /* ViewModifiers.swift in Sources */,
 				21537FC32427FEB70034A75A /* Typealiases.swift in Sources */,
-				21BA5C002423E57800499BCE /* springRow.swift in Sources */,
 				21537FC72427FEB70034A75A /* SparkUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

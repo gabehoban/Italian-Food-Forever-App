@@ -41,10 +41,6 @@ struct Discover: View {
 					VStack {
 						Spacer()
 						cardsRow1()
-						regionalRecipies()
-							.padding(.top, -100)
-						springRow()
-							.padding(.top, -100)
 					}.padding(.top, 125)
 				}.padding(.top, 135)//100
 			}.animation(.easeInOut)
