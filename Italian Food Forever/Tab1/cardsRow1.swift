@@ -59,9 +59,12 @@ struct cardsRow1: View {
 									WebImage(url: URL(string: i.image), options: .highPriority, context: nil)
 										.renderingMode(.original)
 										.resizable()
+										.placeholder {
+											Rectangle().foregroundColor(.gray)
+										}
 										.indicator(.activity)
-										//.animation(.easeInOut(duration: 0.5))
-										.frame(width: 150, height: 105)
+										.animation(.easeInOut(duration: 0.5))
+									.frame(width: 150, height: 105)
 									HStack {
 										Text(self.formatTitle(str: i.title)
 											.removingHTMLEntities)

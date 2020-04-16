@@ -14,9 +14,9 @@ import HTMLString
 import DSSwiftUIKit
 
 struct InfoView: Identifiable {
-    var id: Int
-    var title: String
-    var image: String
+	var id: Int
+	var title: String
+	var image: String
 }
 
 struct subFeatured: View {
@@ -24,21 +24,21 @@ struct subFeatured: View {
 	func formatTitle(str: String) -> String {
 		if str.contains("{") {
 			let str1 = (str.replacingOccurrences(of: "{", with: "(")
-						   .replacingOccurrences(of: "}", with: ")"))
+				.replacingOccurrences(of: "}", with: ")"))
 			return str1
 		} else {
 			return str
 		}
 	}
-	
-    @ObservedObject private var list = getData(newUrl: "posts?per_page=1&categories_exclude=7&_fields=id,excerpt,title,content,mv,%20date,link&_envelope")
-	
+
+	@ObservedObject private var list = getData(newUrl: "posts?per_page=1&categories_exclude=7&_fields=id,excerpt,title,content,mv,%20date,link&_envelope")
+
 	var body: some View {
-        VStack {
-            ForEach(list.datas) { i in
-                NavigationLink(destination: DetailView(detail: i)) {
-                    ZStack {
-						
+		VStack {
+			ForEach(list.datas) { i in
+				NavigationLink(destination: DetailView(detail: i)) {
+					ZStack {
+
 						WebImage(url: URL(string: i.image), options: .highPriority)
 							.renderingMode(.original)
 							.resizable()
@@ -46,7 +46,7 @@ struct subFeatured: View {
 							.blur(radius: 12)
 							.opacity(0.4)
 							.padding(.top, 60)
-						
+
 						WebImage(url: URL(string: i.image), options: .highPriority)
 							.renderingMode(.original)
 							.resizable()
@@ -54,7 +54,7 @@ struct subFeatured: View {
 							.blur(.regular)
 							.cornerRadius(8)
 							.padding(.top, 60)
-						
+
 						Rectangle()
 							.frame(width: self.size.width * 0.93, height: 350)
 							.cornerRadius(8)
@@ -62,16 +62,19 @@ struct subFeatured: View {
 							.padding(.top, 60)
 							.shadow(color: Color.black.opacity(0.1), radius: 8, x: 3, y: 3)
 							.opacity(0.8)
-							
-                        WebImage(url: URL(string: i.image), options: .highPriority)
-                            .renderingMode(.original)
-                            .resizable()
+
+						WebImage(url: URL(string: i.image), options: .highPriority)
+							.renderingMode(.original)
+							.resizable()
+							.placeholder {
+								Rectangle().foregroundColor(.gray)
+							}
 							.indicator(.activity)
 							.animation(.easeInOut(duration: 0.5))
 							.frame(width: self.size.width * 0.93, height: 270)
 							.padding(.top, -20)
-						
-                        HStack {
+
+						HStack {
 							Text(self.formatTitle(str: i.title).removingHTMLEntities)
 								.font(.system(size: 24))
 								.fontWeight(.semibold)
@@ -79,13 +82,13 @@ struct subFeatured: View {
 								.multilineTextAlignment(.leading)
 								.padding(.horizontal, 32)
 								.lineLimit(3)
-                            Spacer()
-                        }.padding(.top, 325)
-                    }
-                }
-            }
+							Spacer()
+						}.padding(.top, 325)
+					}
+				}
+			}
 		}.padding(.top, -45)
-    }
+	}
 }
 
 struct Featured: View {

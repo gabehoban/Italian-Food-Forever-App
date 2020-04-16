@@ -285,7 +285,6 @@ struct MySubview: View {
 						} else if self.spark.isUserAuthenticated == .signedIn {
 							if self.heartSelect == false {
 								self.heartSelect = true
-
 								var savedP: [String] = self.spark.profile.saved
 								savedP.append(self.detail.id)
 
@@ -298,7 +297,6 @@ struct MySubview: View {
 									}
 								}
 								self.spark.configureFirebaseStateDidChange()
-
 							} else if self.heartSelect == true {
 								self.heartSelect = false
 								var savedP = self.spark.profile.saved
@@ -388,6 +386,7 @@ struct cardView: View {
 					Spacer()
 				}
 			}.onAppear {
+				
 				self.list.removeAll()
 				let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?_envelope&_fields=id,excerpt,titlecontent,,mv,%20date,link,content,author&include=\(self.$PostID)"
 				let url = URL(string: source)!
