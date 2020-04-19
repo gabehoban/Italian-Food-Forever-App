@@ -21,7 +21,7 @@ struct phoneAuth: View {
 	@State var refresh: Bool = false
 	@EnvironmentObject var spark: Spark
 	var body: some View {
-		GeometryReader { geo in
+		GeometryReader { _ in
 			VStack {
 				if UserDefaults.standard.value(forKey: "status") as? Bool ?? false == true {
 					if self.status.end == false {

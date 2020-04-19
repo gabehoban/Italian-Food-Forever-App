@@ -24,7 +24,7 @@ struct cardsRow1: View {
 			return str
 		}
 	}
-	func chunked(data: [dataType]) -> [[dataType]]{
+	func chunked(data: [dataType]) -> [[dataType]] {
 		let chunkedRecipe = data.chunked(into: 2)
 		return chunkedRecipe
 	}
@@ -35,7 +35,7 @@ struct cardsRow1: View {
 				VStack {
 					Spacer()
 					// Array
-					ForEach(0..<chunked(data: list.datas).count, id:\.self) { index in
+					ForEach(0..<chunked(data: list.datas).count, id: \.self) { index in
 						HStack {
 							ForEach(self.chunked(data: self.list.datas)[index]) { i in
 								NavigationLink(destination:
@@ -100,7 +100,7 @@ extension Array {
 		for index in 0...self.count {
 			if index % size == 0 && index != 0 {
 				chunkedArray.append(Array(self[(index - size)..<index]))
-			} else if(index == self.count) {
+			} else if index == self.count {
 				if index > 0 {
 					chunkedArray.append(Array(self[index - 1..<index]))
 				}

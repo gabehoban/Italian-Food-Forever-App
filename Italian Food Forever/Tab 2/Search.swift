@@ -104,7 +104,7 @@ struct Search: View {
 												.frame(width: 130, height: 90)
 												.animation(.easeInOut(duration: 0.8))
 											VStack {
-												HStack{
+												HStack {
 													Text(i.title)
 														.font(.subheadline)
 														.fontWeight(.medium)
@@ -113,7 +113,7 @@ struct Search: View {
 													Spacer()
 												}
 												Spacer()
-												HStack{
+												HStack {
 													Text("Posted: \(self.formatDate(posted: i.date))")
 														.font(.subheadline)
 														.fontWeight(.light)

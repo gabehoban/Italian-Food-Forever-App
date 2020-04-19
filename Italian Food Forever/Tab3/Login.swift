@@ -17,7 +17,7 @@ struct Login: View {
 	@EnvironmentObject var spark: Spark
 
 	var body: some View {
-		GeometryReader { geo in
+		GeometryReader { _ in
 			ZStack {
 				if self.spark.isUserAuthenticated == .undefined {
 					LaunchScreenView()
