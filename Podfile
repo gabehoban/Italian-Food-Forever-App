@@ -16,7 +16,6 @@ target 'Italian Food Forever' do
   pod 'Log'
   pod 'DSSwiftUIKit'
   pod 'SPAlert'
-  pod 'netfox'
 
   # Pods for Italian Food Forever
 

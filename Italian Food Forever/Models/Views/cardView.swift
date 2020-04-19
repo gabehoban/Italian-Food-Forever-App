@@ -12,6 +12,7 @@ import SwiftyJSON
 import SDWebImageSwiftUI
 import WebKit
 import HTMLString
+import SPAlert
 
 struct MySubview: View {
 	let size: CGSize
@@ -97,15 +98,33 @@ struct MySubview: View {
 			NavigationView {
 				VStack {
 					ScrollView(.vertical, showsIndicators: false) {
+						GeometryReader { geo in
+							VStack {
+								if geo.frame(in: .global).minY <= 0 {
+									// MARK: - Image
+									WebImage(url: URL(string: self.detail.image), options: .highPriority)
+										.renderingMode(.original)
+										.resizable()
+										.indicator(.activity)
+										.aspectRatio(contentMode: .fill)
+										.frame(width: geo.size.width, height: geo.size.height)
+										.offset(y: geo.frame(in: .global).minY / 9)
+										.clipped()
+										.animation(.easeInOut(duration: 0.8))
+								} else {
+									WebImage(url: URL(string: self.detail.image), options: .highPriority)
+										.renderingMode(.original)
+										.resizable()
+										.indicator(.activity)
+										.aspectRatio(contentMode: .fill)
+										.frame(width: geo.size.width, height: geo.size.height + geo.frame(in: .global).minY)
+										.clipped()
+										.offset(y: -geo.frame(in: .global).minY)
+										//.animation(.easeInOut(duration: 0.8))
+								}
+							}
+						}.frame(height: 300)
 						VStack {
-							// MARK: - Image
-							WebImage(url: URL(string: detail.image), options: .highPriority)
-								.renderingMode(.original)
-								.resizable()
-								.indicator(.activity)
-								.cornerRadius(10)
-								.frame(width: 500, height: 300)
-								.animation(.easeInOut(duration: 0.8))
 							// MARK: - Title
 							//TODO: Add custom font
 							HStack {
@@ -283,8 +302,10 @@ struct MySubview: View {
 						if self.spark.isUserAuthenticated == .undefined {
 							self.show_signinModal = true
 						} else if self.spark.isUserAuthenticated == .signedIn {
+							//SAVING
 							if self.heartSelect == false {
 								self.heartSelect = true
+								SPAlert.present(title: "Saved to Profile", image: (UIImage(systemName: "heart.fill")!))
 								var savedP: [String] = self.spark.profile.saved
 								savedP.append(self.detail.id)
 
@@ -297,8 +318,10 @@ struct MySubview: View {
 									}
 								}
 								self.spark.configureFirebaseStateDidChange()
+								//REMOVING
 							} else if self.heartSelect == true {
 								self.heartSelect = false
+								SPAlert.present(title: "Removed from Profile", image: (UIImage(systemName: "xmark")!))
 								var savedP = self.spark.profile.saved
 								if let index = savedP.firstIndex(of: "\(self.detail.id)") {
 									savedP.remove(at: index)
@@ -386,7 +409,7 @@ struct cardView: View {
 					Spacer()
 				}
 			}.onAppear {
-				
+
 				self.list.removeAll()
 				let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?_envelope&_fields=id,excerpt,titlecontent,,mv,%20date,link,content,author&include=\(self.$PostID)"
 				let url = URL(string: source)!
