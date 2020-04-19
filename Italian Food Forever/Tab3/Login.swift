@@ -17,18 +17,20 @@ struct Login: View {
 	@EnvironmentObject var spark: Spark
 
 	var body: some View {
-		ZStack {
-			if spark.isUserAuthenticated == .undefined {
-				LaunchScreenView()
-			} else if spark.isUserAuthenticated == .signedOut {
-				SignInView()
-			} else if spark.isUserAuthenticated == .signedIn {
-				ProfileView()
+		GeometryReader { geo in
+			ZStack {
+				if self.spark.isUserAuthenticated == .undefined {
+					LaunchScreenView()
+				} else if self.spark.isUserAuthenticated == .signedOut {
+					SignInView()
+				} else if self.spark.isUserAuthenticated == .signedIn {
+					ProfileView()
+				}
+			}.onAppear {
+				UINavigationBar.appearance().isOpaque = true
+				UINavigationBar.appearance().isTranslucent = true
+				self.spark.configureFirebaseStateDidChange()
 			}
-		}.onAppear {
-			UINavigationBar.appearance().isOpaque = true
-			UINavigationBar.appearance().isTranslucent = true
-			self.spark.configureFirebaseStateDidChange()
 		}
 	}
 }

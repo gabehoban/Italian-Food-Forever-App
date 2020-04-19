@@ -21,15 +21,17 @@ struct phoneAuth: View {
 	@State var refresh: Bool = false
 	@EnvironmentObject var spark: Spark
 	var body: some View {
-		VStack {
-			if UserDefaults.standard.value(forKey: "status") as? Bool ?? false == true {
-				if status.end == false {
-					onboarding()
+		GeometryReader { geo in
+			VStack {
+				if UserDefaults.standard.value(forKey: "status") as? Bool ?? false == true {
+					if self.status.end == false {
+						onboarding()
+					} else {
+						ProfileView()
+					}
 				} else {
-					ProfileView()
+					FirstPage(done: false)
 				}
-			} else {
-				FirstPage(done: false)
 			}
 		}
 
