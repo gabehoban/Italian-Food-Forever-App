@@ -27,6 +27,7 @@ struct ProfileView: View {
 		return toReturn
 	}
 	@State var gear: Bool = false
+	@State var rowLayout = true
 	var body: some View {
 		VStack {
 			NavigationLink(destination: settings(), isActive: $gear) {
@@ -61,10 +62,10 @@ struct ProfileView: View {
 								.scaleEffect(1.6)
 								.foregroundColor(.gray)
 						}
-					}).padding(.top, -55)
-					  .padding(.trailing, 10)
+					}).padding(.trailing, 10)
 				}
 			}.padding(.horizontal, 15)
+			 .padding(.top, -25)
 			 .padding(.bottom, 15)
 			ScrollView(.vertical, showsIndicators: false) {
 				if spark.profile.saved == [] {

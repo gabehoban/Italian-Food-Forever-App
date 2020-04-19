@@ -263,10 +263,11 @@ struct MySubview: View {
 								}
 							}
 							Spacer()
-						}.padding(.vertical, 20)
+						}.padding(.vertical, 5)
+						 .padding(.bottom, 15)
 					}
 					Spacer()
-				}.padding(.top, -60) //Rectangle offset
+				}
 			}.padding(.top, -70)
 				.onAppear {
 					self.spark.configureFirebaseStateDidChange()
