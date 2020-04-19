@@ -44,7 +44,16 @@ struct Search: View {
 	@ObservedObject var fetcher = recipeFetcher(search: "")
 	@State var searchID: String = ""
 	@State var buttonPadding: CGFloat = 1
-
+	func formatDate(posted: String) -> String {
+		let formatter1 = DateFormatter()
+		let formatter2 = DateFormatter()
+		formatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+		let s = formatter1.date(from: posted)!
+		// Return date as [Jan 1, 2020]
+		formatter2.dateFormat = "MMM dd, yyyy"
+		let date = formatter2.string(from: s)
+		return date
+	}
 	var body: some View {
 		VStack {
 			HStack {
@@ -95,12 +104,22 @@ struct Search: View {
 												.frame(width: 130, height: 90)
 												.animation(.easeInOut(duration: 0.8))
 											VStack {
-												Text(i.title)
-													.font(.subheadline)
-													.fontWeight(.medium)
-													.lineLimit(2)
-													.padding([.top, .bottom], 15)
+												HStack{
+													Text(i.title)
+														.font(.subheadline)
+														.fontWeight(.medium)
+														.lineLimit(2)
+														.padding([.top, .bottom], 15)
+													Spacer()
+												}
 												Spacer()
+												HStack{
+													Text("Posted: \(self.formatDate(posted: i.date))")
+														.font(.subheadline)
+														.fontWeight(.light)
+														.padding(.bottom, 10)
+													Spacer()
+												}
 											}
 											Spacer()
 										}
