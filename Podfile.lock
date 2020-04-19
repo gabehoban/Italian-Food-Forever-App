@@ -275,14 +275,15 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - netfox (1.19.0)
   - PromisesObjC (1.2.8)
   - SDWebImage (5.7.2):
     - SDWebImage/Core (= 5.7.2)
   - SDWebImage/Core (5.7.2)
   - SDWebImageSwiftUI (1.3.1):
     - SDWebImage (~> 5.7)
+  - SPAlert (2.1.4)
   - SwiftyJSON (4.3.0)
-  - WhatsNewKit (1.3.2)
 
 DEPENDENCIES:
   - DSSwiftUIKit
@@ -292,9 +293,10 @@ DEPENDENCIES:
   - FontAwesome.swift
   - HTMLString (~> 5.0)
   - Log
+  - netfox
   - SDWebImageSwiftUI
+  - SPAlert
   - SwiftyJSON (~> 4.0)
-  - WhatsNewKit
 
 SPEC REPOS:
   trunk:
@@ -322,11 +324,12 @@ SPEC REPOS:
     - leveldb-library
     - Log
     - nanopb
+    - netfox
     - PromisesObjC
     - SDWebImage
     - SDWebImageSwiftUI
+    - SPAlert
     - SwiftyJSON
-    - WhatsNewKit
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -353,12 +356,13 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   Log: 73fab10e8b88f15cef5f322b12c9be87cf19ee6e
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  netfox: efeec1d23406df6cd605212f09a40957bb5654eb
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   SDWebImage: d9ea4959d99c52276dfada481987018fcaea3d58
   SDWebImageSwiftUI: f1d11beac87e8a2edf08ea73ed1912f482e4d5a3
+  SPAlert: 1a8afa1c6ac86a82ab5b2cfdf7f9a51e68cb6c0c
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
-  WhatsNewKit: 7ae08eaee23a657f26edb33adea83c6029b8bd6c
 
-PODFILE CHECKSUM: fb5387e4ac861c8ff81f9b38eaf4a7367badc535
+PODFILE CHECKSUM: 9bab988f3128ba7975bc1aa0525528dd90a895a3
 
 COCOAPODS: 1.9.1

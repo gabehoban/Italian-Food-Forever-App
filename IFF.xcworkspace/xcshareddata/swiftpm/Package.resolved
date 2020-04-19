@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "FancyScrollView",
+        "repositoryURL": "https://github.com/nerdsupremacist/FancyScrollView",
+        "state": {
+          "branch": null,
+          "revision": "d9c594d7d6b43f6ea3288c5fa17cd2e96af832ad",
+          "version": "0.1.2"
+        }
+      },
+      {
         "package": "FASwiftUI",
         "repositoryURL": "https://github.com/mattmaddux/FASwiftUI.git",
         "state": {

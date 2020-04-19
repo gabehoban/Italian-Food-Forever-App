@@ -15,8 +15,8 @@ target 'Italian Food Forever' do
   pod 'FontAwesome.swift'
   pod 'Log'
   pod 'DSSwiftUIKit'
-  pod 'WhatsNewKit'
-
+  pod 'SPAlert'
+  pod 'netfox'
 
   # Pods for Italian Food Forever
 
