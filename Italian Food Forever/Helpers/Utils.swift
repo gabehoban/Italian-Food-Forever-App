@@ -103,30 +103,62 @@ class utils {
 				let frontYield = datePublished[0].components(separatedBy: "Total Time:")
 				let sanitizedY = ((frontYield[1].replacingOccurrences(of: "\n", with: ""))
 					.replacingOccurrences(of: "\t", with: ""))
-				let yield = sanitizedY.components(separatedBy: "minutes")
-				let toReturn = yield[0] + " min"
-				return toReturn
+				if (sanitizedY.prefix(15)).contains("minutes") {
+					let yield = sanitizedY.components(separatedBy: "minutes")
+					let toReturn = yield[0] + " min"
+					return toReturn
+				} else if (sanitizedY.prefix(15)).contains("hour"){
+					let yield = sanitizedY.components(separatedBy: "hour")
+					let toReturn = yield[0] + " hour"
+					return toReturn
+				} else {
+					return ""
+				}
 			} else if datePublished[1].contains("Total Time:") {
 				let frontYield = datePublished[1].components(separatedBy: "Total Time:")
 				let sanitizedY = ((frontYield[1].replacingOccurrences(of: "\n", with: ""))
 					.replacingOccurrences(of: "\t", with: ""))
-				let yield = sanitizedY.components(separatedBy: "minutes")
-				let toReturn = yield[0] + " min"
-				return toReturn
+				if (sanitizedY.prefix(15)).contains("minutes") {
+					let yield = sanitizedY.components(separatedBy: "minutes")
+					let toReturn = yield[0] + " min"
+					return toReturn
+				} else if (sanitizedY.prefix(15)).contains("hour"){
+					let yield = sanitizedY.components(separatedBy: "hour")
+					let toReturn = yield[0] + " hour"
+					return toReturn
+				} else {
+					return ""
+				}
 			} else if datePublished[2].contains("Total Time:") {
 				let frontYield = datePublished[2].components(separatedBy: "Total Time:")
 				let sanitizedY = ((frontYield[1].replacingOccurrences(of: "\n", with: ""))
 					.replacingOccurrences(of: "\t", with: ""))
-				let yield = sanitizedY.components(separatedBy: "minutes")
-				let toReturn = yield[0] + " min"
-				return toReturn
+				if (sanitizedY.prefix(15)).contains("minutes") {
+					let yield = sanitizedY.components(separatedBy: "minutes")
+					let toReturn = yield[0] + " min"
+					return toReturn
+				} else if (sanitizedY.prefix(15)).contains("hour"){
+					let yield = sanitizedY.components(separatedBy: "hour")
+					let toReturn = yield[0] + " hour"
+					return toReturn
+				} else {
+					return ""
+				}
 			} else if datePublished[3].contains("Total Time:") {
 				let frontYield = datePublished[3].components(separatedBy: "Total Time:")
 				let sanitizedY = ((frontYield[1].replacingOccurrences(of: "\n", with: ""))
 					.replacingOccurrences(of: "\t", with: ""))
-				let yield = sanitizedY.components(separatedBy: "minutes")
-				let toReturn = yield[0] + " min"
-				return toReturn
+				if (sanitizedY.prefix(15)).contains("minutes") {
+					let yield = sanitizedY.components(separatedBy: "minutes")
+					let toReturn = yield[0] + " min"
+					return toReturn
+				} else if (sanitizedY.prefix(15)).contains("hour"){
+					let yield = sanitizedY.components(separatedBy: "hour")
+					let toReturn = yield[0] + " hour"
+					return toReturn
+				} else {
+					return ""
+				}
 			} else {
 				return ""
 			}

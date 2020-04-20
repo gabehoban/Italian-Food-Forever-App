@@ -14,6 +14,75 @@ import WebKit
 import HTMLString
 import SPAlert
 
+struct recipeView: View {
+	let recipe: dataType
+	@State var max = 0
+	func getSteps() -> [String] {
+		var array = utils().formatSteps(str: recipe.content)
+		array.insert(" ", at: 0)
+		array.insert(" ", at: 0)
+		array.append(" ")
+		array.append(" ")
+		return array
+	}
+	@State var num: Int = 0
+	@State var highlight = 0
+	@State var valNum = 0
+	var body: some View {
+		ZStack {
+			Color.init(hex: "343d46")
+				.edgesIgnoringSafeArea(.all)
+			VStack {
+				ProgressCircle(value: num,
+				               maxValue: Double(max),
+				               style: .line,
+				               foregroundColor: .red,
+				               lineWidth: 10)
+					.frame(height: 100)
+					.padding(.vertical, 40)
+				Spacer()
+				ForEach(num..<num + 5, id: \.self) { i in
+					HStack {
+						if (i + -1) > 0 {
+							if (i + -1) < self.max + 2 {
+								Text("\(self.getSteps()[i]).")
+									.font(.system(size: (i == (2 + self.num) ? 30 : 17), weight: .semibold, design: .rounded))
+									.fixedSize(horizontal: false, vertical: true)
+									.foregroundColor(Color.init(hex: "f1f0ea"))
+							}
+						}
+						Spacer()
+					}.lineSpacing(5)
+						.padding(.top, 5)
+						.opacity(i == (2 + self.num) ? 1.0 : 0.2)
+				}.padding(.vertical, 5)
+					.padding(.bottom, 10)
+				Spacer()
+			}.navigationBarTitle(recipe.title)
+				.padding(.horizontal, 15)
+		}.gesture(DragGesture().onEnded({ value in
+			if value.translation.height < 0 {
+				if self.num < self.max {
+					self.num += 1
+				} else {
+					print("max")
+				}
+			} else {
+				if self.num > 0 {
+					self.num -= 1
+				} else {
+					print("min")
+				}
+			}
+		}))
+			.onAppear() {
+				self.max = self.getSteps().count - 5
+				print("max: \(self.max)")
+		}
+	}
+}
+
+
 struct MySubview: View {
 	let size: CGSize
 	var detail: dataType
@@ -77,6 +146,7 @@ struct MySubview: View {
 	@State private var show_signinModal: Bool = false
 	@State private var show_signBackinModal: Bool = false
 	@State private var article: Bool = false
+	@State private var recipeview: Bool = false
 	@State private var heartSelect: Bool = false
 	@State private var isSharePresented: Bool = false
 	@State private var instructionPage: Bool = false
@@ -93,6 +163,9 @@ struct MySubview: View {
 	var body: some View {
 		VStack {
 			NavigationLink(destination: SignInView(), isActive: $show_signinModal) {
+				EmptyView()
+			}
+			NavigationLink(destination: recipeView(recipe: detail), isActive: $recipeview) {
 				EmptyView()
 			}
 			NavigationView {
@@ -120,7 +193,7 @@ struct MySubview: View {
 										.frame(width: geo.size.width, height: geo.size.height + geo.frame(in: .global).minY)
 										.clipped()
 										.offset(y: -geo.frame(in: .global).minY)
-										//.animation(.easeInOut(duration: 0.8))
+									//.animation(.easeInOut(duration: 0.8))
 								}
 							}
 						}.frame(height: 300)
@@ -226,7 +299,19 @@ struct MySubview: View {
 										.font(.headline)
 										.fontWeight(.bold)
 									Spacer()
-								}.padding(.top, 35)
+									Button(action: {
+										self.recipeview.toggle()
+									}) {
+										ZStack{
+											Rectangle()
+											.frame(width: 100, height: 30)
+												.foregroundColor(.black)
+												.cornerRadius(20)
+											Image(systemName: "arrow.up.left.and.arrow.down.right")
+												.foregroundColor(.white)
+										}
+									}
+								}.padding(.top, 25)
 									.frame(width: size.width * pad)
 
 								// MARK: - Steps
@@ -264,7 +349,7 @@ struct MySubview: View {
 							}
 							Spacer()
 						}.padding(.vertical, 5)
-						 .padding(.bottom, 15)
+							.padding(.bottom, 15)
 					}
 					Spacer()
 				}
@@ -442,5 +527,68 @@ struct cardView: View {
 struct cardView_Previews: PreviewProvider {
 	static var previews: some View {
 		cardView(PostID: Binding.constant(0))
+	}
+}
+struct ProgressCircle: View {
+	enum Stroke {
+		case line
+		case dotted
+
+		func strokeStyle(lineWidth: CGFloat) -> StrokeStyle {
+			switch self {
+			case .line:
+				return StrokeStyle(lineWidth: lineWidth,
+				                   lineCap: .round)
+			case .dotted:
+				return StrokeStyle(lineWidth: lineWidth,
+				                   lineCap: .round,
+				                   dash: [12])
+			}
+		}
+	}
+
+	private let value: Double
+	private let maxValue: Double
+	private let style: Stroke
+	private let backgroundEnabled: Bool
+	private let backgroundColor: Color
+	private let foregroundColor: Color
+	private let lineWidth: CGFloat
+
+	init(value: Int,
+	     maxValue: Double,
+	     style: Stroke = .line,
+	     backgroundEnabled: Bool = true,
+	     backgroundColor: Color = Color(UIColor(red: 245 / 255,
+	                                            green: 245 / 255,
+	                                            blue: 245 / 255,
+	                                            alpha: 1.0)),
+	     foregroundColor: Color = Color.black,
+	     lineWidth: CGFloat = 10) {
+		self.value = Double(value)
+		self.maxValue = maxValue
+		self.style = style
+		self.backgroundEnabled = backgroundEnabled
+		self.backgroundColor = backgroundColor
+		self.foregroundColor = foregroundColor
+		self.lineWidth = lineWidth
+	}
+	var body: some View {
+		ZStack {
+			if self.backgroundEnabled {
+				Circle()
+					.stroke(lineWidth: self.lineWidth)
+					.foregroundColor(self.backgroundColor)
+			}
+			Text("\(Int(value + 1).description)/\(Int(maxValue).description)")
+				.font(.system(size: 23, weight: .bold, design: .rounded))
+				.foregroundColor(.white)
+			Circle()
+				.trim(from: 0, to: CGFloat(self.value / self.maxValue))
+				.stroke(style: self.style.strokeStyle(lineWidth: self.lineWidth))
+				.foregroundColor(self.foregroundColor)
+				.rotationEffect(Angle(degrees: -90))
+				.animation(.easeIn)
+		}
 	}
 }
