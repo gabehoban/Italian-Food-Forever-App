@@ -46,7 +46,7 @@ struct onboarding: View {
 								SparkKeys.Profile.uid: Auth.auth().currentUser!.uid,
 								SparkKeys.Profile.name: self.text,
 								SparkKeys.Profile.email: ""]
-							SparkFirestore.mergeProfile(data, uid: Auth.auth().currentUser!.uid) { (result) in
+							SparkFirestore.mergeProfile(data, uid: Auth.auth().currentUser!.uid) { result in
 								Log.info(result)
 							}
 							self.status.end = true

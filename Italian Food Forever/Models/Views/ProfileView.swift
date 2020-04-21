@@ -112,6 +112,24 @@ struct ProfileView: View {
 							}
 						}
 						Spacer()
+						// MARK: - Logout
+						HStack {
+							Spacer()
+							Button(action: {
+								SparkAuth.logout { err in
+									switch err {
+										case .success:
+											Log.info("\(self.spark.profile.uid) - \(self.spark.profile.name) has Logged Out.")
+											UserDefaults.standard.set(false, forKey: "status")
+										case .failure(let error):
+											Log.error(error.localizedDescription)
+									}
+								}
+							}) {
+								Text("Logout")
+									.foregroundColor(.red)
+							}
+						}
 					}.onAppear {
 							self.datasME.removeAll()
 							func load() {
@@ -127,7 +145,7 @@ struct ProfileView: View {
 									
 									let session = URLSession(configuration: .default)
 									
-									session.dataTask(with: url) { (data, _, err) in
+									session.dataTask(with: url) { data, _, err in
 										
 										if err != nil {
 											Log.error((err?.localizedDescription)!)

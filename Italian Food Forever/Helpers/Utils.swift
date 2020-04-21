@@ -107,7 +107,7 @@ class utils {
 					let yield = sanitizedY.components(separatedBy: "minutes")
 					let toReturn = yield[0] + " min"
 					return toReturn
-				} else if (sanitizedY.prefix(15)).contains("hour"){
+				} else if (sanitizedY.prefix(15)).contains("hour") {
 					let yield = sanitizedY.components(separatedBy: "hour")
 					let toReturn = yield[0] + " hour"
 					return toReturn
@@ -122,7 +122,7 @@ class utils {
 					let yield = sanitizedY.components(separatedBy: "minutes")
 					let toReturn = yield[0] + " min"
 					return toReturn
-				} else if (sanitizedY.prefix(15)).contains("hour"){
+				} else if (sanitizedY.prefix(15)).contains("hour") {
 					let yield = sanitizedY.components(separatedBy: "hour")
 					let toReturn = yield[0] + " hour"
 					return toReturn
@@ -137,7 +137,7 @@ class utils {
 					let yield = sanitizedY.components(separatedBy: "minutes")
 					let toReturn = yield[0] + " min"
 					return toReturn
-				} else if (sanitizedY.prefix(15)).contains("hour"){
+				} else if (sanitizedY.prefix(15)).contains("hour") {
 					let yield = sanitizedY.components(separatedBy: "hour")
 					let toReturn = yield[0] + " hour"
 					return toReturn
@@ -152,7 +152,7 @@ class utils {
 					let yield = sanitizedY.components(separatedBy: "minutes")
 					let toReturn = yield[0] + " min"
 					return toReturn
-				} else if (sanitizedY.prefix(15)).contains("hour"){
+				} else if (sanitizedY.prefix(15)).contains("hour") {
 					let yield = sanitizedY.components(separatedBy: "hour")
 					let toReturn = yield[0] + " hour"
 					return toReturn

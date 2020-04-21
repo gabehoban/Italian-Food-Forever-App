@@ -19,6 +19,7 @@ platform :ios do
   desc "Generate new localized screenshots"
   lane :screenshots do
     capture_screenshots(workspace: "IFF.xcworkspace", scheme: "Italian Food ForeverUITests")
+    frameit
     swiftlint(
       mode: :autocorrect,      # SwiftLint mode: :lint (default) or :autocorrect
       config_file: ".swiftlint.yml",

@@ -30,7 +30,7 @@ struct recipeView: View {
 	@State var valNum = 0
 	var body: some View {
 		ZStack {
-			Color.init(hex: "343d46")
+			Color(hex: "343d46")
 				.edgesIgnoringSafeArea(.all)
 			VStack {
 				ProgressCircle(value: num,
@@ -48,7 +48,7 @@ struct recipeView: View {
 								Text("\(self.getSteps()[i]).")
 									.font(.system(size: (i == (2 + self.num) ? 30 : 17), weight: .semibold, design: .rounded))
 									.fixedSize(horizontal: false, vertical: true)
-									.foregroundColor(Color.init(hex: "f1f0ea"))
+									.foregroundColor(Color(hex: "f1f0ea"))
 							}
 						}
 						Spacer()
@@ -75,13 +75,12 @@ struct recipeView: View {
 				}
 			}
 		}))
-			.onAppear() {
+			.onAppear {
 				self.max = self.getSteps().count - 5
 				print("max: \(self.max)")
-		}
+			}
 	}
 }
-
 
 struct MySubview: View {
 	let size: CGSize
@@ -140,7 +139,7 @@ struct MySubview: View {
 					.foregroundColor(.white)
 					.scaleEffect(1.4)
 			}
-		}
+	}
 	}
 
 	@State private var show_signinModal: Bool = false
@@ -302,7 +301,7 @@ struct MySubview: View {
 									Button(action: {
 										self.recipeview.toggle()
 									}) {
-										ZStack{
+										ZStack {
 											Rectangle()
 											.frame(width: 100, height: 30)
 												.foregroundColor(.black)
@@ -368,7 +367,7 @@ struct MySubview: View {
 							break
 						}
 					}
-			}
+				}
 		}.navigationBarTitle("", displayMode: .inline)
 			.navigationBarBackButtonHidden(true)
 			.navigationBarItems(leading: btnBack, trailing:
@@ -395,7 +394,7 @@ struct MySubview: View {
 								var savedP: [String] = self.spark.profile.saved
 								savedP.append(self.detail.id)
 
-								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
+								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { err in
 									switch err {
 									case .success:
 										Log.debug("Added \(self.detail.id) to saved array -> \(self.spark.profile.saved)")
@@ -413,7 +412,7 @@ struct MySubview: View {
 									savedP.remove(at: index)
 								}
 								self.spark.configureFirebaseStateDidChange()
-								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
+								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { err in
 									switch err {
 									case .success:
 										Log.debug("Removed \(self.detail.id) from \(self.spark.profile.saved).")
@@ -500,7 +499,7 @@ struct cardView: View {
 				let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?_envelope&_fields=id,excerpt,titlecontent,,mv,%20date,link,content,author&include=\(self.$PostID)"
 				let url = URL(string: source)!
 				let session = URLSession(configuration: .default)
-				session.dataTask(with: url) { (data, _, err) in
+				session.dataTask(with: url) { data, _, err in
 
 					if err != nil {
 						Log.error((err?.localizedDescription)!)

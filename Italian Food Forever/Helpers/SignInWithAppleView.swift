@@ -14,7 +14,7 @@ struct SignInWithAppleView: UIViewRepresentable {
     @EnvironmentObject var spark: Spark
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(self)
+        Coordinator(self)
     }
     
     func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {
@@ -83,11 +83,11 @@ struct SignInWithAppleView: UIViewRepresentable {
                 }
                 
                 parent.updateActivityIndicator(message: "Saving to database...")
-                SparkAuth.signIn(providerID: SparkAuth.providerID.apple, idTokenString: idTokenString, nonce: nonce) { (result) in
+                SparkAuth.signIn(providerID: SparkAuth.providerID.apple, idTokenString: idTokenString, nonce: nonce) { result in
                     switch result {
                     case .success(let authDataResult):
                         let signInWithAppleResult = (authDataResult, appleIDCredential)
-                        SparkAuth.handle(signInWithAppleResult) { (result) in
+                        SparkAuth.handle(signInWithAppleResult) { result in
                             switch result {
                             case .success(let profile):
 								Log.info("Successfully Signed in with Apple into Firebase: \(profile)")

@@ -55,7 +55,7 @@ struct cardsRow1: View {
 												.resizable()
 												.placeholder {
 													Rectangle().foregroundColor(.gray)
-											}
+												}
 											.indicator(.activity)
 											.animation(.easeInOut(duration: 0.5))
 											.frame(width: 180, height: 125)

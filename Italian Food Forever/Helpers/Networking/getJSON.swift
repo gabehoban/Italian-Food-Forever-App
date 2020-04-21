@@ -19,7 +19,7 @@ class getData: ObservableObject {
 		let source = "https://italianfoodforever.com/wp-json/wp/v2/\(partURL)"
 		let url = URL(string: source)!
 		let session = URLSession(configuration: .default)
-		session.dataTask(with: url) { (data, _, err) in
+		session.dataTask(with: url) { data, _, err in
 			if err != nil {
 				Log.error((err?.localizedDescription)!)
 				return
