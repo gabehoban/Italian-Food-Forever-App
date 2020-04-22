@@ -44,7 +44,7 @@ class getData: ObservableObject {
 
         let session = URLSession(configuration: .default)
 
-        session.dataTask(with: url) { (data, _, err) in
+        session.dataTask(with: url) { data, _, err in
 
             if err != nil {
                 print((err?.localizedDescription)!)

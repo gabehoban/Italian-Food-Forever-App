@@ -13,6 +13,7 @@ import Foundation
 import SDWebImageSwiftUI
 
 struct buttonLabel: View {
+	let color: Color
 	@State var title: String = ""
 	func dynLength(title: String) -> CGFloat {
 		if title.count > 8 {
@@ -23,11 +24,11 @@ struct buttonLabel: View {
 			return length
 		}
 	}
-	
+
 	var body: some View {
 		ZStack {
 			RoundedRectangle(cornerRadius: 25, style: .continuous)
-				.foregroundColor(Color(UIColor.systemTeal))
+				.foregroundColor(color)
 				.frame(width: dynLength(title: self.title), height: 45)
 			Text(self.title)
 				.foregroundColor(.white)
@@ -36,6 +37,7 @@ struct buttonLabel: View {
 		}
 	}
 }
+
 struct Search: View {
 
 	@State public var text = ""
@@ -43,7 +45,16 @@ struct Search: View {
 	@ObservedObject var fetcher = recipeFetcher(search: "")
 	@State var searchID: String = ""
 	@State var buttonPadding: CGFloat = 1
-
+	func formatDate(posted: String) -> String {
+		let formatter1 = DateFormatter()
+		let formatter2 = DateFormatter()
+		formatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+		let s = formatter1.date(from: posted)!
+		// Return date as [Jan 1, 2020]
+		formatter2.dateFormat = "MMM dd, yyyy"
+		let date = formatter2.string(from: s)
+		return date
+	}
 	var body: some View {
 		VStack {
 			HStack {
@@ -64,7 +75,9 @@ struct Search: View {
 				          text: $text, onEditingChanged: { _ in
 					          self.fetcher.getJsonData(string: self.text)
 					          self.displayRes = true
-				}).frame(height: 50.0)
+				          }, onCommit: {
+					          self.fetcher.getJsonData(string: self.text)
+				          }).frame(height: 50.0)
 				Spacer()
 				Button(action: {
 					self.text = ""
@@ -75,65 +88,81 @@ struct Search: View {
 						.padding(.trailing, 20)
 				})
 			}.overlay(RoundedRectangle(cornerRadius: 25).stroke(Color.gray, lineWidth: 1))
-			 .padding([.leading, .trailing], 20)
+				.padding([.leading, .trailing], 20)
 			if text != "" {
-				Form {
-					Section(header: Text("Results")) {
+				VStack {
+					Section {
 						List {
 							ForEach(fetcher.recipiesFull) { i in
-								NavigationLink(destination: DetailView(detail: i)) {
-									HStack {
-										WebImage(url: URL(string: i.image), options: .highPriority)
-											.renderingMode(.original)
-											.resizable()
-											.indicator(.activity)
-											.cornerRadius(10)
-											.frame(width: 100, height: 60)
-											.animation(.easeInOut(duration: 0.8))
-										Text(i.title)
-											.font(.subheadline)
-											.lineLimit(2)
-											.padding([.top, .bottom], 15)
-										Spacer()
+								if i.title.contains("Menu") { } else if i.title.contains("Steak Lovers") { } else if i.title.contains("Adventure") { } else if i.title.contains("A Day") { } else if i.title.contains("Photos") { } else {
+									NavigationLink(destination: DetailView(detail: i)) {
+										HStack {
+											WebImage(url: URL(string: i.image), options: .highPriority)
+												.renderingMode(.original)
+												.resizable()
+												.indicator(.activity)
+												.cornerRadius(10)
+												.frame(width: 130, height: 90)
+												.animation(.easeInOut(duration: 0.8))
+											VStack {
+												HStack {
+													Text(i.title)
+														.font(.subheadline)
+														.fontWeight(.medium)
+														.lineLimit(2)
+														.padding([.top, .bottom], 15)
+													Spacer()
+												}
+												Spacer()
+												HStack {
+													Text("Posted: \(self.formatDate(posted: i.date))")
+														.font(.subheadline)
+														.fontWeight(.light)
+														.padding(.bottom, 10)
+													Spacer()
+												}
+											}
+											Spacer()
+										}
 									}
 								}
 							}
 						}.animation(.linear(duration: 0.3))
-
-					}.navigationBarTitle("Test")
+					}
 				}.padding(.top, 30)
-				 .animation(Animation.easeInOut(duration: 1).delay(0.8))
+					.animation(Animation.easeInOut(duration: 1).delay(0.8))
 			} else {
+				
 				VStack {
 					HStack {
-						Text("Categories")
+						Text("Meal")
 							.font(.headline)
 							.fontWeight(.semibold)
-							.foregroundColor(Color(UIColor.systemTeal))
+							.foregroundColor(Color.black)
 							.multilineTextAlignment(.leading)
 						Spacer()
 					}.padding(.leading, 20)
-					
+
 					// MARK: - First Line of Categories
 					HStack {
 						Button(action: {
-							self.text = "Fresh Pasta "
+							self.text = "Appetizers "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(title: "Fresh Pasta")
-	
+							buttonLabel(color: Color(hex: "597081"), title: "Appetizers")
+
 						})
 						Button(action: {
-							self.text = "Seafood "
+							self.text = "Breakfast "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(title: "Seafood")
+							buttonLabel(color: Color(hex: "597081"), title: "Breakfast")
 						}).padding(.leading, buttonPadding)
 						Button(action: {
-							self.text = "Vegetables "
+							self.text = "Lunch "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(title: "Vegetables")
+							buttonLabel(color: Color(hex: "597081"), title: "Lunch")
 						}).padding(.leading, buttonPadding)
 						Spacer()
 					}.padding(.leading, 20)
@@ -141,34 +170,142 @@ struct Search: View {
 					// MARK: - Second Line of Categories
 					HStack {
 						Button(action: {
-							self.text = "Bread "
+							self.text = "Desserts "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(title: "Bread")
+							buttonLabel(color: Color(hex: "597081"), title: "Desserts")
 
 						})
 						Button(action: {
-							self.text = "Meat"
+							self.text = "Dinner "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(title: "Meat")
+							buttonLabel(color: Color(hex: "597081"), title: "Dinner")
 						}).padding(.leading, buttonPadding)
 						Button(action: {
-							self.text = "Pizza"
+							self.text = "Snacks "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(title: "Pizza")
+							buttonLabel(color: Color(hex: "597081"), title: "Snacks ")
 						}).padding(.leading, buttonPadding)
 						Spacer()
 					}.padding(.top, 5)
-					 .padding(.leading, 20)
+						.padding(.leading, 20)
+				}.padding(.top, 10)
+				// Third Category
+				VStack {
+					HStack {
+						Text("Ingredients")
+							.font(.headline)
+							.fontWeight(.semibold)
+							.foregroundColor(Color.black)
+							.multilineTextAlignment(.leading)
+						Spacer()
+					}.padding(.leading, 20)
+					
+					// MARK: - First Line of Categories
+					HStack {
+						Button(action: {
+							self.text = "Apple "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color(hex: "342E37"), title: "Apple")
+							
+						})
+						Button(action: {
+							self.text = "Beef "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color(hex: "342E37"), title: "Beef")
+						}).padding(.leading, buttonPadding)
+						Button(action: {
+							self.text = "Vegetables "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color(hex: "342E37"), title: "Vegetables")
+						}).padding(.leading, buttonPadding)
+						Spacer()
+					}.padding(.leading, 20)
+					
+					// MARK: - Second Line of Categories
+					HStack {
+						Button(action: {
+							self.text = "Chicken "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color(hex: "342E37"), title: "Chicken")
+							
+						})
+						Button(action: {
+							self.text = "Fruit"
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color(hex: "342E37"), title: "Fruit")
+						}).padding(.leading, buttonPadding)
+						Button(action: {
+							self.text = "Pasta"
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color(hex: "342E37"), title: "Pasta")
+						}).padding(.leading, buttonPadding)
+						Spacer()
+					}.padding(.top, 5)
+						.padding(.leading, 20)
+				}.padding(.top, 10)
+				// Second Category
+				VStack {
+					HStack {
+						Text("Season")
+							.font(.headline)
+							.fontWeight(.semibold)
+							.foregroundColor(Color.black)
+							.multilineTextAlignment(.leading)
+						Spacer()
+					}.padding(.leading, 20)
+					
+					// MARK: - First Line of Categories
+					HStack {
+						Button(action: {
+							self.text = "Winter "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color(hex: "6F8F72"), title: "Winter")
+							
+						})
+						Button(action: {
+							self.text = "Spring "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color(hex: "6F8F72"), title: "Spring")
+						}).padding(.leading, buttonPadding)
+						Button(action: {
+							self.text = "Summer "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color(hex: "6F8F72"), title: "Summer")
+						}).padding(.leading, buttonPadding)
+						Spacer()
+					}.padding(.leading, 20)
+					
+					// MARK: - Second Line of Categories
+					HStack {
+						Button(action: {
+							self.text = "Fall "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color(hex: "6F8F72"), title: "Fall")
+							
+						})
+						Spacer()
+					}.padding(.top, 5)
+						.padding(.leading, 20)
 				}.padding(.top, 10)
 			}
-		Spacer()
+			Spacer()
 		}.onAppear {
 			if self.text != "" {
+				//self.fetcher.getJsonData(string: self.text)
 				self.displayRes = true
-				self.fetcher.getJsonData(string: self.text)
 			} else {
 				self.displayRes = false
 			}

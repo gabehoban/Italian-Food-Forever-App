@@ -1,6 +1,7 @@
-[![Build Status](https://travis-ci.org/gabehoban/Italian-Food-Forever-App.svg?branch=master)](https://travis-ci.org/gabehoban/Italian-Food-Forever-App)[![CodeFactor](https://www.codefactor.io/repository/github/gabehoban/italian-food-forever-app/badge)](https://www.codefactor.io/repository/github/gabehoban/italian-food-forever-app)
-
 # Italian Food Forever App
+
+[![CodeFactor](https://www.codefactor.io/repository/github/gabehoban/italianfoodforever/badge/v2020.5-dev)](https://www.codefactor.io/repository/github/gabehoban/italianfoodforever/overview/v2020.5-dev)
+[![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
 <p align="center">
 <img src="assets/project1.png" alt="Project" width="650"/>

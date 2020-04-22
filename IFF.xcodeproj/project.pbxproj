@@ -10,7 +10,6 @@
 		211BBCF324299B6C004F345D /* IntroDemoCond-LightCAPS.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCF224299B6C004F345D /* IntroDemoCond-LightCAPS.otf */; };
 		211BBCF524299C8F004F345D /* AvertaDemoPE-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCF424299C8E004F345D /* AvertaDemoPE-Regular.otf */; };
 		211BBCFF2429A68B004F345D /* uniformextracondensed-medium-webfont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */; };
-		212877822444BE8C0081060C /* Pods-Italian Food Forever-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 212877812444BE8B0081060C /* Pods-Italian Food Forever-acknowledgements.plist */; };
 		212877842444C2BF0081060C /* acknowledges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212877832444C2BF0081060C /* acknowledges.swift */; };
 		212877862444C8C70081060C /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212877852444C8C70081060C /* SnapshotHelper.swift */; };
 		213CF7A1242C0FC2009E9CDC /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CF7A0242C0FC2009E9CDC /* Search.swift */; };
@@ -34,6 +33,7 @@
 		21537FCA2427FEB70034A75A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBB2427FEB70034A75A /* ProfileView.swift */; };
 		21537FCB2427FEB70034A75A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBC2427FEB70034A75A /* SignInView.swift */; };
 		21537FCC2427FEB70034A75A /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBD2427FEB70034A75A /* LaunchScreenView.swift */; };
+		215B1CF0244C8AE50004E432 /* FancyScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 215B1CEF244C8AE50004E432 /* FancyScrollView */; };
 		215C9028243165B3002678FA /* getJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215C9027243165B3002678FA /* getJSON.swift */; };
 		2167DB6324310C8C0071BE14 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6224310C8C0071BE14 /* Checklist.swift */; };
 		2167DB6524310CE90071BE14 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6424310CE90071BE14 /* Extensions.swift */; };
@@ -41,13 +41,13 @@
 		2167DB6A24310EE80071BE14 /* networkManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6924310EE80071BE14 /* networkManagers.swift */; };
 		2167DB6D2431156A0071BE14 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6C2431156A0071BE14 /* Utils.swift */; };
 		216D96942422E2F300F0CBB6 /* Featured.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D96932422E2F300F0CBB6 /* Featured.swift */; };
+		217F79D42445418000D07E76 /* Pods-Italian Food Forever-acknowledgements.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 217F79D32445418000D07E76 /* Pods-Italian Food Forever-acknowledgements.markdown */; };
+		217F79D72445466B00D07E76 /* Ink in Frameworks */ = {isa = PBXBuildFile; productRef = 217F79D62445466B00D07E76 /* Ink */; };
 		217F8370243FF3AC0021C2F4 /* ChangeLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F836F243FF3AC0021C2F4 /* ChangeLog.swift */; };
 		21B6CBCA242D7E190000FA7E /* privacyTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBC9242D7E190000FA7E /* privacyTerms.swift */; };
 		21B6CBCC242D7E7A0000FA7E /* privacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */; };
 		21B6CBCE242D7E8D0000FA7E /* termsUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6CBCD242D7E8D0000FA7E /* termsUse.swift */; };
 		21B802772422B71400BED86A /* cardsRow1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B802762422B71400BED86A /* cardsRow1.swift */; };
-		21BA5BFE2423E25A00499BCE /* regionalRecipies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */; };
-		21BA5C002423E57800499BCE /* springRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5BFF2423E57800499BCE /* springRow.swift */; };
 		21BA5C022423EEBD00499BCE /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA5C012423EEBD00499BCE /* cardView.swift */; };
 		21C008C9242177F700412ABB /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C008C8242177F700412ABB /* Discover.swift */; };
 		21D4CF71242EB1E200B47582 /* phoneAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4CF70242EB1E200B47582 /* phoneAuth.swift */; };
@@ -99,7 +99,6 @@
 		211BBCF424299C8E004F345D /* AvertaDemoPE-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvertaDemoPE-Regular.otf"; sourceTree = "<group>"; };
 		211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "uniformextracondensed-medium-webfont.otf"; sourceTree = "<group>"; };
 		211FD281242554220041E72F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Users/gabehoban/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		212877812444BE8B0081060C /* Pods-Italian Food Forever-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "Pods-Italian Food Forever-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		212877832444C2BF0081060C /* acknowledges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = acknowledges.swift; sourceTree = "<group>"; };
 		212877852444C8C70081060C /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		213CF7A0242C0FC2009E9CDC /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
@@ -129,13 +128,12 @@
 		2167DB6924310EE80071BE14 /* networkManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = networkManagers.swift; sourceTree = "<group>"; };
 		2167DB6C2431156A0071BE14 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		216D96932422E2F300F0CBB6 /* Featured.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Featured.swift; sourceTree = "<group>"; };
+		217F79D32445418000D07E76 /* Pods-Italian Food Forever-acknowledgements.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "Pods-Italian Food Forever-acknowledgements.markdown"; path = "Pods/Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever-acknowledgements.markdown"; sourceTree = SOURCE_ROOT; };
 		217F836F243FF3AC0021C2F4 /* ChangeLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLog.swift; sourceTree = "<group>"; };
 		21B6CBC9242D7E190000FA7E /* privacyTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyTerms.swift; sourceTree = "<group>"; };
 		21B6CBCB242D7E7A0000FA7E /* privacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyPolicy.swift; sourceTree = "<group>"; };
 		21B6CBCD242D7E8D0000FA7E /* termsUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = termsUse.swift; sourceTree = "<group>"; };
 		21B802762422B71400BED86A /* cardsRow1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardsRow1.swift; sourceTree = "<group>"; };
-		21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionalRecipies.swift; sourceTree = "<group>"; };
-		21BA5BFF2423E57800499BCE /* springRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = springRow.swift; sourceTree = "<group>"; };
 		21BA5C012423EEBD00499BCE /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
 		21C008C8242177F700412ABB /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		21D4CF70242EB1E200B47582 /* phoneAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phoneAuth.swift; sourceTree = "<group>"; };
@@ -179,7 +177,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				217F79D72445466B00D07E76 /* Ink in Frameworks */,
 				7B96F171398C20A5A4BC8224 /* Pods_Italian_Food_Forever.framework in Frameworks */,
+				215B1CF0244C8AE50004E432 /* FancyScrollView in Frameworks */,
 				21D8ABE2243F8026000BFEAC /* FASwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +288,7 @@
 				217F836F243FF3AC0021C2F4 /* ChangeLog.swift */,
 				21D9A759243F9E6300511D4E /* About.swift */,
 				213CF7A4242C5717009E9CDC /* settings.swift */,
+				217F79D32445418000D07E76 /* Pods-Italian Food Forever-acknowledgements.markdown */,
 				212877832444C2BF0081060C /* acknowledges.swift */,
 				21B6CBC9242D7E190000FA7E /* privacyTerms.swift */,
 				21B6CBCD242D7E8D0000FA7E /* termsUse.swift */,
@@ -317,8 +318,6 @@
 				21C008C8242177F700412ABB /* Discover.swift */,
 				216D96932422E2F300F0CBB6 /* Featured.swift */,
 				21B802762422B71400BED86A /* cardsRow1.swift */,
-				21BA5BFD2423E25A00499BCE /* regionalRecipies.swift */,
-				21BA5BFF2423E57800499BCE /* springRow.swift */,
 			);
 			path = Tab1;
 			sourceTree = "<group>";
@@ -370,7 +369,6 @@
 				21FE87BE2420026400910CF0 /* Assets.xcassets */,
 				2195AE2A242523500045928A /* Fonts */,
 				21FE87C32420026400910CF0 /* LaunchScreen.storyboard */,
-				212877812444BE8B0081060C /* Pods-Italian Food Forever-acknowledgements.plist */,
 				21FE87C62420026400910CF0 /* Info.plist */,
 				211FD281242554220041E72F /* GoogleService-Info.plist */,
 				21FE87B92420026300910CF0 /* Italian_Food_Forever.xcdatamodeld */,
@@ -451,6 +449,8 @@
 			name = "Italian Food Forever";
 			packageProductDependencies = (
 				21D8ABE1243F8026000BFEAC /* FASwiftUI */,
+				217F79D62445466B00D07E76 /* Ink */,
+				215B1CEF244C8AE50004E432 /* FancyScrollView */,
 			);
 			productName = "Italian Food Forever";
 			productReference = 21FE87B22420026200910CF0 /* Italian Food Forever.app */;
@@ -529,6 +529,8 @@
 			mainGroup = 21FE87A92420026200910CF0;
 			packageReferences = (
 				21D8ABE0243F8026000BFEAC /* XCRemoteSwiftPackageReference "FASwiftUI" */,
+				217F79D52445466B00D07E76 /* XCRemoteSwiftPackageReference "Ink" */,
+				215B1CEE244C8AE50004E432 /* XCRemoteSwiftPackageReference "FancyScrollView" */,
 			);
 			productRefGroup = 21FE87B32420026200910CF0 /* Products */;
 			projectDirPath = "";
@@ -548,13 +550,13 @@
 			files = (
 				21D4CF77242F098200B47582 /* launch.png in Resources */,
 				21D9A757243F80C600511D4E /* Font Awesome 5 Free-Regular-400.otf in Resources */,
-				212877822444BE8C0081060C /* Pods-Italian Food Forever-acknowledgements.plist in Resources */,
 				211BBCF324299B6C004F345D /* IntroDemoCond-LightCAPS.otf in Resources */,
 				21FE87C52420026400910CF0 /* LaunchScreen.storyboard in Resources */,
 				21D9A756243F80C600511D4E /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				21D4CF79242FDBFF00B47582 /* Georgia.otf in Resources */,
 				21D9A755243F80C600511D4E /* icons.json in Resources */,
 				211BBCFF2429A68B004F345D /* uniformextracondensed-medium-webfont.otf in Resources */,
+				217F79D42445418000D07E76 /* Pods-Italian Food Forever-acknowledgements.markdown in Resources */,
 				21FE87C22420026400910CF0 /* Preview Assets.xcassets in Resources */,
 				21D9A758243F80C600511D4E /* Font Awesome 5 Free-Solid-900.otf in Resources */,
 				21FE87BF2420026400910CF0 /* Assets.xcassets in Resources */,
@@ -720,7 +722,6 @@
 				21537FC02427FEB70034A75A /* DocumentSerializable.swift in Sources */,
 				21B6CBCE242D7E8D0000FA7E /* termsUse.swift in Sources */,
 				2167DB6724310E410071BE14 /* dataTypes.swift in Sources */,
-				21BA5BFE2423E25A00499BCE /* regionalRecipies.swift in Sources */,
 				212877842444C2BF0081060C /* acknowledges.swift in Sources */,
 				21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */,
 				21D4CF71242EB1E200B47582 /* phoneAuth.swift in Sources */,
@@ -731,7 +732,6 @@
 				21537FCC2427FEB70034A75A /* LaunchScreenView.swift in Sources */,
 				21F22C7924247AFC009E8B53 /* ViewModifiers.swift in Sources */,
 				21537FC32427FEB70034A75A /* Typealiases.swift in Sources */,
-				21BA5C002423E57800499BCE /* springRow.swift in Sources */,
 				21537FC72427FEB70034A75A /* SparkUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -919,7 +919,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2020.4.1;
+				MARKETING_VERSION = 2020.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-Forever";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -945,7 +945,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2020.4.1;
+				MARKETING_VERSION = 2020.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "gabehoban.com.Italian-Food-Forever";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1084,6 +1084,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		215B1CEE244C8AE50004E432 /* XCRemoteSwiftPackageReference "FancyScrollView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nerdsupremacist/FancyScrollView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+		217F79D52445466B00D07E76 /* XCRemoteSwiftPackageReference "Ink" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/Ink";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
 		21D8ABE0243F8026000BFEAC /* XCRemoteSwiftPackageReference "FASwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mattmaddux/FASwiftUI.git";
@@ -1095,6 +1111,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		215B1CEF244C8AE50004E432 /* FancyScrollView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 215B1CEE244C8AE50004E432 /* XCRemoteSwiftPackageReference "FancyScrollView" */;
+			productName = FancyScrollView;
+		};
+		217F79D62445466B00D07E76 /* Ink */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 217F79D52445466B00D07E76 /* XCRemoteSwiftPackageReference "Ink" */;
+			productName = Ink;
+		};
 		21D8ABE1243F8026000BFEAC /* FASwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 21D8ABE0243F8026000BFEAC /* XCRemoteSwiftPackageReference "FASwiftUI" */;

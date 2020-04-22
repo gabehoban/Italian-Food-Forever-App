@@ -32,7 +32,7 @@ struct SparkAuth {
                                                   idToken: idTokenString,
                                                   rawNonce: nonce)
         // Sign in with Firebase.
-        Auth.auth().signIn(with: credential) { (authDataResult, err) in
+        Auth.auth().signIn(with: credential) { authDataResult, err in
             if let err = err {
                 // Error. If error.code == .MissingOrInvalidNonce, make sure
                 // you're sending the SHA256-hashed nonce as a hex string with
@@ -59,7 +59,7 @@ struct SparkAuth {
         let middleName = fullName?.middleName ?? ""
         let familyName = fullName?.familyName ?? ""
         let names = [givenName, middleName, familyName]
-        let filteredNames = names.filter {$0 != ""}
+        let filteredNames = names.filter { $0 != "" }
         for i in 0..<filteredNames.count {
             name += filteredNames[i]
             if i != filteredNames.count - 1 {
@@ -87,7 +87,7 @@ struct SparkAuth {
             ]
         }
         
-        SparkFirestore.mergeProfile(data, uid: uid) { (result) in
+        SparkFirestore.mergeProfile(data, uid: uid) { result in
             completion(result)
         }
     }
@@ -130,7 +130,7 @@ struct SparkAuth {
         let inputData = Data(input.utf8)
         let hashedData = SHA256.hash(data: inputData)
         let hashString = hashedData.compactMap {
-            return String(format: "%02x", $0)
+            String(format: "%02x", $0)
         }.joined()
 
         return hashString

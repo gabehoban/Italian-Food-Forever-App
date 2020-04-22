@@ -14,7 +14,7 @@ struct SparkFirestore {
             .firestore()
             .collection(SparkKeys.CollectionPath.profiles)
             .document(uid)
-        getDocument(for: reference) { (result) in
+        getDocument(for: reference) { result in
             switch result {
             case .success(let data):
                 guard let profile = Profile(documentData: data) else {
@@ -34,7 +34,7 @@ struct SparkFirestore {
             .firestore()
             .collection(SparkKeys.CollectionPath.profiles)
             .document(uid)
-        reference.setData(data, merge: true) { (err) in
+        reference.setData(data, merge: true) { err in
             if let err = err {
                 completion(.failure(err))
                 return
@@ -44,18 +44,18 @@ struct SparkFirestore {
     }
     
     static func updateData(id: String, txt: [String], completion: @escaping (Result<Bool, Error>) -> Void) {
-    Firestore.firestore().collection("profiles").document(id).updateData(["saved": txt]) { (err) in
+    Firestore.firestore().collection("profiles").document(id).updateData(["saved": txt]) { err in
             if err != nil {
 				Log.error((err?.localizedDescription)!)
                 return
             }
-        }
+    }
     }
     
     // MARK: - fileprivate
     
     fileprivate static func getDocument(for reference: DocumentReference, completion: @escaping (Result<[String: Any], Error>) -> Void) {
-        reference.getDocument { (documentSnapshot, err) in
+        reference.getDocument { documentSnapshot, err in
             if let err = err {
                 completion(.failure(err))
                 return

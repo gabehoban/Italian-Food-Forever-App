@@ -112,7 +112,8 @@ Italian Food Forever does not knowingly collect any Personal Identifiable Inform
 					Spacer()
 				}
 				Spacer()
-			}		}
+			}		
+		}
 	}
 }
 struct privacyPolicy_Previews: PreviewProvider {

@@ -17,14 +17,15 @@ struct ContentView: View {
 	@State private var selection: Int = 0
 	@State var isNavigationBarHidden: Bool = true
 	@EnvironmentObject var spark: Spark
-
+	@Environment(\.presentationMode) var presentation
+	
 	var body: some View {
 		VStack {
 			NavigationView {
 				TabView(selection: $selection) {
 					Discover()
 						.padding(.top, -95)
-						.background(Color.white) //white
+						.background(Color(hex: "fbfbfb").opacity(0.5)) //white
 						.tabItem {
 							VStack {
 								Image(systemName: "house.fill")
@@ -57,6 +58,22 @@ struct ContentView: View {
 				UINavigationBar.appearance().tintColor = .black
 				UINavigationBar.appearance().backgroundColor = .clear
 				self.spark.configureFirebaseStateDidChange()
+				let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+				if launchedBefore {
+					if UserDefaults.standard.string(forKey: "version") != UIApplication.appVersion! {
+						print("\n\n\nApp updated to \(UIApplication.appVersion!)\n\n\n")
+						// Show Whats New
+					} else {
+						print("\n\n\nNo Update")
+						#if targetEnvironment(simulator)
+						// Show Whats New
+						#endif
+					}
+				} else {
+					print("\n\n\nFirst launch, setting UserDefault.\n\n\n")
+					UserDefaults.standard.set(true, forKey: "launchedBefore")
+					UserDefaults.standard.set(UIApplication.appVersion!, forKey: "version")
+				}
 			}
 		}
 	}

@@ -12,10 +12,122 @@ import SwiftyJSON
 import SDWebImageSwiftUI
 import WebKit
 import HTMLString
+import SPAlert
+
+struct recipeView: View {
+	let recipe: dataType
+	@State var max = 0
+	func getSteps() -> [String] {
+		var array = utils().formatSteps(str: recipe.content)
+		array.insert(" ", at: 0)
+		array.insert(" ", at: 0)
+		array.append(" ")
+		array.append(" ")
+		return array
+	}
+	@State var num: Int = 0
+	@State var highlight = 0
+	@State var valNum = 0
+	var body: some View {
+		ZStack {
+			Color(hex: "343d46")
+				.edgesIgnoringSafeArea(.all)
+			VStack {
+				ProgressCircle(value: num,
+				               maxValue: Double(max),
+				               style: .line,
+				               foregroundColor: .red,
+				               lineWidth: 10)
+					.frame(height: 100)
+					.padding(.vertical, 40)
+				Spacer()
+				ForEach(num..<num + 5, id: \.self) { i in
+					HStack {
+						if (i + -1) > 0 {
+							if (i + -1) < self.max + 2 {
+								Text("\(self.getSteps()[i]).")
+									.font(.system(size: (i == (2 + self.num) ? 30 : 17), weight: .semibold, design: .rounded))
+									.fixedSize(horizontal: false, vertical: true)
+									.foregroundColor(Color(hex: "f1f0ea"))
+							}
+						}
+						Spacer()
+					}.lineSpacing(5)
+						.padding(.top, 5)
+						.opacity(i == (2 + self.num) ? 1.0 : 0.2)
+				}.padding(.vertical, 5)
+					.padding(.bottom, 10)
+				Spacer()
+			}.navigationBarTitle(recipe.title)
+				.padding(.horizontal, 15)
+		}.gesture(DragGesture().onEnded({ value in
+			if value.translation.height < 0 {
+				if self.num < self.max {
+					self.num += 1
+				} else {
+					print("max")
+				}
+			} else {
+				if self.num > 0 {
+					self.num -= 1
+				} else {
+					print("min")
+				}
+			}
+		}))
+			.onAppear {
+				self.max = self.getSteps().count - 5
+				print("max: \(self.max)")
+			}
+	}
+}
 
 struct MySubview: View {
 	let size: CGSize
 	var detail: dataType
+
+	func errorTest(get: String) -> String {
+		switch get {
+		case "title":
+			do {
+				let title = try utils().formatTitle(str: detail.title).removingHTMLEntities
+				return title
+			} catch {
+				return ""
+			}
+		case "yield":
+			do {
+				let yield = try utils().formatYield(str: detail.content, title: detail.title)
+				return yield
+			} catch {
+				return ""
+			}
+		case "date":
+			do {
+				let date = try utils().formatDate(posted: detail.date)
+				return date
+			} catch {
+				return ""
+			}
+		case "html":
+			do {
+				let html = try utils().stripHTML(str: detail.content).removingHTMLEntities
+				return html
+			} catch {
+				return ""
+			}
+		case "time":
+			do {
+				let time = try utils().formatTime(str: detail.content, title: detail.title)
+				return time
+			} catch {
+				return ""
+			}
+		default:
+			return ""
+		}
+	}
+
 	@EnvironmentObject var spark: Spark
 	@Environment(\.presentationMode) var presentation
 
@@ -27,12 +139,13 @@ struct MySubview: View {
 					.foregroundColor(.white)
 					.scaleEffect(1.4)
 			}
-		}
+	}
 	}
 
 	@State private var show_signinModal: Bool = false
 	@State private var show_signBackinModal: Bool = false
 	@State private var article: Bool = false
+	@State private var recipeview: Bool = false
 	@State private var heartSelect: Bool = false
 	@State private var isSharePresented: Bool = false
 	@State private var instructionPage: Bool = false
@@ -45,28 +158,49 @@ struct MySubview: View {
 	func toggle() { isChecked = !isChecked }
 	@State var isChecked: Bool = false
 	let pad: CGFloat = 0.93
-	
+
 	var body: some View {
 		VStack {
 			NavigationLink(destination: SignInView(), isActive: $show_signinModal) {
 				EmptyView()
 			}
+			NavigationLink(destination: recipeView(recipe: detail), isActive: $recipeview) {
+				EmptyView()
+			}
 			NavigationView {
 				VStack {
 					ScrollView(.vertical, showsIndicators: false) {
+						GeometryReader { geo in
+							VStack {
+								if geo.frame(in: .global).minY <= 0 {
+									// MARK: - Image
+									WebImage(url: URL(string: self.detail.image), options: .highPriority)
+										.renderingMode(.original)
+										.resizable()
+										.indicator(.activity)
+										.aspectRatio(contentMode: .fill)
+										.frame(width: geo.size.width, height: geo.size.height)
+										.offset(y: geo.frame(in: .global).minY / 9)
+										.clipped()
+										.animation(.easeInOut(duration: 0.8))
+								} else {
+									WebImage(url: URL(string: self.detail.image), options: .highPriority)
+										.renderingMode(.original)
+										.resizable()
+										.indicator(.activity)
+										.aspectRatio(contentMode: .fill)
+										.frame(width: geo.size.width, height: geo.size.height + geo.frame(in: .global).minY)
+										.clipped()
+										.offset(y: -geo.frame(in: .global).minY)
+									//.animation(.easeInOut(duration: 0.8))
+								}
+							}
+						}.frame(height: 300)
 						VStack {
-							// MARK: - Image
-							WebImage(url: URL(string: detail.image), options: .highPriority)
-								.renderingMode(.original)
-								.resizable()
-								.indicator(.activity)
-								.cornerRadius(10)
-								.frame(width: 500, height: 300)
-								.animation(.easeInOut(duration: 0.8))
 							// MARK: - Title
 							//TODO: Add custom font
 							HStack {
-								Text(utils().formatTitle(str: detail.title).removingHTMLEntities)
+								Text(errorTest(get: "title"))
 									.font(.title)
 									.fixedSize(horizontal: false, vertical: true)
 									.lineLimit(3)
@@ -89,7 +223,7 @@ struct MySubview: View {
 										.padding(.leading, 15)
 										.animation(Animation.easeInOut(duration: 0.6).delay(0.5))
 									Spacer()
-									Text("Posted: \(utils().formatDate(posted: detail.date))")
+									Text("Posted: \(errorTest(get: "date"))")
 										.fontWeight(.thin)
 										.animation(Animation.easeInOut(duration: 0.6).delay(0.5))
 								}
@@ -100,25 +234,25 @@ struct MySubview: View {
 									.padding(.vertical, 10)
 								// MARK: - Details
 								HStack {
-									if utils().formatTime(str: detail.content, title: detail.title).contains("hour") {
-									Text("Total \nTime")
-										.fontWeight(.bold)
-										.fixedSize(horizontal: false, vertical: true)
-										.lineLimit(2)
+									if errorTest(get: "time").contains("hour") {
+										Text("Total \nTime")
+											.fontWeight(.bold)
+											.fixedSize(horizontal: false, vertical: true)
+											.lineLimit(2)
 									} else {
 										Text("Total Time")
 											.fontWeight(.bold)
 									}
-									Text(utils().formatTime(str: detail.content, title: detail.title))
+									Text(errorTest(get: "time"))
 										.font(.body)
 									Spacer()
 									Text("Yield")
 										.fontWeight(.bold)
-									Text(utils().formatYield(str: detail.content, title: detail.title))
+									Text(errorTest(get: "yield"))
 										.font(.body)
-									.fixedSize(horizontal: false, vertical: true)
+										.fixedSize(horizontal: false, vertical: true)
 								}
-								
+
 								// MARK: - Ingredients
 								HStack {
 									Button(action: {
@@ -141,14 +275,14 @@ struct MySubview: View {
 									Spacer()
 								}
 							}.padding(.vertical, 10)
-							.frame(width: size.width * pad)
+								.frame(width: size.width * pad)
 
 							// MARK: - Content
 							if article == false {
 								Button(action: {
 									self.article.toggle()
 								}) {
-									Text(utils().stripHTML(str: detail.content).removingHTMLEntities)
+									Text(errorTest(get: "html"))
 										.font(.custom("Georgia", size: 18))
 										.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
 										.padding(.top, 15)
@@ -164,8 +298,20 @@ struct MySubview: View {
 										.font(.headline)
 										.fontWeight(.bold)
 									Spacer()
-								}.padding(.top, 35)
-								 .frame(width: size.width * pad)
+									Button(action: {
+										self.recipeview.toggle()
+									}) {
+										ZStack {
+											Rectangle()
+											.frame(width: 100, height: 30)
+												.foregroundColor(.black)
+												.cornerRadius(20)
+											Image(systemName: "arrow.up.left.and.arrow.down.right")
+												.foregroundColor(.white)
+										}
+									}
+								}.padding(.top, 25)
+									.frame(width: size.width * pad)
 
 								// MARK: - Steps
 								ForEach(0..<utils().formatSteps(str: detail.content).count, id: \.self) { i in
@@ -178,12 +324,12 @@ struct MySubview: View {
 											.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
 										Spacer()
 									}.lineSpacing(5)
-									 .padding(.top, 5)
+										.padding(.top, 5)
 										.frame(width: self.size.width * self.pad)
 								}.padding(.vertical, 5)
-								.padding(.bottom, 10)
+									.padding(.bottom, 10)
 							} else {
-								Text(utils().stripHTML(str: detail.content).removingHTMLEntities)
+								Text(errorTest(get: "html"))
 									.font(.custom("Georgia", size: 18))
 									.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
 									.padding(.vertical, 15)
@@ -201,26 +347,27 @@ struct MySubview: View {
 								}
 							}
 							Spacer()
-						}.padding(.vertical, 20)
+						}.padding(.vertical, 5)
+							.padding(.bottom, 15)
 					}
 					Spacer()
-				}.padding(.top, -60) //Rectangle offset
+				}
 			}.padding(.top, -70)
-			 .onAppear {
-				self.spark.configureFirebaseStateDidChange()
+				.onAppear {
+					self.spark.configureFirebaseStateDidChange()
 
-				UINavigationBar.appearance().isOpaque = true
-				UINavigationBar.appearance().isTranslucent = true
-				UINavigationBar.appearance().tintColor = .white
-				UINavigationBar.appearance().backgroundColor = .clear
+					UINavigationBar.appearance().isOpaque = true
+					UINavigationBar.appearance().isTranslucent = true
+					UINavigationBar.appearance().tintColor = .white
+					UINavigationBar.appearance().backgroundColor = .clear
 
-				for id in self.spark.profile.saved {
-					if id == self.detail.id {
-						self.heartSelect = true
-						break
+					for id in self.spark.profile.saved {
+						if id == self.detail.id {
+							self.heartSelect = true
+							break
+						}
 					}
 				}
-		}
 		}.navigationBarTitle("", displayMode: .inline)
 			.navigationBarBackButtonHidden(true)
 			.navigationBarItems(leading: btnBack, trailing:
@@ -240,13 +387,14 @@ struct MySubview: View {
 						if self.spark.isUserAuthenticated == .undefined {
 							self.show_signinModal = true
 						} else if self.spark.isUserAuthenticated == .signedIn {
+							//SAVING
 							if self.heartSelect == false {
 								self.heartSelect = true
-
+								SPAlert.present(title: "Saved to Profile", image: (UIImage(systemName: "heart.fill")!))
 								var savedP: [String] = self.spark.profile.saved
 								savedP.append(self.detail.id)
 
-								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
+								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { err in
 									switch err {
 									case .success:
 										Log.debug("Added \(self.detail.id) to saved array -> \(self.spark.profile.saved)")
@@ -255,15 +403,16 @@ struct MySubview: View {
 									}
 								}
 								self.spark.configureFirebaseStateDidChange()
-
+								//REMOVING
 							} else if self.heartSelect == true {
 								self.heartSelect = false
+								SPAlert.present(title: "Removed from Profile", image: (UIImage(systemName: "xmark")!))
 								var savedP = self.spark.profile.saved
 								if let index = savedP.firstIndex(of: "\(self.detail.id)") {
 									savedP.remove(at: index)
 								}
 								self.spark.configureFirebaseStateDidChange()
-								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { (err) in
+								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { err in
 									switch err {
 									case .success:
 										Log.debug("Removed \(self.detail.id) from \(self.spark.profile.saved).")
@@ -289,8 +438,8 @@ struct MySubview: View {
 				}.scaleEffect(/*@START_MENU_TOKEN@*/1.4/*@END_MENU_TOKEN@*/))
 			.overlay(
 				VStack {
-				LinearGradient(gradient: .init(colors: [Color.black.opacity(0.6), .clear]), startPoint: .top, endPoint: .bottom)
-				Spacer()
+					LinearGradient(gradient: .init(colors: [Color.black.opacity(0.6), .clear]), startPoint: .top, endPoint: .bottom)
+					Spacer()
 				}.edgesIgnoringSafeArea(.top)
 					.offset(x: 0, y: -400)
 					.frame(height: 100)
@@ -345,11 +494,12 @@ struct cardView: View {
 					Spacer()
 				}
 			}.onAppear {
+
 				self.list.removeAll()
 				let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?_envelope&_fields=id,excerpt,titlecontent,,mv,%20date,link,content,author&include=\(self.$PostID)"
 				let url = URL(string: source)!
 				let session = URLSession(configuration: .default)
-				session.dataTask(with: url) { (data, _, err) in
+				session.dataTask(with: url) { data, _, err in
 
 					if err != nil {
 						Log.error((err?.localizedDescription)!)
@@ -376,5 +526,68 @@ struct cardView: View {
 struct cardView_Previews: PreviewProvider {
 	static var previews: some View {
 		cardView(PostID: Binding.constant(0))
+	}
+}
+struct ProgressCircle: View {
+	enum Stroke {
+		case line
+		case dotted
+
+		func strokeStyle(lineWidth: CGFloat) -> StrokeStyle {
+			switch self {
+			case .line:
+				return StrokeStyle(lineWidth: lineWidth,
+				                   lineCap: .round)
+			case .dotted:
+				return StrokeStyle(lineWidth: lineWidth,
+				                   lineCap: .round,
+				                   dash: [12])
+			}
+		}
+	}
+
+	private let value: Double
+	private let maxValue: Double
+	private let style: Stroke
+	private let backgroundEnabled: Bool
+	private let backgroundColor: Color
+	private let foregroundColor: Color
+	private let lineWidth: CGFloat
+
+	init(value: Int,
+	     maxValue: Double,
+	     style: Stroke = .line,
+	     backgroundEnabled: Bool = true,
+	     backgroundColor: Color = Color(UIColor(red: 245 / 255,
+	                                            green: 245 / 255,
+	                                            blue: 245 / 255,
+	                                            alpha: 1.0)),
+	     foregroundColor: Color = Color.black,
+	     lineWidth: CGFloat = 10) {
+		self.value = Double(value)
+		self.maxValue = maxValue
+		self.style = style
+		self.backgroundEnabled = backgroundEnabled
+		self.backgroundColor = backgroundColor
+		self.foregroundColor = foregroundColor
+		self.lineWidth = lineWidth
+	}
+	var body: some View {
+		ZStack {
+			if self.backgroundEnabled {
+				Circle()
+					.stroke(lineWidth: self.lineWidth)
+					.foregroundColor(self.backgroundColor)
+			}
+			Text("\(Int(value + 1).description)/\(Int(maxValue).description)")
+				.font(.system(size: 23, weight: .bold, design: .rounded))
+				.foregroundColor(.white)
+			Circle()
+				.trim(from: 0, to: CGFloat(self.value / self.maxValue))
+				.stroke(style: self.style.strokeStyle(lineWidth: self.lineWidth))
+				.foregroundColor(self.foregroundColor)
+				.rotationEffect(Angle(degrees: -90))
+				.animation(.easeIn)
+		}
 	}
 }

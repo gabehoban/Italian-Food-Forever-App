@@ -63,7 +63,7 @@ struct modalIngredents: View {
 						}.disabled(!MFMailComposeViewController.canSendMail())
 							.sheet(isPresented: $isShowingMailView) {
 								MailView(result: self.$result, listSubject: utils().formatIngredients(str: self.content), recipie: self.title, email: self.email)
-						}
+							}
 						Spacer()
 					}
 				}
@@ -73,7 +73,7 @@ struct modalIngredents: View {
 		 .onAppear {
 			UINavigationBar.appearance().tintColor = UIColor.black
 			
-		}
+		 }
 	}
 }
 struct MailView: UIViewControllerRepresentable {
@@ -127,7 +127,7 @@ struct MailView: UIViewControllerRepresentable {
 	}
 
 	func makeCoordinator() -> Coordinator {
-		return Coordinator(presentation: presentation,
+		Coordinator(presentation: presentation,
 		                   result: $result)
 	}
 

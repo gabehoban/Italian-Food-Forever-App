@@ -2,12 +2,30 @@
   "object": {
     "pins": [
       {
+        "package": "FancyScrollView",
+        "repositoryURL": "https://github.com/nerdsupremacist/FancyScrollView",
+        "state": {
+          "branch": null,
+          "revision": "d9c594d7d6b43f6ea3288c5fa17cd2e96af832ad",
+          "version": "0.1.2"
+        }
+      },
+      {
         "package": "FASwiftUI",
         "repositoryURL": "https://github.com/mattmaddux/FASwiftUI.git",
         "state": {
           "branch": null,
           "revision": "2e043ec545724b56df7117829f08344da4b00031",
           "version": "1.0.4"
+        }
+      },
+      {
+        "package": "Ink",
+        "repositoryURL": "https://github.com/JohnSundell/Ink",
+        "state": {
+          "branch": null,
+          "revision": "878fd897945500be1885f2c88f81f8f909224796",
+          "version": "0.4.0"
         }
       },
       {

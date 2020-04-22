@@ -27,6 +27,7 @@ struct ProfileView: View {
 		return toReturn
 	}
 	@State var gear: Bool = false
+	@State var rowLayout = true
 	var body: some View {
 		VStack {
 			NavigationLink(destination: settings(), isActive: $gear) {
@@ -61,10 +62,10 @@ struct ProfileView: View {
 								.scaleEffect(1.6)
 								.foregroundColor(.gray)
 						}
-					}).padding(.top, -55)
-					  .padding(.trailing, 10)
+					}).padding(.trailing, 10)
 				}
 			}.padding(.horizontal, 15)
+			 .padding(.top, -25)
 			 .padding(.bottom, 15)
 			ScrollView(.vertical, showsIndicators: false) {
 				if spark.profile.saved == [] {
@@ -111,6 +112,24 @@ struct ProfileView: View {
 							}
 						}
 						Spacer()
+						// MARK: - Logout
+						HStack {
+							Spacer()
+							Button(action: {
+								SparkAuth.logout { err in
+									switch err {
+										case .success:
+											Log.info("\(self.spark.profile.uid) - \(self.spark.profile.name) has Logged Out.")
+											UserDefaults.standard.set(false, forKey: "status")
+										case .failure(let error):
+											Log.error(error.localizedDescription)
+									}
+								}
+							}) {
+								Text("Logout")
+									.foregroundColor(.red)
+							}
+						}
 					}.onAppear {
 							self.datasME.removeAll()
 							func load() {
@@ -126,7 +145,7 @@ struct ProfileView: View {
 									
 									let session = URLSession(configuration: .default)
 									
-									session.dataTask(with: url) { (data, _, err) in
+									session.dataTask(with: url) { data, _, err in
 										
 										if err != nil {
 											Log.error((err?.localizedDescription)!)

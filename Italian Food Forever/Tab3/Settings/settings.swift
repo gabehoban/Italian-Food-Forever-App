@@ -87,7 +87,7 @@ struct subSettings: View {
 						}.disabled(!MFMailComposeViewController.canSendMail())
 							.sheet(isPresented: $isShowingfeatureMailView) {
 								featureMailView(result: self.$result, userInfo: "\(self.spark.profile.uid)")
-						}
+							}
 						Spacer()
 					}
 					HStack {
@@ -99,7 +99,7 @@ struct subSettings: View {
 						}.disabled(!MFMailComposeViewController.canSendMail())
 							.sheet(isPresented: $isShowingproblemMailView) {
 								featureMailView(result: self.$result, userInfo: "\(self.spark.profile.uid)")
-						}
+							}
 						Spacer()
 					}
 				}
@@ -108,7 +108,7 @@ struct subSettings: View {
 					HStack {
 						Spacer()
 						Button(action: {
-							SparkAuth.logout { (err) in
+							SparkAuth.logout { err in
 								switch err {
 								case .success:
 									Log.info("\(self.spark.profile.uid) - \(self.spark.profile.name) has Logged Out.")
@@ -201,7 +201,7 @@ struct featureMailView: UIViewControllerRepresentable {
 	}
 
 	func makeCoordinator() -> Coordinator {
-		return Coordinator(presentation: presentation,
+		Coordinator(presentation: presentation,
 		                   result: $result)
 	}
 
@@ -267,7 +267,7 @@ struct problemMailView: UIViewControllerRepresentable {
 	}
 
 	func makeCoordinator() -> Coordinator {
-		return Coordinator(presentation: presentation,
+		Coordinator(presentation: presentation,
 		                   result: $result)
 	}
 

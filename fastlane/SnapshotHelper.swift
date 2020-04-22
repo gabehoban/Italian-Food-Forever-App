@@ -66,7 +66,7 @@ open class Snapshot: NSObject {
     static var waitForAnimations = true
     static var cacheDirectory: URL?
     static var screenshotsDirectory: URL? {
-        return cacheDirectory?.appendingPathComponent("screenshots", isDirectory: true)
+        cacheDirectory?.appendingPathComponent("screenshots", isDirectory: true)
     }
 
     open class func setupSnapshot(_ app: XCUIApplication, waitForAnimations: Bool = true) {
@@ -266,7 +266,7 @@ private extension XCUIElementAttributes {
 
 private extension XCUIElementQuery {
     var networkLoadingIndicators: XCUIElementQuery {
-        let isNetworkLoadingIndicator = NSPredicate { (evaluatedObject, _) in
+        let isNetworkLoadingIndicator = NSPredicate { evaluatedObject, _ in
             guard let element = evaluatedObject as? XCUIElementAttributes else { return false }
 
             return element.isNetworkLoadingIndicator
@@ -282,7 +282,7 @@ private extension XCUIElementQuery {
 
         let deviceWidth = app.windows.firstMatch.frame.width
 
-        let isStatusBar = NSPredicate { (evaluatedObject, _) in
+        let isStatusBar = NSPredicate { evaluatedObject, _ in
             guard let element = evaluatedObject as? XCUIElementAttributes else { return false }
 
             return element.isStatusBar(deviceWidth)
@@ -294,7 +294,7 @@ private extension XCUIElementQuery {
 
 private extension CGFloat {
     func isBetween(_ numberA: CGFloat, and numberB: CGFloat) -> Bool {
-        return numberA...numberB ~= self
+        numberA...numberB ~= self
     }
 }
 
