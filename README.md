@@ -1,6 +1,7 @@
 # Italian Food Forever App
-[![Build Status](https://travis-ci.org/gabehoban/Italian-Food-Forever-App.svg?branch=master)](https://travis-ci.org/gabehoban/Italian-Food-Forever-App)
+
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/gabehoban/Italian-Food-Forever-App)
+[![Build Status](https://travis-ci.org/gabehoban/Italian-Food-Forever-App.svg?branch=master)](https://travis-ci.org/gabehoban/Italian-Food-Forever-App)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
 <p align="center">
