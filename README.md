@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fbe545c7fce54df09a682e5c9cbe5a0b)](https://app.codacy.com/manual/gabehoban/Italian-Food-Forever-App?utm_source=github.com&utm_medium=referral&utm_content=gabehoban/Italian-Food-Forever-App&utm_campaign=Badge_Grade_Settings)
 [![Build Status](https://travis-ci.org/gabehoban/Italian-Food-Forever-App.svg?branch=master)](https://travis-ci.org/gabehoban/Italian-Food-Forever-App)[![CodeFactor](https://www.codefactor.io/repository/github/gabehoban/italian-food-forever-app/badge)](https://www.codefactor.io/repository/github/gabehoban/italian-food-forever-app)
 
 # Italian Food Forever App
