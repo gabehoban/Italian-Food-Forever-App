@@ -1,6 +1,6 @@
 # Italian Food Forever App
 
-[![CodeFactor](https://www.codefactor.io/repository/github/gabehoban/italianfoodforever/badge/v2020.5-dev)](https://www.codefactor.io/repository/github/gabehoban/italianfoodforever/overview/v2020.5-dev)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/gabehoban/Italian-Food-Forever-App)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
 <p align="center">
