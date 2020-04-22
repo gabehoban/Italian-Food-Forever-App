@@ -149,20 +149,20 @@ struct Search: View {
 							self.text = "Appetizers "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "597081"), title: "Appetizers")
+							buttonLabel(color: Color(hex: "597081"), title: "Appetizers")
 
 						})
 						Button(action: {
 							self.text = "Breakfast "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "597081"), title: "Breakfast")
+							buttonLabel(color: Color(hex: "597081"), title: "Breakfast")
 						}).padding(.leading, buttonPadding)
 						Button(action: {
 							self.text = "Lunch "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "597081"), title: "Lunch")
+							buttonLabel(color: Color(hex: "597081"), title: "Lunch")
 						}).padding(.leading, buttonPadding)
 						Spacer()
 					}.padding(.leading, 20)
@@ -173,20 +173,20 @@ struct Search: View {
 							self.text = "Desserts "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "597081"), title: "Desserts")
+							buttonLabel(color: Color(hex: "597081"), title: "Desserts")
 
 						})
 						Button(action: {
 							self.text = "Dinner "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "597081"), title: "Dinner")
+							buttonLabel(color: Color(hex: "597081"), title: "Dinner")
 						}).padding(.leading, buttonPadding)
 						Button(action: {
 							self.text = "Snacks "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "597081"), title: "Snacks ")
+							buttonLabel(color: Color(hex: "597081"), title: "Snacks ")
 						}).padding(.leading, buttonPadding)
 						Spacer()
 					}.padding(.top, 5)
@@ -209,20 +209,20 @@ struct Search: View {
 							self.text = "Apple "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "342E37"), title: "Apple")
+							buttonLabel(color: Color(hex: "342E37"), title: "Apple")
 							
 						})
 						Button(action: {
 							self.text = "Beef "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "342E37"), title: "Beef")
+							buttonLabel(color: Color(hex: "342E37"), title: "Beef")
 						}).padding(.leading, buttonPadding)
 						Button(action: {
 							self.text = "Vegetables "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "342E37"), title: "Vegetables")
+							buttonLabel(color: Color(hex: "342E37"), title: "Vegetables")
 						}).padding(.leading, buttonPadding)
 						Spacer()
 					}.padding(.leading, 20)
@@ -233,20 +233,20 @@ struct Search: View {
 							self.text = "Chicken "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "342E37"), title: "Chicken")
+							buttonLabel(color: Color(hex: "342E37"), title: "Chicken")
 							
 						})
 						Button(action: {
 							self.text = "Fruit"
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "342E37"), title: "Fruit")
+							buttonLabel(color: Color(hex: "342E37"), title: "Fruit")
 						}).padding(.leading, buttonPadding)
 						Button(action: {
 							self.text = "Pasta"
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "342E37"), title: "Pasta")
+							buttonLabel(color: Color(hex: "342E37"), title: "Pasta")
 						}).padding(.leading, buttonPadding)
 						Spacer()
 					}.padding(.top, 5)
@@ -269,20 +269,20 @@ struct Search: View {
 							self.text = "Winter "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "6F8F72"), title: "Winter")
+							buttonLabel(color: Color(hex: "6F8F72"), title: "Winter")
 							
 						})
 						Button(action: {
 							self.text = "Spring "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "6F8F72"), title: "Spring")
+							buttonLabel(color: Color(hex: "6F8F72"), title: "Spring")
 						}).padding(.leading, buttonPadding)
 						Button(action: {
 							self.text = "Summer "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "6F8F72"), title: "Summer")
+							buttonLabel(color: Color(hex: "6F8F72"), title: "Summer")
 						}).padding(.leading, buttonPadding)
 						Spacer()
 					}.padding(.leading, 20)
@@ -293,7 +293,7 @@ struct Search: View {
 							self.text = "Fall "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(color: Color.init(hex: "6F8F72"), title: "Fall")
+							buttonLabel(color: Color(hex: "6F8F72"), title: "Fall")
 							
 						})
 						Spacer()
