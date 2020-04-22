@@ -13,6 +13,7 @@ import Foundation
 import SDWebImageSwiftUI
 
 struct buttonLabel: View {
+	let color: Color
 	@State var title: String = ""
 	func dynLength(title: String) -> CGFloat {
 		if title.count > 8 {
@@ -27,7 +28,7 @@ struct buttonLabel: View {
 	var body: some View {
 		ZStack {
 			RoundedRectangle(cornerRadius: 25, style: .continuous)
-				.foregroundColor(Color(UIColor.systemTeal))
+				.foregroundColor(color)
 				.frame(width: dynLength(title: self.title), height: 45)
 			Text(self.title)
 				.foregroundColor(.white)
@@ -131,12 +132,13 @@ struct Search: View {
 				}.padding(.top, 30)
 					.animation(Animation.easeInOut(duration: 1).delay(0.8))
 			} else {
+				
 				VStack {
 					HStack {
-						Text("Categories")
+						Text("Meal")
 							.font(.headline)
 							.fontWeight(.semibold)
-							.foregroundColor(Color(UIColor.systemTeal))
+							.foregroundColor(Color.black)
 							.multilineTextAlignment(.leading)
 						Spacer()
 					}.padding(.leading, 20)
@@ -144,23 +146,23 @@ struct Search: View {
 					// MARK: - First Line of Categories
 					HStack {
 						Button(action: {
-							self.text = "Fresh Pasta "
+							self.text = "Appetizers "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(title: "Fresh Pasta")
+							buttonLabel(color: Color.init(hex: "597081"), title: "Appetizers")
 
 						})
 						Button(action: {
-							self.text = "Seafood "
+							self.text = "Breakfast "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(title: "Seafood")
+							buttonLabel(color: Color.init(hex: "597081"), title: "Breakfast")
 						}).padding(.leading, buttonPadding)
 						Button(action: {
-							self.text = "Vegetables "
+							self.text = "Lunch "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(title: "Vegetables")
+							buttonLabel(color: Color.init(hex: "597081"), title: "Lunch")
 						}).padding(.leading, buttonPadding)
 						Spacer()
 					}.padding(.leading, 20)
@@ -168,24 +170,132 @@ struct Search: View {
 					// MARK: - Second Line of Categories
 					HStack {
 						Button(action: {
-							self.text = "Bread "
+							self.text = "Desserts "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(title: "Bread")
+							buttonLabel(color: Color.init(hex: "597081"), title: "Desserts")
 
 						})
 						Button(action: {
-							self.text = "Meat"
+							self.text = "Dinner "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(title: "Meat")
+							buttonLabel(color: Color.init(hex: "597081"), title: "Dinner")
 						}).padding(.leading, buttonPadding)
 						Button(action: {
-							self.text = "Pizza"
+							self.text = "Snacks "
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
-							buttonLabel(title: "Pizza")
+							buttonLabel(color: Color.init(hex: "597081"), title: "Snacks ")
 						}).padding(.leading, buttonPadding)
+						Spacer()
+					}.padding(.top, 5)
+						.padding(.leading, 20)
+				}.padding(.top, 10)
+				// Third Category
+				VStack {
+					HStack {
+						Text("Ingredients")
+							.font(.headline)
+							.fontWeight(.semibold)
+							.foregroundColor(Color.black)
+							.multilineTextAlignment(.leading)
+						Spacer()
+					}.padding(.leading, 20)
+					
+					// MARK: - First Line of Categories
+					HStack {
+						Button(action: {
+							self.text = "Apple "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color.init(hex: "342E37"), title: "Apple")
+							
+						})
+						Button(action: {
+							self.text = "Beef "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color.init(hex: "342E37"), title: "Beef")
+						}).padding(.leading, buttonPadding)
+						Button(action: {
+							self.text = "Vegetables "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color.init(hex: "342E37"), title: "Vegetables")
+						}).padding(.leading, buttonPadding)
+						Spacer()
+					}.padding(.leading, 20)
+					
+					// MARK: - Second Line of Categories
+					HStack {
+						Button(action: {
+							self.text = "Chicken "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color.init(hex: "342E37"), title: "Chicken")
+							
+						})
+						Button(action: {
+							self.text = "Fruit"
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color.init(hex: "342E37"), title: "Fruit")
+						}).padding(.leading, buttonPadding)
+						Button(action: {
+							self.text = "Pasta"
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color.init(hex: "342E37"), title: "Pasta")
+						}).padding(.leading, buttonPadding)
+						Spacer()
+					}.padding(.top, 5)
+						.padding(.leading, 20)
+				}.padding(.top, 10)
+				// Second Category
+				VStack {
+					HStack {
+						Text("Season")
+							.font(.headline)
+							.fontWeight(.semibold)
+							.foregroundColor(Color.black)
+							.multilineTextAlignment(.leading)
+						Spacer()
+					}.padding(.leading, 20)
+					
+					// MARK: - First Line of Categories
+					HStack {
+						Button(action: {
+							self.text = "Winter "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color.init(hex: "6F8F72"), title: "Winter")
+							
+						})
+						Button(action: {
+							self.text = "Spring "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color.init(hex: "6F8F72"), title: "Spring")
+						}).padding(.leading, buttonPadding)
+						Button(action: {
+							self.text = "Summer "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color.init(hex: "6F8F72"), title: "Summer")
+						}).padding(.leading, buttonPadding)
+						Spacer()
+					}.padding(.leading, 20)
+					
+					// MARK: - Second Line of Categories
+					HStack {
+						Button(action: {
+							self.text = "Fall "
+							self.fetcher.getJsonData(string: self.text)
+						}, label: {
+							buttonLabel(color: Color.init(hex: "6F8F72"), title: "Fall")
+							
+						})
 						Spacer()
 					}.padding(.top, 5)
 						.padding(.leading, 20)
