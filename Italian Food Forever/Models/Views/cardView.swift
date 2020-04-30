@@ -34,7 +34,7 @@ struct recipeView: View {
 				.edgesIgnoringSafeArea(.all)
 			VStack {
 				ProgressCircle(value: num,
-				               maxValue: Double(max),
+				               maxValue: Double(max + 1),
 				               style: .line,
 				               foregroundColor: .red,
 				               lineWidth: 10)
