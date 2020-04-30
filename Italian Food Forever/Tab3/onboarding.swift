@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAuth
 
 struct onboarding: View {
 	@State private var text = ""

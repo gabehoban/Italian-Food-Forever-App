@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAuth
 
 class Status: ObservableObject {
 	@Published var end: Bool = false
