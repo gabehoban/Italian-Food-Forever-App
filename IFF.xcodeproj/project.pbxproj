@@ -441,6 +441,7 @@
 				21FE87AF2420026200910CF0 /* Frameworks */,
 				21FE87B02420026200910CF0 /* Resources */,
 				60735944B5CEFBE6DDB5D872 /* [CP] Embed Pods Frameworks */,
+				21036CC0245B3D5700260266 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -600,6 +601,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Italian Food Forever-Italian Food ForeverUITests/Pods-Italian Food Forever-Italian Food ForeverUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		21036CC0245B3D5700260266 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		60735944B5CEFBE6DDB5D872 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -814,7 +832,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -911,6 +929,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Italian Food Forever/Italian Food Forever.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"Italian Food Forever/Preview Content\"";
 				DEVELOPMENT_TEAM = YV98CCJ4M2;
 				ENABLE_PREVIEWS = YES;

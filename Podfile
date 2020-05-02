@@ -16,7 +16,9 @@ target 'Italian Food Forever' do
   pod 'Log'
   pod 'DSSwiftUIKit'
   pod 'SPAlert'
-
+  pod 'Fabric'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Analytics'
   # Pods for Italian Food Forever
 
   target 'Italian Food ForeverTests' do
