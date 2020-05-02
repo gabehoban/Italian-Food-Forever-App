@@ -18,8 +18,8 @@ struct recipeView: View {
 	let recipe: dataType
 	@State var max = 0
 	func getSteps() -> [String] {
-		var array = Validate().validateArray(get: "Ingredients", detail: recipe)
-		print(array.count)
+		var array = Validate().validateArray(get: "ingredients", detail: recipe)
+		print(array)
 		array.insert(" ", at: 0)
 		array.insert(" ", at: 0)
 		array.append(" ")
@@ -35,7 +35,7 @@ struct recipeView: View {
 				.edgesIgnoringSafeArea(.all)
 			VStack {
 				ProgressCircle(value: num,
-				               maxValue: Double(max),
+				               maxValue: Double(max + 1),
 				               style: .line,
 				               foregroundColor: .red,
 				               lineWidth: 10)
@@ -59,6 +59,7 @@ struct recipeView: View {
 				}.padding(.vertical, 5)
 					.padding(.bottom, 10)
 				Spacer()
+
 			}.navigationBarTitle(recipe.title)
 				.padding(.horizontal, 15)
 		}.gesture(DragGesture().onEnded({ value in
@@ -445,7 +446,7 @@ struct DetailView: View {
 										.font(.system(size: 25, weight: .semibold, design: .rounded))
 										.foregroundColor(.white)
 								)
-						}.padding(.bottom,5)
+						}.padding(.bottom, 5)
 						Button(action: {
 							self.presentation.wrappedValue.dismiss()
 						}) {
@@ -575,7 +576,7 @@ struct ProgressCircle: View {
 	                                            alpha: 1.0)),
 	     foregroundColor: Color = Color.black,
 	     lineWidth: CGFloat = 10) {
-		self.value = Double(value)
+		self.value = Double(value + 1)
 		self.maxValue = maxValue
 		self.style = style
 		self.backgroundEnabled = backgroundEnabled
@@ -590,7 +591,7 @@ struct ProgressCircle: View {
 					.stroke(lineWidth: self.lineWidth)
 					.foregroundColor(self.backgroundColor)
 			}
-			Text("\(Int(value + 1).description)/\(Int(maxValue).description)")
+			Text("\(Int(value).description)/\(Int(maxValue).description)")
 				.font(.system(size: 23, weight: .bold, design: .rounded))
 				.foregroundColor(.white)
 			Circle()
