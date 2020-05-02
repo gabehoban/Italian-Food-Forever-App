@@ -18,6 +18,13 @@ class Validate {
 			} catch {
 				return [""]
 			}
+		case "ingredients":
+			do {
+				let ingredients: [String] = try utils().formatIngredients(str: detail.content)
+				return ingredients
+			} catch {
+				return [""]
+			}
 		default:
 			return [""]
 		}
