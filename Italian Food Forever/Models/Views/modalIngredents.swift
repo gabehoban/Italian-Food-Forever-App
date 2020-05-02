@@ -11,7 +11,7 @@ import MessageUI
 
 struct modalIngredents: View {
 	@Binding var Presented: Bool
-	@Binding var content: String
+	@Binding var content: dataType
 	@Binding var title: String
 	@State var result: Result<MFMailComposeResult, Error>?
 	@Binding var email: String
@@ -36,7 +36,7 @@ struct modalIngredents: View {
 				.padding(.bottom, 25)
 			ScrollView(.vertical, showsIndicators: false) {
 				VStack {
-					ForEach(utils().formatIngredients(str: content), id: \.self) { datum in
+					ForEach(Validate().validateArray(get: "ingredients", detail: content), id: \.self) { datum in
 						HStack {
 							CheckView(title: datum)
 							Spacer()
@@ -62,7 +62,7 @@ struct modalIngredents: View {
 							}.padding(.top, 45)
 						}.disabled(!MFMailComposeViewController.canSendMail())
 							.sheet(isPresented: $isShowingMailView) {
-								MailView(result: self.$result, listSubject: utils().formatIngredients(str: self.content), recipie: self.title, email: self.email)
+								MailView(result: self.$result, listSubject: Validate().validateArray(get: "ingredients", detail: self.content), recipie: self.title, email: self.email)
 							}
 						Spacer()
 					}
