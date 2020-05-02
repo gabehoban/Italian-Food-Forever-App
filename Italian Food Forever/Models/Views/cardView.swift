@@ -18,7 +18,8 @@ struct recipeView: View {
 	let recipe: dataType
 	@State var max = 0
 	func getSteps() -> [String] {
-		var array = utils().formatSteps(str: recipe.content)
+		var array = Validate().validateArray(get: "Ingredients", detail: recipe)
+		print(array.count)
 		array.insert(" ", at: 0)
 		array.insert(" ", at: 0)
 		array.append(" ")
@@ -34,7 +35,7 @@ struct recipeView: View {
 				.edgesIgnoringSafeArea(.all)
 			VStack {
 				ProgressCircle(value: num,
-				               maxValue: Double(max + 1),
+				               maxValue: Double(max),
 				               style: .line,
 				               foregroundColor: .red,
 				               lineWidth: 10)
@@ -78,56 +79,14 @@ struct recipeView: View {
 			.onAppear {
 				self.max = self.getSteps().count - 5
 				print("max: \(self.max)")
-			}
+		}
 	}
 }
 
 struct MySubview: View {
 	let size: CGSize
 	var detail: dataType
-
-	func errorTest(get: String) -> String {
-		switch get {
-		case "title":
-			do {
-				let title = try utils().formatTitle(str: detail.title).removingHTMLEntities
-				return title
-			} catch {
-				return ""
-			}
-		case "yield":
-			do {
-				let yield = try utils().formatYield(str: detail.content, title: detail.title)
-				return yield
-			} catch {
-				return ""
-			}
-		case "date":
-			do {
-				let date = try utils().formatDate(posted: detail.date)
-				return date
-			} catch {
-				return ""
-			}
-		case "html":
-			do {
-				let html = try utils().stripHTML(str: detail.content).removingHTMLEntities
-				return html
-			} catch {
-				return ""
-			}
-		case "time":
-			do {
-				let time = try utils().formatTime(str: detail.content, title: detail.title)
-				return time
-			} catch {
-				return ""
-			}
-		default:
-			return ""
-		}
-	}
-
+	@State private var showingAlert = false
 	@EnvironmentObject var spark: Spark
 	@Environment(\.presentationMode) var presentation
 
@@ -139,7 +98,7 @@ struct MySubview: View {
 					.foregroundColor(.white)
 					.scaleEffect(1.4)
 			}
-	}
+		}
 	}
 
 	@State private var show_signinModal: Bool = false
@@ -151,7 +110,7 @@ struct MySubview: View {
 	@State private var instructionPage: Bool = false
 	@State private var ingredients: Bool = false
 	@State private var ingredientSymbol: String = "chevron.right"
-	@State var content: String = ""
+	@State var refType: dataType = dataType(id: "", url: "", date: "", title: "", excerpt: "", image: "", content: "")
 	@State var title: String = ""
 	@State var email: String = ""
 
@@ -200,7 +159,7 @@ struct MySubview: View {
 							// MARK: - Title
 							//TODO: Add custom font
 							HStack {
-								Text(errorTest(get: "title"))
+								Text(Validate().errorTest(get: "title", detail: detail))
 									.font(.title)
 									.fixedSize(horizontal: false, vertical: true)
 									.lineLimit(3)
@@ -223,7 +182,7 @@ struct MySubview: View {
 										.padding(.leading, 15)
 										.animation(Animation.easeInOut(duration: 0.6).delay(0.5))
 									Spacer()
-									Text("Posted: \(errorTest(get: "date"))")
+									Text("Posted: \(Validate().errorTest(get: "date", detail: detail))")
 										.fontWeight(.thin)
 										.animation(Animation.easeInOut(duration: 0.6).delay(0.5))
 								}
@@ -234,7 +193,7 @@ struct MySubview: View {
 									.padding(.vertical, 10)
 								// MARK: - Details
 								HStack {
-									if errorTest(get: "time").contains("hour") {
+									if Validate().errorTest(get: "time", detail: detail).contains("hour") {
 										Text("Total \nTime")
 											.fontWeight(.bold)
 											.fixedSize(horizontal: false, vertical: true)
@@ -243,12 +202,12 @@ struct MySubview: View {
 										Text("Total Time")
 											.fontWeight(.bold)
 									}
-									Text(errorTest(get: "time"))
+									Text(Validate().errorTest(get: "time", detail: detail))
 										.font(.body)
 									Spacer()
 									Text("Yield")
 										.fontWeight(.bold)
-									Text(errorTest(get: "yield"))
+									Text(Validate().errorTest(get: "yield", detail: detail))
 										.font(.body)
 										.fixedSize(horizontal: false, vertical: true)
 								}
@@ -257,7 +216,7 @@ struct MySubview: View {
 								HStack {
 									Button(action: {
 										self.ingredients.toggle()
-										self.content = self.detail.content
+										self.refType = self.detail
 										self.title = self.detail.title
 										self.email = self.spark.profile.email
 									}) {
@@ -268,7 +227,7 @@ struct MySubview: View {
 											.multilineTextAlignment(.leading)
 											.padding(.top, 15)
 									}.sheet(isPresented: $ingredients) {
-										modalIngredents(Presented: self.$ingredients, content: self.$content, title: self.$title, email: self.$email, onDismiss: {
+										modalIngredents(Presented: self.$ingredients, content: self.$refType, title: self.$title, email: self.$email, onDismiss: {
 											self.ingredients = false
 										})
 									}
@@ -282,7 +241,7 @@ struct MySubview: View {
 								Button(action: {
 									self.article.toggle()
 								}) {
-									Text(errorTest(get: "html"))
+									Text(Validate().errorTest(get: "html", detail: detail))
 										.font(.custom("Georgia", size: 18))
 										.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
 										.padding(.top, 15)
@@ -303,7 +262,7 @@ struct MySubview: View {
 									}) {
 										ZStack {
 											Rectangle()
-											.frame(width: 100, height: 30)
+												.frame(width: 100, height: 30)
 												.foregroundColor(.black)
 												.cornerRadius(20)
 											Image(systemName: "arrow.up.left.and.arrow.down.right")
@@ -314,12 +273,12 @@ struct MySubview: View {
 									.frame(width: size.width * pad)
 
 								// MARK: - Steps
-								ForEach(0..<utils().formatSteps(str: detail.content).count, id: \.self) { i in
+								ForEach(0..<Validate().validateArray(get: "steps", detail: detail).count, id: \.self) { i in
 									HStack {
 										Text("\(i + 1) ")
 											.font(.custom("Georgia", size: 25))
 											.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
-											+ Text("\(utils().formatSteps(str: self.detail.content)[i]).")
+											+ Text("\(Validate().validateArray(get: "steps", detail: self.detail)[i]).")
 											.font(.custom("Georgia", size: 18))
 											.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
 										Spacer()
@@ -329,7 +288,7 @@ struct MySubview: View {
 								}.padding(.vertical, 5)
 									.padding(.bottom, 10)
 							} else {
-								Text(errorTest(get: "html"))
+								Text(Validate().errorTest(get: "html", detail: detail))
 									.font(.custom("Georgia", size: 18))
 									.foregroundColor(Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
 									.padding(.vertical, 15)
@@ -351,6 +310,8 @@ struct MySubview: View {
 							.padding(.bottom, 15)
 					}
 					Spacer()
+				}.alert(isPresented: $showingAlert) {
+					Alert(title: Text("Important message"), message: Text("Wear sunscreen"), dismissButton: .default(Text("Got it!")))
 				}
 			}.padding(.top, -70)
 				.onAppear {
@@ -360,14 +321,13 @@ struct MySubview: View {
 					UINavigationBar.appearance().isTranslucent = true
 					UINavigationBar.appearance().tintColor = .white
 					UINavigationBar.appearance().backgroundColor = .clear
-
 					for id in self.spark.profile.saved {
 						if id == self.detail.id {
 							self.heartSelect = true
 							break
 						}
 					}
-				}
+			}
 		}.navigationBarTitle("", displayMode: .inline)
 			.navigationBarBackButtonHidden(true)
 			.navigationBarItems(leading: btnBack, trailing:
@@ -451,9 +411,61 @@ struct MySubview: View {
 
 struct DetailView: View {
 	var detail: dataType
+	@State var alertUser: Bool = false
+	@Environment(\.presentationMode) var presentation
 	var body: some View {
 		GeometryReader { geometry in
-			MySubview(size: geometry.size, detail: self.detail)
+			VStack {
+				if !self.alertUser {
+					MySubview(size: geometry.size, detail: self.detail)
+				} else {
+					//TODO: Add funny 404 image
+					VStack {
+						AnimatedImage(url: URL(string: "https://i.imgur.com/ZlxwqOc.gif"))
+							.resizable()
+							.indicator(SDWebImageActivityIndicator.medium)
+							.transition(.fade)
+							.scaledToFit()
+						Text("A problem occured while formatting this post.")
+							.font(.system(size: 30, weight: .semibold, design: .rounded))
+							.foregroundColor(Color.init(hex: "1B263B"))
+							.padding(.horizontal, 10)
+						Spacer()
+						Button(action: {
+							if let url = URL(string: self.detail.url) {
+								UIApplication.shared.open(url)
+							}
+						}) {
+							Rectangle()
+								.frame(width: geometry.size.width * 0.8, height: 45)
+								.foregroundColor(Color.init(hex: "41a5f7"))
+								.cornerRadius(30)
+								.overlay(
+									Text("Open in Safari")
+										.font(.system(size: 25, weight: .semibold, design: .rounded))
+										.foregroundColor(.white)
+								)
+						}.padding(.bottom,5)
+						Button(action: {
+							self.presentation.wrappedValue.dismiss()
+						}) {
+							Rectangle()
+								.frame(width: geometry.size.width * 0.8, height: 45)
+								.foregroundColor(Color.init(hex: "41a5f7"))
+								.cornerRadius(30)
+								.overlay(
+									Text("Return")
+										.font(.system(size: 25, weight: .semibold, design: .rounded))
+										.foregroundColor(.white)
+								)
+						}.padding(.bottom, 35)
+					}
+				}
+			}
+		}.onAppear() {
+			if (Validate().validateArray(get: "steps", detail: self.detail).count == 0) {
+				self.alertUser.toggle()
+			}
 		}
 	}
 }
@@ -494,7 +506,6 @@ struct cardView: View {
 					Spacer()
 				}
 			}.onAppear {
-
 				self.list.removeAll()
 				let source = "https://italianfoodforever.com/wp-json/wp/v2/posts?_envelope&_fields=id,excerpt,titlecontent,,mv,%20date,link,content,author&include=\(self.$PostID)"
 				let url = URL(string: source)!
