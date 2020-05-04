@@ -9,9 +9,6 @@
 import SwiftUI
 import SwiftyJSON
 import SDWebImageSwiftUI
-import Log
-
-var Log = Logger(formatter: .minimal, theme: nil, minLevel: .info)
 
 struct ContentView: View {
 	@State private var selection: Int = 0
