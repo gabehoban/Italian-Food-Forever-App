@@ -41,13 +41,13 @@ struct privacyTerms: View {
 							let user = Auth.auth().currentUser
 							user?.delete { error in
 								if let error = error {
-									Log.error(error.localizedDescription)
+									utils().LOG(error: error.localizedDescription, value: "", title: "privacyTerms")
 								} else {
-									Log.info("Account deleted")
+									print("Account deleted")
 								}
 							}
-							
-							}, secondaryButton: .cancel())
+
+						}, secondaryButton: .cancel())
 					}
 					Spacer()
 				}

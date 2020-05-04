@@ -37,7 +37,7 @@ struct SparkAuth {
                 // Error. If error.code == .MissingOrInvalidNonce, make sure
                 // you're sending the SHA256-hashed nonce as a hex string with
                 // your request to Apple.
-				Log.error(err.localizedDescription)
+				utils().LOG(error: err.localizedDescription, value: "", title: "SparkAuth // func(signIn)")
                 completion(.failure(err))
                 return
             }

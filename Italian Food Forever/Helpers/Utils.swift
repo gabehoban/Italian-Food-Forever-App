@@ -8,10 +8,10 @@
 
 import SwiftUI
 import Foundation
-import FirebaseCrashlytics
+import Bugsnag
 
 class utils {
-	//MARK: - Title Formatter (Removes "{" and "}")
+	// MARK: - Title Formatter (Removes "{" and "}")
 	func formatTitle(str: String) throws -> String {
 		if str.contains("{") {
 			let str1 = (str.replacingOccurrences(of: "{", with: "(")
@@ -21,7 +21,6 @@ class utils {
 			return str
 		}
 	}
-
 
 	func stripHTML(str: String) throws -> String {
 		let str = (((((str.replacingOccurrences(of: "\n", with: "", options: .regularExpression, range: nil)
@@ -75,8 +74,7 @@ class utils {
 				LOG(error: "Yield Error", value: tmp, title: title)
 				return "N/A"
 			}
-		}
-		else {
+		} else {
 			//ERROR
 			let tmp = strippedStr
 			LOG(error: "Yield Error", value: tmp, title: title)
@@ -98,16 +96,14 @@ class utils {
 			if time[0].prefix(3).contains("H") {
 				let hour = time[0].components(separatedBy: "H")
 				let minutes = hour[1]
-				toReturn = ("\(hour)H  + \(minutes)min")
+				toReturn = ("\(hour[0])H \(minutes)min")
 				return toReturn
 			}
 			// Check if time is valid
 			let num = Int(time[0])
-			if num != nil { }
-			else if time[0].prefix(1).contains("0") {
+			if num != nil { } else if time[0].prefix(1).contains("0") {
 				return "N/A"
-			}
-			else {
+			} else {
 				//ERROR
 				let tmp = time.joined(separator: ", ")
 				LOG(error: "Time Error", value: tmp, title: title)
@@ -250,12 +246,10 @@ class utils {
 		let date = formatter2.string(from: s)
 		return date
 	}
-	
+
 	func LOG(error: String, value: String, title: String) {
-		let userInfo: [AnyHashable : Any] =
-			[NSLocalizedDescriptionKey :  NSLocalizedString(error, value: value, comment: title)]
-		let err = NSError(domain: "Utils()", code: 401, userInfo: userInfo as? [String : Any])
-		Crashlytics.crashlytics().record(error: err)
-		print("\(error) // Value: \n\n\(value)")
+		Bugsnag.notify(NSException(name: NSExceptionName(rawValue: error),
+		                           reason: title,
+		                           userInfo: nil))
 	}
 }

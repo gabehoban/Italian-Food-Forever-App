@@ -358,9 +358,9 @@ struct MySubview: View {
 								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { err in
 									switch err {
 									case .success:
-										Log.debug("Added \(self.detail.id) to saved array -> \(self.spark.profile.saved)")
+										break
 									case .failure(let error):
-										Log.error(error.localizedDescription)
+										utils().LOG(error: error.localizedDescription, value: "", title: "cardView // VIEW")
 									}
 								}
 								self.spark.configureFirebaseStateDidChange()
@@ -375,10 +375,10 @@ struct MySubview: View {
 								self.spark.configureFirebaseStateDidChange()
 								SparkFirestore.mergeProfile(["saved": savedP], uid: self.spark.profile.uid) { err in
 									switch err {
-									case .success:
-										Log.debug("Removed \(self.detail.id) from \(self.spark.profile.saved).")
+									case .success: break
+
 									case .failure(let error):
-										Log.error(error.localizedDescription)
+										utils().LOG(error: error.localizedDescription, value: "", title: "cardView // VIEW")
 									}
 								}
 								self.spark.configureFirebaseStateDidChange()
@@ -429,7 +429,7 @@ struct DetailView: View {
 							.scaledToFit()
 						Text("A problem occured while formatting this post.")
 							.font(.system(size: 30, weight: .semibold, design: .rounded))
-							.foregroundColor(Color.init(hex: "1B263B"))
+							.foregroundColor(Color(hex: "1B263B"))
 							.padding(.horizontal, 10)
 						Spacer()
 						Button(action: {
@@ -439,7 +439,7 @@ struct DetailView: View {
 						}) {
 							Rectangle()
 								.frame(width: geometry.size.width * 0.8, height: 45)
-								.foregroundColor(Color.init(hex: "41a5f7"))
+								.foregroundColor(Color(hex: "41a5f7"))
 								.cornerRadius(30)
 								.overlay(
 									Text("Open in Safari")
@@ -452,7 +452,7 @@ struct DetailView: View {
 						}) {
 							Rectangle()
 								.frame(width: geometry.size.width * 0.8, height: 45)
-								.foregroundColor(Color.init(hex: "41a5f7"))
+								.foregroundColor(Color(hex: "41a5f7"))
 								.cornerRadius(30)
 								.overlay(
 									Text("Return")
@@ -463,8 +463,8 @@ struct DetailView: View {
 					}
 				}
 			}
-		}.onAppear() {
-			if (Validate().validateArray(get: "steps", detail: self.detail).count == 0) {
+		}.onAppear {
+			if Validate().validateArray(get: "steps", detail: self.detail).count == 0 {
 				self.alertUser.toggle()
 			}
 		}
@@ -514,7 +514,7 @@ struct cardView: View {
 				session.dataTask(with: url) { data, _, err in
 
 					if err != nil {
-						Log.error((err?.localizedDescription)!)
+						utils().LOG(error: err!.localizedDescription, value: "", title: "cardView // VIEW")
 						return
 					}
 					let json = try! JSON(data: data!)
