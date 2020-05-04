@@ -18,7 +18,7 @@ struct recipeView: View {
 	let recipe: dataType
 	@State var max = 0
 	func getSteps() -> [String] {
-		var array = Validate().validateArray(get: "ingredients", detail: recipe)
+		var array = Validate().validateArray(get: "steps", detail: recipe)
 		print(array)
 		array.insert(" ", at: 0)
 		array.insert(" ", at: 0)

@@ -14,5 +14,5 @@ if git.modified_files.empty? && git.added_files.empty? && git.deleted_files.empt
   fail "This PR has no changes at all, this is likely an issue during development."
 end
 
-swiftlint.lint_files inline_mode: true
+swiftlint.lint_files
 
