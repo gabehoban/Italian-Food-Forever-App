@@ -98,6 +98,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		211775AD245FAA5C00E6E266 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1D3DF2CCAEFF10C735810C58 /* Pods-Italian Food Forever.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food Forever.debug.xcconfig"; path = "Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever.debug.xcconfig"; sourceTree = "<group>"; };
 		211775A7245F9AC400E6E266 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
@@ -453,6 +466,7 @@
 				21FE87AF2420026200910CF0 /* Frameworks */,
 				21FE87B02420026200910CF0 /* Resources */,
 				60735944B5CEFBE6DDB5D872 /* [CP] Embed Pods Frameworks */,
+				211775AD245FAA5C00E6E266 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

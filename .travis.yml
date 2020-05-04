@@ -12,6 +12,7 @@ env:
 
 before_install:
   - brew install cocoapods
+  - bundle install
   - pod install
 
 install:
@@ -26,3 +27,4 @@ script:
     -scheme "$SCHEME"
     -sdk "$SDK"
     -destination "$DESTINATION" | xcpretty -c
+  - bundle exec danger
