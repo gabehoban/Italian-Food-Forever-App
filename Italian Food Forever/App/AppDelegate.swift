@@ -15,9 +15,17 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+	func getConfig() -> BugsnagConfiguration {
+		let config = BugsnagConfiguration()
+		config.apiKey = "51427e86e9dba57bf2621b460977ce4b"
+		config.automaticallyCollectBreadcrumbs = false
+		return config
+	}
+
+
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		FirebaseApp.configure()
-		Bugsnag.start(withApiKey: "51427e86e9dba57bf2621b460977ce4b")
+		Bugsnag.start(with: getConfig())
 		let cache = SDImageCache(namespace: "tiny")
 		cache.config.maxMemoryCost = 100 * 1_024 * 1_024 // 100MB memory
 		cache.config.maxDiskSize = 50 * 1_024 * 1_024 // 50MB disk

@@ -6,6 +6,7 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
+import Bugsnag
 import HTMLString
 import SDWebImageSwiftUI
 import SPAlert
