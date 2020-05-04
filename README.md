@@ -3,6 +3,9 @@
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/gabehoban/Italian-Food-Forever-App)
 [![Build Status](https://travis-ci.org/gabehoban/Italian-Food-Forever-App.svg?branch=master)](https://travis-ci.org/gabehoban/Italian-Food-Forever-App)
+[![Maintainability](https://api.codeclimate.com/v1/badges/455e47646f3a02d97b0b/maintainability)](https://codeclimate.com/github/gabehoban/Italian-Food-Forever-App/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/455e47646f3a02d97b0b/test_coverage)](https://codeclimate.com/github/gabehoban/Italian-Food-Forever-App/test_coverage)
+[![codebeat badge](https://codebeat.co/badges/2ebf587d-5ae4-479f-bcdb-aca07e2b10b5)](https://codebeat.co/projects/github-com-gabehoban-italian-food-forever-app-develop)
 
 <p align="center">
 <img src="assets/project1.png" alt="Project" width="650"/>

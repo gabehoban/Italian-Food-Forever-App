@@ -7,6 +7,7 @@ env:
     - PROJECT="IFF.xcworkspace"
     - SCHEME="Italian Food Forever"
     - IOS_SDK="iphonesimulator"
+    - CC_TEST_REPORTER_ID=88e4facecca7349f429f5f9f73e71f2aae7cd6aa0e5079c0f7e62b32f86181fc
   matrix:
     - SDK="$IOS_SDK" DESTINATION="platform=iOS Simulator,OS=13.3,name=iPhone 11"
 
@@ -17,7 +18,9 @@ before_install:
 
 install:
   - swift --version
-
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 before_script:
   - set -o pipefail
 
@@ -28,3 +31,6 @@ script:
     -sdk "$SDK"
     -destination "$DESTINATION" | xcpretty -c
   - bundle exec danger
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

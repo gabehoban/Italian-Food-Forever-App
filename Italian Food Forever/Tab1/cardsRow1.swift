@@ -27,7 +27,9 @@ struct cardsRow1: View {
 			return str
 		}
 	}
+
 	@State var loading = true
+
 	func chunked(data: [dataType]) -> [[dataType]] {
 		let chunkedRecipe = data.chunked(into: 2)
 		return chunkedRecipe
