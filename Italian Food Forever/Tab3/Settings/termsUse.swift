@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct termsUse: View {
-	
+
 	let terms =
 """
 Website Terms of Use
@@ -129,7 +129,7 @@ Address: Ann Arbor, MI
 
 Email: admin@italianfoodforever.com
 """
-	
+
 	var body: some View {
 		ScrollView(.vertical) {
 			VStack(spacing: 15) {

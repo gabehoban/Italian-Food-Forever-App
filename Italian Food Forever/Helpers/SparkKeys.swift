@@ -9,11 +9,11 @@
 import Foundation
 
 struct SparkKeys {
-    
+
     struct CollectionPath {
         static let profiles = "profiles"
     }
-    
+
     struct Profile {
         static let uid = "uid"
         static let name = "name"

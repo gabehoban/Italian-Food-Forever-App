@@ -6,8 +6,8 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
 import Foundation
+import SwiftUI
 
 extension View {
 	func hiddenNavigationBarStyle() -> some View {
@@ -25,13 +25,13 @@ extension UIApplication {
 }
 
 extension Profile: DocumentSerializable {
-	
+
 	init?(documentData: [String: Any]) {
 		let uid = documentData[SparkKeys.Profile.uid] as? String ?? ""
 		let name = documentData[SparkKeys.Profile.name] as? String ?? ""
 		let email = documentData[SparkKeys.Profile.email] as? String ?? ""
 		let saved = documentData[SparkKeys.Profile.saved] as? [String] ?? []
-		
+
 		self.init(uid: uid,
 				  name: name,
 				  email: email,
@@ -45,7 +45,7 @@ extension UIColor {
 		assert(blue >= 0 && blue <= 255, "Invalid blue component")
 		self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
 	}
-	
+
 	convenience init(netHex: Int) {
 		self.init(red: (netHex >> 16) & 0xff, green: (netHex >> 8) & 0xff, blue: netHex & 0xff)
 	}
@@ -66,7 +66,7 @@ extension Color {
 			default:
 				(a, r, g, b) = (1, 1, 1, 0)
 		}
-		
+
 		self.init(
 			.sRGB,
 			red: Double(r) / 255,

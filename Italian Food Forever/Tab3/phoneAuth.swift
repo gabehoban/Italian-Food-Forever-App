@@ -6,8 +6,9 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
 import Firebase
+import FirebaseAuth
+import SwiftUI
 
 class Status: ObservableObject {
 	@Published var end: Bool = false
@@ -46,11 +47,11 @@ struct phoneAuth_Previews: PreviewProvider {
 
 // MARK: - PhoneAuth getPhoneNumber
 struct FirstPage: View {
-	
+
 	@EnvironmentObject var spark: Spark
 	@Environment(\.presentationMode) var presentation
 	@ObservedObject var status = Status()
-	
+
 	@State var show = false
 	@State var done: Bool
 	@State var ccode = ""

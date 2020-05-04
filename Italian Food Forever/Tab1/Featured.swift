@@ -6,12 +6,12 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
+import DSSwiftUIKit
+import HTMLString
+import SDWebImageSwiftUI
 import SwiftUI
 import SwiftyJSON
-import SDWebImageSwiftUI
 import WebKit
-import HTMLString
-import DSSwiftUIKit
 
 struct InfoView: Identifiable {
 	var id: Int
@@ -31,7 +31,7 @@ struct subFeatured: View {
 		}
 	}
 
-	@ObservedObject private var list = getData(newUrl: "posts?per_page=1&categories_exclude=7&_fields=id,excerpt,title,content,mv,%20date,link&_envelope")
+	@ObservedObject private var list = getData(newUrl: "per_page=1&categories_exclude=7&_fields=id,excerpt,title,content,mv,%20date,link&_envelope", offset: 0, delay: 0.0)
 
 	var body: some View {
 		VStack {
@@ -82,6 +82,7 @@ struct subFeatured: View {
 								.multilineTextAlignment(.leading)
 								.padding(.horizontal, 32)
 								.lineLimit(3)
+								.accessibility(label: Text("Box1"))
 							Spacer()
 						}.padding(.top, 325)
 					}

@@ -25,7 +25,7 @@ public class recipeFetcher: ObservableObject {
 		//string is the initial string of the station name
 		let task = URLSession.shared.dataTask(with: url!) { data, _, error in
 			if error != nil {
-				Log.error((error?.localizedDescription)!)
+				utils().LOG(error: error!.localizedDescription, value: "", title: "RecipeFetcher getJsonData")
 				return
 			}
 
@@ -40,7 +40,7 @@ public class recipeFetcher: ObservableObject {
 				//string is the initial string of the station name
 				let taskFull = URLSession.shared.dataTask(with: urlFull!) { data, _, error in
 					if error != nil {
-						Log.error((error?.localizedDescription)!)
+						utils().LOG(error: error!.localizedDescription, value: "", title: "RecipeFetcher getJsonData")
 						return
 					}
 					let json = try! JSON(data: data!)

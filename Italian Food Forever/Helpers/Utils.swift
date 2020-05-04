@@ -6,10 +6,12 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
+import Bugsnag
 import Foundation
+import SwiftUI
 
 class utils {
+	// MARK: - Title Formatter (Removes "{" and "}")
 	func formatTitle(str: String) throws -> String {
 		if str.contains("{") {
 			let str1 = (str.replacingOccurrences(of: "{", with: "(")
@@ -35,151 +37,104 @@ class utils {
 	}
 
 	func formatYield(str: String, title: String) throws -> String {
-		let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
-		let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-		let notHTML = str.components(separatedBy: "context")
-		if notHTML.count == 1 {
-			let datePublished = notHTML[0].components(separatedBy: title.removingHTMLEntities)
-			if datePublished[0].contains("Yield:") {
-				let frontYield = datePublished[0].components(separatedBy: "Prep Time:")
-				let sanitizedY = ((frontYield[0].replacingOccurrences(of: "\n", with: ""))
-					.replacingOccurrences(of: "\t", with: ""))
-				let yield = sanitizedY.components(separatedBy: "Yield:")
-				return yield[1]
-			} else if datePublished[1].contains("Yield:") {
-				let frontYield = datePublished[1].components(separatedBy: "Prep Time:")
-				let sanitizedY = ((frontYield[0].replacingOccurrences(of: "\n", with: ""))
-					.replacingOccurrences(of: "\t", with: ""))
-				let yield = sanitizedY.components(separatedBy: "Yield:")
-				return yield[1]
-			} else if datePublished[2].contains("Yield:") {
-				let frontYield = datePublished[2].components(separatedBy: "Prep Time:")
-				let sanitizedY = ((frontYield[0].replacingOccurrences(of: "\n", with: ""))
-					.replacingOccurrences(of: "\t", with: ""))
-				let yield = sanitizedY.components(separatedBy: "Yield:")
-				return yield[1]
-			} else if datePublished[3].contains("Yield:") {
-				let frontYield = datePublished[3].components(separatedBy: "Prep Time:")
-				let sanitizedY = ((frontYield[0].replacingOccurrences(of: "\n", with: ""))
-					.replacingOccurrences(of: "\t", with: ""))
-				let yield = sanitizedY.components(separatedBy: "Yield:")
-				return yield[1]
+		var toReturn = ""
+		let strippedStr = (((str.replacingOccurrences(of: "</p>", with: "")
+			.replacingOccurrences(of: "\n", with: ""))
+			.replacingOccurrences(of: "\t", with: ""))
+			.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil))
+		if strippedStr.contains("Serves ") {
+			let brokenStr = strippedStr.components(separatedBy: "Serves ")
+			if brokenStr[1].contains("Prep Time") {
+				let yield = brokenStr[1].components(separatedBy: "Prep Time")
+				let fullYield = "Serves \(yield[0])"
+				toReturn = fullYield
+			} else if brokenStr[1].contains("Cook Time") {
+				let yield = brokenStr[1].components(separatedBy: "Cook Time")
+				let fullYield = "Serves \(yield[0])"
+				toReturn = fullYield
+			} else if brokenStr[1].contains("\",\"") {
+				let yield = brokenStr[1].components(separatedBy: "\",\"")
+				let fullYield = "Serves \(yield[0])"
+				toReturn = fullYield
 			} else {
-				return ""
+				//ERROR
+				let tmp = brokenStr.joined(separator: ", ")
+				LOG(error: "Yield Error", value: tmp, title: title)
+				return "N/A"
+			}
+		} else if strippedStr.contains("Yield: ") {
+			let brokenStr = strippedStr.components(separatedBy: "Yield: ")
+			if brokenStr[1].contains("Prep Time") {
+				let yield = brokenStr[1].components(separatedBy: "Prep Time")
+				let fullYield = "\(yield[0])"
+				toReturn = fullYield
+			} else {
+				//ERROR
+				let tmp = brokenStr.joined(separator: ", ")
+				LOG(error: "Yield Error", value: tmp, title: title)
+				return "N/A"
 			}
 		} else {
-			let nothtml = notHTML[1]
-			let frontYield = (nothtml.replacingOccurrences(of: "\\", with: "")
-				.components(separatedBy: "\",\"description"))
-			let yield = frontYield[0].components(separatedBy: "recipeYield\":\"")
-			if yield[1].contains("image") {
-				let returnYield = yield[1].components(separatedBy: "\",")
-				return returnYield[0]
-			} else {
-				let returnYield = yield[1]
-				return returnYield
-			}
+			//ERROR
+			let tmp = strippedStr
+			LOG(error: "Yield Error", value: tmp, title: title)
+			return "N/A"
 		}
+		return toReturn
 
 	}
 
 	func formatTime(str: String, title: String) throws -> String {
-		let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
-		let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-		let notHTML = str.components(separatedBy: "context")
-		if notHTML.count == 1 {
-			let datePublished = notHTML[0].components(separatedBy: title.removingHTMLEntities)
-			if datePublished.firstIndex(of: "Total Time:") != nil {
-				if datePublished[1].contains("Cook Time:") {
-					let frontYield = datePublished[1].components(separatedBy: "Cook Time:")
-					let sanitizedY = ((frontYield[1].replacingOccurrences(of: "\n", with: ""))
-						.replacingOccurrences(of: "\t", with: ""))
-					let yield = sanitizedY.components(separatedBy: "minutes")
-					let toReturn = yield[0] + " min"
-					return toReturn
-				}
+		var toReturn = ""
+		let strippedStr = (((str.replacingOccurrences(of: "</p>", with: "")
+			.replacingOccurrences(of: "\n", with: ""))
+			.replacingOccurrences(of: "\t", with: ""))
+			.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil))
+		if strippedStr.contains("\"totalTime\":\"PT") {
+			let brokenStr = strippedStr.components(separatedBy: "\"totalTime\":\"PT")
+			let time = brokenStr[1].components(separatedBy: "M")
+			if time[0].prefix(3).contains("H") {
+				let hour = time[0].components(separatedBy: "H")
+				let minutes = hour[1]
+				toReturn = ("\(hour[0])H \(minutes)min")
+				return toReturn
 			}
-			if datePublished[0].contains("Total Time:") {
-				let frontYield = datePublished[0].components(separatedBy: "Total Time:")
-				let sanitizedY = ((frontYield[1].replacingOccurrences(of: "\n", with: ""))
-					.replacingOccurrences(of: "\t", with: ""))
-				if (sanitizedY.prefix(15)).contains("minutes") {
-					let yield = sanitizedY.components(separatedBy: "minutes")
-					let toReturn = yield[0] + " min"
-					return toReturn
-				} else if (sanitizedY.prefix(15)).contains("hour") {
-					let yield = sanitizedY.components(separatedBy: "hour")
-					let toReturn = yield[0] + " hour"
-					return toReturn
-				} else {
-					return ""
-				}
-			} else if datePublished[1].contains("Total Time:") {
-				let frontYield = datePublished[1].components(separatedBy: "Total Time:")
-				let sanitizedY = ((frontYield[1].replacingOccurrences(of: "\n", with: ""))
-					.replacingOccurrences(of: "\t", with: ""))
-				if (sanitizedY.prefix(15)).contains("minutes") {
-					let yield = sanitizedY.components(separatedBy: "minutes")
-					let toReturn = yield[0] + " min"
-					return toReturn
-				} else if (sanitizedY.prefix(15)).contains("hour") {
-					let yield = sanitizedY.components(separatedBy: "hour")
-					let toReturn = yield[0] + " hour"
-					return toReturn
-				} else {
-					return ""
-				}
-			} else if datePublished[2].contains("Total Time:") {
-				let frontYield = datePublished[2].components(separatedBy: "Total Time:")
-				let sanitizedY = ((frontYield[1].replacingOccurrences(of: "\n", with: ""))
-					.replacingOccurrences(of: "\t", with: ""))
-				if (sanitizedY.prefix(15)).contains("minutes") {
-					let yield = sanitizedY.components(separatedBy: "minutes")
-					let toReturn = yield[0] + " min"
-					return toReturn
-				} else if (sanitizedY.prefix(15)).contains("hour") {
-					let yield = sanitizedY.components(separatedBy: "hour")
-					let toReturn = yield[0] + " hour"
-					return toReturn
-				} else {
-					return ""
-				}
-			} else if datePublished[3].contains("Total Time:") {
-				let frontYield = datePublished[3].components(separatedBy: "Total Time:")
-				let sanitizedY = ((frontYield[1].replacingOccurrences(of: "\n", with: ""))
-					.replacingOccurrences(of: "\t", with: ""))
-				if (sanitizedY.prefix(15)).contains("minutes") {
-					let yield = sanitizedY.components(separatedBy: "minutes")
-					let toReturn = yield[0] + " min"
-					return toReturn
-				} else if (sanitizedY.prefix(15)).contains("hour") {
-					let yield = sanitizedY.components(separatedBy: "hour")
-					let toReturn = yield[0] + " hour"
-					return toReturn
-				} else {
-					return ""
-				}
+			// Check if time is valid
+			let num = Int(time[0])
+			if num != nil { } else if time[0].prefix(1).contains("0") {
+				return "N/A"
 			} else {
-				return ""
+				//ERROR
+				let tmp = time.joined(separator: ", ")
+				LOG(error: "Time Error", value: tmp, title: title)
+				return "N/A"
+			}
+			let fullTime = time[0] + "min"
+			return fullTime
+		} else if strippedStr.contains("Total Time: ") {
+			let brokenStr = strippedStr.components(separatedBy: "Total Time: ")
+			if brokenStr[1].contains("hour") {
+				let time = brokenStr[1].components(separatedBy: "hour")
+				toReturn = "\(time[0]) Hour"
+			} else if brokenStr[1].contains("minutes") {
+				let time = brokenStr[1].components(separatedBy: "minutes")
+				toReturn = "\(time[0])min"
+			} else {
+				//ERROR
+				let tmp = brokenStr.joined(separator: ", ")
+				LOG(error: "Time Error", value: tmp, title: title)
+				return "N/A"
 			}
 		} else {
-			let nothtml = notHTML[1]
-			let frontYield = ((((nothtml.replacingOccurrences(of: "\\", with: ""))
-				.replacingOccurrences(of: "PT", with: ""))
-				.replacingOccurrences(of: "M", with: " min"))
-				.components(separatedBy: "\",\"recipeIngredient"))
-			let yield = frontYield[0].components(separatedBy: "totalTime\":\"")
-			if yield[1].contains("image") {
-				let returnYield = yield[1].components(separatedBy: "\",")
-				return returnYield[0]
-			} else {
-				let returnYield = yield[1]
-				return returnYield
-			}
+			// ERROR
+			let tmp = strippedStr
+			LOG(error: "Time Error", value: tmp, title: title)
+			return "N/A"
 		}
+		return toReturn
 	}
 
-	func formatIngredients(str: String) -> [String] {
+	func formatIngredients(str: String) throws -> [String] {
 		let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
 		let str = str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
 		let notHTML = str.components(separatedBy: "context")
@@ -213,12 +168,16 @@ class utils {
 			return toReturn
 		}
 	}
-	
-	func formatSteps(str: String) -> [String] {
+
+	func formatSteps(str: String) throws -> [String] {
 		let str1 = str.replacingOccurrences(of: "</p>", with: "\n")
 		let str = (str1.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil).replacingOccurrences(of: "\\u2028", with: ""))
 		let notHTML = str.components(separatedBy: "context")
 		if notHTML.count == 1 {
+			// To guard against blog posts
+			if !notHTML[0].contains("Nutrition Information:") {
+				return []
+			}
 			let datePublished = notHTML[0].components(separatedBy: "Instructions")
 			let frontIngredients = datePublished[1].components(separatedBy: "Nutrition Information:")
 			let Ingredients = frontIngredients[0].components(separatedBy: "recipeInstructions\":")
@@ -277,7 +236,7 @@ class utils {
 
 		}
 	}
-	
+
 	func formatDate(posted: String) throws -> String {
 		let formatter1 = DateFormatter()
 		let formatter2 = DateFormatter()
@@ -286,5 +245,11 @@ class utils {
 		formatter2.dateStyle = .short
 		let date = formatter2.string(from: s)
 		return date
+	}
+
+	func LOG(error: String, value: String, title: String) {
+		Bugsnag.notify(NSException(name: NSExceptionName(rawValue: error),
+		                           reason: title,
+		                           userInfo: nil))
 	}
 }

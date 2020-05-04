@@ -6,16 +6,16 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
-import FirebaseAuth
 import CryptoKit
+import FirebaseAuth
+import SwiftUI
 
 struct SparkAuth {
-    
+
     struct providerID {
         static let apple = "apple.com"
     }
-    
+
     static func logout(completion: @escaping (Result<Bool, Error>) -> Void) {
         let auth = Auth.auth()
         do {
@@ -25,7 +25,7 @@ struct SparkAuth {
             completion(.failure(err))
         }
     }
-    
+
     static func signIn(providerID: String, idTokenString: String, nonce: String, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
         // Initialize a Firebase credential.
         let credential = OAuthProvider.credential(withProviderID: providerID,
@@ -37,7 +37,7 @@ struct SparkAuth {
                 // Error. If error.code == .MissingOrInvalidNonce, make sure
                 // you're sending the SHA256-hashed nonce as a hex string with
                 // your request to Apple.
-				Log.error(err.localizedDescription)
+				utils().LOG(error: err.localizedDescription, value: "", title: "SparkAuth // func(signIn)")
                 completion(.failure(err))
                 return
             }
@@ -49,10 +49,10 @@ struct SparkAuth {
             completion(.success(authDataResult))
         }
     }
-    
+
     static func handle(_ signInWithAppleResult: SignInWithAppleResult, completion: @escaping (Result<Bool, Error>) -> Void) {
         let uid = signInWithAppleResult.authDataResult.user.uid
-        
+
       var name = ""
         let fullName = signInWithAppleResult.appleIDCredential.fullName
         let givenName = fullName?.givenName ?? ""
@@ -69,11 +69,11 @@ struct SparkAuth {
       if name == "" {
         name = signInWithAppleResult.appleIDCredential.fullName?.nickname ?? ""
       }
-        
+
         let email = signInWithAppleResult.authDataResult.user.email ?? ""
-        
+
         var data: [String: Any]
-        
+
         if name != "" {
             data = [
                 SparkKeys.Profile.uid: uid,
@@ -86,12 +86,12 @@ struct SparkAuth {
                 SparkKeys.Profile.email: email
             ]
         }
-        
+
         SparkFirestore.mergeProfile(data, uid: uid) { result in
             completion(result)
         }
     }
-    
+
     // Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
     static func randomNonceString(length: Int = 32) -> String {
         precondition(length > 0)
@@ -99,7 +99,7 @@ struct SparkAuth {
             Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
         var result = ""
         var remainingLength = length
-        
+
         while remainingLength > 0 {
             let randoms: [UInt8] = (0 ..< 16).map { _ in
                 var random: UInt8 = 0
@@ -109,22 +109,22 @@ struct SparkAuth {
                 }
                 return random
             }
-            
+
             randoms.forEach { random in
                 if length == 0 {
                     return
                 }
-                
+
                 if random < charset.count {
                     result.append(charset[Int(random)])
                     remainingLength -= 1
                 }
             }
         }
-        
+
         return result
     }
-    
+
     @available(iOS 13, *)
     static func sha256(_ input: String) -> String {
         let inputData = Data(input.utf8)

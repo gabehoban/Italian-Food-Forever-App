@@ -5,10 +5,10 @@
 //  Created by Gabriel Hoban on 3/25/20.
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
-import SwiftUI
 import FASwiftUI
 import MessageUI
 import StoreKit
+import SwiftUI
 
 struct subSettings: View {
 	@State var isLoggedOut: Bool = false
@@ -111,10 +111,10 @@ struct subSettings: View {
 							SparkAuth.logout { err in
 								switch err {
 								case .success:
-									Log.info("\(self.spark.profile.uid) - \(self.spark.profile.name) has Logged Out.")
+									print(" \(self.spark.profile.name) has Logged Out.")
 									UserDefaults.standard.set(false, forKey: "status")
-									case .failure(let error):
-										Log.error(error.localizedDescription)
+								case .failure(let error):
+									utils().LOG(error: error.localizedDescription, value: "", title: "sparkAuth Logout")
 								}
 							}
 						}) {
@@ -125,11 +125,11 @@ struct subSettings: View {
 					}
 				}
 			}.listStyle(GroupedListStyle())
-			.environment(\.horizontalSizeClass, .regular)
-			.navigationBarTitle(Text("Settings"))
+				.environment(\.horizontalSizeClass, .regular)
+				.navigationBarTitle(Text("Settings"))
 			Spacer()
 			footer()
-			.background(Color(UIColor.systemGray6))
+				.background(Color(UIColor.systemGray6))
 		}.background(Color(UIColor.systemGray6))
 	}
 }
@@ -202,7 +202,7 @@ struct featureMailView: UIViewControllerRepresentable {
 
 	func makeCoordinator() -> Coordinator {
 		Coordinator(presentation: presentation,
-		                   result: $result)
+		            result: $result)
 	}
 
 	func makeUIViewController(context: UIViewControllerRepresentableContext<featureMailView>) -> MFMailComposeViewController {
@@ -268,7 +268,7 @@ struct problemMailView: UIViewControllerRepresentable {
 
 	func makeCoordinator() -> Coordinator {
 		Coordinator(presentation: presentation,
-		                   result: $result)
+		            result: $result)
 	}
 
 	func makeUIViewController(context: UIViewControllerRepresentableContext<problemMailView>) -> MFMailComposeViewController {

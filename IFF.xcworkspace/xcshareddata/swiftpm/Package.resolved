@@ -2,21 +2,21 @@
   "object": {
     "pins": [
       {
-        "package": "FancyScrollView",
-        "repositoryURL": "https://github.com/nerdsupremacist/FancyScrollView",
-        "state": {
-          "branch": null,
-          "revision": "d9c594d7d6b43f6ea3288c5fa17cd2e96af832ad",
-          "version": "0.1.2"
-        }
-      },
-      {
         "package": "FASwiftUI",
         "repositoryURL": "https://github.com/mattmaddux/FASwiftUI.git",
         "state": {
           "branch": null,
           "revision": "2e043ec545724b56df7117829f08344da4b00031",
           "version": "1.0.4"
+        }
+      },
+      {
+        "package": "HTMLString",
+        "repositoryURL": "https://github.com/alexaubry/HTMLString",
+        "state": {
+          "branch": null,
+          "revision": "373048cc4084dd7481c86e3bee41612eff93b14d",
+          "version": "5.0.0"
         }
       },
       {
@@ -29,12 +29,48 @@
         }
       },
       {
+        "package": "Lottie",
+        "repositoryURL": "https://github.com/airbnb/lottie-ios",
+        "state": {
+          "branch": null,
+          "revision": "4e5877425dae5c10792fc9d22d53dc6bf6824dc1",
+          "version": "3.1.8"
+        }
+      },
+      {
         "package": "QGrid",
         "repositoryURL": "https://github.com/Q-Mobile/QGrid",
         "state": {
           "branch": null,
           "revision": "804e59f8cb9f66b226685e9369fb82029742b83a",
           "version": "0.1.4"
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": null,
+          "revision": "39370d1af85734dffe0e3f89b389976da461be3f",
+          "version": "5.7.3"
+        }
+      },
+      {
+        "package": "SDWebImageSwiftUI",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImageSwiftUI",
+        "state": {
+          "branch": null,
+          "revision": "82ae39a3919afa3d45ce1acd48048d5fa9d5e566",
+          "version": "1.3.4"
+        }
+      },
+      {
+        "package": "SwiftyJSON",
+        "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON",
+        "state": {
+          "branch": null,
+          "revision": "2b6054efa051565954e1d2b9da831680026cd768",
+          "version": "5.0.0"
         }
       }
     ]

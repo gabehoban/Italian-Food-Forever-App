@@ -6,14 +6,16 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
+import Bugsnag
 import Combine
-import SwiftyJSON
 import Foundation
 import SDWebImageSwiftUI
+import SwiftUI
+import SwiftyJSON
 
 struct buttonLabel: View {
 	let color: Color
+
 	@State var title: String = ""
 	func dynLength(title: String) -> CGFloat {
 		if title.count > 8 {
@@ -45,6 +47,7 @@ struct Search: View {
 	@ObservedObject var fetcher = recipeFetcher(search: "")
 	@State var searchID: String = ""
 	@State var buttonPadding: CGFloat = 1
+
 	func formatDate(posted: String) -> String {
 		let formatter1 = DateFormatter()
 		let formatter2 = DateFormatter()
@@ -66,7 +69,8 @@ struct Search: View {
 				Spacer()
 			}
 			HStack {
-				Image(systemName: "magnifyingglass").foregroundColor(.gray)
+				Image(systemName: "magnifyingglass")
+					.foregroundColor(.gray)
 					.scaleEffect(1)
 					.padding(.trailing, 5)
 					.padding(.leading, 15)
@@ -77,6 +81,7 @@ struct Search: View {
 					          self.displayRes = true
 				          }, onCommit: {
 					          self.fetcher.getJsonData(string: self.text)
+
 				          }).frame(height: 50.0)
 				Spacer()
 				Button(action: {
@@ -132,7 +137,7 @@ struct Search: View {
 				}.padding(.top, 30)
 					.animation(Animation.easeInOut(duration: 1).delay(0.8))
 			} else {
-				
+
 				VStack {
 					HStack {
 						Text("Meal")
@@ -202,7 +207,7 @@ struct Search: View {
 							.multilineTextAlignment(.leading)
 						Spacer()
 					}.padding(.leading, 20)
-					
+
 					// MARK: - First Line of Categories
 					HStack {
 						Button(action: {
@@ -210,7 +215,7 @@ struct Search: View {
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
 							buttonLabel(color: Color(hex: "342E37"), title: "Apple")
-							
+
 						})
 						Button(action: {
 							self.text = "Beef "
@@ -226,7 +231,7 @@ struct Search: View {
 						}).padding(.leading, buttonPadding)
 						Spacer()
 					}.padding(.leading, 20)
-					
+
 					// MARK: - Second Line of Categories
 					HStack {
 						Button(action: {
@@ -234,7 +239,7 @@ struct Search: View {
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
 							buttonLabel(color: Color(hex: "342E37"), title: "Chicken")
-							
+
 						})
 						Button(action: {
 							self.text = "Fruit"
@@ -262,7 +267,7 @@ struct Search: View {
 							.multilineTextAlignment(.leading)
 						Spacer()
 					}.padding(.leading, 20)
-					
+
 					// MARK: - First Line of Categories
 					HStack {
 						Button(action: {
@@ -270,7 +275,7 @@ struct Search: View {
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
 							buttonLabel(color: Color(hex: "6F8F72"), title: "Winter")
-							
+
 						})
 						Button(action: {
 							self.text = "Spring "
@@ -286,7 +291,7 @@ struct Search: View {
 						}).padding(.leading, buttonPadding)
 						Spacer()
 					}.padding(.leading, 20)
-					
+
 					// MARK: - Second Line of Categories
 					HStack {
 						Button(action: {
@@ -294,7 +299,7 @@ struct Search: View {
 							self.fetcher.getJsonData(string: self.text)
 						}, label: {
 							buttonLabel(color: Color(hex: "6F8F72"), title: "Fall")
-							
+
 						})
 						Spacer()
 					}.padding(.top, 5)
@@ -302,13 +307,6 @@ struct Search: View {
 				}.padding(.top, 10)
 			}
 			Spacer()
-		}.onAppear {
-			if self.text != "" {
-				//self.fetcher.getJsonData(string: self.text)
-				self.displayRes = true
-			} else {
-				self.displayRes = false
-			}
 		}
 	}
 }

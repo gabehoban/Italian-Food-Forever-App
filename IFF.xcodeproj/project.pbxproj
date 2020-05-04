@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211775A2245F918C00E6E266 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 211775A1245F918C00E6E266 /* Lottie */; };
+		211775A8245F9AC400E6E266 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 211775A7245F9AC400E6E266 /* loading.json */; };
 		211BBCF324299B6C004F345D /* IntroDemoCond-LightCAPS.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCF224299B6C004F345D /* IntroDemoCond-LightCAPS.otf */; };
 		211BBCF524299C8F004F345D /* AvertaDemoPE-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCF424299C8E004F345D /* AvertaDemoPE-Regular.otf */; };
 		211BBCFF2429A68B004F345D /* uniformextracondensed-medium-webfont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */; };
@@ -14,6 +16,9 @@
 		212877862444C8C70081060C /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212877852444C8C70081060C /* SnapshotHelper.swift */; };
 		213CF7A1242C0FC2009E9CDC /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CF7A0242C0FC2009E9CDC /* Search.swift */; };
 		213CF7A5242C5718009E9CDC /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CF7A4242C5717009E9CDC /* settings.swift */; };
+		214BCE0F245EF5E40099E1BB /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 214BCE0E245EF5E40099E1BB /* SwiftyJSON */; };
+		214BCE12245EF5F70099E1BB /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 214BCE11245EF5F70099E1BB /* SDWebImageSwiftUI */; };
+		214BCE15245EF6290099E1BB /* HTMLString in Frameworks */ = {isa = PBXBuildFile; productRef = 214BCE14245EF6290099E1BB /* HTMLString */; };
 		21537FA72427FA780034A75A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FA62427FA780034A75A /* Login.swift */; };
 		21537FA92427FB690034A75A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21537FA82427FB690034A75A /* GoogleService-Info.plist */; };
 		21537FAA2427FB690034A75A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21537FA82427FB690034A75A /* GoogleService-Info.plist */; };
@@ -33,7 +38,7 @@
 		21537FCA2427FEB70034A75A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBB2427FEB70034A75A /* ProfileView.swift */; };
 		21537FCB2427FEB70034A75A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBC2427FEB70034A75A /* SignInView.swift */; };
 		21537FCC2427FEB70034A75A /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537FBD2427FEB70034A75A /* LaunchScreenView.swift */; };
-		215B1CF0244C8AE50004E432 /* FancyScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 215B1CEF244C8AE50004E432 /* FancyScrollView */; };
+		21590DE9245DE97F00EA3DD2 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21590DE8245DE97F00EA3DD2 /* Validate.swift */; };
 		215C9028243165B3002678FA /* getJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215C9027243165B3002678FA /* getJSON.swift */; };
 		2167DB6324310C8C0071BE14 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6224310C8C0071BE14 /* Checklist.swift */; };
 		2167DB6524310CE90071BE14 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167DB6424310CE90071BE14 /* Extensions.swift */; };
@@ -93,8 +98,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		211775AD245FAA5C00E6E266 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1D3DF2CCAEFF10C735810C58 /* Pods-Italian Food Forever.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Italian Food Forever.debug.xcconfig"; path = "Target Support Files/Pods-Italian Food Forever/Pods-Italian Food Forever.debug.xcconfig"; sourceTree = "<group>"; };
+		211775A7245F9AC400E6E266 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		211BBCF224299B6C004F345D /* IntroDemoCond-LightCAPS.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IntroDemoCond-LightCAPS.otf"; sourceTree = "<group>"; };
 		211BBCF424299C8E004F345D /* AvertaDemoPE-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvertaDemoPE-Regular.otf"; sourceTree = "<group>"; };
 		211BBCFE2429A68B004F345D /* uniformextracondensed-medium-webfont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "uniformextracondensed-medium-webfont.otf"; sourceTree = "<group>"; };
@@ -121,6 +140,7 @@
 		21537FBC2427FEB70034A75A /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		21537FBD2427FEB70034A75A /* LaunchScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		21537FCD242806610034A75A /* Italian Food Forever.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Italian Food Forever.entitlements"; sourceTree = "<group>"; };
+		21590DE8245DE97F00EA3DD2 /* Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		215C9027243165B3002678FA /* getJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getJSON.swift; sourceTree = "<group>"; };
 		2167DB6224310C8C0071BE14 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		2167DB6424310CE90071BE14 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -177,9 +197,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				214BCE12245EF5F70099E1BB /* SDWebImageSwiftUI in Frameworks */,
+				211775A2245F918C00E6E266 /* Lottie in Frameworks */,
 				217F79D72445466B00D07E76 /* Ink in Frameworks */,
 				7B96F171398C20A5A4BC8224 /* Pods_Italian_Food_Forever.framework in Frameworks */,
-				215B1CF0244C8AE50004E432 /* FancyScrollView in Frameworks */,
+				214BCE0F245EF5E40099E1BB /* SwiftyJSON in Frameworks */,
+				214BCE15245EF6290099E1BB /* HTMLString in Frameworks */,
 				21D8ABE2243F8026000BFEAC /* FASwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +258,7 @@
 				21537FB22427FEB30034A75A /* Typealiases.swift */,
 				21537FB32427FEB30034A75A /* ActivityIndicatorView.swift */,
 				2167DB6C2431156A0071BE14 /* Utils.swift */,
+				21590DE8245DE97F00EA3DD2 /* Validate.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -318,6 +342,7 @@
 				21C008C8242177F700412ABB /* Discover.swift */,
 				216D96932422E2F300F0CBB6 /* Featured.swift */,
 				21B802762422B71400BED86A /* cardsRow1.swift */,
+				211775A7245F9AC400E6E266 /* loading.json */,
 			);
 			path = Tab1;
 			sourceTree = "<group>";
@@ -441,6 +466,7 @@
 				21FE87AF2420026200910CF0 /* Frameworks */,
 				21FE87B02420026200910CF0 /* Resources */,
 				60735944B5CEFBE6DDB5D872 /* [CP] Embed Pods Frameworks */,
+				211775AD245FAA5C00E6E266 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -450,7 +476,10 @@
 			packageProductDependencies = (
 				21D8ABE1243F8026000BFEAC /* FASwiftUI */,
 				217F79D62445466B00D07E76 /* Ink */,
-				215B1CEF244C8AE50004E432 /* FancyScrollView */,
+				214BCE0E245EF5E40099E1BB /* SwiftyJSON */,
+				214BCE11245EF5F70099E1BB /* SDWebImageSwiftUI */,
+				214BCE14245EF6290099E1BB /* HTMLString */,
+				211775A1245F918C00E6E266 /* Lottie */,
 			);
 			productName = "Italian Food Forever";
 			productReference = 21FE87B22420026200910CF0 /* Italian Food Forever.app */;
@@ -530,7 +559,10 @@
 			packageReferences = (
 				21D8ABE0243F8026000BFEAC /* XCRemoteSwiftPackageReference "FASwiftUI" */,
 				217F79D52445466B00D07E76 /* XCRemoteSwiftPackageReference "Ink" */,
-				215B1CEE244C8AE50004E432 /* XCRemoteSwiftPackageReference "FancyScrollView" */,
+				214BCE0D245EF5E40099E1BB /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				214BCE10245EF5F70099E1BB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				214BCE13245EF6290099E1BB /* XCRemoteSwiftPackageReference "HTMLString" */,
+				211775A0245F918C00E6E266 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 21FE87B32420026200910CF0 /* Products */;
 			projectDirPath = "";
@@ -562,6 +594,7 @@
 				21FE87BF2420026400910CF0 /* Assets.xcassets in Resources */,
 				21537FA92427FB690034A75A /* GoogleService-Info.plist in Resources */,
 				211BBCF524299C8F004F345D /* AvertaDemoPE-Regular.otf in Resources */,
+				211775A8245F9AC400E6E266 /* loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +759,7 @@
 				21FE87B82420026300910CF0 /* SceneDelegate.swift in Sources */,
 				21D4CF71242EB1E200B47582 /* phoneAuth.swift in Sources */,
 				2167DB6A24310EE80071BE14 /* networkManagers.swift in Sources */,
+				21590DE9245DE97F00EA3DD2 /* Validate.swift in Sources */,
 				213CF7A5242C5718009E9CDC /* settings.swift in Sources */,
 				21B6CBCC242D7E7A0000FA7E /* privacyPolicy.swift in Sources */,
 				217F8370243FF3AC0021C2F4 /* ChangeLog.swift in Sources */,
@@ -814,7 +848,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -911,6 +945,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Italian Food Forever/Italian Food Forever.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"Italian Food Forever/Preview Content\"";
 				DEVELOPMENT_TEAM = YV98CCJ4M2;
 				ENABLE_PREVIEWS = YES;
@@ -1084,12 +1119,36 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		215B1CEE244C8AE50004E432 /* XCRemoteSwiftPackageReference "FancyScrollView" */ = {
+		211775A0245F918C00E6E266 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nerdsupremacist/FancyScrollView";
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
+				minimumVersion = 3.1.8;
+			};
+		};
+		214BCE0D245EF5E40099E1BB /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		214BCE10245EF5F70099E1BB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.4;
+			};
+		};
+		214BCE13245EF6290099E1BB /* XCRemoteSwiftPackageReference "HTMLString" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexaubry/HTMLString";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 		217F79D52445466B00D07E76 /* XCRemoteSwiftPackageReference "Ink" */ = {
@@ -1111,10 +1170,25 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		215B1CEF244C8AE50004E432 /* FancyScrollView */ = {
+		211775A1245F918C00E6E266 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 215B1CEE244C8AE50004E432 /* XCRemoteSwiftPackageReference "FancyScrollView" */;
-			productName = FancyScrollView;
+			package = 211775A0245F918C00E6E266 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		214BCE0E245EF5E40099E1BB /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 214BCE0D245EF5E40099E1BB /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		214BCE11245EF5F70099E1BB /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 214BCE10245EF5F70099E1BB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		214BCE14245EF6290099E1BB /* HTMLString */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 214BCE13245EF6290099E1BB /* XCRemoteSwiftPackageReference "HTMLString" */;
+			productName = HTMLString;
 		};
 		217F79D62445466B00D07E76 /* Ink */ = {
 			isa = XCSwiftPackageProductDependency;

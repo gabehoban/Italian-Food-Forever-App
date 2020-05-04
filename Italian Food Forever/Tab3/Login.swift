@@ -6,11 +6,11 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
-import Foundation
+import AudioToolbox
 import Combine
 import Firebase
-import AudioToolbox
+import Foundation
+import SwiftUI
 
 struct Login: View {
 

@@ -1,5 +1,6 @@
 Pods
 Pods/
+.build/
 # fastlane specific
 **/fastlane/report.xml
 
