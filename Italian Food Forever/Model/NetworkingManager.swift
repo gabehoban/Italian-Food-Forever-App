@@ -6,15 +6,15 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
+import HTMLString
+import SDWebImageSwiftUI
 import SwiftUI
 import SwiftyJSON
-import SDWebImageSwiftUI
 import WebKit
-import HTMLString
 
 struct NetworkingManager: View {
     @ObservedObject var datas = getData()
-    
+
     var body: some View {
         Text("hi").onAppear {
             func toFirebase() {

@@ -6,8 +6,8 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
 import Ink
+import SwiftUI
 import WebKit
 
 struct acknowledges: View {
@@ -24,7 +24,7 @@ struct acknowledges_Previews: PreviewProvider {
 	}
 }
 struct Webview: UIViewRepresentable {
-	
+
 	func makeUIView(context: Context) -> WKWebView {
 		let parser = MarkdownParser()
 		let myFileURL = Bundle.main.url(forResource: "Pods-Italian Food Forever-acknowledgements", withExtension: "markdown")!
@@ -34,7 +34,7 @@ struct Webview: UIViewRepresentable {
 		webView.loadHTMLString(html, baseURL: nil)
 		return webView
 	}
-	
+
 	func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<Webview>) {
 	}
 }

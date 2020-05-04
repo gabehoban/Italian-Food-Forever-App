@@ -5,10 +5,10 @@
 //  Created by Gabriel Hoban on 3/25/20.
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
-import SwiftUI
 import FASwiftUI
 import MessageUI
 import StoreKit
+import SwiftUI
 
 struct subSettings: View {
 	@State var isLoggedOut: Bool = false

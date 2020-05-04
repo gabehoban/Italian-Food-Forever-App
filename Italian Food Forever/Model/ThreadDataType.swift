@@ -6,8 +6,8 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
 import Foundation
+import SwiftUI
 
 struct ThreadDataType: Identifiable {
     var id: String

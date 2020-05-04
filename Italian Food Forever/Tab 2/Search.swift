@@ -6,12 +6,12 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
+import Bugsnag
 import Combine
-import SwiftyJSON
 import Foundation
 import SDWebImageSwiftUI
-import Bugsnag
+import SwiftUI
+import SwiftyJSON
 
 struct buttonLabel: View {
 	let color: Color

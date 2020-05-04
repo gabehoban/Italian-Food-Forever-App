@@ -6,16 +6,16 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
+import SDWebImageSwiftUI
 import SwiftUI
 import SwiftyJSON
-import SDWebImageSwiftUI
 
 struct ContentView: View {
 	@State private var selection: Int = 0
 	@State var isNavigationBarHidden: Bool = true
 	@EnvironmentObject var spark: Spark
 	@Environment(\.presentationMode) var presentation
-	
+
 	var body: some View {
 		VStack {
 			NavigationView {

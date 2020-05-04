@@ -6,9 +6,9 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
-import Foundation
 import Bugsnag
+import Foundation
+import SwiftUI
 
 class utils {
 	// MARK: - Title Formatter (Removes "{" and "}")

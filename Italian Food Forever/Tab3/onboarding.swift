@@ -6,9 +6,9 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
 import Firebase
 import FirebaseAuth
+import SwiftUI
 
 struct onboarding: View {
 	@State private var text = ""
@@ -16,11 +16,11 @@ struct onboarding: View {
 	@EnvironmentObject var spark: Spark
 	@Environment(\.presentationMode) var presentation
 	@ObservedObject var status = Status()
-	
+
 	var body: some View {
 		VStack {
 			if save {
-				
+
 			} else {
 				HStack {
 					Text("Phone Verification Successful")

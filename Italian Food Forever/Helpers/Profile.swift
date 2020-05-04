@@ -9,7 +9,7 @@
 import Foundation
 
 struct Profile: Identifiable {
-    
+
     let id = UUID()
     let uid: String
     let name: String

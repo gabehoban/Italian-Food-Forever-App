@@ -6,13 +6,13 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import UIKit
+import HTMLString
+import SDWebImageSwiftUI
+import SPAlert
 import SwiftUI
 import SwiftyJSON
-import SDWebImageSwiftUI
+import UIKit
 import WebKit
-import HTMLString
-import SPAlert
 
 struct recipeView: View {
 	let recipe: dataType
@@ -80,7 +80,7 @@ struct recipeView: View {
 			.onAppear {
 				self.max = self.getSteps().count - 5
 				print("max: \(self.max)")
-		}
+			}
 	}
 }
 
@@ -99,7 +99,7 @@ struct MySubview: View {
 					.foregroundColor(.white)
 					.scaleEffect(1.4)
 			}
-		}
+	}
 	}
 
 	@State private var show_signinModal: Bool = false
@@ -111,7 +111,7 @@ struct MySubview: View {
 	@State private var instructionPage: Bool = false
 	@State private var ingredients: Bool = false
 	@State private var ingredientSymbol: String = "chevron.right"
-	@State var refType: dataType = dataType(id: "", url: "", date: "", title: "", excerpt: "", image: "", content: "")
+	@State var refType = dataType(id: "", url: "", date: "", title: "", excerpt: "", image: "", content: "")
 	@State var title: String = ""
 	@State var email: String = ""
 
@@ -328,7 +328,7 @@ struct MySubview: View {
 							break
 						}
 					}
-			}
+				}
 		}.navigationBarTitle("", displayMode: .inline)
 			.navigationBarBackButtonHidden(true)
 			.navigationBarItems(leading: btnBack, trailing:

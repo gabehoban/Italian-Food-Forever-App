@@ -6,12 +6,12 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
-import SwiftyJSON
-import SDWebImageSwiftUI
-import WebKit
 import HTMLString
 import Lottie
+import SDWebImageSwiftUI
+import SwiftUI
+import SwiftyJSON
+import WebKit
 
 struct cardsRow1: View {
 	@ObservedObject private var list = getData(newUrl: "posts?per_page=14&offset=1&categories_exclude=7&_fields=id,excerpt,content,title,mv,date,link&_envelope", offset: 1, delay: 1.0)

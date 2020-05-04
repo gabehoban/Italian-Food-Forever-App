@@ -6,10 +6,10 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import UIKit
-import SwiftUI
-import FirebaseAuth
 import Firebase
+import FirebaseAuth
+import SwiftUI
+import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -34,7 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.makeKeyAndVisible()
         }
     }
-	
+
 	func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
 		for urlContext in URLContexts {
 			let url = urlContext.url
@@ -42,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		}
 		// URL not auth related, developer should handle it.
 	}
-	
+
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

@@ -6,11 +6,11 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import UIKit
+import Bugsnag
 import CoreData
 import Firebase
 import SDWebImageSwiftUI
-import Bugsnag
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

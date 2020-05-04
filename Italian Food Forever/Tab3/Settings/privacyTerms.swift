@@ -6,8 +6,8 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
 import FirebaseAuth
+import SwiftUI
 
 struct privacyTerms: View {
 	@EnvironmentObject var spark: Spark

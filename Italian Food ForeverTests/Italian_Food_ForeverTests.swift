@@ -6,8 +6,8 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import XCTest
 @testable import Italian_Food_Forever
+import XCTest
 
 class Italian_Food_ForeverTests: XCTestCase {
 

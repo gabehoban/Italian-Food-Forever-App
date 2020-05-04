@@ -6,8 +6,8 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
 import AuthenticationServices
+import SwiftUI
 
 struct SignInWithAppleView: UIViewRepresentable {
 

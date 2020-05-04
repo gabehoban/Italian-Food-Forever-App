@@ -47,7 +47,7 @@ class Italian_Food_ForeverUITests: XCTestCase {
 			sleep(15)
 			snapshot("03Profile")
 		}
-		
+
 	}
 
 	func testLaunchPerformance() {

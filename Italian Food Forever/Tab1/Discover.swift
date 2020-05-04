@@ -5,11 +5,11 @@
 //  Created by Gabriel Hoban on 3/17/20.
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
+import HTMLString
+import SDWebImageSwiftUI
 import SwiftUI
 import SwiftyJSON
-import SDWebImageSwiftUI
 import WebKit
-import HTMLString
 
 struct Discover: View {
 

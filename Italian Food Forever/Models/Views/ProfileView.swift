@@ -6,11 +6,11 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import UIKit
-import SwiftUI
 import FirebaseAuth
-import SwiftyJSON
 import SDWebImageSwiftUI
+import SwiftUI
+import SwiftyJSON
+import UIKit
 
 struct ProfileView: View {
 	@EnvironmentObject var spark: Spark

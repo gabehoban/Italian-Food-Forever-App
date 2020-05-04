@@ -6,12 +6,12 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
+import DSSwiftUIKit
+import HTMLString
+import SDWebImageSwiftUI
 import SwiftUI
 import SwiftyJSON
-import SDWebImageSwiftUI
 import WebKit
-import HTMLString
-import DSSwiftUIKit
 
 struct InfoView: Identifiable {
 	var id: Int

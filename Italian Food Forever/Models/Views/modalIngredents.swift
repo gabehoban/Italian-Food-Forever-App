@@ -6,8 +6,8 @@
 //  Copyright © 2020 Gabriel Hoban. All rights reserved.
 //
 
-import SwiftUI
 import MessageUI
+import SwiftUI
 
 struct modalIngredents: View {
 	@Binding var Presented: Bool
@@ -72,7 +72,7 @@ struct modalIngredents: View {
 		}.padding(.horizontal, 10)
 		 .onAppear {
 			UINavigationBar.appearance().tintColor = UIColor.black
-			
+
 		 }
 	}
 }
@@ -101,7 +101,7 @@ struct MailView: UIViewControllerRepresentable {
 			return identifier + String(UnicodeScalar(UInt8(value)))
 		}
 	}
-	
+
 	class Coordinator: NSObject, MFMailComposeViewControllerDelegate {
 		@Binding var presentation: PresentationMode
 		@Binding var result: Result<MFMailComposeResult, Error>?
